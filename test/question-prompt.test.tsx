@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest'
+import { render, screen } from '@testing-library/react'
 import { getScreenPrompt } from '@/lib/screen-prompts'
+import { QuestionPrompt } from '@/components/QuestionPrompt'
 
 describe('getScreenPrompt', () => {
   it('returns prompt text for feud-top3', () => {
@@ -28,5 +30,22 @@ describe('getScreenPrompt', () => {
 
   it('returns null for screens with no question (credits)', () => {
     expect(getScreenPrompt('credits')).toBeNull()
+  })
+})
+
+describe('QuestionPrompt', () => {
+  it('renders the prompt text for a known screen', () => {
+    render(<QuestionPrompt screenId="feud-top3" visible={true} />)
+    expect(screen.getByText(/three adjectives/i)).toBeInTheDocument()
+  })
+
+  it('renders nothing when visible=false', () => {
+    const { container } = render(<QuestionPrompt screenId="feud-top3" visible={false} />)
+    expect(container.firstChild).toBeNull()
+  })
+
+  it('renders nothing for screens with no prompt', () => {
+    const { container } = render(<QuestionPrompt screenId="cold-open" visible={true} />)
+    expect(container.firstChild).toBeNull()
   })
 })
