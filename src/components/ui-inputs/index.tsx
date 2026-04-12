@@ -226,7 +226,7 @@ function MultiSelect({
                 : "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500"
             }`}
           >
-            {selected.includes(opt) ? "🌹 " : ""}
+            {selected.includes(opt) && <span className="mr-1">✓</span>}
             {opt}
           </button>
         ))}
