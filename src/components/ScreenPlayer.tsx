@@ -13,6 +13,7 @@ import { ShowBadge } from "./ShowBadge";
 import { SkipButton } from "./SkipButton";
 import { UIInput } from "./ui-inputs";
 import { MuteToggle } from "./MuteToggle";
+import { QuestionPrompt } from "./QuestionPrompt";
 
 interface ScreenPlayerProps {
   screen: Screen;
@@ -107,6 +108,7 @@ export function ScreenPlayer({
               {...uiReveal}
               className="flex w-full flex-col items-center"
             >
+              <QuestionPrompt screenId={screen.id} visible={true} />
               <UIInput
                 key={`${screen.id}:${JSON.stringify(initialValue ?? null)}`}
                 type={screen.ui}
