@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import { screens } from "@/data/screens";
 import { useResponses } from "@/hooks/useResponses";
 import { ScreenPlayer } from "@/components/ScreenPlayer";
+import { ReviewScreen } from "@/components/ReviewScreen";
 import { SessionProvider, useSession } from "@/hooks/useSession";
 import {
   getCompletionStatusForScreen,
@@ -30,6 +31,8 @@ function SurveyFlow() {
   const [history, setHistory] = useState<string[]>([screens[0].id]);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  const [resumedFrom, setResumedFrom] = useState<string | null>(null);
+  const [showReview, setShowReview] = useState(false);
   const [sessionBootstrapped, setSessionBootstrapped] = useState(!HAS_SUPABASE);
   const { setResponse, getAllResponses } = useResponses();
   const { session, createNewSession, loading } = useSession();
@@ -64,6 +67,10 @@ function SurveyFlow() {
         const resumeTarget = getResumeScreen(progressRows, screens);
         if (resumeTarget) {
           setCurrentScreenId(resumeTarget);
+          const resumeScreen = screens.find(s => s.id === resumeTarget);
+          if (resumeScreen) {
+            setResumedFrom(resumeScreen.show);
+          }
         } else if (progressRows.length > 0) {
           setCurrentScreenId(screens[screens.length - 1].id);
         }
@@ -133,15 +140,8 @@ function SurveyFlow() {
         setCurrentScreenId(nextId);
         setHistory((prev) => [...prev, nextId]);
       } else {
-        // Final screen — submit
-        try {
-          if (session?.id) {
-            await submitSession(session.id);
-          }
-          setSubmitted(true);
-        } catch {
-          setSubmitError(true);
-        }
+        // Show review screen before final submit
+        setShowReview(true);
       }
     },
     [
@@ -154,6 +154,29 @@ function SurveyFlow() {
       setResponse,
     ],
   );
+
+  const handleFinalSubmit = useCallback(async () => {
+    try {
+      if (session?.id) {
+        await submitSession(session.id);
+      }
+      setSubmitted(true);
+    } catch {
+      setSubmitError(true);
+    }
+  }, [session]);
+
+  if (showReview) {
+    return (
+      <ReviewScreen
+        responses={getAllResponses()}
+        anonymous={true}
+        onSubmit={handleFinalSubmit}
+        onBack={() => setShowReview(false)}
+        onToggleAnonymous={() => {/* TODO: toggle anonymous in session */}}
+      />
+    );
+  }
 
   if (!sessionBootstrapped) {
     return (
@@ -211,6 +234,23 @@ function SurveyFlow() {
 
   return (
     <div className="min-h-screen bg-black">
+      {resumedFrom && (
+        <div className="fixed top-0 left-0 right-0 z-30 safe-top">
+          <div className="mx-auto max-w-md px-4 pt-3 pb-2">
+            <div className="flex items-center justify-between rounded-lg bg-zinc-800/90 px-4 py-2 backdrop-blur-sm">
+              <p className="text-xs text-zinc-300">
+                Picking up where you left off — <span className="text-yellow-400">{resumedFrom}</span>
+              </p>
+              <button
+                onClick={() => setResumedFrom(null)}
+                className="ml-3 text-xs text-zinc-500 hover:text-zinc-300"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <AnimatePresence mode="wait">
         <ScreenPlayer
           key={currentScreen.id}
@@ -225,7 +265,7 @@ function SurveyFlow() {
         <div
           className="h-full bg-yellow-500 transition-all duration-500"
           style={{
-            width: `${((currentIndex + 1) / total) * 100}%`,
+            width: `${(Math.max(0, history.length - 1) / (total - 1)) * 100}%`,
           }}
         />
       </div>
