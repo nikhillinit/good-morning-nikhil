@@ -10,7 +10,9 @@
       "Bash(gh repo:*)",
       "Bash(npx eslint:*)",
       "Skill(gsd-ui-review)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(npx vitest:*)",
+      "Bash(npx next:*)"
     ]
   }
 }
