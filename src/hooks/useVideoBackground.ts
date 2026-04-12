@@ -23,11 +23,14 @@ export function useVideoBackground({ videoSrc, showUI }: UseVideoBackgroundOptio
     video.src = videoSrc;
     video.load();
 
-    video.play().then(() => {
-      setIsVideoActive(true);
-    }).catch(() => {
-      setIsVideoActive(false);
-    });
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        setIsVideoActive(true);
+      }).catch(() => {
+        setIsVideoActive(false);
+      });
+    }
 
     return () => {
       video.pause();
