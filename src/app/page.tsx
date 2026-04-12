@@ -61,6 +61,10 @@ function SurveyFlow() {
   const currentIndex = getScreenIndex(currentScreenId, screens);
   const activeIndex = currentIndex === -1 ? 0 : currentIndex;
   const currentScreen = screens[activeIndex];
+  const previousScreenId = history.length > 1 ? history[history.length - 2] : undefined;
+  const previousScreen = previousScreenId
+    ? screens.find((screen) => screen.id === previousScreenId)
+    : undefined;
   const total = getTotalScreens(screens);
   const reviewableScreenCount = getReviewableScreenCount(screens);
 
@@ -437,13 +441,18 @@ function SurveyFlow() {
       )}
 
       <AnimatePresence mode="wait">
-        <ScreenPlayer
+        <SceneTransition
           key={currentScreen.id}
           screen={currentScreen}
-          initialValue={getResponse(currentScreen.id)}
-          onComplete={handleComplete}
-          onBack={history.length > 1 ? handleBack : undefined}
-        />
+          previousShow={previousScreen?.show}
+        >
+          <ScreenPlayer
+            screen={currentScreen}
+            initialValue={getResponse(currentScreen.id)}
+            onComplete={handleComplete}
+            onBack={history.length > 1 ? handleBack : undefined}
+          />
+        </SceneTransition>
       </AnimatePresence>
 
       <div

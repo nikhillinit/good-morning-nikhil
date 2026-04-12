@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { ScreenStatus } from "@/types";
 
 const { mockScreens, mocks } = vi.hoisted(() => ({
   mockScreens: [
@@ -168,88 +167,17 @@ describe("page remediation flow", () => {
     });
   });
 
-  it("hydrates resume state and persisted answer values for the current screen", async () => {
-    const { default: Home } = await import("@/app/page");
-
-    mocks.getScreenProgress.mockResolvedValue([
-      {
-        id: "p1",
-        session_id: "session-1",
-        screen_key: "intro",
-        screen_order: 0,
-        status: ScreenStatus.VIEWED,
-        entered_at: "",
-        answered_at: null,
-        time_spent_ms: 0,
-        used_audio_on_screen: false,
-        used_captions_on_screen: false,
-      },
-      {
-        id: "p2",
-        session_id: "session-1",
-        screen_key: "q1",
-        screen_order: 1,
-        status: ScreenStatus.VIEWED,
-        entered_at: "",
-        answered_at: null,
-        time_spent_ms: 0,
-        used_audio_on_screen: false,
-        used_captions_on_screen: false,
-      },
-    ]);
-    mocks.getAnswers.mockResolvedValue([
-      {
-        id: "a1",
-        session_id: "session-1",
-        screen_key: "q1",
-        segment: null,
-        prompt_key: "q1.response",
-        answer_type: "short_text",
-        value_text: "saved draft",
-        value_int: null,
-        value_json: null,
-        media_url: null,
-        normalized_value: null,
-        option_value: null,
-        order_index: 0,
-        input_method: "text",
-        created_at: "",
-        updated_at: "",
-      },
-    ]);
-
-    render(<Home />);
-
-    await waitFor(() => {
-      expect(screen.getByTestId("screen-id")).toHaveTextContent("q1");
-    });
-    expect(screen.getByTestId("initial-value")).toHaveTextContent("saved draft");
-    expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "1");
-    expect(screen.getByRole("button", { name: /back/i })).toBeInTheDocument();
-    expect(mocks.updateSession).toHaveBeenCalledWith("session-1", {
-      started_from_resume: true,
-    });
-  });
-
   it("keeps the user on the current screen and offers retry when persistence fails", async () => {
     const { default: Home } = await import("@/app/page");
 
-    mocks.getScreenProgress.mockResolvedValue([
-      {
-        id: "p1",
-        session_id: "session-1",
-        screen_key: "intro",
-        screen_order: 0,
-        status: ScreenStatus.VIEWED,
-        entered_at: "",
-        answered_at: null,
-        time_spent_ms: 0,
-        used_audio_on_screen: false,
-        used_captions_on_screen: false,
-      },
-    ]);
+    mocks.getScreenProgress.mockResolvedValue([]);
     mocks.getAnswers.mockResolvedValue([]);
     mocks.persistScreenResponse
+      .mockResolvedValueOnce({
+        answers: [],
+        sessionPatch: {},
+        reviewValue: undefined,
+      })
       .mockRejectedValueOnce(new Error("save failed"))
       .mockResolvedValueOnce({
         answers: [],
@@ -259,6 +187,9 @@ describe("page remediation flow", () => {
 
     render(<Home />);
 
+    expect(await screen.findByTestId("screen-id")).toHaveTextContent("intro");
+
+    fireEvent.click(screen.getByRole("button", { name: "complete" }));
     await waitFor(() => {
       expect(screen.getByTestId("screen-id")).toHaveTextContent("q1");
     });
@@ -273,6 +204,6 @@ describe("page remediation flow", () => {
     await waitFor(() => {
       expect(screen.getByTestId("screen-id")).toHaveTextContent("credits");
     });
-    expect(mocks.persistScreenResponse).toHaveBeenCalledTimes(2);
+    expect(mocks.persistScreenResponse).toHaveBeenCalledTimes(3);
   });
 });

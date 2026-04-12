@@ -12,7 +12,12 @@
       "Skill(gsd-ui-review)",
       "Bash(npx tsc:*)",
       "Bash(npx vitest:*)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(grep -E \"\\\\.\\(sql|ts|tsx\\)$\")",
+      "Bash(npm test:*)",
+      "Bash(vercel --version)"
     ]
   }
 }
