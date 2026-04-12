@@ -13,32 +13,34 @@ import {
  * PaperShimmer is applied to ALL scenes separately in ScreenPlayer.
  */
 export function getAmbientLayer(bg: string): ReactNode | null {
-  const file = bg.split("/").pop() ?? "";
+  // Strip extension so both .png and .webp resolve to the same ambient layer
+  const raw = bg.split("/").pop() ?? "";
+  const file = raw.replace(/\.(png|webp)$/, "");
 
   switch (file) {
-    case "cold-open-glitch.png":
-    case "morning-desk.png":
-    case "feud-board.png":
-    case "control-room.png":
+    case "cold-open-glitch":
+    case "morning-desk":
+    case "feud-board":
+    case "control-room":
       return <DustMotes variant="standard" />;
 
-    case "sponsor-pedestal.png":
+    case "sponsor-pedestal":
       return <SpotlightPulse />;
 
-    case "bachelor-mansion.png":
-    case "limo-interior.png":
+    case "bachelor-mansion":
+    case "limo-interior":
       return <CandleFlicker />;
 
-    case "shark-warehouse.png":
+    case "shark-warehouse":
       return <HazeDrift />;
 
-    case "tribal-council.png":
+    case "tribal-council":
       return <FirelightVariation />;
 
-    case "maury-studio.png":
+    case "maury-studio":
       return <StageLightShimmer />;
 
-    case "credits-bg.png":
+    case "credits-bg":
       return <DustMotes variant="closing" />;
 
     default:

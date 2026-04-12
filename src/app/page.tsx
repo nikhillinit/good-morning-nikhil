@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { screens } from "@/data/screens";
 import { useResponses } from "@/hooks/useResponses";
 import { ScreenPlayer } from "@/components/ScreenPlayer";
+import { SceneTransition } from "@/components/SceneTransition";
 import { ReviewScreen } from "@/components/ReviewScreen";
 import { SessionProvider, useSession } from "@/hooks/useSession";
 import {
@@ -366,12 +367,13 @@ function SurveyFlow() {
         </div>
       )}
       <AnimatePresence mode="wait">
-        <ScreenPlayer
-          key={currentScreen.id}
-          screen={currentScreen}
-          onComplete={handleComplete}
-          onBack={history.length > 1 ? handleBack : undefined}
-        />
+        <SceneTransition key={currentScreen.id} screen={currentScreen}>
+          <ScreenPlayer
+            screen={currentScreen}
+            onComplete={handleComplete}
+            onBack={history.length > 1 ? handleBack : undefined}
+          />
+        </SceneTransition>
       </AnimatePresence>
 
       {/* Progress bar */}
