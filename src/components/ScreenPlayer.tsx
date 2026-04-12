@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { Screen } from "@/data/screens";
 import { useAudioPlayer } from "@/hooks/useAudioPlayer";
 import { useCaptions } from "@/hooks/useCaptions";
+import { screenEnter, uiReveal } from "@/lib/animations";
 import { Captions } from "./Captions";
 import { ShowBadge } from "./ShowBadge";
 import { SkipButton } from "./SkipButton";
@@ -54,13 +55,11 @@ export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) 
   }, [skip]);
 
   return (
-    <motion.div
+    <motion.section
       key={screen.id}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className="relative flex min-h-screen flex-col items-center justify-center"
+      aria-label={screen.show}
+      {...screenEnter}
+      className="relative flex h-screen-safe flex-col items-center justify-center"
       style={{
         backgroundImage: `url(${screen.bg})`,
         backgroundSize: "cover",
@@ -71,7 +70,7 @@ export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) 
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content layer */}
-      <div className="relative z-10 flex w-full flex-col items-center px-4">
+      <main className="relative z-10 flex w-full flex-col items-center px-4">
         <ShowBadge emoji={screen.showEmoji} name={screen.show} />
         <SkipButton visible={isPlaying} onClick={handleSkip} />
 
@@ -81,7 +80,7 @@ export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) 
         {onBack && (
           <button
             onClick={onBack}
-            className="absolute left-4 bottom-8 safe-bottom z-20 rounded-full bg-white/10 px-4 py-2 text-sm text-white/70 backdrop-blur-sm transition-colors hover:bg-white/20"
+            className="absolute left-4 bottom-8 safe-bottom z-20 rounded-full bg-white/10 px-4 py-2 text-sm text-white/70 backdrop-blur-sm hover:bg-white/20"
           >
             ← Back
           </button>
@@ -91,8 +90,7 @@ export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) 
         <AnimatePresence>
           {showUI && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              {...uiReveal}
               className="flex w-full flex-col items-center"
             >
               <UIInput
@@ -103,7 +101,7 @@ export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) 
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-    </motion.div>
+      </main>
+    </motion.section>
   );
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import type { UIType } from "@/data/screens";
+import { uiReveal } from "@/lib/animations";
 
 interface UIInputProps {
   type: UIType;
@@ -10,18 +11,34 @@ interface UIInputProps {
   onSubmit: (value: unknown) => void;
 }
 
-const inputAnimation = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.4, ease: "easeOut" as const },
-};
+/* ── Shared styles ──────────────────────────────────────────────── */
+
+const primaryBtn =
+  "w-full rounded-lg bg-yellow-500 py-3 font-bold text-black hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed glow-accent";
+
+const inputField =
+  "w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none";
+
+const skipBtn =
+  "mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300";
+
+const chipBase =
+  "rounded-lg border px-3 py-3 text-sm transition-colors";
+
+const chipSelected =
+  "border-yellow-500 bg-yellow-500/20 text-yellow-300";
+
+const chipIdle =
+  "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500";
+
+/* ── Components ─────────────────────────────────────────────────── */
 
 function StartButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
   return (
     <motion.button
-      {...inputAnimation}
+      {...uiReveal}
       onClick={() => onSubmit(true)}
-      className="rounded-lg bg-yellow-500 px-8 py-4 text-lg font-bold uppercase tracking-wider text-black transition-colors hover:bg-yellow-400"
+      className="font-display rounded-lg bg-yellow-500 px-10 py-5 text-2xl text-black hover:bg-yellow-400 glow-accent"
     >
       Start Episode
     </motion.button>
@@ -30,7 +47,7 @@ function StartButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
 
 function ContinueButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
   return (
-    <motion.div {...inputAnimation} className="space-y-3 text-center">
+    <motion.div {...uiReveal} className="space-y-3 text-center">
       <p className="text-sm text-zinc-400">
         You&apos;ll flip through 7 quick TV-themed segments about Nikhil —
         each one takes about 30 seconds. Type whatever comes to mind.
@@ -38,7 +55,7 @@ function ContinueButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
       </p>
       <button
         onClick={() => onSubmit(true)}
-        className="rounded-lg bg-white/10 px-8 py-3 font-medium text-white transition-colors hover:bg-white/20"
+        className="rounded-lg bg-white/10 px-8 py-3 font-medium text-white hover:bg-white/20"
       >
         Continue →
       </button>
@@ -62,7 +79,7 @@ function ThreeText({
   ];
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
       {values.map((val, i) => (
         <input
           key={i}
@@ -74,7 +91,7 @@ function ThreeText({
             setValues(next);
           }}
           placeholder={placeholders[i]}
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
+          className={inputField}
         />
       ))}
       <button
@@ -87,7 +104,7 @@ function ThreeText({
           setError("");
           onSubmit(filled);
         }}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
+        className={primaryBtn}
       >
         Lock it in
       </button>
@@ -110,13 +127,13 @@ function ShortText({
   const placeholder = (config?.placeholder as string) ?? "";
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
       <input
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
+        className={inputField}
       />
       <button
         onClick={() => {
@@ -127,16 +144,16 @@ function ShortText({
           setError("");
           onSubmit(value.trim());
         }}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
+        className={primaryBtn}
       >
-        Next
+        Lock it in
       </button>
       {error && (
         <p className="text-center text-sm text-red-400">{error}</p>
       )}
       <button
         onClick={() => onSubmit(null)}
-        className="mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300"
+        className={skipBtn}
       >
         Skip this one →
       </button>
@@ -156,13 +173,13 @@ function TextArea({
   const placeholder = (config?.placeholder as string) ?? "";
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
       <textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
         rows={3}
-        className="w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
+        className={inputField}
       />
       <button
         onClick={() => {
@@ -173,16 +190,16 @@ function TextArea({
           setError("");
           onSubmit(value.trim());
         }}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
+        className={primaryBtn}
       >
-        Next
+        Lock it in
       </button>
       {error && (
         <p className="text-center text-sm text-red-400">{error}</p>
       )}
       <button
         onClick={() => onSubmit(null)}
-        className="mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300"
+        className={skipBtn}
       >
         Skip this one →
       </button>
@@ -211,7 +228,7 @@ function MultiSelect({
   };
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
       <p className="text-sm text-zinc-400">
         {label} (pick {maxSelect})
       </p>
@@ -220,10 +237,8 @@ function MultiSelect({
           <button
             key={opt}
             onClick={() => toggle(opt)}
-            className={`rounded-lg border px-3 py-3 text-sm transition-colors ${
-              selected.includes(opt)
-                ? "border-yellow-500 bg-yellow-500/20 text-yellow-300"
-                : "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500"
+            className={`${chipBase} ${
+              selected.includes(opt) ? chipSelected : chipIdle
             }`}
           >
             {selected.includes(opt) && <span className="mr-1">✓</span>}
@@ -234,7 +249,7 @@ function MultiSelect({
       <button
         onClick={() => selected.length === maxSelect && onSubmit(selected)}
         disabled={selected.length !== maxSelect}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed"
+        className={primaryBtn}
       >
         Lock it in · {selected.length}/{maxSelect}
       </button>
@@ -254,17 +269,15 @@ function SingleSelect({
   const [selected, setSelected] = useState<string | null>(null);
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
       <p className="text-sm text-zinc-400">{label}</p>
       <div className="grid grid-cols-2 gap-2">
         {options.map((opt) => (
           <button
             key={opt}
             onClick={() => setSelected(opt)}
-            className={`rounded-lg border px-3 py-3 text-sm transition-colors ${
-              selected === opt
-                ? "border-yellow-500 bg-yellow-500/20 text-yellow-300"
-                : "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500"
+            className={`${chipBase} ${
+              selected === opt ? chipSelected : chipIdle
             }`}
           >
             {opt}
@@ -274,7 +287,7 @@ function SingleSelect({
       <button
         onClick={() => selected && onSubmit(selected)}
         disabled={!selected}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed"
+        className={primaryBtn}
       >
         Lock it in
       </button>
@@ -285,22 +298,22 @@ function SingleSelect({
 function InvestOrPass({ onSubmit }: { onSubmit: (v: unknown) => void }) {
   return (
     <motion.div
-      {...inputAnimation}
+      {...uiReveal}
       className="flex w-full max-w-md flex-col gap-4"
     >
       <p className="mb-3 text-center text-xs text-zinc-500">Would you invest in Nikhil?</p>
       <div className="flex w-full gap-4">
       <button
         onClick={() => onSubmit({ choice: "in" })}
-        className="flex-1 rounded-lg border-2 border-green-500 bg-green-500/10 py-4 text-lg font-bold text-green-400 transition-colors hover:bg-green-500/20"
+        className="font-display flex-1 rounded-lg border-2 border-green-500 bg-green-500/10 py-4 text-xl text-green-400 hover:bg-green-500/20"
       >
-        💰 I&apos;M IN
+        I&apos;M IN
       </button>
       <button
         onClick={() => onSubmit({ choice: "out" })}
-        className="flex-1 rounded-lg border-2 border-red-500 bg-red-500/10 py-4 text-lg font-bold text-red-400 transition-colors hover:bg-red-500/20"
+        className="font-display flex-1 rounded-lg border-2 border-red-500 bg-red-500/10 py-4 text-xl text-red-400 hover:bg-red-500/20"
       >
-        🚫 I&apos;M OUT
+        I&apos;M OUT
       </button>
       </div>
     </motion.div>
@@ -319,7 +332,7 @@ function MadLib({
   const stem = (config?.stem as string) ?? "";
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
       <p className="mb-1 text-xs text-zinc-500">Complete the sentence</p>
       <p className="text-base text-zinc-300">
         <span className="italic">&ldquo;{stem}</span>
@@ -328,7 +341,7 @@ function MadLib({
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="..."
-          className="ml-1 inline-block w-full max-w-48 border-b-2 border-yellow-500 bg-transparent text-yellow-300 placeholder-zinc-600 focus:outline-none"
+          className="ml-1 inline-block w-full max-w-64 border-b-2 border-yellow-500 bg-transparent text-yellow-300 placeholder-zinc-600 focus:outline-none"
         />
         <span className="italic">&rdquo;</span>
       </p>
@@ -341,9 +354,9 @@ function MadLib({
           setError("");
           onSubmit(value.trim());
         }}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
+        className={primaryBtn}
       >
-        Next
+        Lock it in
       </button>
       {error && (
         <p className="text-center text-sm text-red-400">{error}</p>
@@ -364,14 +377,14 @@ function LongTextWithAudio({
   const prompt = (config?.prompt as string) ?? "";
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
       <p className="text-base italic text-zinc-400">&ldquo;{prompt}&rdquo;</p>
       <textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Say what you've never said..."
         rows={4}
-        className="w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
+        className={inputField}
       />
       <button
         onClick={() => {
@@ -382,16 +395,16 @@ function LongTextWithAudio({
           setError("");
           onSubmit(value.trim());
         }}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
+        className={primaryBtn}
       >
-        Next
+        Lock it in
       </button>
       {error && (
         <p className="text-center text-sm text-red-400">{error}</p>
       )}
       <button
         onClick={() => onSubmit(null)}
-        className="mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300"
+        className={skipBtn}
       >
         Skip this one →
       </button>
@@ -411,11 +424,12 @@ function TwoText({
   const [error, setError] = useState("");
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-4">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-4">
       {labels.map((label, i) => (
         <div key={i}>
-          <label className="mb-1 block text-sm text-zinc-400">{label}</label>
+          <label htmlFor={`two-text-${i}`} className="mb-1 block text-sm text-zinc-400">{label}</label>
           <input
+            id={`two-text-${i}`}
             type="text"
             value={values[i]}
             onChange={(e) => {
@@ -423,7 +437,7 @@ function TwoText({
               next[i] = e.target.value;
               setValues(next);
             }}
-            className="w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
+            className={inputField}
           />
         </div>
       ))}
@@ -436,9 +450,9 @@ function TwoText({
           setError("");
           onSubmit(values);
         }}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
+        className={primaryBtn}
       >
-        Reveal
+        Lock it in
       </button>
       {error && (
         <p className="text-center text-sm text-red-400">{error}</p>
@@ -459,16 +473,14 @@ function RelationshipPicker({
   const [selected, setSelected] = useState<string | null>(null);
 
   return (
-    <motion.div {...inputAnimation} className="w-full max-w-md space-y-4">
+    <motion.div {...uiReveal} className="w-full max-w-md space-y-4">
       <div className="grid grid-cols-2 gap-2">
         {options.map((opt) => (
           <button
             key={opt}
             onClick={() => setSelected(opt)}
-            className={`rounded-lg border px-3 py-3 text-sm transition-colors ${
-              selected === opt
-                ? "border-yellow-500 bg-yellow-500/20 text-yellow-300"
-                : "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500"
+            className={`${chipBase} ${
+              selected === opt ? chipSelected : chipIdle
             }`}
           >
             {opt}
@@ -487,7 +499,7 @@ function RelationshipPicker({
       <button
         onClick={() => selected && onSubmit({ relationship: selected, anonymous })}
         disabled={!selected}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed"
+        className={primaryBtn}
       >
         Continue
       </button>
@@ -498,9 +510,9 @@ function RelationshipPicker({
 function SubmitButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
   return (
     <motion.button
-      {...inputAnimation}
+      {...uiReveal}
       onClick={() => onSubmit(true)}
-      className="rounded-lg bg-yellow-500 px-8 py-4 text-lg font-bold uppercase tracking-wider text-black transition-colors hover:bg-yellow-400"
+      className="font-display rounded-lg bg-yellow-500 px-10 py-5 text-2xl text-black hover:bg-yellow-400 glow-accent"
     >
       Review & Submit
     </motion.button>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { captionSwap } from "@/lib/animations";
 import type { CaptionLine } from "@/lib/captions/parser";
 
 interface CaptionsProps {
@@ -14,11 +15,10 @@ export function Captions({ caption, visible }: CaptionsProps) {
       {visible && caption && (
         <motion.div
           key={caption.id}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          {...captionSwap}
           className="absolute bottom-24 left-0 right-0 px-6"
+          role="status"
+          aria-live="polite"
         >
           <div className="mx-auto max-w-2xl rounded-lg bg-black/80 px-6 py-4 backdrop-blur-sm">
             <p

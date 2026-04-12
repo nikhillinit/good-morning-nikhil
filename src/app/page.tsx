@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { screens } from "@/data/screens";
 import { useResponses } from "@/hooks/useResponses";
 import { ScreenPlayer } from "@/components/ScreenPlayer";
@@ -26,6 +26,11 @@ const HAS_SUPABASE =
   Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
   Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
+/** Map screen IDs to human-readable labels for the review screen */
+const screenLabels = Object.fromEntries(
+  screens.map((s) => [s.id, s.show]),
+);
+
 function SurveyFlow() {
   const [currentScreenId, setCurrentScreenId] = useState(screens[0].id);
   const [history, setHistory] = useState<string[]>([screens[0].id]);
@@ -33,6 +38,7 @@ function SurveyFlow() {
   const [submitError, setSubmitError] = useState(false);
   const [resumedFrom, setResumedFrom] = useState<string | null>(null);
   const [showReview, setShowReview] = useState(false);
+  const [anonymous, setAnonymous] = useState(false);
   const [sessionBootstrapped, setSessionBootstrapped] = useState(!HAS_SUPABASE);
   const { setResponse, getAllResponses } = useResponses();
   const { session, createNewSession, loading } = useSession();
@@ -60,6 +66,9 @@ function SurveyFlow() {
           setSessionBootstrapped(true);
           return;
         }
+
+        // Restore anonymous preference from session
+        setAnonymous(activeSession.anonymous ?? false);
 
         const progressRows = await getScreenProgress(activeSession.id);
         if (cancelled) return;
@@ -106,6 +115,18 @@ function SurveyFlow() {
     setHistory(newHistory);
     setCurrentScreenId(newHistory[newHistory.length - 1]);
   }, [history]);
+
+  const handleToggleAnonymous = useCallback(() => {
+    setAnonymous((prev) => {
+      const next = !prev;
+      if (session?.id) {
+        void updateSession(session.id, { anonymous: next }).catch((err) => {
+          console.error("Failed to update anonymous preference", err);
+        });
+      }
+      return next;
+    });
+  }, [session]);
 
   const handleComplete = useCallback(
     async (value: unknown) => {
@@ -169,30 +190,46 @@ function SurveyFlow() {
     return (
       <ReviewScreen
         responses={getAllResponses()}
-        anonymous={true}
+        screenLabels={screenLabels}
+        anonymous={anonymous}
         onSubmit={handleFinalSubmit}
         onBack={() => setShowReview(false)}
-        onToggleAnonymous={() => {/* TODO: toggle anonymous in session */}}
+        onToggleAnonymous={handleToggleAnonymous}
       />
     );
   }
 
   if (!sessionBootstrapped) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-black text-center">
-        <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">
-          Loading episode…
-        </p>
+      <div className="flex h-screen-safe flex-col items-center justify-center bg-black text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-4"
+        >
+          <h1 className="font-display text-3xl text-yellow-500">
+            Good Morning, Nikhil
+          </h1>
+          <div className="flex items-center justify-center gap-2">
+            <motion.span
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="text-sm uppercase tracking-[0.2em] text-zinc-500"
+            >
+              Loading episode
+            </motion.span>
+          </div>
+        </motion.div>
       </div>
     );
   }
 
   if (submitError) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-black text-center px-6">
-        <p className="text-4xl">⚠️</p>
-        <h1 className="mt-4 text-xl font-bold text-white">
-          Couldn&apos;t submit your responses
+      <div className="flex h-screen-safe flex-col items-center justify-center bg-black text-center px-6">
+        <h1 className="font-display text-2xl text-white">
+          Couldn&apos;t submit
         </h1>
         <p className="mt-2 text-sm text-zinc-400">
           Your answers are saved locally. Try again.
@@ -209,7 +246,7 @@ function SurveyFlow() {
               setSubmitError(true);
             }
           }}
-          className="mt-6 rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black"
+          className="mt-6 rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black hover:bg-yellow-400 glow-accent"
         >
           Retry
         </button>
@@ -219,20 +256,26 @@ function SurveyFlow() {
 
   if (submitted) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-black text-center">
-        <p className="text-4xl">🎬</p>
-        <h1 className="mt-4 text-2xl font-bold text-white">
-          That&apos;s a wrap.
-        </h1>
-        <p className="mt-2 text-zinc-400">
-          Nikhil will share what everyone said once all responses are in.
-        </p>
+      <div className="flex h-screen-safe flex-col items-center justify-center bg-black text-center px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-4"
+        >
+          <h1 className="font-display text-4xl text-yellow-500">
+            That&apos;s a wrap
+          </h1>
+          <p className="text-zinc-400">
+            Nikhil will share what everyone said once all responses are in.
+          </p>
+        </motion.div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="h-screen-safe bg-black">
       {resumedFrom && (
         <div className="fixed top-0 left-0 right-0 z-30 safe-top">
           <div className="mx-auto max-w-md px-4 pt-3 pb-2">
@@ -243,6 +286,7 @@ function SurveyFlow() {
               <button
                 onClick={() => setResumedFrom(null)}
                 className="ml-3 text-xs text-zinc-500 hover:text-zinc-300"
+                aria-label="Dismiss resume notice"
               >
                 ✕
               </button>
@@ -260,7 +304,7 @@ function SurveyFlow() {
       </AnimatePresence>
 
       {/* Progress bar */}
-      <div className="fixed bottom-0 left-0 right-0 h-1 bg-zinc-800 safe-bottom">
+      <div className="fixed bottom-0 left-0 right-0 h-1 bg-zinc-800 safe-bottom" role="progressbar" aria-valuenow={Math.max(0, history.length - 1)} aria-valuemin={0} aria-valuemax={total - 1}>
         <div
           className="h-full bg-yellow-500 transition-all duration-500"
           style={{

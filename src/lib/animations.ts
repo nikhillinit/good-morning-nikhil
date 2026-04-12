@@ -1,84 +1,64 @@
 /**
- * Shared Framer Motion variants for Good Morning, Nikhil
+ * Shared Framer Motion presets for Good Morning, Nikhil
+ *
+ * All motion in the app flows through these presets.
+ * Duration scale: 0.2s (micro) → 0.3s (standard) → 0.5s (dramatic)
  */
 
 import type { Variants, Transition } from "framer-motion";
 
-type Ease = "easeIn" | "easeOut" | "easeInOut";
-const EASE_OUT: Ease = "easeOut";
-const EASE_IN: Ease = "easeIn";
+// ── Shared easing ─────────────────────────────────────────────────
 
-// ── Fade ────────────────────────────────────────────────────────
+const EASE_OUT = [0.16, 1, 0.3, 1] as const;
+const EASE_IN = [0.6, 0, 0.85, 0] as const;
 
-export const fadeIn: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.3, ease: EASE_OUT } },
+// ── Screen transitions ────────────────────────────────────────────
+
+/** Full-screen fade for ScreenPlayer wrapper */
+export const screenEnter = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.3, ease: EASE_OUT },
 };
 
-export const fadeOut: Variants = {
-  visible: { opacity: 1 },
-  exit: { opacity: 0, transition: { duration: 0.2, ease: EASE_IN } },
+// ── UI reveals (form inputs, buttons after audio) ─────────────────
+
+/** Standard entrance for UI input groups */
+export const uiReveal = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.35, ease: EASE_OUT },
 };
 
-// ── Slide ───────────────────────────────────────────────────────
+// ── Captions ──────────────────────────────────────────────────────
 
-export const slideUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: EASE_OUT },
-  },
+/** Caption text swap */
+export const captionSwap = {
+  initial: { opacity: 0, y: 8 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.2, ease: EASE_OUT },
 };
 
-export const slideDown: Variants = {
-  hidden: { opacity: 0, y: -40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: EASE_OUT },
-  },
+// ── Badge / chip entrance ──────────────────────────────────────────
+
+export const badgeEnter = {
+  initial: { opacity: 0, scale: 0.85 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.3, ease: EASE_OUT },
 };
 
-// ── Card select / deselect ──────────────────────────────────────
+// ── Fade only (used for skip button, overlays) ─────────────────────
 
-export const cardSelect: Variants = {
-  idle: { scale: 1 },
-  selected: {
-    scale: [1, 1.04, 1.0],
-    transition: {
-      type: "spring",
-      stiffness: 400,
-      damping: 15,
-      mass: 0.8,
-    },
-  },
+export const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 0.8 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.2, ease: EASE_OUT },
 };
 
-export const cardDeselect: Variants = {
-  selected: { scale: 1.0 },
-  idle: {
-    scale: [1.0, 0.97, 1.0],
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 20,
-    },
-  },
-};
-
-// ── Eliminate card (Bachelor screen) ────────────────────────────
-
-export const eliminateCard: Variants = {
-  visible: { opacity: 1, x: 0 },
-  exit: {
-    opacity: 0,
-    x: -200,
-    transition: { duration: 0.4, ease: EASE_IN },
-  },
-};
-
-// ── Stagger children container ──────────────────────────────────
+// ── Stagger children container ─────────────────────────────────────
 
 export const staggerChildren: Variants = {
   hidden: {},
@@ -87,30 +67,15 @@ export const staggerChildren: Variants = {
   },
 };
 
-// ── UI reveal (generic entrance) ────────────────────────────────
-
-export const uiReveal: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: EASE_OUT },
-  },
-};
-
-// ── Interactive element state transitions ───────────────────────
+// ── Interactive scale (hover/tap) ──────────────────────────────────
 
 export const interactiveScale: Variants = {
   idle: { scale: 1 },
-  hover: { scale: 1.02, transition: { duration: 0.1, ease: EASE_OUT } },
-  tap: { scale: 0.98, transition: { duration: 0.05, ease: EASE_IN } },
-  selected: {
-    scale: 1.0,
-    transition: { duration: 0.2, ease: EASE_OUT },
-  },
+  hover: { scale: 1.02, transition: { duration: 0.1 } },
+  tap: { scale: 0.98, transition: { duration: 0.05 } },
 };
 
-// ── Shared spring config ────────────────────────────────────────
+// ── Spring config ──────────────────────────────────────────────────
 
 export const gentleSpring: Transition = {
   type: "spring",

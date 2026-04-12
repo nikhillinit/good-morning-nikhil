@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { uiReveal } from "@/lib/animations";
 
 interface ReviewScreenProps {
   responses: Record<string, unknown>;
+  screenLabels: Record<string, string>;
   anonymous: boolean;
   onSubmit: () => void;
   onBack: () => void;
@@ -13,6 +15,7 @@ interface ReviewScreenProps {
 
 export function ReviewScreen({
   responses,
+  screenLabels,
   anonymous,
   onSubmit,
   onBack,
@@ -25,15 +28,12 @@ export function ReviewScreen({
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="flex min-h-screen flex-col items-center justify-center bg-black px-6 py-12"
+      {...uiReveal}
+      className="flex h-screen-safe flex-col items-center justify-center bg-black px-6 py-12"
     >
-      <div className="w-full max-w-md space-y-6">
+      <main className="w-full max-w-md space-y-6">
         <div className="text-center">
-          <p className="text-3xl">🎬</p>
-          <h1 className="mt-3 text-xl font-bold text-white">
+          <h1 className="font-display text-3xl text-yellow-500">
             Ready to wrap?
           </h1>
           <p className="mt-2 text-sm text-zinc-400">
@@ -70,7 +70,7 @@ export function ReviewScreen({
         {/* Expandable answer summary */}
         <button
           onClick={() => setExpanded(!expanded)}
-          className="w-full rounded-lg border border-zinc-800 px-4 py-3 text-left text-sm text-zinc-400 transition-colors hover:border-zinc-600"
+          className="w-full rounded-lg border border-zinc-800 px-4 py-3 text-left text-sm text-zinc-400 hover:border-zinc-600"
         >
           {expanded ? "Hide answers ▲" : "Review your answers ▼"}
         </button>
@@ -83,7 +83,7 @@ export function ReviewScreen({
           >
             {answered.map(([screenId, value]) => (
               <div key={screenId} className="border-b border-zinc-800 pb-2 last:border-0">
-                <p className="text-xs text-zinc-500">{screenId}</p>
+                <p className="text-xs text-zinc-500">{screenLabels[screenId] ?? screenId}</p>
                 <p className="text-sm text-zinc-300 truncate">
                   {typeof value === "string"
                     ? value
@@ -98,18 +98,18 @@ export function ReviewScreen({
         <div className="space-y-3">
           <button
             onClick={onSubmit}
-            className="w-full rounded-lg bg-yellow-500 py-4 text-lg font-bold text-black transition-colors hover:bg-yellow-400"
+            className="font-display w-full rounded-lg bg-yellow-500 py-4 text-xl text-black hover:bg-yellow-400 glow-accent"
           >
             Submit Episode
           </button>
           <button
             onClick={onBack}
-            className="w-full rounded-lg bg-white/5 py-3 text-sm text-zinc-400 transition-colors hover:bg-white/10"
+            className="w-full rounded-lg bg-white/5 py-3 text-sm text-zinc-400 hover:bg-white/10"
           >
             ← Go back and change something
           </button>
         </div>
-      </div>
+      </main>
     </motion.div>
   );
 }

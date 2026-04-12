@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* ── Design tokens ─────────────────────────────────────────── */
+  --accent: #eab308;
+  --accent-hover: #facc15;
+  --surface: #18181b;
+  --surface-hover: rgba(255, 255, 255, 0.1);
+  --muted: #a1a1aa;
+  --error: #f87171;
 }
 
 @theme inline {
@@ -25,10 +33,18 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
+/* ── Display typography ──────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-display), "Impact", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 /* ── Focus visibility ────────────────────────────────────────── */
 
 :focus-visible {
-  outline: 2px solid #eab308;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -36,6 +52,15 @@ body {
 
 html {
   color-scheme: dark;
+}
+
+/* ── Full viewport height (accounts for mobile browser chrome) ── */
+
+.h-screen-safe {
+  height: 100vh;
+  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
 /* ── Safe area insets for notched devices ─────────────────────── */
@@ -57,4 +82,10 @@ body.keyboard-active {
 body.keyboard-active .fixed.bottom-0 {
   /* Hide bottom progress bar when keyboard is active */
   display: none;
+}
+
+/* ── Ambient glow for accent elements ────────────────────────── */
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.15), 0 0 60px rgba(234, 179, 8, 0.05);
 }
