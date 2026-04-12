@@ -18,6 +18,14 @@ export function useKeyboard(): void {
         target.isContentEditable
       ) {
         document.body.classList.add("keyboard-active");
+
+        // Scroll the focused element into view after keyboard animates
+        setTimeout(() => {
+          (e.target as HTMLElement).scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 300);
       }
     };
 

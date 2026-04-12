@@ -53,12 +53,12 @@ function ThreeText({
   onSubmit: (v: unknown) => void;
 }) {
   const [values, setValues] = useState(["", "", ""]);
+  const [error, setError] = useState("");
   const placeholders = (config?.placeholder as string[]) ?? [
     "#1",
     "#2",
     "#3",
   ];
-  const canSubmit = values.filter((v) => v.trim()).length >= 1;
 
   return (
     <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
@@ -77,12 +77,22 @@ function ThreeText({
         />
       ))}
       <button
-        onClick={() => canSubmit && onSubmit(values.filter((v) => v.trim()))}
-        disabled={!canSubmit}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        onClick={() => {
+          const filled = values.filter((v) => v.trim());
+          if (filled.length < 1) {
+            setError("Give us at least one");
+            return;
+          }
+          setError("");
+          onSubmit(filled);
+        }}
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
       >
         Lock it in
       </button>
+      {error && (
+        <p className="text-center text-sm text-red-400">{error}</p>
+      )}
     </motion.div>
   );
 }
@@ -95,6 +105,7 @@ function ShortText({
   onSubmit: (v: unknown) => void;
 }) {
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
   const placeholder = (config?.placeholder as string) ?? "";
 
   return (
@@ -107,12 +118,21 @@ function ShortText({
         className="w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
       />
       <button
-        onClick={() => value.trim() && onSubmit(value.trim())}
-        disabled={!value.trim()}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        onClick={() => {
+          if (!value.trim()) {
+            setError("Type something first");
+            return;
+          }
+          setError("");
+          onSubmit(value.trim());
+        }}
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
       >
         Next
       </button>
+      {error && (
+        <p className="text-center text-sm text-red-400">{error}</p>
+      )}
     </motion.div>
   );
 }
@@ -125,6 +145,7 @@ function TextArea({
   onSubmit: (v: unknown) => void;
 }) {
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
   const placeholder = (config?.placeholder as string) ?? "";
 
   return (
@@ -137,12 +158,21 @@ function TextArea({
         className="w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
       />
       <button
-        onClick={() => value.trim() && onSubmit(value.trim())}
-        disabled={!value.trim()}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        onClick={() => {
+          if (!value.trim()) {
+            setError("Type something first");
+            return;
+          }
+          setError("");
+          onSubmit(value.trim());
+        }}
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
       >
         Next
       </button>
+      {error && (
+        <p className="text-center text-sm text-red-400">{error}</p>
+      )}
     </motion.div>
   );
 }
@@ -208,6 +238,7 @@ function SingleSelect({
 }) {
   const options = (config?.options as string[]) ?? [];
   const label = (config?.label as string) ?? "Select one";
+  const [selected, setSelected] = useState<string | null>(null);
 
   return (
     <motion.div {...inputAnimation} className="w-full max-w-md space-y-3">
@@ -216,13 +247,24 @@ function SingleSelect({
         {options.map((opt) => (
           <button
             key={opt}
-            onClick={() => onSubmit(opt)}
-            className="rounded-lg border border-zinc-700 bg-zinc-900/80 px-3 py-3 text-sm text-zinc-300 transition-colors hover:border-red-500 hover:bg-red-500/20 hover:text-red-300"
+            onClick={() => setSelected(opt)}
+            className={`rounded-lg border px-3 py-3 text-sm transition-colors ${
+              selected === opt
+                ? "border-red-500 bg-red-500/20 text-red-300"
+                : "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500"
+            }`}
           >
             {opt}
           </button>
         ))}
       </div>
+      <button
+        onClick={() => selected && onSubmit(selected)}
+        disabled={!selected}
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+      >
+        Lock it in
+      </button>
     </motion.div>
   );
 }
@@ -257,6 +299,7 @@ function MadLib({
   onSubmit: (v: unknown) => void;
 }) {
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
   const stem = (config?.stem as string) ?? "";
 
   return (
@@ -273,12 +316,21 @@ function MadLib({
         <span className="italic">&rdquo;</span>
       </p>
       <button
-        onClick={() => value.trim() && onSubmit(value.trim())}
-        disabled={!value.trim()}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        onClick={() => {
+          if (!value.trim()) {
+            setError("Complete the thought");
+            return;
+          }
+          setError("");
+          onSubmit(value.trim());
+        }}
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
       >
         Next
       </button>
+      {error && (
+        <p className="text-center text-sm text-red-400">{error}</p>
+      )}
     </motion.div>
   );
 }
@@ -291,6 +343,7 @@ function LongTextWithAudio({
   onSubmit: (v: unknown) => void;
 }) {
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
   const prompt = (config?.prompt as string) ?? "";
 
   return (
@@ -304,12 +357,21 @@ function LongTextWithAudio({
         className="w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
       />
       <button
-        onClick={() => value.trim() && onSubmit(value.trim())}
-        disabled={!value.trim()}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        onClick={() => {
+          if (!value.trim()) {
+            setError("Say something honest");
+            return;
+          }
+          setError("");
+          onSubmit(value.trim());
+        }}
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
       >
         Next
       </button>
+      {error && (
+        <p className="text-center text-sm text-red-400">{error}</p>
+      )}
     </motion.div>
   );
 }
@@ -323,7 +385,7 @@ function TwoText({
 }) {
   const labels = (config?.labels as string[]) ?? ["First", "Second"];
   const [values, setValues] = useState(["", ""]);
-  const canSubmit = values.every((v) => v.trim());
+  const [error, setError] = useState("");
 
   return (
     <motion.div {...inputAnimation} className="w-full max-w-md space-y-4">
@@ -343,12 +405,21 @@ function TwoText({
         </div>
       ))}
       <button
-        onClick={() => canSubmit && onSubmit(values)}
-        disabled={!canSubmit}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        onClick={() => {
+          if (!values.every((v) => v.trim())) {
+            setError("Both sides of the story");
+            return;
+          }
+          setError("");
+          onSubmit(values);
+        }}
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400"
       >
         Reveal
       </button>
+      {error && (
+        <p className="text-center text-sm text-red-400">{error}</p>
+      )}
     </motion.div>
   );
 }
@@ -362,6 +433,7 @@ function RelationshipPicker({
 }) {
   const options = (config?.options as string[]) ?? [];
   const [anonymous, setAnonymous] = useState(false);
+  const [selected, setSelected] = useState<string | null>(null);
 
   return (
     <motion.div {...inputAnimation} className="w-full max-w-md space-y-4">
@@ -369,8 +441,12 @@ function RelationshipPicker({
         {options.map((opt) => (
           <button
             key={opt}
-            onClick={() => onSubmit({ relationship: opt, anonymous })}
-            className="rounded-lg border border-zinc-700 bg-zinc-900/80 px-3 py-3 text-sm text-zinc-300 transition-colors hover:border-yellow-500 hover:bg-yellow-500/10"
+            onClick={() => setSelected(opt)}
+            className={`rounded-lg border px-3 py-3 text-sm transition-colors ${
+              selected === opt
+                ? "border-yellow-500 bg-yellow-500/20 text-yellow-300"
+                : "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500"
+            }`}
           >
             {opt}
           </button>
@@ -385,6 +461,13 @@ function RelationshipPicker({
         />
         Stay anonymous
       </label>
+      <button
+        onClick={() => selected && onSubmit({ relationship: selected, anonymous })}
+        disabled={!selected}
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+      >
+        Continue
+      </button>
     </motion.div>
   );
 }

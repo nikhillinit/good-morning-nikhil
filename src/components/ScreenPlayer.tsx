@@ -13,9 +13,10 @@ import { UIInput } from "./ui-inputs";
 interface ScreenPlayerProps {
   screen: Screen;
   onComplete: (value: unknown) => void;
+  onBack?: () => void;
 }
 
-export function ScreenPlayer({ screen, onComplete }: ScreenPlayerProps) {
+export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) {
   const { play, skip, isPlaying, hasEnded, getCurrentTime } = useAudioPlayer();
   const [skipped, setSkipped] = useState(false);
   const [timedReveal, setTimedReveal] = useState(false);
@@ -76,6 +77,15 @@ export function ScreenPlayer({ screen, onComplete }: ScreenPlayerProps) {
 
         {/* Captions — shown during audio */}
         <Captions caption={currentCaption} visible={isPlaying && !showUI} />
+
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="absolute left-4 bottom-8 z-20 rounded-full bg-white/10 px-4 py-2 text-sm text-white/70 backdrop-blur-sm transition-colors hover:bg-white/20"
+          >
+            ← Back
+          </button>
+        )}
 
         {/* UI Input — revealed after audio ends or skip */}
         <AnimatePresence>

@@ -27,7 +27,9 @@ const HAS_SUPABASE =
 
 function SurveyFlow() {
   const [currentScreenId, setCurrentScreenId] = useState(screens[0].id);
+  const [history, setHistory] = useState<string[]>([screens[0].id]);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [sessionBootstrapped, setSessionBootstrapped] = useState(!HAS_SUPABASE);
   const { setResponse, getAllResponses } = useResponses();
   const { session, createNewSession, loading } = useSession();
@@ -91,6 +93,13 @@ function SurveyFlow() {
     });
   }, [activeIndex, currentScreenId, session?.id, sessionBootstrapped, submitted]);
 
+  const handleBack = useCallback(() => {
+    if (history.length <= 1) return;
+    const newHistory = history.slice(0, -1);
+    setHistory(newHistory);
+    setCurrentScreenId(newHistory[newHistory.length - 1]);
+  }, [history]);
+
   const handleComplete = useCallback(
     async (value: unknown) => {
       setResponse(currentScreen.id, value);
@@ -122,16 +131,17 @@ function SurveyFlow() {
 
       if (nextId) {
         setCurrentScreenId(nextId);
+        setHistory((prev) => [...prev, nextId]);
       } else {
         // Final screen — submit
         try {
           if (session?.id) {
             await submitSession(session.id);
           }
+          setSubmitted(true);
         } catch {
-          console.log("Responses:", JSON.stringify(getAllResponses(), null, 2));
+          setSubmitError(true);
         }
-        setSubmitted(true);
       }
     },
     [
@@ -151,6 +161,36 @@ function SurveyFlow() {
         <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">
           Loading episode…
         </p>
+      </div>
+    );
+  }
+
+  if (submitError) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center bg-black text-center px-6">
+        <p className="text-4xl">⚠️</p>
+        <h1 className="mt-4 text-xl font-bold text-white">
+          Couldn&apos;t submit your responses
+        </h1>
+        <p className="mt-2 text-sm text-zinc-400">
+          Your answers are saved locally. Try again.
+        </p>
+        <button
+          onClick={async () => {
+            setSubmitError(false);
+            try {
+              if (session?.id) {
+                await submitSession(session.id);
+              }
+              setSubmitted(true);
+            } catch {
+              setSubmitError(true);
+            }
+          }}
+          className="mt-6 rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black"
+        >
+          Retry
+        </button>
       </div>
     );
   }
@@ -176,6 +216,7 @@ function SurveyFlow() {
           key={currentScreen.id}
           screen={currentScreen}
           onComplete={handleComplete}
+          onBack={history.length > 1 ? handleBack : undefined}
         />
       </AnimatePresence>
 
