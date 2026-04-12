@@ -1,65 +1,102 @@
-import Image from "next/image";
+"use client";
+
+import { useCallback, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { screens } from "@/data/screens";
+import { useResponses } from "@/hooks/useResponses";
+import { ScreenPlayer } from "@/components/ScreenPlayer";
+import { SessionProvider, useSession } from "@/hooks/useSession";
+import { getNextScreen, getScreenIndex, getTotalScreens } from "@/lib/flow";
+import { updateSession, submitSession } from "@/lib/session";
+
+function SurveyFlow() {
+  const [currentScreenId, setCurrentScreenId] = useState(screens[0].id);
+  const [history, setHistory] = useState<string[]>([screens[0].id]);
+  const [submitted, setSubmitted] = useState(false);
+  const { setResponse, getAllResponses } = useResponses();
+  const { session, createNewSession } = useSession();
+
+  const currentIndex = getScreenIndex(currentScreenId, screens);
+  const currentScreen = screens[currentIndex];
+  const total = getTotalScreens(screens);
+
+  const handleComplete = useCallback(
+    async (value: unknown) => {
+      setResponse(currentScreen.id, value);
+
+      const nextId = getNextScreen(currentScreenId, screens);
+
+      // Persist progress if session exists
+      try {
+        const sid = session?.id;
+        if (sid) {
+          await updateSession(sid, {
+            last_completed_screen_key: currentScreenId,
+          });
+        }
+      } catch {
+        // Supabase not configured — continue without persistence
+      }
+
+      if (nextId) {
+        setCurrentScreenId(nextId);
+        setHistory((h) => [...h, nextId]);
+      } else {
+        // Final screen — submit
+        try {
+          if (session?.id) {
+            await submitSession(session.id);
+          }
+        } catch {
+          console.log("Responses:", JSON.stringify(getAllResponses(), null, 2));
+        }
+        setSubmitted(true);
+      }
+    },
+    [currentScreen.id, currentScreenId, session, setResponse, getAllResponses],
+  );
+
+  if (submitted) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center bg-black text-center">
+        <p className="text-4xl">🎬</p>
+        <h1 className="mt-4 text-2xl font-bold text-white">
+          That&apos;s a wrap.
+        </h1>
+        <p className="mt-2 text-zinc-400">
+          Nikhil will share what everyone said once all responses are in.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-black">
+      <AnimatePresence mode="wait">
+        <ScreenPlayer
+          key={currentScreen.id}
+          screen={currentScreen}
+          onComplete={handleComplete}
+        />
+      </AnimatePresence>
+
+      {/* Progress bar */}
+      <div className="fixed bottom-0 left-0 right-0 h-1 bg-zinc-800">
+        <div
+          className="h-full bg-yellow-500 transition-all duration-500"
+          style={{
+            width: `${((currentIndex + 1) / total) * 100}%`,
+          }}
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <SessionProvider>
+      <SurveyFlow />
+    </SessionProvider>
   );
 }
