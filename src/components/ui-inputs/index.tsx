@@ -263,7 +263,7 @@ function SingleSelect({
             onClick={() => setSelected(opt)}
             className={`rounded-lg border px-3 py-3 text-sm transition-colors ${
               selected === opt
-                ? "border-red-500 bg-red-500/20 text-red-300"
+                ? "border-yellow-500 bg-yellow-500/20 text-yellow-300"
                 : "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500"
             }`}
           >
