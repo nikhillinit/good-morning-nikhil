@@ -136,7 +136,7 @@ function ShortText({
       )}
       <button
         onClick={() => onSubmit(null)}
-        className="mt-1 text-xs text-zinc-600 hover:text-zinc-400"
+        className="mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300"
       >
         Skip this one →
       </button>
@@ -182,7 +182,7 @@ function TextArea({
       )}
       <button
         onClick={() => onSubmit(null)}
-        className="mt-1 text-xs text-zinc-600 hover:text-zinc-400"
+        className="mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300"
       >
         Skip this one →
       </button>
@@ -391,7 +391,7 @@ function LongTextWithAudio({
       )}
       <button
         onClick={() => onSubmit(null)}
-        className="mt-1 text-xs text-zinc-600 hover:text-zinc-400"
+        className="mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300"
       >
         Skip this one →
       </button>
