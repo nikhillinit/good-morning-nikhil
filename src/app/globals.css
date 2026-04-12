@@ -25,6 +25,19 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
+/* ── Focus visibility ────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid #eab308;
+  outline-offset: 2px;
+}
+
+/* ── Dark color scheme for native controls ───────────────────── */
+
+html {
+  color-scheme: dark;
+}
+
 /* ── Safe area insets for notched devices ─────────────────────── */
 
 .safe-bottom {
