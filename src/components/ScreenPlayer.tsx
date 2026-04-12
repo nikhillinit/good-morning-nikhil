@@ -14,6 +14,7 @@ import { SkipButton } from "./SkipButton";
 import { UIInput } from "./ui-inputs";
 import { MuteToggle } from "./MuteToggle";
 import { QuestionPrompt } from "./QuestionPrompt";
+import { VideoBackground } from "./VideoBackground";
 
 interface ScreenPlayerProps {
   screen: Screen;
@@ -76,12 +77,15 @@ export function ScreenPlayer({
         backgroundPosition: "center",
       }}
     >
+      {/* Video background — progressive enhancement */}
+      <VideoBackground videoSrc={screen.video} poster={screen.bg} showUI={showUI} />
+
       {/* Ambient motion layers */}
       <PaperShimmer />
       {getAmbientLayer(screen.bg)}
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className={`absolute inset-0 ${screen.video ? "bg-black/60" : "bg-black/50"}`} />
       <MuteToggle isMuted={isMuted} onToggle={toggleMute} />
 
       {/* Content layer */}
