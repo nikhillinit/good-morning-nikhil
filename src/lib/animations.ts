@@ -83,3 +83,11 @@ export const gentleSpring: Transition = {
   damping: 25,
   mass: 0.8,
 };
+
+// ── Ambient easing (organic loops for living-paper feel) ───────────
+
+/** Slow inhale/exhale rhythm. Used for paper shimmer, spotlight pulse. */
+export const EASE_BREATHE = [0.45, 0.05, 0.55, 0.95] as const;
+
+/** Slight organic irregularity. Used for candle flicker, firelight. */
+export const EASE_ORGANIC = [0.37, 0.0, 0.63, 1.0] as const;

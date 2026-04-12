@@ -6,6 +6,8 @@ import type { Screen } from "@/data/screens";
 import { useAudioPlayer } from "@/hooks/useAudioPlayer";
 import { useCaptions } from "@/hooks/useCaptions";
 import { screenEnter, uiReveal } from "@/lib/animations";
+import { PaperShimmer } from "./ambient/PaperShimmer";
+import { getAmbientLayer } from "@/lib/ambient-map";
 import { Captions } from "./Captions";
 import { ShowBadge } from "./ShowBadge";
 import { SkipButton } from "./SkipButton";
@@ -66,6 +68,10 @@ export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) 
         backgroundPosition: "center",
       }}
     >
+      {/* Ambient motion layers */}
+      <PaperShimmer />
+      {getAmbientLayer(screen.bg)}
+
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50" />
 
