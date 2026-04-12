@@ -25,6 +25,7 @@ export interface Screen {
   uiConfig?: Record<string, unknown>;
   duration?: number; // override auto-detection from audio
   uiRevealAt?: number; // seconds into audio when UI should appear
+  video?: string; // path to video in /public/videos/
 }
 
 export const screens: Screen[] = [
