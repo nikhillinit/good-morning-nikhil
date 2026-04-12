@@ -34,7 +34,7 @@ export const screens: Screen[] = [
     show: "Cold Open",
     showEmoji: "🎬",
     audio: "/vo/00-cold-open.mp3",
-    bg: "/sets/cold-open-glitch.png",
+    bg: "/sets/cold-open-glitch.webp",
     captions: [
       'STEVE: "All right, final round! We got the Nikhil family versus Jeff Goldblum, our returning champion."',
       'JEFF: "Ahhhh… well I can tell you what you can do with a computer, Steve..."',
@@ -52,7 +52,7 @@ export const screens: Screen[] = [
     show: "Welcome",
     showEmoji: "☀️",
     audio: "/vo/01-welcome.mp3",
-    bg: "/sets/morning-desk.png",
+    bg: "/sets/morning-desk.webp",
     captions: [
       'STEVE: "Welcome to Good Morning, Nikhil. You\'re about to flip through a few very normal television segments."',
       'JEFF: "Oh Stevie, I thought of something else you can do with a computer."',
@@ -68,7 +68,7 @@ export const screens: Screen[] = [
     show: "Meet Our Audience",
     showEmoji: "👋",
     audio: "/vo/02-relationship.mp3",
-    bg: "/sets/morning-desk.png",
+    bg: "/sets/morning-desk.webp",
     captions: [
       'STEVE: "First things first. How do you know Nikhil?"',
       'JEFF: "Family, friend, collaborator, or chaotic neutral."',
@@ -94,7 +94,7 @@ export const screens: Screen[] = [
     show: "Family Feud",
     showEmoji: "🎯",
     audio: "/vo/03a-feud-top3.mp3",
-    bg: "/sets/feud-board.png",
+    bg: "/sets/feud-board.webp",
     captions: [
       'STEVE: "Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil."',
     ],
@@ -111,7 +111,7 @@ export const screens: Screen[] = [
     show: "Family Feud",
     showEmoji: "🎯",
     audio: "/vo/03b-feud-strongest.mp3",
-    bg: "/sets/feud-board.png",
+    bg: "/sets/feud-board.webp",
     captions: [
       'JEFF: "Show me \'handsome\'."',
       'STEVE: "Wrong game, Jeff. Which one feels strongest, and why?"',
@@ -129,7 +129,7 @@ export const screens: Screen[] = [
     show: "Family Feud",
     showEmoji: "🎯",
     audio: "/vo/03c-feud-trademark.mp3",
-    bg: "/sets/feud-board.png",
+    bg: "/sets/feud-board.webp",
     captions: [
       'JEFF: "Name a thing he does so often it should come with theme music."',
       'STEVE: "That is actually a good one Jeff."',
@@ -147,7 +147,7 @@ export const screens: Screen[] = [
     show: "Commercial Break",
     showEmoji: "📺",
     audio: "/vo/04a-sponsor.mp3",
-    bg: "/sets/sponsor-pedestal.png",
+    bg: "/sets/sponsor-pedestal.webp",
     captions: [
       'STEVE: "This episode of Nikhil is brought to you by…"',
       'JEFF: "A premium blend of polish, intensity, and accidental eye contact."',
@@ -165,7 +165,7 @@ export const screens: Screen[] = [
     show: "Commercial Break",
     showEmoji: "📺",
     audio: "/vo/04b-sponsor-why.mp3",
-    bg: "/sets/sponsor-pedestal.png",
+    bg: "/sets/sponsor-pedestal.webp",
     captions: [
       'STEVE: "And why?"',
       'JEFF: "We\'re all just shadows and dust Steve."',
@@ -183,7 +183,7 @@ export const screens: Screen[] = [
     show: "The Bachelor",
     showEmoji: "🌹",
     audio: "/vo/05a-bachelor-roses.mp3",
-    bg: "/sets/bachelor-mansion.png",
+    bg: "/sets/bachelor-mansion.webp",
     captions: [
       'STEVE: "All right, you know what time it is. Rose ceremony. One of you is going home tonight. Three roses. One quality goes home."',
     ],
@@ -211,7 +211,7 @@ export const screens: Screen[] = [
     show: "The Bachelor",
     showEmoji: "🌹",
     audio: "/vo/05b-bachelor-eliminate.mp3",
-    bg: "/sets/bachelor-mansion.png",
+    bg: "/sets/bachelor-mansion.webp",
     captions: [
       'JEFF: "Every board has one weak square."',
       'STEVE: "This ain\'t no board, Jeff. Send one quality home."',
@@ -239,7 +239,7 @@ export const screens: Screen[] = [
     show: "The Bachelor",
     showEmoji: "🌹",
     audio: "/vo/05c-bachelor-limo.mp3",
-    bg: "/sets/limo-interior.png",
+    bg: "/sets/limo-interior.webp",
     captions: [
       'STEVE: "In the limo ride home…"',
       'JEFF: "On her way to… actually, I don\'t know where they go."',
@@ -259,7 +259,7 @@ export const screens: Screen[] = [
     show: "Shark Tank",
     showEmoji: "🦈",
     audio: "/vo/06a-shark.mp3",
-    bg: "/sets/shark-warehouse.png",
+    bg: "/sets/shark-warehouse.webp",
     captions: [
       'STEVE: "Shark, Nikhil just pitched his brain for 100% of your life savings. Are you in or out?"',
       'JEFF: "You know I\'ll just wait until Aunt Demequa blows it—"',
@@ -275,7 +275,7 @@ export const screens: Screen[] = [
     show: "Shark Tank",
     showEmoji: "🦈",
     audio: "/vo/06b-shark-reason.mp3",
-    bg: "/sets/shark-warehouse.png",
+    bg: "/sets/shark-warehouse.webp",
     captions: ['STEVE: "Finish the sentence."'],
     ui: "short-text",
     uiConfig: {
@@ -291,7 +291,7 @@ export const screens: Screen[] = [
     show: "Survivor",
     showEmoji: "🎙️",
     audio: "/vo/07-survivor.mp3",
-    bg: "/sets/tribal-council.png",
+    bg: "/sets/tribal-council.webp",
     captions: [
       'STEVE: "Tribal council. Confessional booth. Just you and the camera."',
       'JEFF: (Whispering) "So this is… Fast Money in the woods?"',
@@ -311,7 +311,7 @@ export const screens: Screen[] = [
     show: "Maury",
     showEmoji: "📋",
     audio: "/vo/08-maury.mp3",
-    bg: "/sets/maury-studio.png",
+    bg: "/sets/maury-studio.webp",
     captions: [
       'JEFF: "At last. Something you can do with a computer, Steve…"',
       'STEVE: "No, Jeff. I can\'t do it."',
@@ -334,7 +334,7 @@ export const screens: Screen[] = [
     show: "Control Room",
     showEmoji: "🎬",
     audio: "/vo/09-producer.mp3",
-    bg: "/sets/control-room.png",
+    bg: "/sets/control-room.webp",
     captions: [
       'STEVE: "Final note from the control room."',
       'JEFF: "Fast Money?"',
@@ -354,7 +354,7 @@ export const screens: Screen[] = [
     show: "Credits",
     showEmoji: "🎬",
     audio: "/vo/10-credits.mp3",
-    bg: "/sets/credits-bg.png",
+    bg: "/sets/credits-bg.webp",
     captions: [
       'STEVE: "That\'s a wrap."',
       'JEFF: "Did I win?"',
