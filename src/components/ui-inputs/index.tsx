@@ -234,7 +234,7 @@ function MultiSelect({
       <button
         onClick={() => selected.length === maxSelect && onSubmit(selected)}
         disabled={selected.length !== maxSelect}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed"
       >
         Lock it in · {selected.length}/{maxSelect}
       </button>
@@ -274,7 +274,7 @@ function SingleSelect({
       <button
         onClick={() => selected && onSubmit(selected)}
         disabled={!selected}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed"
       >
         Lock it in
       </button>
@@ -487,7 +487,7 @@ function RelationshipPicker({
       <button
         onClick={() => selected && onSubmit({ relationship: selected, anonymous })}
         disabled={!selected}
-        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30"
+        className="w-full rounded-lg bg-yellow-500 py-3 font-bold text-black transition-colors hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed"
       >
         Continue
       </button>
