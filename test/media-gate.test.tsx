@@ -3,6 +3,7 @@ import { renderHook, act, cleanup } from '@testing-library/react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { useMediaConsent } from '@/hooks/useMediaConsent'
 import { MediaGate } from '@/components/MediaGate'
+import { useAudioPlayer } from '@/hooks/useAudioPlayer'
 
 beforeEach(() => {
   localStorage.clear()
@@ -50,5 +51,20 @@ describe('MediaGate', () => {
   it('renders nothing when hasConsented is true', () => {
     const { container } = render(<MediaGate hasConsented={true} onConsent={() => {}} />)
     expect(container.firstChild).toBeNull()
+  })
+})
+
+describe('useAudioPlayer mute', () => {
+  it('starts unmuted', () => {
+    const { result } = renderHook(() => useAudioPlayer())
+    expect(result.current.isMuted).toBe(false)
+  })
+
+  it('toggles mute state', () => {
+    const { result } = renderHook(() => useAudioPlayer())
+    act(() => result.current.toggleMute())
+    expect(result.current.isMuted).toBe(true)
+    act(() => result.current.toggleMute())
+    expect(result.current.isMuted).toBe(false)
   })
 })

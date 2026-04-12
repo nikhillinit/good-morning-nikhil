@@ -7,6 +7,8 @@ export function useAudioPlayer() {
   const howlRef = useRef<Howl | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasEnded, setHasEnded] = useState(false);
+  const mutedRef = useRef(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   const play = useCallback((src: string, onEnd?: () => void) => {
     // Stop any existing audio
@@ -36,6 +38,7 @@ export function useAudioPlayer() {
 
     howlRef.current = howl;
     howl.play();
+    howl.mute(mutedRef.current);
   }, []);
 
   const skip = useCallback(() => {
@@ -61,5 +64,13 @@ export function useAudioPlayer() {
     return howlRef.current.seek() as number;
   }, []);
 
-  return { play, skip, stop, isPlaying, hasEnded, getCurrentTime };
+  const toggleMute = useCallback(() => {
+    mutedRef.current = !mutedRef.current;
+    setIsMuted(mutedRef.current);
+    if (howlRef.current) {
+      howlRef.current.mute(mutedRef.current);
+    }
+  }, []);
+
+  return { play, skip, stop, isPlaying, hasEnded, getCurrentTime, isMuted, toggleMute };
 }
