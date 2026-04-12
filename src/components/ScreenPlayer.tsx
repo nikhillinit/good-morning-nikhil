@@ -17,28 +17,31 @@ interface ScreenPlayerProps {
 
 export function ScreenPlayer({ screen, onComplete }: ScreenPlayerProps) {
   const { play, skip, isPlaying, hasEnded, getCurrentTime } = useAudioPlayer();
-  const [showUI, setShowUI] = useState(false);
+  const [skipped, setSkipped] = useState(false);
+  const [prevScreenId, setPrevScreenId] = useState(screen.id);
   const { currentCaption } = useCaptions(
     screen.id,
     isPlaying ? getCurrentTime : null,
   );
 
+  // Reset on screen change (React 19: state adjustment during render)
+  if (screen.id !== prevScreenId) {
+    setPrevScreenId(screen.id);
+    setSkipped(false);
+  }
+
+  const showUI = hasEnded || skipped;
+
   useEffect(() => {
-    setShowUI(false);
-    // Small delay to let the transition settle
     const timer = setTimeout(() => {
-      play(screen.audio, () => setShowUI(true));
+      play(screen.audio);
     }, 300);
     return () => clearTimeout(timer);
   }, [screen.id, screen.audio, play]);
 
-  useEffect(() => {
-    if (hasEnded) setShowUI(true);
-  }, [hasEnded]);
-
   const handleSkip = useCallback(() => {
     skip();
-    setShowUI(true);
+    setSkipped(true);
   }, [skip]);
 
   return (
