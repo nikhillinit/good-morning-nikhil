@@ -149,7 +149,6 @@ function SurveyFlow() {
       currentScreen,
       currentScreenCompletionStatus,
       currentScreenId,
-      getAllResponses,
       session,
       setResponse,
     ],
