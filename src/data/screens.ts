@@ -24,6 +24,7 @@ export interface Screen {
   ui: UIType;
   uiConfig?: Record<string, unknown>;
   duration?: number; // override auto-detection from audio
+  uiRevealAt?: number; // seconds into audio when UI should appear
 }
 
 export const screens: Screen[] = [
@@ -42,6 +43,7 @@ export const screens: Screen[] = [
       'STEVE: "Hit the music."',
     ],
     ui: "start-button",
+    uiRevealAt: 10.0,
   },
 
   // ── SCREEN 1: WELCOME ──
@@ -57,6 +59,7 @@ export const screens: Screen[] = [
       'STEVE: "Oh God. No. Lord, no."',
     ],
     ui: "continue-button",
+    uiRevealAt: 4.0,
   },
 
   // ── SCREEN 2: WHO ARE YOU TO NIKHIL? ──
@@ -68,19 +71,21 @@ export const screens: Screen[] = [
     bg: "/sets/morning-desk.png",
     captions: [
       'STEVE: "First things first. How do you know Nikhil?"',
-      'JEFF: "Family, foe, witness, or lover."',
+      'JEFF: "Family, friend, collaborator, or chaotic neutral."',
     ],
     ui: "relationship-picker",
     uiConfig: {
       options: [
-        "Close friend",
-        "Family member",
-        "Classmate / colleague",
-        "Professional contact",
+        "Family",
+        "Friend",
+        "Classmate",
+        "Colleague",
+        "Manager",
         "Other",
       ],
       showAnonymousToggle: true,
     },
+    uiRevealAt: 3.0,
   },
 
   // ── SCREEN 3A: FAMILY FEUD — TOP 3 ──
@@ -97,6 +102,7 @@ export const screens: Screen[] = [
     uiConfig: {
       placeholder: ["Answer #1", "Answer #2", "Answer #3"],
     },
+    uiRevealAt: 3.5,
   },
 
   // ── SCREEN 3B: FEUD — STRONGEST ──
@@ -114,6 +120,7 @@ export const screens: Screen[] = [
     uiConfig: {
       placeholder: "Which of your 3 answers feels most true, and why?",
     },
+    uiRevealAt: 1.2,
   },
 
   // ── SCREEN 3C: FEUD — TRADEMARK ──
@@ -131,6 +138,7 @@ export const screens: Screen[] = [
     uiConfig: {
       placeholder: "Name a Nikhil trademark...",
     },
+    uiRevealAt: 2.4,
   },
 
   // ── SCREEN 4A: SPONSORED BY ──
@@ -142,12 +150,13 @@ export const screens: Screen[] = [
     bg: "/sets/sponsor-pedestal.png",
     captions: [
       'STEVE: "This episode of Nikhil is brought to you by…"',
-      'JEFF: "A premium blend of polish, intensity, and lightly weaponized seduction."',
+      'JEFF: "A premium blend of polish, intensity, and accidental eye contact."',
     ],
     ui: "short-text",
     uiConfig: {
       placeholder: "What company, product, vibe, aesthetic, or brand...",
     },
+    uiRevealAt: 1.4,
   },
 
   // ── SCREEN 4B: WHY THAT BRAND ──
@@ -165,6 +174,7 @@ export const screens: Screen[] = [
     uiConfig: {
       placeholder: "Why does that feel on-brand?",
     },
+    uiRevealAt: 0.8,
   },
 
   // ── SCREEN 5A: BACHELOR — ROSES ──
@@ -175,23 +185,24 @@ export const screens: Screen[] = [
     audio: "/vo/05a-bachelor-roses.mp3",
     bg: "/sets/bachelor-mansion.png",
     captions: [
-      'STEVE: "It\'s the rose ceremony, and one of you is going home tonight. Three roses. One quality goes home."',
+      'STEVE: "All right, you know what time it is. Rose ceremony. One of you is going home tonight. Three roses. One quality goes home."',
     ],
     ui: "multi-select",
     uiConfig: {
       options: [
-        "Sharp mind",
-        "Warm heart",
-        "Gets things done",
-        "Makes people laugh",
-        "Tells it straight",
-        "Sees what others miss",
-        "Stays calm under fire",
-        "Makes everyone feel included",
+        "Already Has Notes",
+        "Questioned The Premise",
+        "Genuinely Very Earnest",
+        "Most Serious Unserious",
+        "Needs It Perfect",
+        "Cares Too Much",
+        "Makes Complex Things Clear",
+        "Intense Presence",
       ],
       maxSelect: 3,
-      label: "Give 3 roses",
+      label: "Give 3 roses to Nikhil's strongest qualities",
     },
+    uiRevealAt: 2.8,
   },
 
   // ── SCREEN 5B: BACHELOR — ELIMINATION ──
@@ -208,17 +219,18 @@ export const screens: Screen[] = [
     ui: "single-select",
     uiConfig: {
       options: [
-        "Sharp mind",
-        "Warm heart",
-        "Gets things done",
-        "Makes people laugh",
-        "Tells it straight",
-        "Sees what others miss",
-        "Stays calm under fire",
-        "Makes everyone feel included",
+        "Already Has Notes",
+        "Questioned The Premise",
+        "Genuinely Very Earnest",
+        "Most Serious Unserious",
+        "Needs It Perfect",
+        "Cares Too Much",
+        "Makes Complex Things Clear",
+        "Intense Presence",
       ],
-      label: "Send one home",
+      label: "Which quality should go home?",
     },
+    uiRevealAt: 1.4,
   },
 
   // ── SCREEN 5C: BACHELOR — LIMO ──
@@ -230,7 +242,7 @@ export const screens: Screen[] = [
     bg: "/sets/limo-interior.png",
     captions: [
       'STEVE: "In the limo ride home…"',
-      'JEFF: "On her way to the set of 90-Day Fiancé—"',
+      'JEFF: "On her way to… actually, I don\'t know where they go."',
       'STEVE: "Complete the sentence."',
     ],
     ui: "mad-lib",
@@ -238,6 +250,7 @@ export const screens: Screen[] = [
       stem: "I never stood a chance because Nikhil always",
       placeholder: "...",
     },
+    uiRevealAt: 1.2,
   },
 
   // ── SCREEN 6A: SHARK TANK — IN OR OUT ──
@@ -253,6 +266,7 @@ export const screens: Screen[] = [
       'STEVE: "Do you know where you are."',
     ],
     ui: "invest-or-pass",
+    uiRevealAt: 2.8,
   },
 
   // ── SCREEN 6B: SHARK TANK — FOLLOW-UP ──
@@ -268,6 +282,7 @@ export const screens: Screen[] = [
       // dynamically set based on invest/pass choice
       placeholder: "Because...",
     },
+    uiRevealAt: 1.5,
   },
 
   // ── SCREEN 7: SURVIVOR ──
@@ -284,9 +299,10 @@ export const screens: Screen[] = [
     ],
     ui: "long-text-with-audio",
     uiConfig: {
-      prompt: "Here's what I've never told Nikhil...",
+      prompt: "What's one thing people should know about being on a team with Nikhil?",
       showAudioRecord: true,
     },
+    uiRevealAt: 2.6,
   },
 
   // ── SCREEN 8: MAURY ──
@@ -309,6 +325,7 @@ export const screens: Screen[] = [
         "But he actually comes across as...",
       ],
     },
+    uiRevealAt: 3.6,
   },
 
   // ── SCREEN 9: PRODUCER'S NOTES ──
@@ -326,8 +343,9 @@ export const screens: Screen[] = [
     ui: "text-area",
     uiConfig: {
       placeholder:
-        "If you could change one thing about how Nikhil operates — what gets cut and what replaces it?",
+        "What should Nikhil do more of, less of, or more consistently?",
     },
+    uiRevealAt: 1.6,
   },
 
   // ── SCREEN 10: CREDITS ──
@@ -345,5 +363,6 @@ export const screens: Screen[] = [
       'STEVE: "…somehow, yes."',
     ],
     ui: "submit-button",
+    uiRevealAt: 4.5,
   },
 ];

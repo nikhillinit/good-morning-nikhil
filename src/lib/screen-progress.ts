@@ -85,34 +85,13 @@ export async function completeScreenProgress(
     .from("survey_screen_progress")
     .update({
       status: options.status,
-      answered_at: new Date().toISOString(),
+      answered_at:
+        options.status === ScreenStatus.ANSWERED ||
+        options.status === ScreenStatus.SKIPPED
+          ? new Date().toISOString()
+          : null,
       screen_order: screenOrder,
       time_spent_ms: nextTimeSpent,
-    })
-    .eq("id", existing.id);
-
-  if (error) throw error;
-}
-
-export async function recordScreenExit(
-  sessionId: string,
-  screenKey: string,
-  screenOrder: number,
-  timeSpentMs: number,
-): Promise<void> {
-  const supabase = createClient(sessionId);
-  const existing = await ensureScreenProgressRow(sessionId, screenKey, screenOrder);
-  const nextStatus =
-    existing.status === ScreenStatus.NOT_STARTED
-      ? ScreenStatus.VIEWED
-      : existing.status;
-
-  const { error } = await supabase
-    .from("survey_screen_progress")
-    .update({
-      screen_order: screenOrder,
-      status: nextStatus,
-      time_spent_ms: (existing.time_spent_ms ?? 0) + Math.max(0, timeSpentMs),
     })
     .eq("id", existing.id);
 

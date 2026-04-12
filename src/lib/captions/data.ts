@@ -66,7 +66,7 @@ STEVE: First things first. How do you know Nikhil?
 
 2
 00:00:01,500 --> 00:00:03,000
-JEFF: Family, foe, witness, or lover.`;
+JEFF: Family, friend, collaborator, or chaotic neutral.`;
 
 const SRT_FEUD_TOP3 = `1
 00:00:00,000 --> 00:00:03,500
@@ -94,7 +94,7 @@ STEVE: This episode of Nikhil is brought to you by...
 
 2
 00:00:01,400 --> 00:00:05,000
-JEFF: A premium blend of polish, intensity, and lightly weaponized seduction.`;
+JEFF: A premium blend of polish, intensity, and accidental eye contact.`;
 
 const SRT_SPONSOR_WHY = `1
 00:00:00,000 --> 00:00:00,800
@@ -106,7 +106,7 @@ JEFF: We're all just shadows and dust, Steve.`;
 
 const SRT_BACHELOR_ROSES = `1
 00:00:00,000 --> 00:00:01,600
-STEVE: Ladies, you know what time it is.
+STEVE: All right, you know what time it is.
 
 2
 00:00:01,600 --> 00:00:02,800
@@ -130,7 +130,7 @@ STEVE: In the limo ride home...
 
 2
 00:00:01,200 --> 00:00:02,800
-JEFF: On her way to 90-Day Fiance. Say, Stevie, isn't that where--
+JEFF: On her way to… actually, I don't know where they go.
 
 3
 00:00:02,800 --> 00:00:04,000

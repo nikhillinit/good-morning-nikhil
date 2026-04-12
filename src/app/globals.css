@@ -25,15 +25,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ── Safe area insets for notched devices ─────────────────────── */
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
 /* ── Mobile keyboard state ───────────────────────────────────── */
 
 body.keyboard-active {
-  /* Prevent layout shift when virtual keyboard opens */
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
+  /* Allow natural scroll when keyboard opens */
 }
 
-body.keyboard-active .fixed {
-  position: absolute;
+body.keyboard-active .fixed.bottom-0 {
+  /* Hide bottom progress bar when keyboard is active */
+  display: none;
 }

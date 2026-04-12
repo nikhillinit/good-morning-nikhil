@@ -18,6 +18,7 @@ interface ScreenPlayerProps {
 export function ScreenPlayer({ screen, onComplete }: ScreenPlayerProps) {
   const { play, skip, isPlaying, hasEnded, getCurrentTime } = useAudioPlayer();
   const [skipped, setSkipped] = useState(false);
+  const [timedReveal, setTimedReveal] = useState(false);
   const [prevScreenId, setPrevScreenId] = useState(screen.id);
   const { currentCaption } = useCaptions(
     screen.id,
@@ -28,9 +29,16 @@ export function ScreenPlayer({ screen, onComplete }: ScreenPlayerProps) {
   if (screen.id !== prevScreenId) {
     setPrevScreenId(screen.id);
     setSkipped(false);
+    setTimedReveal(false);
   }
 
-  const showUI = hasEnded || skipped;
+  const showUI = hasEnded || skipped || timedReveal;
+
+  useEffect(() => {
+    if (!screen.uiRevealAt || !isPlaying) return;
+    const timer = setTimeout(() => setTimedReveal(true), screen.uiRevealAt * 1000);
+    return () => clearTimeout(timer);
+  }, [screen.id, screen.uiRevealAt, isPlaying]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

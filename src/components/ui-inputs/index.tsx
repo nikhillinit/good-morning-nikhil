@@ -177,7 +177,7 @@ function MultiSelect({
           <button
             key={opt}
             onClick={() => toggle(opt)}
-            className={`rounded-lg border px-3 py-2 text-sm transition-colors ${
+            className={`rounded-lg border px-3 py-3 text-sm transition-colors ${
               selected.includes(opt)
                 ? "border-yellow-500 bg-yellow-500/20 text-yellow-300"
                 : "border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:border-zinc-500"
@@ -217,7 +217,7 @@ function SingleSelect({
           <button
             key={opt}
             onClick={() => onSubmit(opt)}
-            className="rounded-lg border border-zinc-700 bg-zinc-900/80 px-3 py-2 text-sm text-zinc-300 transition-colors hover:border-red-500 hover:bg-red-500/20 hover:text-red-300"
+            className="rounded-lg border border-zinc-700 bg-zinc-900/80 px-3 py-3 text-sm text-zinc-300 transition-colors hover:border-red-500 hover:bg-red-500/20 hover:text-red-300"
           >
             {opt}
           </button>
@@ -268,7 +268,7 @@ function MadLib({
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="..."
-          className="ml-1 inline-block w-48 border-b-2 border-yellow-500 bg-transparent text-yellow-300 placeholder-zinc-600 focus:outline-none"
+          className="ml-1 inline-block w-full max-w-48 border-b-2 border-yellow-500 bg-transparent text-yellow-300 placeholder-zinc-600 focus:outline-none"
         />
         <span className="italic">&rdquo;</span>
       </p>
