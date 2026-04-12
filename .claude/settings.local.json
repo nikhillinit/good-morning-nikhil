@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /c/dev/good-morning-nikhil log --oneline)",
+      "Bash(npm install:*)",
+      "Bash(cp \"C:\\\\Users\\\\nikhi\\\\OneDrive\\\\Documents\\\\Kellogg\\\\Spring 2026\\\\Selling Yurself & Ideas Files\\\\gmn-app\\\\supabase\\\\migrations\\\\001_initial_schema.sql\" C:/dev/good-morning-nikhil/supabase/migrations/001_initial_schema.sql)",
+      "Bash(cp \"C:\\\\Users\\\\nikhi\\\\OneDrive\\\\Documents\\\\Kellogg\\\\Spring 2026\\\\Selling Yurself & Ideas Files\\\\gmn-app\\\\supabase\\\\migrations\\\\002_session_scoped_policies.sql\" C:/dev/good-morning-nikhil/supabase/migrations/002_session_scoped_policies.sql)",
+      "Bash(node:*)",
+      "Bash(npm run:*)",
+      "Bash(gh repo:*)",
+      "Bash(npx eslint:*)",
+      "Skill(gsd-ui-review)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}
