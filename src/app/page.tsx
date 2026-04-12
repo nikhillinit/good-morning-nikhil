@@ -8,6 +8,8 @@ import { ScreenPlayer } from "@/components/ScreenPlayer";
 import { SceneTransition } from "@/components/SceneTransition";
 import { ReviewScreen } from "@/components/ReviewScreen";
 import { SessionProvider, useSession } from "@/hooks/useSession";
+import { useMediaConsent } from "@/hooks/useMediaConsent";
+import { MediaGate } from "@/components/MediaGate";
 import {
   getCompletionStatusForValue,
   getNextScreen,
@@ -57,6 +59,7 @@ function SurveyFlow() {
   const { setResponse, hydrateResponses, getResponse, getAllResponses } = useResponses();
   const { session, createNewSession, loading } = useSession();
   const entryStartedAtRef = useRef(0);
+  const { hasConsented, grantConsent } = useMediaConsent();
 
   const currentIndex = getScreenIndex(currentScreenId, screens);
   const activeIndex = currentIndex === -1 ? 0 : currentIndex;
@@ -289,6 +292,10 @@ function SurveyFlow() {
       setSubmitError(true);
     }
   }, [session]);
+
+  if (!hasConsented) {
+    return <MediaGate hasConsented={false} onConsent={grantConsent} />;
+  }
 
   if (bootstrapError) {
     return (

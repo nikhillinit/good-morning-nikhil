@@ -129,6 +129,10 @@ vi.mock("@/components/ScreenPlayer", () => ({
   ),
 }));
 
+vi.mock("@/hooks/useMediaConsent", () => ({
+  useMediaConsent: () => ({ hasConsented: true, grantConsent: vi.fn() }),
+}));
+
 vi.mock("@/components/ReviewScreen", () => ({
   ReviewScreen: ({
     responses,

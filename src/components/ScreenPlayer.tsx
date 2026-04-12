@@ -12,6 +12,7 @@ import { Captions } from "./Captions";
 import { ShowBadge } from "./ShowBadge";
 import { SkipButton } from "./SkipButton";
 import { UIInput } from "./ui-inputs";
+import { MuteToggle } from "./MuteToggle";
 
 interface ScreenPlayerProps {
   screen: Screen;
@@ -26,7 +27,7 @@ export function ScreenPlayer({
   onComplete,
   onBack,
 }: ScreenPlayerProps) {
-  const { play, skip, isPlaying, hasEnded, getCurrentTime } = useAudioPlayer();
+  const { play, skip, isPlaying, hasEnded, getCurrentTime, isMuted, toggleMute } = useAudioPlayer();
   const [skipped, setSkipped] = useState(false);
   const [timedReveal, setTimedReveal] = useState(false);
   const [prevScreenId, setPrevScreenId] = useState(screen.id);
@@ -80,6 +81,7 @@ export function ScreenPlayer({
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50" />
+      <MuteToggle isMuted={isMuted} onToggle={toggleMute} />
 
       {/* Content layer */}
       <main className="relative z-10 flex w-full flex-col items-center px-4">
