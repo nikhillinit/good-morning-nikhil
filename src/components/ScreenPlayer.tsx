@@ -15,11 +15,17 @@ import { UIInput } from "./ui-inputs";
 
 interface ScreenPlayerProps {
   screen: Screen;
+  initialValue?: unknown;
   onComplete: (value: unknown) => void;
   onBack?: () => void;
 }
 
-export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) {
+export function ScreenPlayer({
+  screen,
+  initialValue,
+  onComplete,
+  onBack,
+}: ScreenPlayerProps) {
   const { play, skip, isPlaying, hasEnded, getCurrentTime } = useAudioPlayer();
   const [skipped, setSkipped] = useState(false);
   const [timedReveal, setTimedReveal] = useState(false);
@@ -100,8 +106,10 @@ export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) 
               className="flex w-full flex-col items-center"
             >
               <UIInput
+                key={`${screen.id}:${JSON.stringify(initialValue ?? null)}`}
                 type={screen.ui}
                 config={screen.uiConfig}
+                initialValue={initialValue}
                 onSubmit={onComplete}
               />
             </motion.div>

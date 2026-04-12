@@ -9,68 +9,34 @@ import { SceneTransition } from "@/components/SceneTransition";
 import { ReviewScreen } from "@/components/ReviewScreen";
 import { SessionProvider, useSession } from "@/hooks/useSession";
 import {
-  getCompletionStatusForScreen,
+  getCompletionStatusForValue,
   getNextScreen,
-  getResumeScreen,
+  getResumeState,
   getScreenIndex,
   getTotalScreens,
 } from "@/lib/flow";
+import { getAnswers } from "@/lib/answers";
 import { updateSession, submitSession } from "@/lib/session";
-import { saveAnswer } from "@/lib/answers";
 import {
   completeScreenProgress,
   getScreenProgress,
   trackScreenEntry,
 } from "@/lib/screen-progress";
-import { AnswerType, CompletionStatus, InputMethod, RelationshipType } from "@/types";
-import type { SurveyAnswer } from "@/types";
+import {
+  getReviewableScreenCount,
+  hydrateAllResponses,
+  serializeScreenResponse,
+} from "@/lib/response-contract";
+import { persistScreenResponse } from "@/lib/screen-response-persistence";
+import { CompletionStatus } from "@/types";
 
 const HAS_SUPABASE =
   Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
   Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
-/** Map screen IDs to human-readable labels for the review screen */
 const screenLabels = Object.fromEntries(
-  screens.map((s) => [s.id, s.show]),
+  screens.map((screen) => [screen.id, screen.show]),
 );
-
-/** UIs that are navigation-only, not user answers */
-const NON_ANSWER_UIS = new Set(["none", "start-button", "continue-button", "submit-button"]);
-
-function deriveAnswerType(ui: string): AnswerType {
-  switch (ui) {
-    case "short-text": case "mad-lib": return AnswerType.SHORT_TEXT;
-    case "text-area": case "long-text-with-audio": return AnswerType.LONG_TEXT;
-    case "three-text": case "two-text": return AnswerType.PAIRED_TEXT;
-    case "multi-select": return AnswerType.MULTI_SELECT;
-    case "single-select": case "relationship-picker": return AnswerType.SINGLE_SELECT;
-    case "invest-or-pass": return AnswerType.BOOLEAN;
-    default: return AnswerType.SHORT_TEXT;
-  }
-}
-
-function buildAnswerPayload(
-  sessionId: string,
-  screenId: string,
-  ui: string,
-  value: unknown,
-): Partial<SurveyAnswer> | null {
-  if (NON_ANSWER_UIS.has(ui) || value === null || value === undefined) return null;
-  const payload: Partial<SurveyAnswer> = {
-    session_id: sessionId,
-    screen_key: screenId,
-    prompt_key: screenId,
-    answer_type: deriveAnswerType(ui),
-    order_index: 0,
-    input_method: InputMethod.TEXT,
-  };
-  if (typeof value === "string") {
-    payload.value_text = value;
-  } else {
-    payload.value_json = (Array.isArray(value) ? { items: value } : value) as Record<string, unknown>;
-  }
-  return payload;
-}
 
 function SurveyFlow() {
   const [currentScreenId, setCurrentScreenId] = useState(screens[0].id);
@@ -81,7 +47,14 @@ function SurveyFlow() {
   const [showReview, setShowReview] = useState(false);
   const [anonymous, setAnonymous] = useState(false);
   const [sessionBootstrapped, setSessionBootstrapped] = useState(!HAS_SUPABASE);
-  const { setResponse, getAllResponses } = useResponses();
+  const [bootstrapError, setBootstrapError] = useState<string | null>(null);
+  const [bootstrapVersion, setBootstrapVersion] = useState(0);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [pendingCompletion, setPendingCompletion] = useState<{
+    screenId: string;
+    value: unknown;
+  } | null>(null);
+  const { setResponse, hydrateResponses, getResponse, getAllResponses } = useResponses();
   const { session, createNewSession, loading } = useSession();
   const entryStartedAtRef = useRef(0);
 
@@ -89,7 +62,7 @@ function SurveyFlow() {
   const activeIndex = currentIndex === -1 ? 0 : currentIndex;
   const currentScreen = screens[activeIndex];
   const total = getTotalScreens(screens);
-  const currentScreenCompletionStatus = getCompletionStatusForScreen(currentScreen);
+  const reviewableScreenCount = getReviewableScreenCount(screens);
 
   useEffect(() => {
     if (!HAS_SUPABASE) return;
@@ -98,8 +71,10 @@ function SurveyFlow() {
     let cancelled = false;
 
     async function bootstrapSession() {
+      setBootstrapError(null);
+
       try {
-        const activeSession = session ?? (await createNewSession());
+        let activeSession = session ?? (await createNewSession());
         if (cancelled) return;
 
         if (activeSession.completion_status === CompletionStatus.COMPLETED) {
@@ -108,34 +83,44 @@ function SurveyFlow() {
           return;
         }
 
-        // Restore anonymous preference from session
-        setAnonymous(activeSession.anonymous ?? false);
-
-        const progressRows = await getScreenProgress(activeSession.id);
+        const [progressRows, answers] = await Promise.all([
+          getScreenProgress(activeSession.id),
+          getAnswers(activeSession.id),
+        ]);
         if (cancelled) return;
 
-        const resumeTarget = getResumeScreen(progressRows, screens);
-        if (resumeTarget) {
-          setCurrentScreenId(resumeTarget);
-          // Rebuild history so progress bar and back-nav reflect prior screens
-          const resumeIdx = screens.findIndex(s => s.id === resumeTarget);
-          if (resumeIdx >= 0) {
-            setHistory(screens.slice(0, resumeIdx + 1).map(s => s.id));
-          }
-          const resumeScreen = screens.find(s => s.id === resumeTarget);
-          if (resumeScreen) {
-            setResumedFrom(resumeScreen.show);
-          }
-        } else if (progressRows.length > 0) {
-          setCurrentScreenId(screens[screens.length - 1].id);
-          setHistory(screens.map(s => s.id));
+        if (progressRows.length > 0 && !activeSession.started_from_resume) {
+          await updateSession(activeSession.id, { started_from_resume: true });
+          activeSession = { ...activeSession, started_from_resume: true };
+        }
+
+        setAnonymous(activeSession.anonymous ?? false);
+        hydrateResponses(hydrateAllResponses(screens, answers, activeSession));
+
+        const resumeState = getResumeState(progressRows, screens);
+        setCurrentScreenId(resumeState.currentScreenId);
+        setHistory(resumeState.history);
+        setShowReview(resumeState.showReview);
+
+        if (
+          progressRows.length > 0 &&
+          !resumeState.showReview &&
+          resumeState.currentScreenId !== screens[0].id
+        ) {
+          const resumeScreen = screens.find(
+            (screen) => screen.id === resumeState.currentScreenId,
+          );
+          setResumedFrom(resumeScreen?.show ?? null);
+        } else {
+          setResumedFrom(null);
         }
 
         setSessionBootstrapped(true);
       } catch (error) {
         console.error("Failed to bootstrap survey session", error);
         if (!cancelled) {
-          setSessionBootstrapped(true);
+          setBootstrapError("Couldn’t load the survey. Please try again.");
+          setSessionBootstrapped(false);
         }
       }
     }
@@ -145,107 +130,149 @@ function SurveyFlow() {
     return () => {
       cancelled = true;
     };
-  }, [createNewSession, loading, session]);
+  }, [bootstrapVersion, createNewSession, hydrateResponses, loading, session]);
 
   useEffect(() => {
-    if (!HAS_SUPABASE || !session?.id || !sessionBootstrapped || submitted) return;
+    if (
+      !HAS_SUPABASE ||
+      !session?.id ||
+      !sessionBootstrapped ||
+      submitted ||
+      showReview
+    ) {
+      return;
+    }
 
     entryStartedAtRef.current = Date.now();
     void trackScreenEntry(session.id, currentScreenId, activeIndex).catch((error) => {
       console.error("Failed to track screen entry", error);
+      setSaveError("Couldn’t sync your progress just yet.");
     });
-  }, [activeIndex, currentScreenId, session?.id, sessionBootstrapped, submitted]);
+  }, [
+    activeIndex,
+    currentScreenId,
+    session?.id,
+    sessionBootstrapped,
+    showReview,
+    submitted,
+  ]);
+
+  const advanceToNextStep = useCallback((nextId: string | null) => {
+    setSaveError(null);
+    setPendingCompletion(null);
+
+    if (nextId) {
+      setCurrentScreenId(nextId);
+      setHistory((prev) => [...prev, nextId]);
+      return;
+    }
+
+    setShowReview(true);
+  }, []);
 
   const handleBack = useCallback(() => {
     if (history.length <= 1) return;
-    const newHistory = history.slice(0, -1);
-    setHistory(newHistory);
-    setCurrentScreenId(newHistory[newHistory.length - 1]);
+    const nextHistory = history.slice(0, -1);
+    setHistory(nextHistory);
+    setCurrentScreenId(nextHistory[nextHistory.length - 1]);
+    setShowReview(false);
+    setSaveError(null);
   }, [history]);
 
   const handleToggleAnonymous = useCallback(() => {
     setAnonymous((prev) => {
       const next = !prev;
       if (session?.id) {
-        void updateSession(session.id, { anonymous: next }).catch((err) => {
-          console.error("Failed to update anonymous preference", err);
+        void updateSession(session.id, { anonymous: next }).catch((error) => {
+          console.error("Failed to update anonymous preference", error);
+          setSaveError("Couldn’t update your anonymity setting.");
         });
       }
       return next;
     });
   }, [session]);
 
-  const handleComplete = useCallback(
+  const persistAndAdvance = useCallback(
     async (value: unknown) => {
-      // Only store actual answers in the responses map (not nav buttons)
-      if (!NON_ANSWER_UIS.has(currentScreen.ui)) {
-        setResponse(currentScreen.id, value);
-      }
-
       const nextId = getNextScreen(currentScreenId, screens);
       const timeSpentMs = Math.max(0, Date.now() - entryStartedAtRef.current);
+      const completionStatus = getCompletionStatusForValue(currentScreen, value);
+      const serialized = serializeScreenResponse(currentScreen, value);
 
-      // Persist progress + answer if session exists
+      setSaveError(null);
+      setPendingCompletion({
+        screenId: currentScreenId,
+        value,
+      });
+
       try {
-        const sid = session?.id;
-        if (sid) {
-          const ops: Promise<unknown>[] = [
-            completeScreenProgress(
-              sid,
-              currentScreenId,
-              activeIndex,
-              {
-                status: currentScreenCompletionStatus,
-                timeSpentMs,
-              },
-            ),
-            updateSession(sid, {
+        if (session?.id) {
+          await persistScreenResponse(session.id, currentScreen, value);
+          await Promise.all([
+            completeScreenProgress(session.id, currentScreenId, activeIndex, {
+              status: completionStatus,
+              timeSpentMs,
+            }),
+            updateSession(session.id, {
               last_completed_screen_key: currentScreenId,
               completion_status: CompletionStatus.IN_PROGRESS,
             }),
-          ];
-
-          // Persist the actual answer content to survey_answers
-          const answerPayload = buildAnswerPayload(sid, currentScreenId, currentScreen.ui, value);
-          if (answerPayload) {
-            ops.push(saveAnswer(answerPayload));
-          }
-
-          // Map relationship-picker data to canonical session fields
-          if (currentScreen.ui === "relationship-picker" && typeof value === "object" && value !== null) {
-            const rel = value as Record<string, unknown>;
-            ops.push(
-              updateSession(sid, {
-                relationship_type: rel.relationship as RelationshipType,
-                anonymous: Boolean(rel.anonymous),
-              }),
-            );
-            setAnonymous(Boolean(rel.anonymous));
-          }
-
-          await Promise.all(ops);
+          ]);
         }
+
+        setResponse(currentScreen.id, serialized.reviewValue);
+
+        if (serialized.sessionPatch.anonymous !== undefined) {
+          setAnonymous(Boolean(serialized.sessionPatch.anonymous));
+        }
+
+        advanceToNextStep(nextId);
       } catch (error) {
         console.error("Failed to persist survey progress", error);
-      }
-
-      if (nextId) {
-        setCurrentScreenId(nextId);
-        setHistory((prev) => [...prev, nextId]);
-      } else {
-        // Show review screen before final submit
-        setShowReview(true);
+        setSaveError("Couldn’t save your answer. Retry to keep going.");
       }
     },
     [
       activeIndex,
+      advanceToNextStep,
       currentScreen,
-      currentScreenCompletionStatus,
       currentScreenId,
       session,
       setResponse,
     ],
   );
+
+  const handleComplete = useCallback(
+    async (value: unknown) => {
+      if (!HAS_SUPABASE || !session?.id) {
+        const serialized = serializeScreenResponse(currentScreen, value);
+        setResponse(currentScreen.id, serialized.reviewValue);
+        if (serialized.sessionPatch.anonymous !== undefined) {
+          setAnonymous(Boolean(serialized.sessionPatch.anonymous));
+        }
+        advanceToNextStep(getNextScreen(currentScreenId, screens));
+        return;
+      }
+
+      await persistAndAdvance(value);
+    },
+    [
+      advanceToNextStep,
+      currentScreen,
+      currentScreenId,
+      persistAndAdvance,
+      session,
+      setResponse,
+    ],
+  );
+
+  const handleRetrySave = useCallback(async () => {
+    if (!pendingCompletion || pendingCompletion.screenId !== currentScreenId) {
+      return;
+    }
+
+    await persistAndAdvance(pendingCompletion.value);
+  }, [currentScreenId, pendingCompletion, persistAndAdvance]);
 
   const handleFinalSubmit = useCallback(async () => {
     try {
@@ -253,16 +280,41 @@ function SurveyFlow() {
         await submitSession(session.id);
       }
       setSubmitted(true);
-    } catch {
+    } catch (error) {
+      console.error("Failed to submit session", error);
       setSubmitError(true);
     }
   }, [session]);
+
+  if (bootstrapError) {
+    return (
+      <div className="flex h-screen-safe flex-col items-center justify-center bg-black px-6 text-center">
+        <h1 className="font-display text-3xl text-yellow-500">
+          Good Morning, Nikhil
+        </h1>
+        <p className="mt-4 max-w-sm text-sm text-zinc-400">
+          {bootstrapError}
+        </p>
+        <button
+          onClick={() => {
+            setBootstrapError(null);
+            setSessionBootstrapped(false);
+            setBootstrapVersion((version) => version + 1);
+          }}
+          className="mt-6 rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black hover:bg-yellow-400 glow-accent"
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
 
   if (showReview) {
     return (
       <ReviewScreen
         responses={getAllResponses()}
         screenLabels={screenLabels}
+        reviewableScreenCount={reviewableScreenCount}
         anonymous={anonymous}
         onSubmit={handleFinalSubmit}
         onBack={() => setShowReview(false)}
@@ -299,12 +351,12 @@ function SurveyFlow() {
 
   if (submitError) {
     return (
-      <div className="flex h-screen-safe flex-col items-center justify-center bg-black text-center px-6">
+      <div className="flex h-screen-safe flex-col items-center justify-center bg-black px-6 text-center">
         <h1 className="font-display text-2xl text-white">
           Couldn&apos;t submit
         </h1>
         <p className="mt-2 text-sm text-zinc-400">
-          Your answers are saved locally. Try again.
+          Your answers are saved. Try again.
         </p>
         <button
           onClick={async () => {
@@ -314,7 +366,8 @@ function SurveyFlow() {
                 await submitSession(session.id);
               }
               setSubmitted(true);
-            } catch {
+            } catch (error) {
+              console.error("Failed to retry final submission", error);
               setSubmitError(true);
             }
           }}
@@ -328,7 +381,7 @@ function SurveyFlow() {
 
   if (submitted) {
     return (
-      <div className="flex h-screen-safe flex-col items-center justify-center bg-black text-center px-6">
+      <div className="flex h-screen-safe flex-col items-center justify-center bg-black px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -348,36 +401,58 @@ function SurveyFlow() {
 
   return (
     <div className="h-screen-safe bg-black">
-      {resumedFrom && (
-        <div className="fixed top-0 left-0 right-0 z-30 safe-top">
-          <div className="mx-auto max-w-md px-4 pt-3 pb-2">
-            <div className="flex items-center justify-between rounded-lg bg-zinc-800/90 px-4 py-2 backdrop-blur-sm">
-              <p className="text-xs text-zinc-300">
-                Picking up where you left off — <span className="text-yellow-400">{resumedFrom}</span>
-              </p>
-              <button
-                onClick={() => setResumedFrom(null)}
-                className="ml-3 text-xs text-zinc-500 hover:text-zinc-300"
-                aria-label="Dismiss resume notice"
-              >
-                ✕
-              </button>
-            </div>
+      {(resumedFrom || saveError) && (
+        <div className="fixed left-0 right-0 top-0 z-30 safe-top">
+          <div className="mx-auto flex max-w-md flex-col gap-2 px-4 pb-2 pt-3">
+            {resumedFrom && (
+              <div className="flex items-center justify-between rounded-lg bg-zinc-800/90 px-4 py-2 backdrop-blur-sm">
+                <p className="text-xs text-zinc-300">
+                  Picking up where you left off —{" "}
+                  <span className="text-yellow-400">{resumedFrom}</span>
+                </p>
+                <button
+                  onClick={() => setResumedFrom(null)}
+                  className="ml-3 text-xs text-zinc-500 hover:text-zinc-300"
+                  aria-label="Dismiss resume notice"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
+            {saveError && (
+              <div className="flex items-center justify-between gap-3 rounded-lg bg-red-950/90 px-4 py-3 backdrop-blur-sm">
+                <p className="text-xs text-red-100">{saveError}</p>
+                {pendingCompletion?.screenId === currentScreenId && (
+                  <button
+                    onClick={() => void handleRetrySave()}
+                    className="rounded-md bg-red-100 px-3 py-1 text-xs font-semibold text-red-950"
+                  >
+                    Retry
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}
+
       <AnimatePresence mode="wait">
-        <SceneTransition key={currentScreen.id} screen={currentScreen}>
-          <ScreenPlayer
-            screen={currentScreen}
-            onComplete={handleComplete}
-            onBack={history.length > 1 ? handleBack : undefined}
-          />
-        </SceneTransition>
+        <ScreenPlayer
+          key={currentScreen.id}
+          screen={currentScreen}
+          initialValue={getResponse(currentScreen.id)}
+          onComplete={handleComplete}
+          onBack={history.length > 1 ? handleBack : undefined}
+        />
       </AnimatePresence>
 
-      {/* Progress bar */}
-      <div className="fixed bottom-0 left-0 right-0 h-1 bg-zinc-800 safe-bottom" role="progressbar" aria-valuenow={Math.max(0, history.length - 1)} aria-valuemin={0} aria-valuemax={total - 1}>
+      <div
+        className="fixed bottom-0 left-0 right-0 h-1 bg-zinc-800 safe-bottom"
+        role="progressbar"
+        aria-valuenow={Math.max(0, history.length - 1)}
+        aria-valuemin={0}
+        aria-valuemax={total - 1}
+      >
         <div
           className="h-full bg-yellow-500 transition-all duration-500"
           style={{

@@ -10,7 +10,6 @@ import type { Variants, Transition } from "framer-motion";
 // ── Shared easing ─────────────────────────────────────────────────
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
-const EASE_IN = [0.6, 0, 0.85, 0] as const;
 
 // ── Screen transitions ────────────────────────────────────────────
 

@@ -8,6 +8,7 @@ import { uiReveal } from "@/lib/animations";
 interface UIInputProps {
   type: UIType;
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (value: unknown) => void;
 }
 
@@ -65,12 +66,19 @@ function ContinueButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
 
 function ThreeText({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
-  const [values, setValues] = useState(["", "", ""]);
+  const [values, setValues] = useState(() => {
+    const initial = Array.isArray(initialValue)
+      ? initialValue.map((entry) => String(entry ?? "")).slice(0, 3)
+      : [];
+    return [...initial, "", "", ""].slice(0, 3);
+  });
   const [error, setError] = useState("");
   const placeholders = (config?.placeholder as string[]) ?? [
     "#1",
@@ -117,12 +125,16 @@ function ThreeText({
 
 function ShortText({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(
+    typeof initialValue === "string" ? initialValue : "",
+  );
   const [error, setError] = useState("");
   const placeholder = (config?.placeholder as string) ?? "";
 
@@ -163,12 +175,16 @@ function ShortText({
 
 function TextArea({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(
+    typeof initialValue === "string" ? initialValue : "",
+  );
   const [error, setError] = useState("");
   const placeholder = (config?.placeholder as string) ?? "";
 
@@ -209,15 +225,21 @@ function TextArea({
 
 function MultiSelect({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
   const options = (config?.options as string[]) ?? [];
   const maxSelect = (config?.maxSelect as number) ?? 3;
   const label = (config?.label as string) ?? "Select";
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>(
+    Array.isArray(initialValue)
+      ? initialValue.map((entry) => String(entry ?? ""))
+      : [],
+  );
 
   const toggle = (opt: string) => {
     if (selected.includes(opt)) {
@@ -259,14 +281,18 @@ function MultiSelect({
 
 function SingleSelect({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
   const options = (config?.options as string[]) ?? [];
   const label = (config?.label as string) ?? "Select one";
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(
+    typeof initialValue === "string" ? initialValue : null,
+  );
 
   return (
     <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
@@ -295,7 +321,21 @@ function SingleSelect({
   );
 }
 
-function InvestOrPass({ onSubmit }: { onSubmit: (v: unknown) => void }) {
+function InvestOrPass({
+  initialValue,
+  onSubmit,
+}: {
+  initialValue?: unknown;
+  onSubmit: (v: unknown) => void;
+}) {
+  const [selected, setSelected] = useState<string | null>(
+    typeof initialValue === "object" &&
+      initialValue !== null &&
+      "choice" in initialValue
+      ? String((initialValue as { choice: unknown }).choice)
+      : null,
+  );
+
   return (
     <motion.div
       {...uiReveal}
@@ -304,30 +344,49 @@ function InvestOrPass({ onSubmit }: { onSubmit: (v: unknown) => void }) {
       <p className="mb-3 text-center text-xs text-zinc-500">Would you invest in Nikhil?</p>
       <div className="flex w-full gap-4">
       <button
-        onClick={() => onSubmit({ choice: "in" })}
-        className="font-display flex-1 rounded-lg border-2 border-green-500 bg-green-500/10 py-4 text-xl text-green-400 hover:bg-green-500/20"
+        onClick={() => setSelected("in")}
+        className={`font-display flex-1 rounded-lg border-2 py-4 text-xl ${
+          selected === "in"
+            ? "border-green-400 bg-green-500/25 text-green-300"
+            : "border-green-500 bg-green-500/10 text-green-400 hover:bg-green-500/20"
+        }`}
       >
         I&apos;M IN
       </button>
       <button
-        onClick={() => onSubmit({ choice: "out" })}
-        className="font-display flex-1 rounded-lg border-2 border-red-500 bg-red-500/10 py-4 text-xl text-red-400 hover:bg-red-500/20"
+        onClick={() => setSelected("out")}
+        className={`font-display flex-1 rounded-lg border-2 py-4 text-xl ${
+          selected === "out"
+            ? "border-red-400 bg-red-500/25 text-red-200"
+            : "border-red-500 bg-red-500/10 text-red-400 hover:bg-red-500/20"
+        }`}
       >
         I&apos;M OUT
       </button>
       </div>
+      <button
+        onClick={() => selected && onSubmit({ choice: selected })}
+        disabled={!selected}
+        className={primaryBtn}
+      >
+        Lock it in
+      </button>
     </motion.div>
   );
 }
 
 function MadLib({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(
+    typeof initialValue === "string" ? initialValue : "",
+  );
   const [error, setError] = useState("");
   const stem = (config?.stem as string) ?? "";
 
@@ -367,12 +426,16 @@ function MadLib({
 
 function LongTextWithAudio({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(
+    typeof initialValue === "string" ? initialValue : "",
+  );
   const [error, setError] = useState("");
   const prompt = (config?.prompt as string) ?? "";
 
@@ -414,13 +477,20 @@ function LongTextWithAudio({
 
 function TwoText({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
   const labels = (config?.labels as string[]) ?? ["First", "Second"];
-  const [values, setValues] = useState(["", ""]);
+  const [values, setValues] = useState(() => {
+    const initial = Array.isArray(initialValue)
+      ? initialValue.map((entry) => String(entry ?? "")).slice(0, 2)
+      : [];
+    return [...initial, "", ""].slice(0, 2);
+  });
   const [error, setError] = useState("");
 
   return (
@@ -463,14 +533,28 @@ function TwoText({
 
 function RelationshipPicker({
   config,
+  initialValue,
   onSubmit,
 }: {
   config?: Record<string, unknown>;
+  initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
   const options = (config?.options as string[]) ?? [];
-  const [anonymous, setAnonymous] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [anonymous, setAnonymous] = useState(
+    typeof initialValue === "object" &&
+      initialValue !== null &&
+      "anonymous" in initialValue
+      ? Boolean((initialValue as { anonymous: unknown }).anonymous)
+      : false,
+  );
+  const [selected, setSelected] = useState<string | null>(
+    typeof initialValue === "object" &&
+      initialValue !== null &&
+      "relationship" in initialValue
+      ? String((initialValue as { relationship: unknown }).relationship)
+      : null,
+  );
 
   return (
     <motion.div {...uiReveal} className="w-full max-w-md space-y-4">
@@ -519,11 +603,11 @@ function SubmitButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
   );
 }
 
-export function UIInput({ type, config, onSubmit }: UIInputProps) {
-  const components: Record<UIType, React.ComponentType<{ config?: Record<string, unknown>; onSubmit: (v: unknown) => void }>> = {
+export function UIInput({ type, config, initialValue, onSubmit }: UIInputProps) {
+  const components: Record<UIType, React.ComponentType<{ config?: Record<string, unknown>; initialValue?: unknown; onSubmit: (v: unknown) => void }>> = {
     none: () => null,
-    "start-button": StartButton,
-    "continue-button": ContinueButton,
+    "start-button": ({ onSubmit: submit }) => <StartButton onSubmit={submit} />,
+    "continue-button": ({ onSubmit: submit }) => <ContinueButton onSubmit={submit} />,
     "relationship-picker": RelationshipPicker,
     "three-text": ThreeText,
     "text-area": TextArea,
@@ -534,11 +618,11 @@ export function UIInput({ type, config, onSubmit }: UIInputProps) {
     "invest-or-pass": InvestOrPass,
     "long-text-with-audio": LongTextWithAudio,
     "two-text": TwoText,
-    "submit-button": SubmitButton,
+    "submit-button": ({ onSubmit: submit }) => <SubmitButton onSubmit={submit} />,
   };
 
   const Component = components[type];
   if (!Component) return null;
 
-  return <Component config={config} onSubmit={onSubmit} />;
+  return <Component config={config} initialValue={initialValue} onSubmit={onSubmit} />;
 }

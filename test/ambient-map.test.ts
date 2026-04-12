@@ -1,6 +1,12 @@
 import { describe, it, expect } from "vitest";
 import { getAmbientLayer } from "@/lib/ambient-map";
 
+function getElementType(value: unknown) {
+  return value && typeof value === "object" && "type" in value
+    ? (value as { type: unknown }).type
+    : undefined;
+}
+
 describe("getAmbientLayer", () => {
   it("returns DustMotes for feud-board.png", () => {
     const layer = getAmbientLayer("/sets/feud-board.png");
@@ -13,7 +19,7 @@ describe("getAmbientLayer", () => {
     // Both should produce a React element with the same type
     expect(png).not.toBeNull();
     expect(webp).not.toBeNull();
-    expect((png as any).type).toBe((webp as any).type);
+    expect(getElementType(png)).toBe(getElementType(webp));
   });
 
   it("returns null for unknown backgrounds", () => {

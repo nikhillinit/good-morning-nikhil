@@ -7,15 +7,40 @@ import { uiReveal } from "@/lib/animations";
 interface ReviewScreenProps {
   responses: Record<string, unknown>;
   screenLabels: Record<string, string>;
+  reviewableScreenCount: number;
   anonymous: boolean;
   onSubmit: () => void;
   onBack: () => void;
   onToggleAnonymous: () => void;
 }
 
+function formatReviewValue(value: unknown): string {
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((entry) => String(entry ?? "")).join(", ");
+  }
+
+  if (value && typeof value === "object") {
+    if ("relationship" in value) {
+      return String((value as { relationship: unknown }).relationship ?? "");
+    }
+
+    if ("choice" in value) {
+      const choice = String((value as { choice: unknown }).choice ?? "");
+      return choice === "in" ? "I'm in" : choice === "out" ? "I'm out" : choice;
+    }
+  }
+
+  return JSON.stringify(value);
+}
+
 export function ReviewScreen({
   responses,
   screenLabels,
+  reviewableScreenCount,
   anonymous,
   onSubmit,
   onBack,
@@ -24,7 +49,7 @@ export function ReviewScreen({
   const [expanded, setExpanded] = useState(false);
   const entries = Object.entries(responses);
   const answered = entries.filter(([, v]) => v !== undefined && v !== null);
-  const skipped = entries.length - answered.length;
+  const skipped = Math.max(0, reviewableScreenCount - answered.length);
 
   return (
     <motion.div
@@ -89,9 +114,7 @@ export function ReviewScreen({
               <div key={screenId} className="border-b border-zinc-800 pb-2 last:border-0">
                 <p className="text-xs text-zinc-500">{screenLabels[screenId] ?? screenId}</p>
                 <p className="text-sm text-zinc-300 truncate">
-                  {typeof value === "string"
-                    ? value
-                    : JSON.stringify(value)}
+                  {formatReviewValue(value)}
                 </p>
               </div>
             ))}

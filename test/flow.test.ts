@@ -1,8 +1,11 @@
 import { describe, it, expect } from 'vitest'
 import {
+  buildHistoryToScreen,
+  getCompletionStatusForValue,
   getNextScreen,
   getPrevScreen,
   getScreenIndex,
+  getResumeState,
   getTotalScreens,
   getCompletionStatusForScreen,
   isScreenComplete,
@@ -57,6 +60,12 @@ describe('getScreenIndex', () => {
   })
 })
 
+describe('getTotalScreens', () => {
+  it('returns the number of screens', () => {
+    expect(getTotalScreens(mockScreens)).toBe(4)
+  })
+})
+
 describe('getCompletionStatusForScreen', () => {
   it('returns VIEWED for view-only screens like start-button', () => {
     expect(getCompletionStatusForScreen(mockScreens[0])).toBe(ScreenStatus.VIEWED)
@@ -64,6 +73,16 @@ describe('getCompletionStatusForScreen', () => {
 
   it('returns ANSWERED for input screens like short-text', () => {
     expect(getCompletionStatusForScreen(mockScreens[1])).toBe(ScreenStatus.ANSWERED)
+  })
+})
+
+describe('getCompletionStatusForValue', () => {
+  it('marks skipped answer screens as SKIPPED', () => {
+    expect(getCompletionStatusForValue(mockScreens[1], null)).toBe(ScreenStatus.SKIPPED)
+  })
+
+  it('marks answered screens as ANSWERED when they have a value', () => {
+    expect(getCompletionStatusForValue(mockScreens[1], 'typed')).toBe(ScreenStatus.ANSWERED)
   })
 })
 
@@ -110,5 +129,28 @@ describe('getResumeScreen', () => {
       { id: '4', session_id: 's', screen_key: 'end', screen_order: 3, status: ScreenStatus.VIEWED, entered_at: '', answered_at: null, time_spent_ms: 0, used_audio_on_screen: false, used_captions_on_screen: false },
     ]
     expect(getResumeScreen(progress, mockScreens)).toBeNull()
+  })
+})
+
+describe('buildHistoryToScreen', () => {
+  it('rebuilds linear navigation history up to the current screen', () => {
+    expect(buildHistoryToScreen('q2', mockScreens)).toEqual(['intro', 'q1', 'q2'])
+  })
+})
+
+describe('getResumeState', () => {
+  it('returns review state when all screens are complete', () => {
+    const progress: ScreenProgress[] = [
+      { id: '1', session_id: 's', screen_key: 'intro', screen_order: 0, status: ScreenStatus.VIEWED, entered_at: '', answered_at: null, time_spent_ms: 0, used_audio_on_screen: false, used_captions_on_screen: false },
+      { id: '2', session_id: 's', screen_key: 'q1', screen_order: 1, status: ScreenStatus.ANSWERED, entered_at: '', answered_at: null, time_spent_ms: 0, used_audio_on_screen: false, used_captions_on_screen: false },
+      { id: '3', session_id: 's', screen_key: 'q2', screen_order: 2, status: ScreenStatus.ANSWERED, entered_at: '', answered_at: null, time_spent_ms: 0, used_audio_on_screen: false, used_captions_on_screen: false },
+      { id: '4', session_id: 's', screen_key: 'end', screen_order: 3, status: ScreenStatus.VIEWED, entered_at: '', answered_at: null, time_spent_ms: 0, used_audio_on_screen: false, used_captions_on_screen: false },
+    ]
+
+    expect(getResumeState(progress, mockScreens)).toEqual({
+      currentScreenId: 'end',
+      history: ['intro', 'q1', 'q2', 'end'],
+      showReview: true,
+    })
   })
 })
