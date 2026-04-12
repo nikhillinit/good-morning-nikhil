@@ -410,6 +410,9 @@ function SurveyFlow() {
     );
   }
 
+  const nextScreen = screens[activeIndex + 1];
+  const nextScreenVideo = nextScreen?.video;
+
   return (
     <div className="h-screen-safe bg-black">
       {(resumedFrom || saveError) && (
@@ -455,6 +458,7 @@ function SurveyFlow() {
         >
           <ScreenPlayer
             screen={currentScreen}
+            nextScreenVideo={nextScreenVideo}
             initialValue={getResponse(currentScreen.id)}
             onComplete={handleComplete}
             onBack={history.length > 1 ? handleBack : undefined}

@@ -18,6 +18,7 @@ import { VideoBackground } from "./VideoBackground";
 
 interface ScreenPlayerProps {
   screen: Screen;
+  nextScreenVideo?: string;
   initialValue?: unknown;
   onComplete: (value: unknown) => void;
   onBack?: () => void;
@@ -25,6 +26,7 @@ interface ScreenPlayerProps {
 
 export function ScreenPlayer({
   screen,
+  nextScreenVideo,
   initialValue,
   onComplete,
   onBack,
@@ -59,6 +61,29 @@ export function ScreenPlayer({
     }, 300);
     return () => clearTimeout(timer);
   }, [screen.id, screen.audio, play]);
+
+  useEffect(() => {
+    if (!nextScreenVideo) return;
+
+    if (
+      typeof navigator !== "undefined" &&
+      "connection" in navigator &&
+      (navigator as { connection?: { saveData?: boolean } }).connection?.saveData
+    ) {
+      return;
+    }
+
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "video";
+    link.type = "video/mp4";
+    link.href = nextScreenVideo;
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [nextScreenVideo]);
 
   const handleSkip = useCallback(() => {
     skip();
