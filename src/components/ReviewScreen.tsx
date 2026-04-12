@@ -52,6 +52,9 @@ export function ReviewScreen({
           </div>
           <button
             onClick={onToggleAnonymous}
+            role="switch"
+            aria-checked={anonymous}
+            aria-label="Toggle anonymous submission"
             className={`relative h-6 w-11 rounded-full transition-colors ${
               anonymous ? "bg-yellow-500" : "bg-zinc-700"
             }`}
