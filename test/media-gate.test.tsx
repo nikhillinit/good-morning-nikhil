@@ -4,6 +4,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { useMediaConsent } from '@/hooks/useMediaConsent'
 import { MediaGate } from '@/components/MediaGate'
 import { useAudioPlayer } from '@/hooks/useAudioPlayer'
+import { MuteToggle } from '@/components/MuteToggle'
 
 beforeEach(() => {
   localStorage.clear()
@@ -66,5 +67,24 @@ describe('useAudioPlayer mute', () => {
     expect(result.current.isMuted).toBe(true)
     act(() => result.current.toggleMute())
     expect(result.current.isMuted).toBe(false)
+  })
+})
+
+describe('MuteToggle', () => {
+  it('shows unmuted icon when isMuted=false', () => {
+    render(<MuteToggle isMuted={false} onToggle={() => {}} />)
+    expect(screen.getByRole('button', { name: /mute/i })).toBeInTheDocument()
+  })
+
+  it('shows muted icon when isMuted=true', () => {
+    render(<MuteToggle isMuted={true} onToggle={() => {}} />)
+    expect(screen.getByRole('button', { name: /unmute/i })).toBeInTheDocument()
+  })
+
+  it('calls onToggle when clicked', () => {
+    const onToggle = vi.fn()
+    render(<MuteToggle isMuted={false} onToggle={onToggle} />)
+    fireEvent.click(screen.getByRole('button'))
+    expect(onToggle).toHaveBeenCalledOnce()
   })
 })
