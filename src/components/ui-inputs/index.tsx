@@ -23,7 +23,7 @@ const skipBtn =
   "mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300";
 
 const chipBase =
-  "rounded-lg border px-3 py-3 text-sm transition-colors";
+  "rounded-lg border px-3 py-3 text-sm transition-colors min-h-[48px] flex items-center justify-center";
 
 const chipSelected =
   "border-yellow-500 bg-yellow-500/20 text-yellow-300";

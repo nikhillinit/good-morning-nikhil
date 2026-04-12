@@ -86,7 +86,7 @@ export function ScreenPlayer({ screen, onComplete, onBack }: ScreenPlayerProps) 
         {onBack && (
           <button
             onClick={onBack}
-            className="absolute left-4 bottom-8 safe-bottom z-20 rounded-full bg-white/10 px-4 py-2 text-sm text-white/70 backdrop-blur-sm hover:bg-white/20"
+            className="absolute left-4 bottom-8 safe-bottom z-20 min-h-[48px] rounded-full bg-white/10 px-4 py-2 text-sm text-white/70 backdrop-blur-sm hover:bg-white/20 flex items-center"
           >
             ← Back
           </button>

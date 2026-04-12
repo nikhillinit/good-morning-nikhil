@@ -55,15 +55,19 @@ export function ReviewScreen({
             role="switch"
             aria-checked={anonymous}
             aria-label="Toggle anonymous submission"
-            className={`relative h-6 w-11 rounded-full transition-colors ${
-              anonymous ? "bg-yellow-500" : "bg-zinc-700"
-            }`}
+            className="relative flex items-center p-3 -m-3"
           >
             <span
-              className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition-transform ${
-                anonymous ? "translate-x-5" : ""
+              className={`block h-6 w-11 rounded-full transition-colors relative ${
+                anonymous ? "bg-yellow-500" : "bg-zinc-700"
               }`}
-            />
+            >
+              <span
+                className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition-transform ${
+                  anonymous ? "translate-x-5" : ""
+                }`}
+              />
+            </span>
           </button>
         </div>
 

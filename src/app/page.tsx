@@ -15,12 +15,14 @@ import {
   getTotalScreens,
 } from "@/lib/flow";
 import { updateSession, submitSession } from "@/lib/session";
+import { saveAnswer } from "@/lib/answers";
 import {
   completeScreenProgress,
   getScreenProgress,
   trackScreenEntry,
 } from "@/lib/screen-progress";
-import { CompletionStatus } from "@/types";
+import { AnswerType, CompletionStatus, InputMethod, RelationshipType } from "@/types";
+import type { SurveyAnswer } from "@/types";
 
 const HAS_SUPABASE =
   Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
@@ -30,6 +32,44 @@ const HAS_SUPABASE =
 const screenLabels = Object.fromEntries(
   screens.map((s) => [s.id, s.show]),
 );
+
+/** UIs that are navigation-only, not user answers */
+const NON_ANSWER_UIS = new Set(["none", "start-button", "continue-button", "submit-button"]);
+
+function deriveAnswerType(ui: string): AnswerType {
+  switch (ui) {
+    case "short-text": case "mad-lib": return AnswerType.SHORT_TEXT;
+    case "text-area": case "long-text-with-audio": return AnswerType.LONG_TEXT;
+    case "three-text": case "two-text": return AnswerType.PAIRED_TEXT;
+    case "multi-select": return AnswerType.MULTI_SELECT;
+    case "single-select": case "relationship-picker": return AnswerType.SINGLE_SELECT;
+    case "invest-or-pass": return AnswerType.BOOLEAN;
+    default: return AnswerType.SHORT_TEXT;
+  }
+}
+
+function buildAnswerPayload(
+  sessionId: string,
+  screenId: string,
+  ui: string,
+  value: unknown,
+): Partial<SurveyAnswer> | null {
+  if (NON_ANSWER_UIS.has(ui) || value === null || value === undefined) return null;
+  const payload: Partial<SurveyAnswer> = {
+    session_id: sessionId,
+    screen_key: screenId,
+    prompt_key: screenId,
+    answer_type: deriveAnswerType(ui),
+    order_index: 0,
+    input_method: InputMethod.TEXT,
+  };
+  if (typeof value === "string") {
+    payload.value_text = value;
+  } else {
+    payload.value_json = (Array.isArray(value) ? { items: value } : value) as Record<string, unknown>;
+  }
+  return payload;
+}
 
 function SurveyFlow() {
   const [currentScreenId, setCurrentScreenId] = useState(screens[0].id);
@@ -76,12 +116,18 @@ function SurveyFlow() {
         const resumeTarget = getResumeScreen(progressRows, screens);
         if (resumeTarget) {
           setCurrentScreenId(resumeTarget);
+          // Rebuild history so progress bar and back-nav reflect prior screens
+          const resumeIdx = screens.findIndex(s => s.id === resumeTarget);
+          if (resumeIdx >= 0) {
+            setHistory(screens.slice(0, resumeIdx + 1).map(s => s.id));
+          }
           const resumeScreen = screens.find(s => s.id === resumeTarget);
           if (resumeScreen) {
             setResumedFrom(resumeScreen.show);
           }
         } else if (progressRows.length > 0) {
           setCurrentScreenId(screens[screens.length - 1].id);
+          setHistory(screens.map(s => s.id));
         }
 
         setSessionBootstrapped(true);
@@ -130,28 +176,53 @@ function SurveyFlow() {
 
   const handleComplete = useCallback(
     async (value: unknown) => {
-      setResponse(currentScreen.id, value);
+      // Only store actual answers in the responses map (not nav buttons)
+      if (!NON_ANSWER_UIS.has(currentScreen.ui)) {
+        setResponse(currentScreen.id, value);
+      }
 
       const nextId = getNextScreen(currentScreenId, screens);
       const timeSpentMs = Math.max(0, Date.now() - entryStartedAtRef.current);
 
-      // Persist progress if session exists
+      // Persist progress + answer if session exists
       try {
         const sid = session?.id;
         if (sid) {
-          await completeScreenProgress(
-            sid,
-            currentScreenId,
-            activeIndex,
-            {
-              status: currentScreenCompletionStatus,
-              timeSpentMs,
-            },
-          );
-          await updateSession(sid, {
-            last_completed_screen_key: currentScreenId,
-            completion_status: CompletionStatus.IN_PROGRESS,
-          });
+          const ops: Promise<unknown>[] = [
+            completeScreenProgress(
+              sid,
+              currentScreenId,
+              activeIndex,
+              {
+                status: currentScreenCompletionStatus,
+                timeSpentMs,
+              },
+            ),
+            updateSession(sid, {
+              last_completed_screen_key: currentScreenId,
+              completion_status: CompletionStatus.IN_PROGRESS,
+            }),
+          ];
+
+          // Persist the actual answer content to survey_answers
+          const answerPayload = buildAnswerPayload(sid, currentScreenId, currentScreen.ui, value);
+          if (answerPayload) {
+            ops.push(saveAnswer(answerPayload));
+          }
+
+          // Map relationship-picker data to canonical session fields
+          if (currentScreen.ui === "relationship-picker" && typeof value === "object" && value !== null) {
+            const rel = value as Record<string, unknown>;
+            ops.push(
+              updateSession(sid, {
+                relationship_type: rel.relationship as RelationshipType,
+                anonymous: Boolean(rel.anonymous),
+              }),
+            );
+            setAnonymous(Boolean(rel.anonymous));
+          }
+
+          await Promise.all(ops);
         }
       } catch (error) {
         console.error("Failed to persist survey progress", error);
