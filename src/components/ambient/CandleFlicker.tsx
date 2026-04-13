@@ -13,7 +13,7 @@ function SconceGlow({ x, y, delay }: { x: string; y: string; delay: number }) {
         width: "8%",
         height: "12%",
         background:
-          "radial-gradient(ellipse, rgba(255,248,230,0.10) 0%, transparent 70%)",
+          "radial-gradient(ellipse, rgba(255,235,200,0.12) 0%, transparent 70%)",
         borderRadius: "50%",
       }}
       animate={{ opacity: [0.85, 1.0] }}

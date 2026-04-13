@@ -11,7 +11,7 @@ export function PaperShimmer() {
         backgroundImage: "url('/textures/paper-grain-tile.png')",
         backgroundSize: "256px 256px",
       }}
-      animate={{ opacity: [0.03, 0.08] }}
+      animate={{ opacity: [0.02, 0.05] }}
       transition={{
         duration: 6,
         ease: EASE_BREATHE,

@@ -9,7 +9,7 @@ export function FirelightVariation() {
       className="pointer-events-none absolute inset-0 z-[5]"
       style={{
         background:
-          "linear-gradient(90deg, rgba(255,240,210,0.08) 0%, rgba(255,240,210,0.03) 35%, transparent 60%)",
+          "linear-gradient(90deg, rgba(255,200,140,0.08) 0%, rgba(255,200,140,0.03) 35%, transparent 60%)",
       }}
       animate={{ opacity: [0.75, 1.0] }}
       transition={{

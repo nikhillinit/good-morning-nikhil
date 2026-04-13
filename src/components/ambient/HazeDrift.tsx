@@ -13,12 +13,12 @@ export function HazeDrift() {
         style={{
           width: "200%",
           height: "100%",
-          opacity: 0.06,
+          opacity: 0.05,
           background: "url(/textures/haze-wisp.png) repeat-x",
           backgroundSize: "50% 100%",
         }}
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+        transition={{ duration: 30, ease: "linear", repeat: Infinity }}
       />
     </div>
   );

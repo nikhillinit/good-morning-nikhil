@@ -8,12 +8,12 @@ export function SpotlightPulse() {
     <motion.div
       className="pointer-events-none absolute z-[5]"
       style={{
-        left: "42%",
+        left: "40%",
         top: "30%",
         width: "16%",
         height: "25%",
         background:
-          "radial-gradient(ellipse, rgba(255,252,240,0.12) 0%, transparent 70%)",
+          "radial-gradient(ellipse, rgba(255,250,235,0.14) 0%, transparent 70%)",
         borderRadius: "50%",
       }}
       animate={{ opacity: [0.92, 1.0] }}

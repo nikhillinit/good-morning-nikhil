@@ -27,14 +27,14 @@ const CLOSING_MOTES: MoteConfig[] = [
 function Mote({ startX, startY, size, delay }: MoteConfig) {
   return (
     <motion.div
-      className="absolute rounded-full bg-white/20 pointer-events-none"
+      className="absolute rounded-full bg-amber-200/20 pointer-events-none"
       style={{
         width: size,
         height: size,
         left: `${startX}%`,
         top: `${startY}%`,
       }}
-      animate={{ x: [0, 120], opacity: [0.15, 0.35] }}
+      animate={{ x: [0, 120], opacity: [0.12, 0.28] }}
       transition={{
         x: { duration: 15, ease: "linear", repeat: Infinity, delay },
         opacity: {

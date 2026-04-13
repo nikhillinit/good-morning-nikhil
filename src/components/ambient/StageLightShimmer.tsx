@@ -13,9 +13,9 @@ export function StageLightShimmer() {
         width: "50%",
         height: "30%",
         background:
-          "radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%)",
+          "radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%)",
       }}
-      animate={{ opacity: [0.95, 1.0] }}
+      animate={{ opacity: [0.90, 1.0] }}
       transition={{
         duration: 10,
         ease: EASE_BREATHE,
