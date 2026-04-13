@@ -1,10 +1,12 @@
 import { describe, it, expect } from "vitest";
 import { screens } from "@/data/screens";
 import { createHash } from "node:crypto";
-import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync, lstatSync } from "node:fs";
 import { join, basename, resolve } from "node:path";
 
 const SETS_DIR = resolve(process.cwd(), "public/sets");
+const listFiles = () =>
+  readdirSync(SETS_DIR).filter((f) => lstatSync(join(SETS_DIR, f)).isFile());
 
 describe("stills validation", () => {
   const bgFiles = [...new Set(screens.map((s) => s.bg))];
@@ -17,14 +19,14 @@ describe("stills validation", () => {
   });
 
   it("all stills are WebP format", () => {
-    const files = readdirSync(SETS_DIR);
+    const files = listFiles();
     for (const f of files) {
       expect(f.endsWith(".webp"), `Not WebP: ${f}`).toBe(true);
     }
   });
 
   it("all stills are 2752x1536", () => {
-    const files = readdirSync(SETS_DIR);
+    const files = listFiles();
     for (const f of files) {
       const buf = readFileSync(join(SETS_DIR, f));
       const riff = buf.toString("ascii", 0, 4);
@@ -52,7 +54,7 @@ describe("stills validation", () => {
   });
 
   it("no still exceeds 800 KB", () => {
-    const files = readdirSync(SETS_DIR);
+    const files = listFiles();
     for (const f of files) {
       const stat = statSync(join(SETS_DIR, f));
       expect(
@@ -63,7 +65,7 @@ describe("stills validation", () => {
   });
 
   it("every still has a unique file hash (no duplicates)", () => {
-    const files = readdirSync(SETS_DIR);
+    const files = listFiles();
     const hashes = new Map<string, string>();
     for (const f of files) {
       const buf = readFileSync(join(SETS_DIR, f));
@@ -75,7 +77,7 @@ describe("stills validation", () => {
   });
 
   it("exactly 11 stills exist", () => {
-    const files = readdirSync(SETS_DIR).filter((f) => f.endsWith(".webp"));
+    const files = listFiles().filter((f) => f.endsWith(".webp"));
     expect(files.length).toBe(11);
   });
 });
