@@ -17,8 +17,9 @@ import {
   getScreenIndex,
   getTotalScreens,
 } from "@/lib/flow";
-import { getAnswers } from "@/lib/answers";
+import { getAnswers, replaceAnswersForScreen } from "@/lib/answers";
 import { updateSession, submitSession } from "@/lib/session";
+import { flushVoiceQueue } from "@/lib/voice-queue";
 import {
   completeScreenProgress,
   getScreenProgress,
@@ -30,7 +31,7 @@ import {
   serializeScreenResponse,
 } from "@/lib/response-contract";
 import { persistScreenResponse } from "@/lib/screen-response-persistence";
-import { CompletionStatus } from "@/types";
+import { AnswerType, CompletionStatus, InputMethod } from "@/types";
 
 const HAS_SUPABASE =
   Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
@@ -138,6 +139,33 @@ function SurveyFlow() {
       cancelled = true;
     };
   }, [bootstrapVersion, createNewSession, hydrateResponses, loading, session]);
+
+  // Flush any voice uploads that were queued during a previous offline session.
+  // Runs once on mount and again whenever the network comes back online.
+  useEffect(() => {
+    if (typeof window === "undefined" || !HAS_SUPABASE) return;
+
+    async function flush() {
+      await flushVoiceQueue(async (sessionId, screenId, publicUrl) => {
+        await replaceAnswersForScreen(sessionId, screenId, [
+          {
+            screen_key: screenId,
+            prompt_key: `${screenId}.response`,
+            answer_type: AnswerType.LONG_TEXT,
+            media_url: publicUrl,
+            input_method: InputMethod.AUDIO,
+            order_index: 0,
+          },
+        ]);
+      });
+    }
+
+    void flush();
+
+    const handleOnline = () => void flush();
+    window.addEventListener("online", handleOnline);
+    return () => window.removeEventListener("online", handleOnline);
+  }, []);
 
   useEffect(() => {
     if (

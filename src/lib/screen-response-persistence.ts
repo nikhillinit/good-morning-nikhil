@@ -7,6 +7,7 @@ import {
   isVoiceFirstConfig,
 } from "@/lib/voice-response";
 import { uploadVoiceResponse } from "@/lib/supabase/storage";
+import { enqueueFailedUpload } from "@/lib/voice-queue";
 
 async function resolvePersistableValue(
   sessionId: string,
@@ -25,12 +26,25 @@ async function resolvePersistableValue(
     return value;
   }
 
-  const mediaUrl = await uploadVoiceResponse(sessionId, screen.id, value.blob);
-
-  return {
-    ...value,
-    mediaUrl,
-  };
+  try {
+    const mediaUrl = await uploadVoiceResponse(sessionId, screen.id, value.blob);
+    return { ...value, mediaUrl };
+  } catch (uploadError) {
+    console.warn(
+      `[voice-queue] Upload failed for ${screen.id}, queuing for retry`,
+      uploadError,
+    );
+    await enqueueFailedUpload(
+      sessionId,
+      screen.id,
+      value.blob,
+      value.mimeType || value.blob.type || "audio/webm",
+    );
+    // Return without mediaUrl so persistence proceeds.
+    // serializeVoiceFirstAnswer handles empty mediaUrl by storing an empty
+    // answers array — the row gets patched when flushVoiceQueue succeeds later.
+    return { ...value, mediaUrl: undefined, blob: undefined };
+  }
 }
 
 export async function persistScreenResponse(
