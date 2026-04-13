@@ -287,6 +287,7 @@ function SurveyFlow() {
       if (session?.id) {
         await submitSession(session.id);
       }
+      setShowReview(false);
       setSubmitted(true);
     } catch (error) {
       console.error("Failed to submit session", error);
@@ -318,20 +319,6 @@ function SurveyFlow() {
           Retry
         </button>
       </div>
-    );
-  }
-
-  if (showReview) {
-    return (
-      <ReviewScreen
-        responses={getAllResponses()}
-        screenLabels={screenLabels}
-        reviewableScreenCount={reviewableScreenCount}
-        anonymous={anonymous}
-        onSubmit={handleFinalSubmit}
-        onBack={() => setShowReview(false)}
-        onToggleAnonymous={handleToggleAnonymous}
-      />
     );
   }
 
@@ -408,6 +395,20 @@ function SurveyFlow() {
           </p>
         </motion.div>
       </div>
+    );
+  }
+
+  if (showReview) {
+    return (
+      <ReviewScreen
+        responses={getAllResponses()}
+        screenLabels={screenLabels}
+        reviewableScreenCount={reviewableScreenCount}
+        anonymous={anonymous}
+        onSubmit={handleFinalSubmit}
+        onBack={() => setShowReview(false)}
+        onToggleAnonymous={handleToggleAnonymous}
+      />
     );
   }
 

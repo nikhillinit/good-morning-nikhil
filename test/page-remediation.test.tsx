@@ -137,14 +137,17 @@ vi.mock("@/components/ReviewScreen", () => ({
   ReviewScreen: ({
     responses,
     reviewableScreenCount,
+    onSubmit,
   }: {
     responses: Record<string, unknown>;
     reviewableScreenCount: number;
+    onSubmit: () => void;
   }) => (
     <div>
       review
       <div data-testid="review-count">{reviewableScreenCount}</div>
       <div data-testid="review-responses">{JSON.stringify(responses)}</div>
+      <button onClick={onSubmit}>submit review</button>
     </div>
   ),
 }));
@@ -209,5 +212,60 @@ describe("page remediation flow", () => {
       expect(screen.getByTestId("screen-id")).toHaveTextContent("credits");
     });
     expect(mocks.persistScreenResponse).toHaveBeenCalledTimes(3);
+  });
+
+  it("leaves the review screen and shows the submitted state after final submit", async () => {
+    const { default: Home } = await import("@/app/page");
+
+    mocks.getScreenProgress.mockResolvedValue([
+      {
+        id: "1",
+        session_id: "session-1",
+        screen_key: "intro",
+        screen_order: 0,
+        status: "viewed",
+        entered_at: "",
+        answered_at: null,
+        time_spent_ms: 0,
+        used_audio_on_screen: false,
+        used_captions_on_screen: false,
+      },
+      {
+        id: "2",
+        session_id: "session-1",
+        screen_key: "q1",
+        screen_order: 1,
+        status: "answered",
+        entered_at: "",
+        answered_at: null,
+        time_spent_ms: 0,
+        used_audio_on_screen: false,
+        used_captions_on_screen: false,
+      },
+      {
+        id: "3",
+        session_id: "session-1",
+        screen_key: "credits",
+        screen_order: 2,
+        status: "viewed",
+        entered_at: "",
+        answered_at: null,
+        time_spent_ms: 0,
+        used_audio_on_screen: false,
+        used_captions_on_screen: false,
+      },
+    ]);
+    mocks.getAnswers.mockResolvedValue([]);
+
+    render(<Home />);
+
+    expect(await screen.findByText("review")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "submit review" }));
+
+    await waitFor(() => {
+      expect(screen.getByText("That's a wrap")).toBeInTheDocument();
+    });
+    expect(mocks.submitSession).toHaveBeenCalledWith("session-1");
   });
 });
