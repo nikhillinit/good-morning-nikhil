@@ -107,7 +107,7 @@ export function ReviewScreen({
         {/* Expandable answer summary */}
         <button
           onClick={() => setExpanded(!expanded)}
-          className="w-full rounded-lg border border-zinc-800 px-4 py-3 text-left text-sm text-zinc-400 hover:border-zinc-600"
+          className="w-full min-h-[48px] rounded-lg border border-zinc-800 px-4 py-3 text-left text-sm text-zinc-400 hover:border-zinc-600"
         >
           {expanded ? "Hide answers ▲" : "Review your answers ▼"}
         </button>
@@ -145,7 +145,7 @@ export function ReviewScreen({
           </button>
           <button
             onClick={onBack}
-            className="w-full rounded-lg bg-white/5 py-3 text-sm text-zinc-400 hover:bg-white/10"
+            className="w-full min-h-[48px] rounded-lg bg-white/5 py-3 text-sm text-zinc-400 hover:bg-white/10"
           >
             ← Go back and change something
           </button>

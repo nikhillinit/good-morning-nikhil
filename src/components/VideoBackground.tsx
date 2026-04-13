@@ -21,7 +21,7 @@ export function VideoBackground({ videoSrc, poster, showUI }: VideoBackgroundPro
       playsInline
       poster={poster}
       preload="metadata"
-      className="absolute inset-0 h-full w-full object-cover"
+      className="absolute inset-0 h-full w-full object-cover portrait:object-[center_20%]"
       aria-hidden="true"
     />
   );

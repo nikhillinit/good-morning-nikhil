@@ -342,7 +342,7 @@ function SurveyFlow() {
             setSessionBootstrapped(false);
             setBootstrapVersion((version) => version + 1);
           }}
-          className="mt-6 rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black hover:bg-yellow-400 glow-accent"
+          className="mt-6 min-h-[48px] rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black hover:bg-yellow-400 glow-accent"
         >
           Retry
         </button>
@@ -398,7 +398,7 @@ function SurveyFlow() {
               setSubmitError(true);
             }
           }}
-          className="mt-6 rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black hover:bg-yellow-400 glow-accent"
+          className="mt-6 min-h-[48px] rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black hover:bg-yellow-400 glow-accent"
         >
           Retry
         </button>
@@ -469,7 +469,7 @@ function SurveyFlow() {
                 {pendingCompletion?.screenId === currentScreenId && (
                   <button
                     onClick={() => void handleRetrySave()}
-                    className="rounded-md bg-red-100 px-3 py-1 text-xs font-semibold text-red-950"
+                    className="min-h-[48px] rounded-md bg-red-100 px-3 py-1 text-xs font-semibold text-red-950"
                   >
                     Retry
                   </button>
@@ -490,6 +490,8 @@ function SurveyFlow() {
             screen={currentScreen}
             nextScreenVideo={nextScreenVideo}
             initialValue={getResponse(currentScreen.id)}
+            screenIndex={activeIndex}
+            totalScreens={screens.length}
             onComplete={handleComplete}
             onBack={history.length > 1 ? handleBack : undefined}
           />

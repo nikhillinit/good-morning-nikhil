@@ -17,10 +17,10 @@ interface UIInputProps {
 /* ── Shared styles ──────────────────────────────────────────────── */
 
 const primaryBtn =
-  "w-full rounded-lg bg-yellow-500 py-3 font-bold text-black hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed glow-accent";
+  "w-full min-h-[48px] rounded-lg bg-yellow-500 py-3 font-bold text-black hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed glow-accent";
 
 const inputField =
-  "w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none";
+  "w-full min-h-[48px] rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none";
 
 const skipBtn =
   "mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300";
@@ -58,7 +58,7 @@ function ContinueButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
       </p>
       <button
         onClick={() => onSubmit(true)}
-        className="rounded-lg bg-white/10 px-8 py-3 font-medium text-white hover:bg-white/20"
+        className="min-h-[48px] rounded-lg bg-white/10 px-8 py-3 font-medium text-white hover:bg-white/20"
       >
         Continue →
       </button>

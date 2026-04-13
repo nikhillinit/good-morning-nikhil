@@ -20,6 +20,8 @@ interface ScreenPlayerProps {
   screen: Screen;
   nextScreenVideo?: string;
   initialValue?: unknown;
+  screenIndex?: number;
+  totalScreens?: number;
   onComplete: (value: unknown) => void;
   onBack?: () => void;
 }
@@ -28,6 +30,8 @@ export function ScreenPlayer({
   screen,
   nextScreenVideo,
   initialValue,
+  screenIndex,
+  totalScreens,
   onComplete,
   onBack,
 }: ScreenPlayerProps) {
@@ -105,7 +109,7 @@ export function ScreenPlayer({
       style={{
         backgroundImage: `url(${screen.bg})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center 20%",
       }}
     >
       {/* Video background — progressive enhancement */}
@@ -121,7 +125,7 @@ export function ScreenPlayer({
 
       {/* Content layer */}
       <main className="screen-player-main relative z-10 flex w-full flex-col items-center px-4">
-        <ShowBadge emoji={screen.showEmoji} name={screen.show} />
+        <ShowBadge emoji={screen.showEmoji} name={screen.show} screenIndex={screenIndex} totalScreens={totalScreens} />
         <SkipButton visible={isPlaying} onClick={handleSkip} />
 
         {/* Captions — shown during audio */}

@@ -124,6 +124,10 @@ body.keyboard-active .fixed.bottom-0 {
   display: block;
 }
 
+.text-shadow-overlay {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
 @media (orientation: landscape) {
   .caption-shell {
     bottom: 2rem;
