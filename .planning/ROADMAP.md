@@ -11,7 +11,7 @@
 |---|-------|------|--------------|--------|
 | 1 | Still Standardization | Lock final stills with consistent character design | STILL-01..06 | In Progress |
 | 2 | Audio Pipeline | Get real VO audio matched to caption timing | AUD-01..03 | Not Started |
-| 3 | Ambient Motion Integration | Wire SceneTransition and tune ambient layers on real stills | VIS-01..05 | In Progress |
+| 3 | Ambient Motion Integration | Wire SceneTransition and tune ambient layers on real stills | VIS-01..05 | Complete |
 | 4 | Animatic Assembly | End-to-end playable prototype, Screen 0→10 | INT-01..06 | Not Started |
 | 5 | MP4 Export | Screen-record demo reel as class deliverable | DEL-01 | Not Started |
 
@@ -80,8 +80,8 @@
 **Plans:** 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — SceneTransition test suite proving VIS-01 (static on show changes) and VIS-02 (no static on within-show transitions)
-- [ ] 03-02-PLAN.md — Tune all 7 ambient layer parameters and visual verification checkpoint
+- [x] 03-01-PLAN.md — SceneTransition test suite proving VIS-01 (static on show changes) and VIS-02 (no static on within-show transitions)
+- [x] 03-02-PLAN.md — Tune all 7 ambient layer parameters and visual verification checkpoint
 
 **Success criteria:**
 1. SceneTransition fires channel static on show-segment changes (Feud→Sponsor, Sponsor→Bachelor, etc.)

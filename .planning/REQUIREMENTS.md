@@ -78,7 +78,7 @@ Requirements for visual content pipeline and end-to-end delivery.
 | AUD-02 | Phase 2 | Pending |
 | AUD-03 | Phase 2 | Pending |
 | VIS-01 | Phase 3 | Complete |
-| VIS-02 | Phase 3 | Pending |
+| VIS-02 | Phase 3 | Complete |
 | VIS-03 | Phase 3 | Complete |
 | VIS-04 | Phase 3 | Complete |
 | VIS-05 | Phase 3 | Complete |

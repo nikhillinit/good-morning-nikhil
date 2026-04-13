@@ -5,13 +5,13 @@
 See: .planning/PROJECT.md (updated 2026-04-12)
 
 **Core value:** Respondents complete the full survey — engagement through entertainment
-**Current focus:** Phase 3 — Ambient Motion Integration
+**Current focus:** Phase 4 — Animatic Assembly
 
 ## Current Milestone
 
 **Version:** v1.0
 **Name:** Video Pipeline & End-to-End Delivery
-**Phases:** 5 total, 0 fully complete
+**Phases:** 5 total, 1 fully complete
 
 ## Phase Status
 
@@ -19,7 +19,7 @@ See: .planning/PROJECT.md (updated 2026-04-12)
 |---|-------|--------|-------|
 | 1 | Still Standardization | In Progress | Placeholder PNGs in repo; real stills need AI gen |
 | 2 | Audio Pipeline | In Progress | Silent MP3 placeholders in repo; real VO needed |
-| 3 | Ambient Motion Integration | In Progress | SceneTransition wired, ambient-map updated for .webp, tests pass |
+| 3 | Ambient Motion Integration | Complete | SceneTransition tested (VIS-01/02), ambient params tuned, 69 tests pass |
 | 4 | Animatic Assembly | Not Started | Blocked on Phases 1-3 |
 | 5 | MP4 Export | Not Started | Blocked on Phase 4 |
 
@@ -35,7 +35,7 @@ See: .planning/PROJECT.md (updated 2026-04-12)
 - [x] TypeScript compiles clean (zero errors)
 - [ ] Real stills from AI image generation
 - [ ] Real VO audio from ElevenLabs TTS
-- [ ] Ambient tuning against real stills
+- [x] Ambient tuning against real stills (Phase 3 complete — 2026-04-12)
 - [ ] Full integration test
 - [ ] MP4 demo reel
 
