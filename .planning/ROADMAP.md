@@ -77,6 +77,12 @@
 
 **Depends on:** Phase 1 (needs real stills for visual tuning)
 
+**Plans:** 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — SceneTransition test suite proving VIS-01 (static on show changes) and VIS-02 (no static on within-show transitions)
+- [ ] 03-02-PLAN.md — Tune all 7 ambient layer parameters and visual verification checkpoint
+
 **Success criteria:**
 1. SceneTransition fires channel static on show-segment changes (Feud→Sponsor, Sponsor→Bachelor, etc.)
 2. SceneTransition does NOT fire on within-show transitions (3A→3B→3C)
