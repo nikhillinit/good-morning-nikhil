@@ -44,7 +44,7 @@ export const screens: Screen[] = [
       'STEVE: "Hit the music."',
     ],
     ui: "start-button",
-    uiRevealAt: 10.0,
+    uiRevealAt: 48.0,
   },
 
   // ── SCREEN 1: WELCOME ──
@@ -60,7 +60,7 @@ export const screens: Screen[] = [
       'STEVE: "Oh God. No. Lord, no."',
     ],
     ui: "continue-button",
-    uiRevealAt: 4.0,
+    uiRevealAt: 12.4,
   },
 
   // ── SCREEN 2: WHO ARE YOU TO NIKHIL? ──
@@ -86,7 +86,7 @@ export const screens: Screen[] = [
       ],
       showAnonymousToggle: true,
     },
-    uiRevealAt: 3.0,
+    uiRevealAt: 3.6,
   },
 
   // ── SCREEN 3A: FAMILY FEUD — TOP 3 ──
@@ -105,7 +105,7 @@ export const screens: Screen[] = [
       maxSeconds: 15,
       placeholder: ["Answer #1", "Answer #2", "Answer #3"],
     },
-    uiRevealAt: 3.5,
+    uiRevealAt: 5.0,
   },
 
   // ── SCREEN 3B: FEUD — STRONGEST ──
@@ -145,7 +145,7 @@ export const screens: Screen[] = [
       maxSeconds: 10,
       placeholder: "Name a Nikhil trademark...",
     },
-    uiRevealAt: 2.4,
+    uiRevealAt: 5.2,
   },
 
   // ── SCREEN 4A: SPONSORED BY ──
@@ -165,7 +165,7 @@ export const screens: Screen[] = [
       maxSeconds: 15,
       placeholder: "What company, product, vibe, aesthetic, or brand...",
     },
-    uiRevealAt: 1.4,
+    uiRevealAt: 4.1,
   },
 
   // ── SCREEN 4B: WHY THAT BRAND ──
@@ -185,7 +185,7 @@ export const screens: Screen[] = [
       maxSeconds: 10,
       placeholder: "Why does that feel on-brand?",
     },
-    uiRevealAt: 0.8,
+    uiRevealAt: 0.9,
   },
 
   // ── SCREEN 5A: BACHELOR — ROSES ──
@@ -213,7 +213,7 @@ export const screens: Screen[] = [
       maxSelect: 3,
       label: "Give 3 roses to Nikhil's strongest qualities",
     },
-    uiRevealAt: 2.8,
+    uiRevealAt: 8,
   },
 
   // ── SCREEN 5B: BACHELOR — ELIMINATION ──
@@ -241,7 +241,7 @@ export const screens: Screen[] = [
       ],
       label: "Which quality should go home?",
     },
-    uiRevealAt: 1.4,
+    uiRevealAt: 2.4,
   },
 
   // ── SCREEN 5C: BACHELOR — LIMO ──
@@ -263,7 +263,7 @@ export const screens: Screen[] = [
       stem: "I never stood a chance because Nikhil always",
       placeholder: "...",
     },
-    uiRevealAt: 1.2,
+    uiRevealAt: 8.2,
   },
 
   // ── SCREEN 6A: SHARK TANK — IN OR OUT ──
@@ -279,7 +279,7 @@ export const screens: Screen[] = [
       'STEVE: "Do you know where you are."',
     ],
     ui: "invest-or-pass",
-    uiRevealAt: 2.8,
+    uiRevealAt: 16.4,
   },
 
   // ── SCREEN 6B: SHARK TANK — FOLLOW-UP ──
@@ -297,7 +297,7 @@ export const screens: Screen[] = [
       // dynamically set based on invest/pass choice
       placeholder: "Because...",
     },
-    uiRevealAt: 1.5,
+    uiRevealAt: 1,
   },
 
   // ── SCREEN 7: SURVIVOR ──
@@ -317,7 +317,7 @@ export const screens: Screen[] = [
       prompt: "Final words for the tribe.",
       maxSeconds: 15,
     },
-    uiRevealAt: 2.6,
+    uiRevealAt: 7.7,
   },
 
   // ── SCREEN 8: MAURY ──
@@ -342,7 +342,7 @@ export const screens: Screen[] = [
         "But he actually comes across as...",
       ],
     },
-    uiRevealAt: 3.6,
+    uiRevealAt: 12.2,
   },
 
   // ── SCREEN 9: PRODUCER'S NOTES ──
@@ -364,7 +364,7 @@ export const screens: Screen[] = [
       placeholder:
         "What should Nikhil do more of, less of, or more consistently?",
     },
-    uiRevealAt: 1.6,
+    uiRevealAt: 3.5,
   },
 
   // ── SCREEN 10: CREDITS ──
@@ -382,6 +382,6 @@ export const screens: Screen[] = [
       'STEVE: "…somehow, yes."',
     ],
     ui: "submit-button",
-    uiRevealAt: 4.5,
+    uiRevealAt: 4.6,
   },
 ];
