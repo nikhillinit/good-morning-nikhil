@@ -48,4 +48,16 @@ describe('QuestionPrompt', () => {
     const { container } = render(<QuestionPrompt screenId="cold-open" visible={true} />)
     expect(container.firstChild).toBeNull()
   })
+
+  it('prefers an explicit prompt override when provided', () => {
+    render(
+      <QuestionPrompt
+        screenId="survivor"
+        prompt="Final words for the tribe."
+        visible={true}
+      />
+    )
+
+    expect(screen.getByText(/final words for the tribe/i)).toBeInTheDocument()
+  })
 })

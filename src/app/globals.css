@@ -11,6 +11,13 @@
   --surface-hover: rgba(255, 255, 255, 0.1);
   --muted: #a1a1aa;
   --error: #f87171;
+  --card: rgba(8, 8, 10, 0.82);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --prompt: #f4f4f5;
+  --input-border: rgba(255, 255, 255, 0.14);
+  --nav-control: rgba(10, 10, 10, 0.72);
+  --record: #ef4444;
+  --record-pulse: rgba(239, 68, 68, 0.3);
 }
 
 @theme inline {
@@ -88,4 +95,53 @@ body.keyboard-active .fixed.bottom-0 {
 
 .glow-accent {
   box-shadow: 0 0 20px rgba(234, 179, 8, 0.15), 0 0 60px rgba(234, 179, 8, 0.05);
+}
+
+.caption-shell {
+  bottom: 6rem;
+}
+
+.screen-content-card {
+  width: min(100%, 44rem);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  background: var(--card);
+  padding: 1.25rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+}
+
+.media-gate-card {
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  background: var(--card);
+  padding: 1.5rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+}
+
+.orientation-hint-landscape {
+  display: block;
+}
+
+@media (orientation: landscape) {
+  .caption-shell {
+    bottom: 2rem;
+  }
+
+  .screen-player-main {
+    justify-content: flex-end;
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+
+  .screen-content-card {
+    width: min(100%, 58rem);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .orientation-hint-landscape {
+    display: none;
+  }
 }

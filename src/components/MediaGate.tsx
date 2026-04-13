@@ -16,13 +16,16 @@ export function MediaGate({ hasConsented, onConsent }: MediaGateProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="space-y-6"
+        className="media-gate-card space-y-6"
       >
         <h1 className="font-display text-3xl text-yellow-500">
           Good Morning, Nikhil
         </h1>
         <p className="max-w-sm text-sm text-zinc-400">
           This episode has sound. Put your headphones in or turn your volume up.
+        </p>
+        <p className="orientation-hint-landscape text-xs uppercase tracking-[0.18em] text-zinc-500">
+          Landscape works best. The default flow stays tap-and-voice only.
         </p>
         <button
           onClick={onConsent}

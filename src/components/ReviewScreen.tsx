@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { uiReveal } from "@/lib/animations";
+import {
+  isAudioResponseValue,
+  isTextResponseValue,
+} from "@/lib/voice-response";
 
 interface ReviewScreenProps {
   responses: Record<string, unknown>;
@@ -15,6 +19,10 @@ interface ReviewScreenProps {
 }
 
 function formatReviewValue(value: unknown): string {
+  if (isTextResponseValue(value)) {
+    return value.text;
+  }
+
   if (typeof value === "string") {
     return value;
   }
@@ -113,9 +121,15 @@ export function ReviewScreen({
             {answered.map(([screenId, value]) => (
               <div key={screenId} className="border-b border-zinc-800 pb-2 last:border-0">
                 <p className="text-xs text-zinc-500">{screenLabels[screenId] ?? screenId}</p>
-                <p className="text-sm text-zinc-300 truncate">
-                  {formatReviewValue(value)}
-                </p>
+                {isAudioResponseValue(value) && value.mediaUrl ? (
+                  <audio controls preload="metadata" className="mt-2 w-full" src={value.mediaUrl}>
+                    Your browser does not support audio playback.
+                  </audio>
+                ) : (
+                  <p className="text-sm text-zinc-300">
+                    {formatReviewValue(value)}
+                  </p>
+                )}
               </div>
             ))}
           </motion.div>

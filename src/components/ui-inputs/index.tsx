@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import type { UIType } from "@/data/screens";
 import { uiReveal } from "@/lib/animations";
+import { isVoiceFirstConfig } from "@/lib/voice-response";
+import { VoiceRecorder } from "./VoiceRecorder";
 
 interface UIInputProps {
   type: UIType;
@@ -51,8 +53,8 @@ function ContinueButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
     <motion.div {...uiReveal} className="space-y-3 text-center">
       <p className="text-sm text-zinc-400">
         You&apos;ll flip through 7 quick TV-themed segments about Nikhil —
-        each one takes about 30 seconds. Type whatever comes to mind.
-        There are no wrong answers.
+        each one takes about 30 seconds. Tap or record whatever comes to
+        mind. There are no wrong answers.
       </p>
       <button
         onClick={() => onSubmit(true)}
@@ -604,6 +606,26 @@ function SubmitButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
 }
 
 export function UIInput({ type, config, initialValue, onSubmit }: UIInputProps) {
+  const voiceFirstInputTypes = new Set<UIType>([
+    "three-text",
+    "text-area",
+    "short-text",
+    "mad-lib",
+    "long-text-with-audio",
+    "two-text",
+  ]);
+
+  if (voiceFirstInputTypes.has(type) && isVoiceFirstConfig(config)) {
+    return (
+      <VoiceRecorder
+        prompt={typeof config.prompt === "string" ? config.prompt : "Record your answer"}
+        maxSeconds={config.maxSeconds}
+        initialValue={initialValue}
+        onSubmit={onSubmit}
+      />
+    );
+  }
+
   const components: Record<UIType, React.ComponentType<{ config?: Record<string, unknown>; initialValue?: unknown; onSubmit: (v: unknown) => void }>> = {
     none: () => null,
     "start-button": ({ onSubmit: submit }) => <StartButton onSubmit={submit} />,

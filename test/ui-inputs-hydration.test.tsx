@@ -31,4 +31,21 @@ describe("UIInput hydration", () => {
 
     expect(screen.getByRole("button", { name: "I'M OUT" })).toHaveClass("border-red-400");
   });
+
+  it("preloads a persisted voice recording when a screen is voice-first", () => {
+    const { container } = render(
+      <UIInput
+        type="long-text-with-audio"
+        config={{ prompt: "Final words for the tribe.", maxSeconds: 15 }}
+        initialValue={{
+          mode: "audio",
+          mediaUrl: "https://example.com/voice-responses/session-1/survivor.webm",
+        }}
+        onSubmit={vi.fn()}
+      />,
+    );
+
+    expect(screen.getByText(/take ready/i)).toBeInTheDocument();
+    expect(container.querySelector("audio")).not.toBeNull();
+  });
 });

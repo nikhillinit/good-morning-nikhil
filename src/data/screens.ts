@@ -101,6 +101,8 @@ export const screens: Screen[] = [
     ],
     ui: "three-text",
     uiConfig: {
+      prompt: "Name three things people notice about Nikhil.",
+      maxSeconds: 15,
       placeholder: ["Answer #1", "Answer #2", "Answer #3"],
     },
     uiRevealAt: 3.5,
@@ -119,6 +121,8 @@ export const screens: Screen[] = [
     ],
     ui: "text-area",
     uiConfig: {
+      prompt: "Tell us which one feels most true and why.",
+      maxSeconds: 10,
       placeholder: "Which of your 3 answers feels most true, and why?",
     },
     uiRevealAt: 1.2,
@@ -137,6 +141,8 @@ export const screens: Screen[] = [
     ],
     ui: "short-text",
     uiConfig: {
+      prompt: "Say the trademark line.",
+      maxSeconds: 10,
       placeholder: "Name a Nikhil trademark...",
     },
     uiRevealAt: 2.4,
@@ -155,6 +161,8 @@ export const screens: Screen[] = [
     ],
     ui: "short-text",
     uiConfig: {
+      prompt: "Do the sponsor read.",
+      maxSeconds: 15,
       placeholder: "What company, product, vibe, aesthetic, or brand...",
     },
     uiRevealAt: 1.4,
@@ -173,6 +181,8 @@ export const screens: Screen[] = [
     ],
     ui: "text-area",
     uiConfig: {
+      prompt: "Give the tagline.",
+      maxSeconds: 10,
       placeholder: "Why does that feel on-brand?",
     },
     uiRevealAt: 0.8,
@@ -248,6 +258,8 @@ export const screens: Screen[] = [
     ],
     ui: "mad-lib",
     uiConfig: {
+      prompt: "Finish the limo-exit sentence.",
+      maxSeconds: 10,
       stem: "I never stood a chance because Nikhil always",
       placeholder: "...",
     },
@@ -280,6 +292,8 @@ export const screens: Screen[] = [
     captions: ['STEVE: "Finish the sentence."'],
     ui: "short-text",
     uiConfig: {
+      prompt: "Give one strength and one weakness.",
+      maxSeconds: 15,
       // dynamically set based on invest/pass choice
       placeholder: "Because...",
     },
@@ -300,8 +314,8 @@ export const screens: Screen[] = [
     ],
     ui: "long-text-with-audio",
     uiConfig: {
-      prompt: "What's one thing people should know about being on a team with Nikhil?",
-      showAudioRecord: true,
+      prompt: "Final words for the tribe.",
+      maxSeconds: 15,
     },
     uiRevealAt: 2.6,
   },
@@ -321,6 +335,8 @@ export const screens: Screen[] = [
     ],
     ui: "two-text",
     uiConfig: {
+      prompt: "The confession.",
+      maxSeconds: 15,
       labels: [
         "Nikhil projects that he is...",
         "But he actually comes across as...",
@@ -343,6 +359,8 @@ export const screens: Screen[] = [
     ],
     ui: "text-area",
     uiConfig: {
+      prompt: "Director's notes.",
+      maxSeconds: 15,
       placeholder:
         "What should Nikhil do more of, less of, or more consistently?",
     },

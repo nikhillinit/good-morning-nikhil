@@ -48,6 +48,12 @@ export function ScreenPlayer({
   }
 
   const showUI = hasEnded || skipped || timedReveal;
+  const promptOverride =
+    typeof screen.uiConfig?.prompt === "string" ? screen.uiConfig.prompt : undefined;
+  const showContentCard =
+    screen.ui !== "start-button" &&
+    screen.ui !== "continue-button" &&
+    screen.ui !== "submit-button";
 
   useEffect(() => {
     if (!screen.uiRevealAt || !isPlaying) return;
@@ -114,7 +120,7 @@ export function ScreenPlayer({
       <MuteToggle isMuted={isMuted} onToggle={toggleMute} />
 
       {/* Content layer */}
-      <main className="relative z-10 flex w-full flex-col items-center px-4">
+      <main className="screen-player-main relative z-10 flex w-full flex-col items-center px-4">
         <ShowBadge emoji={screen.showEmoji} name={screen.show} />
         <SkipButton visible={isPlaying} onClick={handleSkip} />
 
@@ -124,7 +130,7 @@ export function ScreenPlayer({
         {onBack && (
           <button
             onClick={onBack}
-            className="absolute left-4 bottom-8 safe-bottom z-20 min-h-[48px] rounded-full bg-white/10 px-4 py-2 text-sm text-white/70 backdrop-blur-sm hover:bg-white/20 flex items-center"
+            className="absolute bottom-8 left-4 z-20 flex min-h-[48px] items-center gap-2 rounded-full border border-white/10 bg-black/70 px-4 py-2 text-sm text-white safe-bottom backdrop-blur-sm transition-colors hover:bg-black/85"
           >
             ← Back
           </button>
@@ -137,14 +143,26 @@ export function ScreenPlayer({
               {...uiReveal}
               className="flex w-full flex-col items-center"
             >
-              <QuestionPrompt screenId={screen.id} visible={true} />
-              <UIInput
-                key={`${screen.id}:${JSON.stringify(initialValue ?? null)}`}
-                type={screen.ui}
-                config={screen.uiConfig}
-                initialValue={initialValue}
-                onSubmit={onComplete}
-              />
+              <div
+                className={
+                  showContentCard
+                    ? "screen-content-card"
+                    : "flex w-full max-w-md flex-col items-center"
+                }
+              >
+                <QuestionPrompt
+                  screenId={screen.id}
+                  prompt={promptOverride}
+                  visible={true}
+                />
+                <UIInput
+                  key={`${screen.id}:${JSON.stringify(initialValue ?? null)}`}
+                  type={screen.ui}
+                  config={screen.uiConfig}
+                  initialValue={initialValue}
+                  onSubmit={onComplete}
+                />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

@@ -6,6 +6,12 @@ import {
   type SurveyAnswer,
   type SurveySession,
 } from "@/types";
+import {
+  isAudioResponseValue,
+  isTextResponseValue,
+  isVoiceFirstConfig,
+  type VoiceResponseValue,
+} from "@/lib/voice-response";
 
 interface SerializedScreenResponse {
   answers: Partial<SurveyAnswer>[];
@@ -30,6 +36,10 @@ function isViewOnlyScreen(screen: Screen): boolean {
   );
 }
 
+function isVoiceFirstScreen(screen: Screen): boolean {
+  return isVoiceFirstConfig(screen.uiConfig);
+}
+
 function serializeTextAnswer(
   screen: Screen,
   promptKey: string,
@@ -43,6 +53,59 @@ function serializeTextAnswer(
     value_text: value,
     input_method: InputMethod.TEXT,
     order_index: 0,
+  };
+}
+
+function serializeVoiceFirstAnswer(
+  screen: Screen,
+  value: VoiceResponseValue | string,
+): SerializedScreenResponse {
+  if (isAudioResponseValue(value)) {
+    const mediaUrl = value.mediaUrl?.trim();
+
+    return {
+      answers: mediaUrl
+        ? [
+            {
+              screen_key: screen.id,
+              prompt_key: `${screen.id}.response`,
+              answer_type: AnswerType.LONG_TEXT,
+              media_url: mediaUrl,
+              input_method: InputMethod.AUDIO,
+              order_index: 0,
+            },
+          ]
+        : [],
+      sessionPatch: {},
+      reviewValue: mediaUrl
+        ? {
+            mode: "audio" as const,
+            mediaUrl,
+          }
+        : undefined,
+    };
+  }
+
+  const text = (isTextResponseValue(value) ? value.text : value).trim();
+
+  return {
+    answers: text
+      ? [
+          serializeTextAnswer(
+            screen,
+            `${screen.id}.response`,
+            text,
+            AnswerType.LONG_TEXT,
+          ),
+        ]
+      : [],
+    sessionPatch: {},
+    reviewValue: text
+      ? {
+          mode: "text" as const,
+          text,
+        }
+      : undefined,
   };
 }
 
@@ -69,6 +132,22 @@ export function serializeScreenResponse(
   value: unknown,
 ): SerializedScreenResponse {
   if (value === null || value === undefined || isViewOnlyScreen(screen)) {
+    return {
+      answers: [],
+      sessionPatch: {},
+      reviewValue: undefined,
+    };
+  }
+
+  if (isVoiceFirstScreen(screen)) {
+    if (
+      isAudioResponseValue(value) ||
+      isTextResponseValue(value) ||
+      typeof value === "string"
+    ) {
+      return serializeVoiceFirstAnswer(screen, value);
+    }
+
     return {
       answers: [],
       sessionPatch: {},
@@ -328,6 +407,26 @@ export function hydrateScreenResponse(
   const screenAnswers = getScreenAnswers(screen.id, answers);
 
   if (isViewOnlyScreen(screen)) {
+    return undefined;
+  }
+
+  if (isVoiceFirstScreen(screen)) {
+    const voiceAnswer = screenAnswers[0];
+
+    if (voiceAnswer?.media_url) {
+      return {
+        mode: "audio" as const,
+        mediaUrl: voiceAnswer.media_url,
+      };
+    }
+
+    if (voiceAnswer?.value_text) {
+      return {
+        mode: "text" as const,
+        text: voiceAnswer.value_text,
+      };
+    }
+
     return undefined;
   }
 

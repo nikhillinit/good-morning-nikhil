@@ -5,13 +5,18 @@ import { getScreenPrompt } from "@/lib/screen-prompts";
 
 interface QuestionPromptProps {
   screenId: string;
+  prompt?: string;
   visible: boolean;
 }
 
-export function QuestionPrompt({ screenId, visible }: QuestionPromptProps) {
-  const prompt = getScreenPrompt(screenId);
+export function QuestionPrompt({
+  screenId,
+  prompt,
+  visible,
+}: QuestionPromptProps) {
+  const resolvedPrompt = prompt ?? getScreenPrompt(screenId);
 
-  if (!visible || !prompt) return null;
+  if (!visible || !resolvedPrompt) return null;
 
   return (
     <AnimatePresence>
@@ -19,9 +24,9 @@ export function QuestionPrompt({ screenId, visible }: QuestionPromptProps) {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="mb-4 max-w-md px-2 text-center text-sm italic text-zinc-400"
+        className="mb-5 max-w-2xl px-3 text-center text-base leading-relaxed italic text-[var(--prompt)]"
       >
-        &ldquo;{prompt}&rdquo;
+        &ldquo;{resolvedPrompt}&rdquo;
       </motion.p>
     </AnimatePresence>
   );

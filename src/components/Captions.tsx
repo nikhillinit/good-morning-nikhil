@@ -16,7 +16,7 @@ export function Captions({ caption, visible }: CaptionsProps) {
         <motion.div
           key={caption.id}
           {...captionSwap}
-          className="absolute bottom-24 left-0 right-0 px-6"
+          className="caption-shell absolute left-0 right-0 px-6"
           role="status"
           aria-live="polite"
         >

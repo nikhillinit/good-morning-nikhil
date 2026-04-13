@@ -10,7 +10,7 @@ export function MuteToggle({ isMuted, onToggle }: MuteToggleProps) {
     <button
       onClick={onToggle}
       aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-      className="fixed right-4 top-4 safe-top z-30 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white/70 backdrop-blur-sm hover:bg-black/80"
+      className="fixed right-4 top-4 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--nav-control)] text-white safe-top backdrop-blur-sm transition-colors hover:bg-black/85"
     >
       {isMuted ? (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

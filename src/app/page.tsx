@@ -204,7 +204,6 @@ function SurveyFlow() {
       const nextId = getNextScreen(currentScreenId, screens);
       const timeSpentMs = Math.max(0, Date.now() - entryStartedAtRef.current);
       const completionStatus = getCompletionStatusForValue(currentScreen, value);
-      const serialized = serializeScreenResponse(currentScreen, value);
 
       setSaveError(null);
       setPendingCompletion({
@@ -213,8 +212,10 @@ function SurveyFlow() {
       });
 
       try {
+        let serialized = serializeScreenResponse(currentScreen, value);
+
         if (session?.id) {
-          await persistScreenResponse(session.id, currentScreen, value);
+          serialized = await persistScreenResponse(session.id, currentScreen, value);
           await Promise.all([
             completeScreenProgress(session.id, currentScreenId, activeIndex, {
               status: completionStatus,

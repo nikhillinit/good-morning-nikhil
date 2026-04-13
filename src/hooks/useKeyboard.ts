@@ -44,8 +44,11 @@ export function useKeyboard(): void {
 
     const handleResize = () => {
       if (window.visualViewport) {
+        const threshold = window.matchMedia("(orientation: landscape)").matches
+          ? 0.6
+          : 0.75;
         const keyboardVisible =
-          window.visualViewport.height < window.innerHeight * 0.75;
+          window.visualViewport.height < window.innerHeight * threshold;
         document.body.classList.toggle("keyboard-active", keyboardVisible);
       }
     };
