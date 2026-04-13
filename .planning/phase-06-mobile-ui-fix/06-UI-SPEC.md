@@ -27,6 +27,8 @@ created: 2026-04-12
 
 No shadcn/ui. Tailwind v4 with CSS custom properties in `globals.css`. All tokens are added there and mapped via `@theme inline`.
 
+> **Canonical design reference:** This UI-SPEC serves as the project's design system document. All color tokens, typography roles, spacing values, and interaction states defined here are the single source of truth. No separate DESIGN.md exists. When in doubt, consult this file.
+
 ---
 
 ## Spacing Scale
@@ -119,6 +121,8 @@ This replaces the floating-text-on-overlay pattern that caused the contrast fail
 
 Card sits in the `main` z-10 content layer, centered vertically. On screens with only a `start-button` or `submit-button` (no form content), the card is omitted — those buttons stand alone against the background.
 
+ARIA: Content card div gets `role="region" aria-label="Survey question"` so screen readers announce the interactive area. Inputs already have associated labels or placeholders in code.
+
 ### Input Field Tokens (replacing current `inputField` constant)
 
 ```
@@ -163,7 +167,12 @@ All use `bg-[--nav-control]` = `rgba(0,0,0,0.70)` with `text-white` at full opac
 
 MuteToggle: upgrade from `text-white/70` to `text-white`. Upgrade from `h-10 w-10` to `h-12 w-12`.
 
-SkipButton: upgrade from `text-white` (already full opacity — keep) background from `bg-white/10` to `bg-black/70`. At top-right corner it currently conflicts visually with MuteToggle — MuteToggle is `fixed`, SkipButton is `absolute`. They stack at `top-4 right-4`. Resolve: SkipButton gets `top-16` (shifted down by 64px) to clear MuteToggle. Or consolidate: MuteToggle is `fixed top-4 right-4`, SkipButton is `absolute top-16 right-4`.
+SkipButton: upgrade from `text-white` (already full opacity — keep) background from `bg-white/10` to `bg-black/70`.
+
+**Nav stacking contract (locked):**
+- MuteToggle: `fixed top-4 right-4 z-30` — always visible, highest z
+- SkipButton: `absolute top-16 right-4 z-10` — below MuteToggle, only visible during audio playback
+- ShowBadge: `absolute top-4 left-4` — opposite corner, no collision
 
 ---
 
@@ -254,8 +263,20 @@ Global focus style (existing, keep): `outline: 2px solid var(--accent); outline-
 - All content cards: `w-full max-w-md mx-auto` — 448px max, full-width on mobile
 - No horizontal scroll permitted
 - Keyboard active: `body.keyboard-active .fixed.bottom-0 { display: none }` already in globals.css. Content card must NOT be `fixed bottom-0` — it must be in normal flow inside `relative z-10` main so it scrolls with keyboard.
+- Keyboard CTA: When keyboard is active, the primary CTA button ("Lock it in") must be `sticky bottom-0` within the content card's scroll area, so it's always reachable without scrolling past inputs. Use `sticky bottom-0 z-10` on the button wrapper inside the card.
 - Orientation: content card uses `overflow-y-auto max-h-[70svh]` to handle landscape mode gracefully
 - Safe areas: `safe-top` and `safe-bottom` classes already in globals.css — apply `safe-bottom` to back button positioning
+
+---
+
+## Transient State Contract
+
+| State | Behavior | Visual |
+|-------|----------|--------|
+| Submit (tap CTA) | Optimistic — screen advances immediately, Supabase save runs in background | No spinner, no disable. Instant advance preserves TV-show pacing |
+| Save failure | Non-blocking toast/banner on next screen | Brief error message, auto-dismiss after 4s, does not block flow |
+| Audio loading | Existing behavior — 300ms delay then play() | No loading indicator; silent gap is imperceptible |
+| Screen transition | Existing `screenEnter` animation | No additional loading state needed |
 
 ---
 
