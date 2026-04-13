@@ -97,11 +97,11 @@ export const screens: Screen[] = [
     audio: "/vo/03a-feud-top3.mp3",
     bg: "/sets/feud-board.webp",
     captions: [
-      'STEVE: "Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil."',
+      'STEVE: "Three words. YOUR words. What comes to mind when you think of Nikhil?"',
     ],
     ui: "three-text",
     uiConfig: {
-      prompt: "Name three things people notice about Nikhil.",
+      prompt: "Three words that come to YOUR mind about Nikhil.",
       maxSeconds: 15,
       placeholder: ["Answer #1", "Answer #2", "Answer #3"],
     },
@@ -225,7 +225,7 @@ export const screens: Screen[] = [
     bg: "/sets/bachelor-mansion.webp",
     captions: [
       'JEFF: "Every board has one weak square."',
-      'STEVE: "This ain\'t no board, Jeff. Send one quality home."',
+      'STEVE: "Which one do you notice least?"',
     ],
     ui: "single-select",
     uiConfig: {
@@ -239,7 +239,7 @@ export const screens: Screen[] = [
         "Makes Complex Things Clear",
         "Intense Presence",
       ],
-      label: "Which quality should go home?",
+      label: "Which quality do you notice least?",
     },
     uiRevealAt: 2.4,
   },

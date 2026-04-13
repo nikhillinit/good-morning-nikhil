@@ -54,7 +54,7 @@ JEFF: Family, foe, witness, or lover.`;
 
 const SRT_FEUD_TOP3 = `1
 00:00:00,000 --> 00:00:07,259
-STEVE: Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil.`;
+STEVE: Three words. YOUR words. What comes to mind when you think of Nikhil?`;
 
 const SRT_FEUD_STRONGEST = `1
 00:00:00,000 --> 00:00:01,193
@@ -98,7 +98,7 @@ JEFF: Every board has one weak square.
 
 2
 00:00:02,386 --> 00:00:06,480
-STEVE: This ain't no board, Jeff. Send one quality home.`;
+STEVE: Which one do you notice least?`;
 
 const SRT_BACHELOR_LIMO = `1
 00:00:00,000 --> 00:00:02,256

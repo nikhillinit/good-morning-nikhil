@@ -47,8 +47,9 @@ export function VoiceRecorder({
   onSubmit,
 }: VoiceRecorderProps) {
   const initialAudioUrl = getInitialAudioUrl(initialValue);
-  const [prefersType, setPrefersType] = useState(
-    isTextResponseValue(initialValue) || typeof initialValue === "string",
+  const hasAudioInitial = isAudioResponseValue(initialValue);
+  const [inputMode, setInputMode] = useState<"type" | "record">(
+    hasAudioInitial ? "record" : "type",
   );
   const [typedValue, setTypedValue] = useState(getInitialTextValue(initialValue));
   const [recordedUrl, setRecordedUrl] = useState<string | null>(initialAudioUrl);
@@ -234,6 +235,13 @@ export function VoiceRecorder({
     });
   };
 
+  const modeTabBase =
+    "flex-1 rounded-lg py-2.5 text-sm font-medium transition-colors text-center";
+  const modeTabActive =
+    "bg-yellow-500/15 text-yellow-400 border border-yellow-500/40";
+  const modeTabInactive =
+    "text-zinc-400 border border-transparent hover:text-zinc-200";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -241,35 +249,42 @@ export function VoiceRecorder({
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-xl space-y-4"
     >
-      <div className="rounded-2xl border border-[var(--input-border)] bg-black/25 p-5 text-center backdrop-blur-sm">
-        <div className="mb-4 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-          <span>{isRecording ? "Recording" : "Voice response"}</span>
-          <span>{timeRemaining}s left</span>
+      {/* Mode selector — type and record as co-equal options */}
+      {!isRecording && (
+        <div className="flex gap-2 rounded-xl bg-black/25 p-1 backdrop-blur-sm">
+          <button
+            onClick={() => { setError(null); setInputMode("type"); }}
+            className={`${modeTabBase} ${inputMode === "type" ? modeTabActive : modeTabInactive}`}
+            aria-pressed={inputMode === "type"}
+          >
+            Type
+          </button>
+          <button
+            onClick={() => { setError(null); setInputMode("record"); }}
+            className={`${modeTabBase} ${inputMode === "record" ? modeTabActive : modeTabInactive}`}
+            aria-pressed={inputMode === "record"}
+          >
+            Record
+          </button>
         </div>
+      )}
 
-        {prefersType ? (
+      <div className="rounded-2xl border border-[var(--input-border)] bg-black/25 p-5 text-center backdrop-blur-sm">
+        {inputMode === "type" ? (
           <div className="space-y-3">
             <textarea
               value={typedValue}
               onChange={(event) => setTypedValue(event.target.value)}
               rows={4}
-              placeholder="Prefer to type? Keep it short and honest."
+              placeholder="Keep it short and honest."
               className="w-full rounded-xl border border-[var(--input-border)] bg-black/40 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
             />
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <button
-                onClick={handleSubmitText}
-                className="w-full rounded-xl bg-yellow-500 px-4 py-3 font-semibold text-black transition-colors hover:bg-yellow-400"
-              >
-                Save typed response
-              </button>
-              <button
-                onClick={() => setPrefersType(false)}
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-zinc-300 transition-colors hover:bg-white/10"
-              >
-                Use voice instead
-              </button>
-            </div>
+            <button
+              onClick={handleSubmitText}
+              className="w-full rounded-xl bg-yellow-500 px-4 py-3 font-semibold text-black transition-colors hover:bg-yellow-400"
+            >
+              Lock it in
+            </button>
           </div>
         ) : recordedUrl ? (
           <div className="space-y-4">
@@ -296,6 +311,10 @@ export function VoiceRecorder({
           </div>
         ) : (
           <div className="space-y-4">
+            <div className="mb-2 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+              <span>{isRecording ? "Recording" : "Voice response"}</span>
+              <span>{timeRemaining}s</span>
+            </div>
             <motion.button
               whileHover={{ scale: isRecording ? 1 : 1.02 }}
               whileTap={{ scale: 0.97 }}
@@ -324,24 +343,12 @@ export function VoiceRecorder({
               <p className="text-sm text-zinc-400">
                 {isRecording
                   ? `${timeRemaining}s remaining. We will stop automatically.`
-                  : `${maxSeconds}s max. No keyboard unless you opt in.`}
+                  : `${maxSeconds}s max`}
               </p>
             </div>
           </div>
         )}
       </div>
-
-      {!prefersType && !isRecording && (
-        <button
-          onClick={() => {
-            setError(null);
-            setPrefersType(true);
-          }}
-          className="block w-full text-center text-sm text-zinc-400 transition-colors hover:text-zinc-200"
-        >
-          Prefer to type instead?
-        </button>
-      )}
 
       {error && <p className="text-center text-sm text-red-400">{error}</p>}
 

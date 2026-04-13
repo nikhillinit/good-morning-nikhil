@@ -109,6 +109,9 @@ describe("VoiceRecorder", () => {
       />,
     );
 
+    // Switch to Record tab (Type is the default co-equal mode)
+    fireEvent.click(screen.getByRole("button", { name: /record/i }));
+
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: /start recording/i }));
       await Promise.resolve();
@@ -143,6 +146,9 @@ describe("VoiceRecorder", () => {
         onSubmit={onSubmit}
       />,
     );
+
+    // Switch to Record tab first
+    fireEvent.click(screen.getByRole("button", { name: /record/i }));
 
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: /start recording/i }));
