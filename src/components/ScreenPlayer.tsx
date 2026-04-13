@@ -12,6 +12,20 @@ import { Captions } from "./Captions";
 import { ShowBadge } from "./ShowBadge";
 import { SkipButton } from "./SkipButton";
 import { UIInput } from "./ui-inputs";
+
+const getSpotlightGradient = (show: string, hasVideo: boolean) => {
+  const baseAlpha = hasVideo ? 0.6 : 0.4;
+  const edgeAlpha = hasVideo ? 0.8 : 0.7;
+  switch (show) {
+    case "Good Morning, Nikhil": return `radial-gradient(ellipse at top, rgba(234, 179, 8, 0.15), rgba(0,0,0,${baseAlpha}) 60%, rgba(0,0,0,${edgeAlpha}) 100%)`;
+    case "Family Feud": return `radial-gradient(circle at center, rgba(59, 130, 246, 0.15), rgba(0,0,0,${baseAlpha}) 60%, rgba(0,0,0,${edgeAlpha}) 100%)`;
+    case "The Bachelor": return `radial-gradient(ellipse at bottom, rgba(225, 29, 72, 0.2), rgba(0,0,0,${baseAlpha}) 60%, rgba(0,0,0,${edgeAlpha}) 100%)`;
+    case "Shark Tank": return `radial-gradient(ellipse at center, rgba(6, 182, 212, 0.15), rgba(0,0,0,${baseAlpha}) 60%, rgba(0,0,0,${edgeAlpha}) 100%)`;
+    case "Maury": return `radial-gradient(circle at center, rgba(168, 85, 247, 0.15), rgba(0,0,0,${baseAlpha}) 60%, rgba(0,0,0,${edgeAlpha}) 100%)`;
+    case "Survivor": return `radial-gradient(ellipse at top, rgba(217, 119, 6, 0.2), rgba(0,0,0,${baseAlpha + 0.1}) 60%, rgba(0,0,0,${edgeAlpha + 0.1}) 100%)`;
+    default: return `radial-gradient(circle at center, transparent, rgba(0,0,0,${baseAlpha}) 50%, rgba(0,0,0,${edgeAlpha}) 100%)`;
+  }
+};
 import { MuteToggle } from "./MuteToggle";
 import { QuestionPrompt } from "./QuestionPrompt";
 import { VideoBackground } from "./VideoBackground";
@@ -66,11 +80,12 @@ export function ScreenPlayer({
   }, [screen.id, screen.uiRevealAt, isPlaying]);
 
   useEffect(() => {
+    if (skipped) return;
     const timer = setTimeout(() => {
-      play(screen.audio);
+      if (!skipped) play(screen.audio);
     }, 300);
     return () => clearTimeout(timer);
-  }, [screen.id, screen.audio, play]);
+  }, [screen.id, screen.audio, play, skipped]);
 
   useEffect(() => {
     if (!nextScreenVideo) return;
@@ -119,14 +134,19 @@ export function ScreenPlayer({
       <PaperShimmer />
       {getAmbientLayer(screen.bg)}
 
-      {/* Dark overlay */}
-      <div className={`absolute inset-0 ${screen.video ? "bg-black/60" : "bg-black/50"}`} />
+      {/* Vignette / Spotlight layer */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none" 
+        style={{ background: getSpotlightGradient(screen.show, !!screen.video) }} 
+      />
+      {/* Bottom legibility gradient */}
+      <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
       <MuteToggle isMuted={isMuted} onToggle={toggleMute} />
 
       {/* Content layer */}
       <main className="screen-player-main relative z-10 flex w-full flex-col items-center px-4">
         <ShowBadge emoji={screen.showEmoji} name={screen.show} screenIndex={screenIndex} totalScreens={totalScreens} />
-        <SkipButton visible={isPlaying} onClick={handleSkip} />
+        <SkipButton visible={!showUI} onClick={handleSkip} />
 
         {/* Captions — shown during audio */}
         <Captions caption={currentCaption} visible={isPlaying && !showUI} />

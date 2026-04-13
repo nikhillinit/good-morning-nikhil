@@ -1,0 +1,7 @@
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_0\screen_0_line_01\neutral_variant_01.wav'
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_0\screen_0_line_02\neutral_variant_01.wav'
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_0\screen_0_line_03\neutral_variant_01.wav'
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_0\screen_0_line_04\neutral_variant_01.wav'
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_0\screen_0_line_05\neutral_variant_01.wav'
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_0\screen_0_line_06\neutral_variant_01.wav'
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_0\screen_0_line_07\neutral_variant_01.wav'

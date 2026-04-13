@@ -12,6 +12,7 @@
   --muted: #a1a1aa;
   --error: #f87171;
   --card: rgba(8, 8, 10, 0.82);
+  --screen-card: rgba(8, 8, 10, 0.45);
   --card-border: rgba(255, 255, 255, 0.12);
   --prompt: #f4f4f5;
   --input-border: rgba(255, 255, 255, 0.14);
@@ -98,14 +99,14 @@ body.keyboard-active .fixed.bottom-0 {
 }
 
 .caption-shell {
-  bottom: 6rem;
+  bottom: 2rem;
 }
 
 .screen-content-card {
   width: min(100%, 44rem);
   border: 1px solid var(--card-border);
   border-radius: 1.5rem;
-  background: var(--card);
+  background: var(--screen-card);
   padding: 1.25rem;
   backdrop-filter: blur(20px);
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);

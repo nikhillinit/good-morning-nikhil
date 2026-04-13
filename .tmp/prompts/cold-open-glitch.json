@@ -1,0 +1,8 @@
+{
+  "prompt": "CRT television screen showing static noise and interference pattern. Horizontal scan lines visible across the entire frame. Warm phosphor glow in amber and white. Retro TV turning on effect with noise grain and signal distortion. The static pattern is on aged parchment paper texture — as if the TV static itself was sketched on old paper. Abstract, no people, no characters, no faces, no text, no words, no letters. Pure television interference pattern.",
+  "negative_prompt": "people, characters, faces, text, words, letters, numbers, modern TV, flat screen, LCD, LED, clean digital, photorealistic",
+  "style": "CRT television static rendered as ink on aged parchment, retro analog television aesthetic, noise grain texture, scan line pattern",
+  "composition": "16:9 full frame, entire image is the TV static/interference pattern",
+  "lighting": "warm phosphor glow, amber and white highlights from CRT tube",
+  "color_palette": "warm cream parchment base with black ink static patterns, subtle amber phosphor glow tints"
+}

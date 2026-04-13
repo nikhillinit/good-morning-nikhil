@@ -1,0 +1,3 @@
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_1\screen_1_line_01\neutral_variant_01.wav'
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_1\screen_1_line_02\neutral_variant_01.wav'
+file 'C:\Users\nikhi\Downloads\Ope1-20260413T124726Z-3-001\Ope1\outputs\good_morning_nikhil_preview\screen_1\screen_1_line_03\neutral_variant_01.wav'

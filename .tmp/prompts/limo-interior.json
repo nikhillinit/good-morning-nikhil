@@ -1,0 +1,28 @@
+{
+  "characters": [
+    {
+      "gender": "male",
+      "age": "mid-40s",
+      "ethnicity": "African American",
+      "body_type": "stocky, broad-shouldered",
+      "facial_features": "bald head, thick mustache, irritated scowl, holding cue card",
+      "clothing": "light-colored suit with tie, seated on left side",
+      "role": "Steve — irritated game show host"
+    },
+    {
+      "gender": "male",
+      "age": "mid-60s",
+      "ethnicity": "Caucasian",
+      "body_type": "tall, lanky",
+      "facial_features": "swept-back gray hair, thick-rimmed glasses, sly grin, finger beside chin",
+      "clothing": "dark jacket, seated on right side",
+      "role": "Jeff — eccentric celebrity contestant"
+    }
+  ],
+  "prompt": "Inside a limousine backseat at night. Two men seated — on the left, a bald mustached man in a light suit looking irritated. On the right, a tall man with glasses in a dark jacket with finger beside chin. Background shows leather upholstery, car window with dark city exterior visible, intimate close framing. The setting evokes The Bachelor limo confessional — emotional, private, nighttime. Ink sketch on aged parchment paper, hand-drawn illustration style with visible line work and paper texture. No text, no words, no letters anywhere in the image.",
+  "negative_prompt": "text, words, letters, numbers, captions, subtitles, watermarks, signatures, blurry, deformed hands, photorealistic, 3D render, CGI, digital art look, clean vector style, podiums, standing",
+  "style": "Hand-drawn ink sketch on aged parchment paper, editorial illustration style, visible pen strokes, cross-hatching for shadows, warm paper tone background, intimate and moody",
+  "composition": "16:9 medium shot, two men seated in limo interior, car window visible, intimate framing",
+  "lighting": "dim interior car lighting, city lights through window, moody nighttime atmosphere",
+  "color_palette": "primarily black ink on warm cream/beige parchment, medium-dark ink weight matching Bachelor mansion scene"
+}

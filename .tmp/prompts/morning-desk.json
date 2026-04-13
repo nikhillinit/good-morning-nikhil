@@ -1,0 +1,28 @@
+{
+  "characters": [
+    {
+      "gender": "male",
+      "age": "mid-40s",
+      "ethnicity": "African American",
+      "body_type": "stocky, broad-shouldered",
+      "facial_features": "bald head, thick mustache, irritated scowl, holding cue card",
+      "clothing": "light-colored suit with tie, standing behind podium on left side",
+      "role": "Steve — irritated game show host"
+    },
+    {
+      "gender": "male",
+      "age": "mid-60s",
+      "ethnicity": "Caucasian",
+      "body_type": "tall, lanky",
+      "facial_features": "swept-back gray hair, thick-rimmed glasses, sly grin, finger beside chin",
+      "clothing": "dark jacket, standing behind podium on right side",
+      "role": "Jeff — eccentric celebrity contestant"
+    }
+  ],
+  "prompt": "A morning talk show news desk set with two men at podiums. On the left, a bald mustached man in a light suit looking irritated and holding a cue card. On the right, a tall man with glasses in a dark jacket with finger beside chin, smiling slyly. Background shows a news desk with coffee mug, studio monitors, warm morning light streaming in through windows. The set has a daytime talk show feel — bright, warm, inviting. Ink sketch on aged parchment paper, hand-drawn illustration style with visible line work and paper texture. No text, no words, no letters anywhere in the image.",
+  "negative_prompt": "text, words, letters, numbers, captions, subtitles, watermarks, signatures, blurry, deformed hands, photorealistic, 3D render, CGI, digital art look, clean vector style",
+  "style": "Hand-drawn ink sketch on aged parchment paper, editorial illustration style, visible pen strokes, cross-hatching for shadows, warm paper tone background, similar to courtroom sketch or storyboard art",
+  "composition": "16:9 wide shot, two men at podiums flanking center, morning show set visible in background, medium line weight",
+  "lighting": "warm morning studio lighting, soft and inviting, slightly warm tone from paper",
+  "color_palette": "primarily black ink on warm cream/beige parchment, minimal color — only subtle warm tones from the paper itself"
+}

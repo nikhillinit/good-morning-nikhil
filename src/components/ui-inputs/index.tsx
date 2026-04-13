@@ -4,8 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import type { UIType } from "@/data/screens";
 import { uiReveal } from "@/lib/animations";
-import { isVoiceFirstConfig } from "@/lib/voice-response";
-import { VoiceRecorder } from "./VoiceRecorder";
 
 interface UIInputProps {
   type: UIType;
@@ -17,10 +15,10 @@ interface UIInputProps {
 /* ── Shared styles ──────────────────────────────────────────────── */
 
 const primaryBtn =
-  "w-full min-h-[48px] rounded-lg bg-yellow-500 py-3 font-bold text-black hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed glow-accent";
+  "w-full rounded-lg bg-yellow-500 py-3 font-bold text-black hover:bg-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed glow-accent";
 
 const inputField =
-  "w-full min-h-[48px] rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none";
+  "w-full rounded-lg border border-zinc-700 bg-zinc-900/80 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none";
 
 const skipBtn =
   "mt-1 py-2 text-sm text-zinc-500 hover:text-zinc-300";
@@ -53,12 +51,12 @@ function ContinueButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
     <motion.div {...uiReveal} className="space-y-3 text-center">
       <p className="text-sm text-zinc-400">
         You&apos;ll flip through 7 quick TV-themed segments about Nikhil —
-        each one takes about 30 seconds. Tap or record whatever comes to
-        mind. There are no wrong answers.
+        each one takes about 30 seconds. Type whatever comes to mind.
+        There are no wrong answers.
       </p>
       <button
         onClick={() => onSubmit(true)}
-        className="min-h-[48px] rounded-lg bg-white/10 px-8 py-3 font-medium text-white hover:bg-white/20"
+        className="rounded-lg bg-white/10 px-8 py-3 font-medium text-white hover:bg-white/20"
       >
         Continue →
       </button>
@@ -426,6 +424,8 @@ function MadLib({
   );
 }
 
+import { VoiceRecorder } from "./VoiceRecorder";
+
 function LongTextWithAudio({
   config,
   initialValue,
@@ -435,45 +435,18 @@ function LongTextWithAudio({
   initialValue?: unknown;
   onSubmit: (v: unknown) => void;
 }) {
-  const [value, setValue] = useState(
-    typeof initialValue === "string" ? initialValue : "",
-  );
-  const [error, setError] = useState("");
-  const prompt = (config?.prompt as string) ?? "";
-
+  const prompt = (config?.prompt as string) ?? "Record your answer";
+  const maxSeconds = (config?.maxSeconds as number) ?? 15;
+  
   return (
-    <motion.div {...uiReveal} className="w-full max-w-md space-y-3">
-      <p className="text-base italic text-zinc-400">&ldquo;{prompt}&rdquo;</p>
-      <textarea
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Say what you've never said..."
-        rows={4}
-        className={inputField}
+    <div className="w-full max-w-md">
+      <VoiceRecorder
+        prompt={prompt}
+        maxSeconds={maxSeconds}
+        initialValue={initialValue}
+        onSubmit={onSubmit}
       />
-      <button
-        onClick={() => {
-          if (!value.trim()) {
-            setError("Say something honest");
-            return;
-          }
-          setError("");
-          onSubmit(value.trim());
-        }}
-        className={primaryBtn}
-      >
-        Lock it in
-      </button>
-      {error && (
-        <p className="text-center text-sm text-red-400">{error}</p>
-      )}
-      <button
-        onClick={() => onSubmit(null)}
-        className={skipBtn}
-      >
-        Skip this one →
-      </button>
-    </motion.div>
+    </div>
   );
 }
 
@@ -606,26 +579,6 @@ function SubmitButton({ onSubmit }: { onSubmit: (v: unknown) => void }) {
 }
 
 export function UIInput({ type, config, initialValue, onSubmit }: UIInputProps) {
-  const voiceFirstInputTypes = new Set<UIType>([
-    "three-text",
-    "text-area",
-    "short-text",
-    "mad-lib",
-    "long-text-with-audio",
-    "two-text",
-  ]);
-
-  if (voiceFirstInputTypes.has(type) && isVoiceFirstConfig(config)) {
-    return (
-      <VoiceRecorder
-        prompt={typeof config.prompt === "string" ? config.prompt : "Record your answer"}
-        maxSeconds={config.maxSeconds}
-        initialValue={initialValue}
-        onSubmit={onSubmit}
-      />
-    );
-  }
-
   const components: Record<UIType, React.ComponentType<{ config?: Record<string, unknown>; initialValue?: unknown; onSubmit: (v: unknown) => void }>> = {
     none: () => null,
     "start-button": ({ onSubmit: submit }) => <StartButton onSubmit={submit} />,

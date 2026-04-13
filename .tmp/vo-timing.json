@@ -1,0 +1,380 @@
+{
+  "cold-open": {
+    "lines": [
+      {
+        "name": "screen_0_line_01",
+        "start": 0,
+        "end": 11.807166,
+        "dur": 11.807166
+      },
+      {
+        "name": "screen_0_line_02",
+        "start": 11.807166,
+        "end": 21.352744,
+        "dur": 9.545578
+      },
+      {
+        "name": "screen_0_line_03",
+        "start": 21.352744,
+        "end": 27.247120000000002,
+        "dur": 5.894376
+      },
+      {
+        "name": "screen_0_line_04",
+        "start": 27.247120000000002,
+        "end": 31.603764,
+        "dur": 4.356644
+      },
+      {
+        "name": "screen_0_line_05",
+        "start": 31.603764,
+        "end": 45.248662,
+        "dur": 13.644898
+      },
+      {
+        "name": "screen_0_line_06",
+        "start": 45.248662,
+        "end": 48.014376000000006,
+        "dur": 2.765714
+      },
+      {
+        "name": "screen_0_line_07",
+        "start": 48.014376000000006,
+        "end": 49.378866,
+        "dur": 1.36449
+      }
+    ],
+    "total": 49.378866,
+    "uiRevealAt": 48
+  },
+  "welcome": {
+    "lines": [
+      {
+        "name": "screen_1_line_01",
+        "start": 0,
+        "end": 7.258866,
+        "dur": 7.258866
+      },
+      {
+        "name": "screen_1_line_02",
+        "start": 7.258866,
+        "end": 12.410975,
+        "dur": 5.152109
+      },
+      {
+        "name": "screen_1_line_03",
+        "start": 12.410975,
+        "end": 14.666712,
+        "dur": 2.255737
+      }
+    ],
+    "total": 14.666712,
+    "uiRevealAt": 12.4
+  },
+  "relationship": {
+    "lines": [
+      {
+        "name": "screen_2_line_01",
+        "start": 0,
+        "end": 3.620227,
+        "dur": 3.620227
+      },
+      {
+        "name": "screen_2_line_02",
+        "start": 3.620227,
+        "end": 5.590476,
+        "dur": 1.970249
+      }
+    ],
+    "total": 5.590476,
+    "uiRevealAt": 3.6
+  },
+  "feud-top3": {
+    "lines": [
+      {
+        "name": "screen_3_3a_line_01",
+        "start": 0,
+        "end": 7.258866,
+        "dur": 7.258866
+      }
+    ],
+    "total": 7.258866,
+    "uiRevealAt": 0
+  },
+  "feud-strongest": {
+    "lines": [
+      {
+        "name": "screen_3b_line_01",
+        "start": 0,
+        "end": 1.193197,
+        "dur": 1.193197
+      },
+      {
+        "name": "screen_3b_line_02",
+        "start": 1.193197,
+        "end": 5.286666,
+        "dur": 4.093469
+      }
+    ],
+    "total": 5.286666,
+    "uiRevealAt": 1.2
+  },
+  "feud-trademark": {
+    "lines": [
+      {
+        "name": "screen_3c_line_01",
+        "start": 0,
+        "end": 5.152109,
+        "dur": 5.152109
+      },
+      {
+        "name": "screen_3c_line_02",
+        "start": 5.152109,
+        "end": 8.317506,
+        "dur": 3.165397
+      }
+    ],
+    "total": 8.317506,
+    "uiRevealAt": 5.2
+  },
+  "sponsor-brand": {
+    "lines": [
+      {
+        "name": "screen_4_4a_line_01",
+        "start": 0,
+        "end": 4.093469,
+        "dur": 4.093469
+      },
+      {
+        "name": "screen_4_4a_line_02",
+        "start": 4.093469,
+        "end": 10.059455,
+        "dur": 5.965986
+      }
+    ],
+    "total": 10.059455,
+    "uiRevealAt": 4.1
+  },
+  "sponsor-why": {
+    "lines": [
+      {
+        "name": "screen_4b_line_01",
+        "start": 0,
+        "end": 0.891247,
+        "dur": 0.891247
+      },
+      {
+        "name": "screen_4b_line_02",
+        "start": 0.891247,
+        "end": 3.656961,
+        "dur": 2.765714
+      }
+    ],
+    "total": 3.656961,
+    "uiRevealAt": 0.9
+  },
+  "bachelor-roses": {
+    "lines": [
+      {
+        "name": "screen_5_5a_line_01",
+        "start": 0,
+        "end": 11.352336,
+        "dur": 11.352336
+      }
+    ],
+    "total": 11.352336,
+    "uiRevealAt": 0
+  },
+  "bachelor-eliminate": {
+    "lines": [
+      {
+        "name": "screen_5b_line_01",
+        "start": 0,
+        "end": 2.386395,
+        "dur": 2.386395
+      },
+      {
+        "name": "screen_5b_line_02",
+        "start": 2.386395,
+        "end": 6.479863999999999,
+        "dur": 4.093469
+      }
+    ],
+    "total": 6.479863999999999,
+    "uiRevealAt": 2.4
+  },
+  "bachelor-limo": {
+    "lines": [
+      {
+        "name": "screen_5c_line_01",
+        "start": 0,
+        "end": 2.255737,
+        "dur": 2.255737
+      },
+      {
+        "name": "screen_5c_line_02",
+        "start": 2.255737,
+        "end": 8.221723,
+        "dur": 5.965986
+      },
+      {
+        "name": "screen_5c_line_03",
+        "start": 8.221723,
+        "end": 9.586213,
+        "dur": 1.36449
+      }
+    ],
+    "total": 9.586213,
+    "uiRevealAt": 8.2
+  },
+  "shark-invest": {
+    "lines": [
+      {
+        "name": "screen_6_6a_line_01",
+        "start": 0,
+        "end": 7.713696,
+        "dur": 7.713696
+      },
+      {
+        "name": "screen_6_6a_line_02",
+        "start": 7.713696,
+        "end": 16.445397,
+        "dur": 8.731701
+      },
+      {
+        "name": "screen_6_6a_line_03",
+        "start": 16.445397,
+        "end": 19.174377,
+        "dur": 2.72898
+      }
+    ],
+    "total": 19.174377,
+    "uiRevealAt": 16.4
+  },
+  "shark-reason": {
+    "lines": [
+      {
+        "name": "screen_6b_6c_line_01",
+        "start": 0,
+        "end": 1.36449,
+        "dur": 1.36449
+      }
+    ],
+    "total": 1.36449,
+    "uiRevealAt": 0
+  },
+  "survivor": {
+    "lines": [
+      {
+        "name": "screen_7_line_01",
+        "start": 0,
+        "end": 4.093469,
+        "dur": 4.093469
+      },
+      {
+        "name": "screen_7_line_02",
+        "start": 4.093469,
+        "end": 7.673061,
+        "dur": 3.579592
+      },
+      {
+        "name": "screen_7_line_03",
+        "start": 7.673061,
+        "end": 11.76653,
+        "dur": 4.093469
+      }
+    ],
+    "total": 11.76653,
+    "uiRevealAt": 7.7
+  },
+  "maury": {
+    "lines": [
+      {
+        "name": "screen_8_8a_8b_line_01",
+        "start": 0,
+        "end": 3.958912,
+        "dur": 3.958912
+      },
+      {
+        "name": "screen_8_8a_8b_line_02",
+        "start": 3.958912,
+        "end": 6.687892,
+        "dur": 2.72898
+      },
+      {
+        "name": "screen_8_8a_8b_line_03",
+        "start": 6.687892,
+        "end": 12.237732999999999,
+        "dur": 5.549841
+      },
+      {
+        "name": "screen_8_8a_8b_line_04",
+        "start": 12.237732999999999,
+        "end": 18.586938999999997,
+        "dur": 6.349206
+      }
+    ],
+    "total": 18.586938999999997,
+    "uiRevealAt": 12.2
+  },
+  "producer-notes": {
+    "lines": [
+      {
+        "name": "screen_9_line_01",
+        "start": 0,
+        "end": 2.72898,
+        "dur": 2.72898
+      },
+      {
+        "name": "screen_9_line_02",
+        "start": 2.72898,
+        "end": 3.506032,
+        "dur": 0.777052
+      },
+      {
+        "name": "screen_9_line_03",
+        "start": 3.506032,
+        "end": 5.306939,
+        "dur": 1.800907
+      }
+    ],
+    "total": 5.306939,
+    "uiRevealAt": 3.5
+  },
+  "credits": {
+    "lines": [
+      {
+        "name": "screen_10_line_01",
+        "start": 0,
+        "end": 1.36449,
+        "dur": 1.36449
+      },
+      {
+        "name": "screen_10_line_02",
+        "start": 1.36449,
+        "end": 2.557687,
+        "dur": 1.193197
+      },
+      {
+        "name": "screen_10_line_03",
+        "start": 2.557687,
+        "end": 2.994104,
+        "dur": 0.436417
+      },
+      {
+        "name": "screen_10_line_04",
+        "start": 2.994104,
+        "end": 4.566621,
+        "dur": 1.572517
+      },
+      {
+        "name": "screen_10_line_05",
+        "start": 4.566621,
+        "end": 5.4578679999999995,
+        "dur": 0.891247
+      }
+    ],
+    "total": 5.4578679999999995,
+    "uiRevealAt": 4.6
+  }
+}
