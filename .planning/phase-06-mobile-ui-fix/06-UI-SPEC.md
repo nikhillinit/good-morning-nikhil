@@ -1,7 +1,7 @@
 ---
 phase: 6
 slug: mobile-ui-fix
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-04-12
@@ -56,7 +56,7 @@ Exceptions:
 | Role | Size | Weight | Line Height | Tailwind class | Notes |
 |------|------|--------|-------------|----------------|-------|
 | Body | 16px | 400 | 1.5 | `text-base` | Default prose, used in `ContinueButton` description |
-| Label | 14px | 500 | 1.4 | `text-sm font-medium` | Input labels (`TwoText`), chip label instructions, checkbox label |
+| Label | 14px | 400 | 1.4 | `text-sm` | Input labels (`TwoText`), chip label instructions, checkbox label — differentiated from body by size (14px vs 16px) and color |
 | Question Prompt | 16px | 400 | 1.5 | `text-base italic` | `QuestionPrompt` — UPGRADE from current `text-sm text-zinc-400` |
 | Heading / Display | 24px+ | 700 | 1.2 | `font-display text-2xl` | Show titles, `StartButton`, `SubmitButton` |
 
@@ -222,6 +222,7 @@ Based on audit timestamp log:
 | Inline error: long-text-audio | "Say something honest" | Existing — keep. |
 | MultiSelect instruction | "(pick N)" | Existing label pattern — keep. |
 | InvestOrPass label | "Would you invest in Nikhil?" | Existing — upgrade visibility only (font size + color). |
+| RelationshipPicker CTA | "Continue" | Existing — intentional for onboarding-style picker; no noun needed since context is self-evident from the selection above. |
 | Checkbox label | "Stay anonymous — Nikhil won't see who submitted" | Existing — keep. |
 | Empty state | Not applicable — survey always has screens loaded from `screens.ts`. No empty state UI. | — |
 | Destructive actions | None in this phase — no delete/reset flows exposed to respondents. | — |
@@ -318,11 +319,11 @@ Ordered by audit severity. Executor follows this order:
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved 2026-04-12
