@@ -1,0 +1,4 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\character_b_refpacks\staccato\jeff_prepared_seg_002.wav,staccato,jeff_prepared_seg_002,3.1105,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_refpacks\staccato\jeff_prepared_seg_005.wav,staccato,jeff_prepared_seg_005,6.9847,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_refpacks\staccato\jeff_prepared_seg_020.wav,staccato,jeff_prepared_seg_020,6.9121,,unknown,neutral,,True

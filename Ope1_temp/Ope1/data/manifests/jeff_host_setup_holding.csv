@@ -1,0 +1,2 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,delivery_tags,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\jeff_host_setup_holding\Jeff Familyfeudhost.wav,jeff_host_setup_holding,Jeff Familyfeudhost,7.3,,unknown,host_setup,"host_setup,confidence_high,evidence_user_direct_listen,holding_only","You're watching Family Feud, I'm your new host, Jeff Goldblum.",True

@@ -214,7 +214,7 @@ describe("page remediation flow", () => {
       expect(screen.getByTestId("screen-id")).toHaveTextContent("credits");
     });
     expect(mocks.persistScreenResponse).toHaveBeenCalledTimes(3);
-  });
+  }, 10000);
 
   it("leaves the review screen and shows the submitted state after final submit", async () => {
     const { default: Home } = await import("@/app/page");

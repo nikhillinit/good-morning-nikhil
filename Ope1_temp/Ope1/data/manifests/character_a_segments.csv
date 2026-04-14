@@ -1,0 +1,14 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve2_seg_001.wav,character_a_segments,Steve2_seg_001,6.5155,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve2_seg_002.wav,character_a_segments,Steve2_seg_002,4.2309,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve2_seg_003.wav,character_a_segments,Steve2_seg_003,2.6645,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve2_seg_004.wav,character_a_segments,Steve2_seg_004,8.0722,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve2_seg_005.wav,character_a_segments,Steve2_seg_005,9.2994,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve2_seg_006.wav,character_a_segments,Steve2_seg_006,4.3307,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve2_seg_007.wav,character_a_segments,Steve2_seg_007,7.7396,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve3_seg_001.wav,character_a_segments,Steve3_seg_001,5.378,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve3_seg_002.wav,character_a_segments,Steve3_seg_002,7.274,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve_seg_001.wav,character_a_segments,Steve_seg_001,7.3738,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve_seg_002.wav,character_a_segments,Steve_seg_002,10.0,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve_seg_003.wav,character_a_segments,Steve_seg_003,9.8554,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_segments\Steve_seg_004.wav,character_a_segments,Steve_seg_004,8.0789,,unknown,neutral,,True

@@ -1,0 +1,133 @@
+{
+  "policy_id": "character_b_routed_policy_v2_worker_candidate",
+  "source_policy_id": "character_b_routed_policy_v2_control",
+  "character": "character_b",
+  "provisional": false,
+  "target_profile": "C:\\dev\\aro-voice-style-lab\\profiles\\character_b_segments_profile.json",
+  "xtts_preset": {
+    "name": "looser_pause_bias",
+    "xtts_split_sentences": "false",
+    "xtts_enable_text_splitting": "false",
+    "xtts_speed": 0.95,
+    "xtts_temperature": 0.85,
+    "xtts_length_penalty": 1.1,
+    "xtts_repetition_penalty": 7.5,
+    "xtts_top_k": 70,
+    "xtts_top_p": 0.92
+  },
+  "refpacks": {
+    "pause_heavy": {
+      "reference_dir": "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\pause_heavy",
+      "files": [
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\pause_heavy\\jeff_prepared_seg_016.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\pause_heavy\\jeff_prepared_seg_017.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\pause_heavy\\jeff_prepared_seg_019.wav"
+      ],
+      "profile_path": "C:\\dev\\aro-voice-style-lab\\data\\profiles\\character_b_pause_heavy_profile.json"
+    },
+    "rambling": {
+      "reference_dir": "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\rambling",
+      "files": [
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\rambling\\jeff_prepared_seg_004.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\rambling\\jeff_prepared_seg_006.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\rambling\\jeff_prepared_seg_008.wav"
+      ],
+      "profile_path": "C:\\dev\\aro-voice-style-lab\\data\\profiles\\character_b_rambling_profile.json"
+    },
+    "staccato": {
+      "reference_dir": "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\staccato",
+      "files": [
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\staccato\\jeff_prepared_seg_002.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\staccato\\jeff_prepared_seg_005.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\staccato\\jeff_prepared_seg_020.wav"
+      ],
+      "profile_path": "C:\\dev\\aro-voice-style-lab\\data\\profiles\\character_b_staccato_profile.json"
+    },
+    "restart_disfluent": {
+      "reference_dir": "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\restart_disfluent",
+      "files": [
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\restart_disfluent\\jeff_prepared_seg_002.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\restart_disfluent\\jeff_prepared_seg_016.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\restart_disfluent\\jeff_prepared_seg_018.wav"
+      ],
+      "profile_path": "C:\\dev\\aro-voice-style-lab\\data\\profiles\\character_b_restart_disfluent_profile.json"
+    },
+    "clipped_low_latency": {
+      "reference_dir": "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\clipped_low_latency",
+      "files": [
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\clipped_low_latency\\jeff_prepared_seg_002.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\clipped_low_latency\\jeff_prepared_seg_014.wav",
+        "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_control_refpacks\\clipped_low_latency\\jeff_prepared_seg_018.wav"
+      ],
+      "profile_path": "C:\\dev\\aro-voice-style-lab\\data\\profiles\\character_b_clipped_low_latency_profile.json"
+    }
+  },
+  "prompt_variants": {
+    "reaction_short": {
+      "base": "Use the prompt as-is.",
+      "hesitant_v1": "Preserve semantics but replace the initial hard stop with a more hesitant ellipsis."
+    },
+    "clipped_question": {
+      "base": "Use the prompt as-is.",
+      "hesitant_v1": "Preserve semantics but lengthen the onset with a clipped hesitation."
+    },
+    "interruption_restart": {
+      "base": "Use the prompt as-is.",
+      "restart_v1": "Preserve semantics while adding a restart pattern and a stronger interruption mark."
+    },
+    "calm_low_energy": {
+      "base": "Use the prompt as-is.",
+      "calm_v1": "Preserve semantics while inserting a slower, softer clause break."
+    }
+  },
+  "bucket_policies": {
+    "reaction_short": {
+      "ref_pack": "clipped_low_latency",
+      "prompt_variant": "base"
+    },
+    "neutral_declarative": {
+      "ref_pack": "staccato",
+      "prompt_variant": "base"
+    },
+    "question_rising": {
+      "ref_pack": "staccato",
+      "prompt_variant": "base"
+    },
+    "punchline_pause": {
+      "ref_pack": "staccato",
+      "prompt_variant": "base"
+    },
+    "wandering_sentence": {
+      "ref_pack": "staccato",
+      "prompt_variant": "base"
+    },
+    "interruption_restart": {
+      "ref_pack": "staccato",
+      "prompt_variant": "base"
+    },
+    "emphasis_heavy": {
+      "ref_pack": "rambling",
+      "prompt_variant": "base"
+    },
+    "calm_low_energy": {
+      "ref_pack": "rambling",
+      "prompt_variant": "base"
+    },
+    "host_intro": {
+      "ref_pack": "pause_heavy",
+      "prompt_variant": "base"
+    },
+    "counting_list": {
+      "ref_pack": "rambling",
+      "prompt_variant": "base"
+    },
+    "clause_heavy": {
+      "ref_pack": "rambling",
+      "prompt_variant": "base"
+    },
+    "clipped_question": {
+      "ref_pack": "clipped_low_latency",
+      "prompt_variant": "hesitant_v1"
+    }
+  }
+}

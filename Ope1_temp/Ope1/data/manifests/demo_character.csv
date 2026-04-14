@@ -1,0 +1,4 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,transcript,keep_flag
+data\raw\demo_character\neutral_01.wav,demo_character,neutral_01,1.5,0.95,synthetic,neutral,Measured pauses matter more than polished generic speech.,True
+data\raw\demo_character\neutral_02.wav,demo_character,neutral_02,1.5,0.95,synthetic,neutral,This synthetic corpus gives the pipeline a target profile to learn.,True
+data\raw\demo_character\amped_01.wav,demo_character,amped_01,1.5,0.95,synthetic,amped,Punchier lines show bigger peaks and shorter pauses.,True

@@ -1,0 +1,33 @@
+{
+    "generated_at":  "2026-04-11T18:19:15.6117558-07:00",
+    "preset":  "looser_pause_bias",
+    "packs":  [
+                  {
+                      "name":  "pause_heavy",
+                      "reference_dir":  "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_refpacks\\pause_heavy",
+                      "files":  [
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_016.wav",
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_017.wav",
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_019.wav"
+                                ]
+                  },
+                  {
+                      "name":  "staccato",
+                      "reference_dir":  "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_refpacks\\staccato",
+                      "files":  [
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_002.wav",
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_005.wav",
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_020.wav"
+                                ]
+                  },
+                  {
+                      "name":  "rambling",
+                      "reference_dir":  "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_refpacks\\rambling",
+                      "files":  [
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_004.wav",
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_006.wav",
+                                    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_008.wav"
+                                ]
+                  }
+              ]
+}

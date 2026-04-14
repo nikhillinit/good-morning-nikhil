@@ -1,0 +1,288 @@
+{
+  "generated_at": "2026-04-12T04:39:42Z",
+  "policy_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\character_b_routed_policy_v2_control.json",
+  "policy_id": "character_b_routed_policy_v2_control",
+  "source_policy_id": "character_b_refpack_ablation_routed_control",
+  "suite_id": "character_b_benchmark_v1",
+  "backend_name": "xtts-worker",
+  "backend_options": {
+    "language_code": null,
+    "xtts_device": "cpu",
+    "xtts_worker_url": "http://127.0.0.1:8050"
+  },
+  "xtts_preset": {
+    "name": "looser_pause_bias",
+    "xtts_split_sentences": "false",
+    "xtts_enable_text_splitting": "false",
+    "xtts_speed": 0.95,
+    "xtts_temperature": 0.85,
+    "xtts_length_penalty": 1.1,
+    "xtts_repetition_penalty": 7.5,
+    "xtts_top_k": 70,
+    "xtts_top_p": 0.92
+  },
+  "mean_overall_style_score": 0.472,
+  "mean_rhythm_similarity": 0.1346,
+  "lineage": {
+    "policy_hash": "816f009e15f34fe81ce44646914513f98bc49555872e644ef65138a853cf8238",
+    "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+    "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+    "benchmark_suite_hash": "6e1a7959c9a8076ed1ede386c295372d45ed85f1d3a9bd5bb15031a4e61dd908",
+    "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+    "rendered_prompt_hash": "7d995118e2b131078ab95afda57aa49712c07aa7f4cfd9ba31af55a5a6caf4b6"
+  },
+  "results": [
+    {
+      "prompt_id": "bmk_reaction_short",
+      "bucket": "reaction_short",
+      "text": "Well. That's unexpected.",
+      "rendered_text": "Well. That's unexpected.",
+      "prompt_variant": "base",
+      "ref_pack": "rambling",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_reaction_short\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_reaction_short_report.json",
+      "generation_seconds": 9.387,
+      "pitch_similarity": 0.5658,
+      "rhythm_similarity": 0.1682,
+      "texture_similarity": 0.6136,
+      "spectral_similarity": 0.2487,
+      "overall_style_score": 0.3728,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_neutral_declarative",
+      "bucket": "neutral_declarative",
+      "text": "The meeting starts in ten minutes, and everyone is already waiting.",
+      "rendered_text": "The meeting starts in ten minutes, and everyone is already waiting.",
+      "prompt_variant": "base",
+      "ref_pack": "staccato",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_neutral_declarative\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_neutral_declarative_report.json",
+      "generation_seconds": 13.172,
+      "pitch_similarity": 0.6377,
+      "rhythm_similarity": 0.1885,
+      "texture_similarity": 0.8351,
+      "spectral_similarity": 0.4665,
+      "overall_style_score": 0.4857,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_question_rising",
+      "bucket": "question_rising",
+      "text": "Do you really think that's the best idea?",
+      "rendered_text": "Do you really think that's the best idea?",
+      "prompt_variant": "base",
+      "ref_pack": "staccato",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_question_rising\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_question_rising_report.json",
+      "generation_seconds": 9.786,
+      "pitch_similarity": 0.6369,
+      "rhythm_similarity": 0.1143,
+      "texture_similarity": 0.8228,
+      "spectral_similarity": 0.6601,
+      "overall_style_score": 0.4958,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "pitch swings too narrow",
+        "spectral color is off target"
+      ]
+    },
+    {
+      "prompt_id": "bmk_punchline_pause",
+      "bucket": "punchline_pause",
+      "text": "I had a plan... right up until the elevator opened.",
+      "rendered_text": "I had a plan... right up until the elevator opened.",
+      "prompt_variant": "base",
+      "ref_pack": "staccato",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_punchline_pause\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_punchline_pause_report.json",
+      "generation_seconds": 14.1,
+      "pitch_similarity": 0.7984,
+      "rhythm_similarity": 0.2246,
+      "texture_similarity": 0.7645,
+      "spectral_similarity": 0.4474,
+      "overall_style_score": 0.5206,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_wandering_sentence",
+      "bucket": "wandering_sentence",
+      "text": "I was going to explain the whole thing, but then I remembered the machine was still running, and honestly that changed the mood.",
+      "rendered_text": "I was going to explain the whole thing, but then I remembered the machine was still running, and honestly that changed the mood.",
+      "prompt_variant": "base",
+      "ref_pack": "staccato",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_wandering_sentence\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_wandering_sentence_report.json",
+      "generation_seconds": 28.785,
+      "pitch_similarity": 0.7625,
+      "rhythm_similarity": 0.1305,
+      "texture_similarity": 0.6243,
+      "spectral_similarity": 0.4663,
+      "overall_style_score": 0.4544,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_interruption_restart",
+      "bucket": "interruption_restart",
+      "text": "No, wait, that's not exactly what I meant.",
+      "rendered_text": "No, wait, that's not exactly what I meant.",
+      "prompt_variant": "base",
+      "ref_pack": "staccato",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_interruption_restart\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_interruption_restart_report.json",
+      "generation_seconds": 11.55,
+      "pitch_similarity": 0.7238,
+      "rhythm_similarity": 0.1327,
+      "texture_similarity": 0.8082,
+      "spectral_similarity": 0.6384,
+      "overall_style_score": 0.5167,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_emphasis_heavy",
+      "bucket": "emphasis_heavy",
+      "text": "You have got to be kidding me.",
+      "rendered_text": "You have got to be kidding me.",
+      "prompt_variant": "base",
+      "ref_pack": "rambling",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_emphasis_heavy\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_emphasis_heavy_report.json",
+      "generation_seconds": 8.184,
+      "pitch_similarity": 0.7732,
+      "rhythm_similarity": 0.1337,
+      "texture_similarity": 0.7841,
+      "spectral_similarity": 0.4129,
+      "overall_style_score": 0.4795,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_calm_low_energy",
+      "bucket": "calm_low_energy",
+      "text": "It's fine. We can deal with it tomorrow.",
+      "rendered_text": "It's fine. We can deal with it tomorrow.",
+      "prompt_variant": "base",
+      "ref_pack": "pause_heavy",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_calm_low_energy\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_calm_low_energy_report.json",
+      "generation_seconds": 10.901,
+      "pitch_similarity": 0.6727,
+      "rhythm_similarity": 0.0511,
+      "texture_similarity": 0.6402,
+      "spectral_similarity": 0.6001,
+      "overall_style_score": 0.4341,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_host_intro",
+      "bucket": "host_intro",
+      "text": "Good evening, and welcome back to the strangest little contest in town.",
+      "rendered_text": "Good evening, and welcome back to the strangest little contest in town.",
+      "prompt_variant": "base",
+      "ref_pack": "pause_heavy",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_host_intro\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_host_intro_report.json",
+      "generation_seconds": 20.202,
+      "pitch_similarity": 0.8312,
+      "rhythm_similarity": 0.2034,
+      "texture_similarity": 0.6978,
+      "spectral_similarity": 0.5107,
+      "overall_style_score": 0.5207,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_counting_list",
+      "bucket": "counting_list",
+      "text": "One, two, three, that's already too many problems.",
+      "rendered_text": "One, two, three, that's already too many problems.",
+      "prompt_variant": "base",
+      "ref_pack": "rambling",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_counting_list\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_counting_list_report.json",
+      "generation_seconds": 14.758,
+      "pitch_similarity": 0.843,
+      "rhythm_similarity": 0.0345,
+      "texture_similarity": 0.7926,
+      "spectral_similarity": 0.3549,
+      "overall_style_score": 0.4523,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_clause_heavy",
+      "bucket": "clause_heavy",
+      "text": "If you keep staring at it long enough, the whole thing begins to feel less like a mistake and more like a decision.",
+      "rendered_text": "If you keep staring at it long enough, the whole thing begins to feel less like a mistake and more like a decision.",
+      "prompt_variant": "base",
+      "ref_pack": "rambling",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_clause_heavy\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_clause_heavy_report.json",
+      "generation_seconds": 20.727,
+      "pitch_similarity": 0.8233,
+      "rhythm_similarity": 0.2334,
+      "texture_similarity": 0.6929,
+      "spectral_similarity": 0.4133,
+      "overall_style_score": 0.5087,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "prompt_id": "bmk_clipped_question",
+      "bucket": "clipped_question",
+      "text": "And now what?",
+      "rendered_text": "And now what?",
+      "prompt_variant": "base",
+      "ref_pack": "pause_heavy",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_clipped_question\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\bmk_clipped_question_report.json",
+      "generation_seconds": 6.446,
+      "pitch_similarity": 0.8253,
+      "rhythm_similarity": 0.0,
+      "texture_similarity": 0.8152,
+      "spectral_similarity": 0.2691,
+      "overall_style_score": 0.4232,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "pitch swings too narrow"
+      ]
+    }
+  ]
+}

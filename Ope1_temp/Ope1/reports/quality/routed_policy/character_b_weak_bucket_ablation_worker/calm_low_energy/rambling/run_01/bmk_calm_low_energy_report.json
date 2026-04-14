@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\rambling\\run_01\\bmk_calm_low_energy\\neutral_variant_01.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.7535,
+    "rhythm_similarity": 0.1829,
+    "texture_similarity": 0.8197,
+    "spectral_similarity": 0.505,
+    "overall_style_score": 0.5173,
+    "top_mismatches": [
+      "pause timing needs more variance",
+      "spectral color is off target",
+      "pitch swings too narrow"
+    ]
+  }
+}

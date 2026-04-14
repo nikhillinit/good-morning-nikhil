@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_worker_candidate\\bmk_punchline_pause\\neutral_variant_01.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.8764,
+    "rhythm_similarity": 0.145,
+    "texture_similarity": 0.6581,
+    "spectral_similarity": 0.5277,
+    "overall_style_score": 0.507,
+    "top_mismatches": [
+      "pause timing needs more variance",
+      "spectral color is off target",
+      "texture stability differs from target"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_search\\slower_looser\\bmk_question_rising\\neutral_variant_01.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.6432,
+    "rhythm_similarity": 0.1116,
+    "texture_similarity": 0.6162,
+    "spectral_similarity": 0.6411,
+    "overall_style_score": 0.4513,
+    "top_mismatches": [
+      "pause timing needs more variance",
+      "spectral color is off target",
+      "pitch swings too narrow"
+    ]
+  }
+}

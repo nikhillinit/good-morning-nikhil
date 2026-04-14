@@ -1,0 +1,144 @@
+{
+    "generated_at":  "2026-04-12T04:40:39Z",
+    "canonical_summary_path":  "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\routed_policy_summary.json",
+    "control_summary_path":  "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\summary.json",
+    "local_control_status":  "failed_runtime_no_artifacts",
+    "local_control_note":  "xtts-local control benchmark exited non-zero and produced no summary artifacts after model download; worker path used for reproduction check.",
+    "control_fast_fail":  {
+                              "tolerance_mean_overall_delta":  0.02,
+                              "tolerance_mean_rhythm_delta":  0.02,
+                              "canonical_mean_overall_style_score":  0.5188,
+                              "control_mean_overall_style_score":  0.472,
+                              "mean_overall_delta":  -0.0468,
+                              "canonical_mean_rhythm_similarity":  0.2465,
+                              "control_mean_rhythm_similarity":  0.1346,
+                              "mean_rhythm_delta":  -0.1119,
+                              "passed":  false
+                          },
+    "bucket_deltas":  {
+                          "calm_low_energy":  {
+                                                  "canonical_pack":  "pause_heavy",
+                                                  "control_pack":  "pause_heavy",
+                                                  "canonical_overall_style_score":  0.4841,
+                                                  "control_overall_style_score":  0.4341,
+                                                  "overall_delta":  -0.05,
+                                                  "canonical_rhythm_similarity":  0.2335,
+                                                  "control_rhythm_similarity":  0.0511,
+                                                  "rhythm_delta":  -0.1824
+                                              },
+                          "host_intro":  {
+                                             "canonical_pack":  "pause_heavy",
+                                             "control_pack":  "pause_heavy",
+                                             "canonical_overall_style_score":  0.6477,
+                                             "control_overall_style_score":  0.5207,
+                                             "overall_delta":  -0.127,
+                                             "canonical_rhythm_similarity":  0.4404,
+                                             "control_rhythm_similarity":  0.2034,
+                                             "rhythm_delta":  -0.237
+                                         },
+                          "punchline_pause":  {
+                                                  "canonical_pack":  "staccato",
+                                                  "control_pack":  "staccato",
+                                                  "canonical_overall_style_score":  0.5269,
+                                                  "control_overall_style_score":  0.5206,
+                                                  "overall_delta":  -0.0063,
+                                                  "canonical_rhythm_similarity":  0.1987,
+                                                  "control_rhythm_similarity":  0.2246,
+                                                  "rhythm_delta":  0.0259
+                                              },
+                          "emphasis_heavy":  {
+                                                 "canonical_pack":  "rambling",
+                                                 "control_pack":  "rambling",
+                                                 "canonical_overall_style_score":  0.4772,
+                                                 "control_overall_style_score":  0.4795,
+                                                 "overall_delta":  0.0023,
+                                                 "canonical_rhythm_similarity":  0.2261,
+                                                 "control_rhythm_similarity":  0.1337,
+                                                 "rhythm_delta":  -0.0924
+                                             },
+                          "interruption_restart":  {
+                                                       "canonical_pack":  "staccato",
+                                                       "control_pack":  "staccato",
+                                                       "canonical_overall_style_score":  0.476,
+                                                       "control_overall_style_score":  0.5167,
+                                                       "overall_delta":  0.0407,
+                                                       "canonical_rhythm_similarity":  0.0271,
+                                                       "control_rhythm_similarity":  0.1327,
+                                                       "rhythm_delta":  0.1056
+                                                   },
+                          "wandering_sentence":  {
+                                                     "canonical_pack":  "staccato",
+                                                     "control_pack":  "staccato",
+                                                     "canonical_overall_style_score":  0.5274,
+                                                     "control_overall_style_score":  0.4544,
+                                                     "overall_delta":  -0.073,
+                                                     "canonical_rhythm_similarity":  0.2462,
+                                                     "control_rhythm_similarity":  0.1305,
+                                                     "rhythm_delta":  -0.1157
+                                                 },
+                          "clipped_question":  {
+                                                   "canonical_pack":  "pause_heavy",
+                                                   "control_pack":  "pause_heavy",
+                                                   "canonical_overall_style_score":  0.3912,
+                                                   "control_overall_style_score":  0.4232,
+                                                   "overall_delta":  0.032,
+                                                   "canonical_rhythm_similarity":  0.2375,
+                                                   "control_rhythm_similarity":  0,
+                                                   "rhythm_delta":  -0.2375
+                                               },
+                          "neutral_declarative":  {
+                                                      "canonical_pack":  "staccato",
+                                                      "control_pack":  "staccato",
+                                                      "canonical_overall_style_score":  0.5837,
+                                                      "control_overall_style_score":  0.4857,
+                                                      "overall_delta":  -0.098,
+                                                      "canonical_rhythm_similarity":  0.3512,
+                                                      "control_rhythm_similarity":  0.1885,
+                                                      "rhythm_delta":  -0.1627
+                                                  },
+                          "question_rising":  {
+                                                  "canonical_pack":  "staccato",
+                                                  "control_pack":  "staccato",
+                                                  "canonical_overall_style_score":  0.5504,
+                                                  "control_overall_style_score":  0.4958,
+                                                  "overall_delta":  -0.0546,
+                                                  "canonical_rhythm_similarity":  0.2208,
+                                                  "control_rhythm_similarity":  0.1143,
+                                                  "rhythm_delta":  -0.1065
+                                              },
+                          "counting_list":  {
+                                                "canonical_pack":  "rambling",
+                                                "control_pack":  "rambling",
+                                                "canonical_overall_style_score":  0.5663,
+                                                "control_overall_style_score":  0.4523,
+                                                "overall_delta":  -0.114,
+                                                "canonical_rhythm_similarity":  0.2697,
+                                                "control_rhythm_similarity":  0.0345,
+                                                "rhythm_delta":  -0.2352
+                                            },
+                          "reaction_short":  {
+                                                 "canonical_pack":  "rambling",
+                                                 "control_pack":  "rambling",
+                                                 "canonical_overall_style_score":  0.5044,
+                                                 "control_overall_style_score":  0.3728,
+                                                 "overall_delta":  -0.1316,
+                                                 "canonical_rhythm_similarity":  0.2001,
+                                                 "control_rhythm_similarity":  0.1682,
+                                                 "rhythm_delta":  -0.0319
+                                             },
+                          "clause_heavy":  {
+                                               "canonical_pack":  "rambling",
+                                               "control_pack":  "rambling",
+                                               "canonical_overall_style_score":  0.4903,
+                                               "control_overall_style_score":  0.5087,
+                                               "overall_delta":  0.0184,
+                                               "canonical_rhythm_similarity":  0.3063,
+                                               "control_rhythm_similarity":  0.2334,
+                                               "rhythm_delta":  -0.0729
+                                           }
+                      },
+    "recommendation":  "Stop the weak-bucket rescue loop until the routed control mismatch is explained. Current evidence points to a reproducibility problem between the earlier ablation-era routed summary and the current control benchmark surface.",
+    "canonical_backend_name":  "xtts-local",
+    "control_backend_name":  "xtts-worker",
+    "mismatch_explanation":  "The earlier routed high-water mark was recorded on xtts-local CPU per the refpack ablation summaries. The control reproduction had to use xtts-worker because the current xtts-local control run exited non-zero without artifacts after model download. The current mismatch is therefore a backend-surface mismatch first, not yet a pure policy mismatch."
+}

@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-04-11T16:19:07.461442",
+  "character": "character_b",
+  "comparison": {
+    "placeholder_best_segmented": {
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_b_segments\\neutral_variant_04.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_b_segments_neutral_variant_04_report.json",
+      "overall_style_score": 0.5122
+    },
+    "chirp_best_generic": {
+      "candidate_path": "C:\\Users\\nikhi\\Downloads\\aro_hd_sample_2_alnilam.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\chirp_alnilam_report.json",
+      "overall_style_score": 0.6809
+    },
+    "xtts_local_first_test": {
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_local_character_b_test\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\xtts_local_character_b_segments_report.json",
+      "overall_style_score": 0.6323
+    },
+    "xtts_local_search_best": {
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\balanced\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_search_character_b\\balanced_report.json",
+      "overall_style_score": 0.6739
+    }
+  },
+  "notes": [
+    "XTTS local test materially outperformed the placeholder baseline on the character_b segmented profile.",
+    "Chirp generic still scores higher numerically, but it remains a generic managed voice rather than a custom backend.",
+    "XTTS still needs tuning on rhythm and pause variance.",
+    "XTTS tuning search improved the best local XTTS score from 0.6323 to 0.6739 on character_b."
+  ]
+}

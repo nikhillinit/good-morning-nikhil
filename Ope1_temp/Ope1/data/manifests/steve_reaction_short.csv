@@ -1,0 +1,2 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,delivery_tags,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\steve_reaction_short\SteveOhMyGod.wav,steve_reaction_short,SteveOhMyGod,1.453,,shocked,reaction_short,"reaction_short,confidence_low,evidence_user_direct_listen,issue_mid_warble","Oh my God.",True

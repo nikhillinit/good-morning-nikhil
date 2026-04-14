@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-04-12T04:46:05Z",
+  "phase": "promotion_assessment",
+  "control_summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\summary.json",
+  "candidate_summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_worker_candidate\\summary.json",
+  "control": {
+    "mean_overall_style_score": 0.472,
+    "mean_rhythm_similarity": 0.1346
+  },
+  "candidate": {
+    "mean_overall_style_score": 0.4478,
+    "mean_rhythm_similarity": 0.1189
+  },
+  "changed_bucket_results": {
+    "reaction_short": {
+      "control": {
+        "ref_pack": "rambling",
+        "prompt_variant": "base",
+        "overall_style_score": 0.3728,
+        "rhythm_similarity": 0.1682
+      },
+      "candidate": {
+        "ref_pack": "clipped_low_latency",
+        "prompt_variant": "base",
+        "overall_style_score": 0.4332,
+        "rhythm_similarity": 0.1547
+      },
+      "delta": {
+        "overall_style_score": 0.0604,
+        "rhythm_similarity": -0.0135
+      }
+    },
+    "calm_low_energy": {
+      "control": {
+        "ref_pack": "pause_heavy",
+        "prompt_variant": "base",
+        "overall_style_score": 0.4341,
+        "rhythm_similarity": 0.0511
+      },
+      "candidate": {
+        "ref_pack": "rambling",
+        "prompt_variant": "base",
+        "overall_style_score": 0.4271,
+        "rhythm_similarity": 0.1482
+      },
+      "delta": {
+        "overall_style_score": -0.007,
+        "rhythm_similarity": 0.0971
+      }
+    },
+    "clipped_question": {
+      "control": {
+        "ref_pack": "pause_heavy",
+        "prompt_variant": "base",
+        "overall_style_score": 0.4232,
+        "rhythm_similarity": 0.0
+      },
+      "candidate": {
+        "ref_pack": "clipped_low_latency",
+        "prompt_variant": "hesitant_v1",
+        "overall_style_score": 0.4841,
+        "rhythm_similarity": 0.0
+      },
+      "delta": {
+        "overall_style_score": 0.0609,
+        "rhythm_similarity": 0.0
+      }
+    }
+  },
+  "phase3_bucket_winners_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\summary.json",
+  "promotion": {
+    "approved": false,
+    "reasons": [
+      "Full-suite mean overall dropped below the worker control baseline.",
+      "Full-suite mean rhythm dropped below the worker control baseline.",
+      "clipped_question remained unstable and returned to 0.0 rhythm in the candidate full-suite run."
+    ]
+  }
+}

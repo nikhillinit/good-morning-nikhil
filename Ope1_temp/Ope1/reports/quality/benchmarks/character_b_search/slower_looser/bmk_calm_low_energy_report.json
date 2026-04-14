@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_search\\slower_looser\\bmk_calm_low_energy\\neutral_variant_01.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.804,
+    "rhythm_similarity": 0.0,
+    "texture_similarity": 0.8596,
+    "spectral_similarity": 0.6082,
+    "overall_style_score": 0.4946,
+    "top_mismatches": [
+      "pause timing needs more variance",
+      "pitch swings too narrow",
+      "spectral color is off target"
+    ]
+  }
+}

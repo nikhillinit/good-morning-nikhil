@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-04-12T04:43:17Z",
+  "policy_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\phase4_candidates\\character_b_routed_policy_v2_clip_clipped_hesitant_fast.json",
+  "policy_id": "character_b_routed_policy_v2_clip_clipped_hesitant_fast",
+  "source_policy_id": "character_b_routed_policy_v2_control",
+  "suite_id": "character_b_benchmark_v1",
+  "backend_name": "xtts-worker",
+  "backend_options": {
+    "language_code": null,
+    "xtts_device": "cpu",
+    "xtts_worker_url": "http://127.0.0.1:8050"
+  },
+  "xtts_preset": {
+    "name": "looser_pause_bias",
+    "xtts_split_sentences": "false",
+    "xtts_enable_text_splitting": "false",
+    "xtts_speed": 0.95,
+    "xtts_temperature": 0.85,
+    "xtts_length_penalty": 1.1,
+    "xtts_repetition_penalty": 7.5,
+    "xtts_top_k": 70,
+    "xtts_top_p": 0.92
+  },
+  "mean_overall_style_score": 0.3874,
+  "mean_rhythm_similarity": 0.0231,
+  "lineage": {
+    "policy_hash": "fc8a3b7b270f00fb7447f709e06b0001264866d20db53026c5900d20cc763b4d",
+    "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+    "prompt_variant_hash": "de40f7d340a8716ff9069445d3a96ad6c8c7149549ce68f00e19453ca5224249",
+    "benchmark_suite_hash": "f7a1ce4c5af1ae8424a195e824b1ec46313f52060187ec11750bd7eb51142b74",
+    "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+    "rendered_prompt_hash": "ff015943662f436355a167d118e0161a26812ef0786e653ed1050bef35611e1a"
+  },
+  "results": [
+    {
+      "prompt_id": "bmk_clipped_question",
+      "bucket": "clipped_question",
+      "text": "And now what?",
+      "rendered_text": "And... now what?",
+      "prompt_variant": "hesitant_v1",
+      "ref_pack": "clipped_low_latency",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\phase4_candidates\\character_b_routed_policy_v2_clip_clipped_hesitant_fast\\bmk_clipped_question\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\phase4_candidates\\character_b_routed_policy_v2_clip_clipped_hesitant_fast\\bmk_clipped_question_report.json",
+      "generation_seconds": 5.562,
+      "pitch_similarity": 0.5899,
+      "rhythm_similarity": 0.0231,
+      "texture_similarity": 0.9062,
+      "spectral_similarity": 0.2528,
+      "overall_style_score": 0.3874,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "pitch swings too narrow"
+      ]
+    }
+  ]
+}

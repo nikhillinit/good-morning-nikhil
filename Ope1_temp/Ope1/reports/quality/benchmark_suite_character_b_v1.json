@@ -1,0 +1,23 @@
+{
+  "suite_id": "character_b_benchmark_v1",
+  "character": "character_b",
+  "version": 1,
+  "notes": [
+    "Benchmark frozen after the first tuned XTTS local result.",
+    "Prompts cover short reaction, neutral declarative, question, punchline pause, rambling, interruption, emphasis, calm delivery, host intro, counting/list rhythm, and clause-heavy delivery."
+  ],
+  "prompts": [
+    {"id": "bmk_reaction_short", "bucket": "reaction_short", "text": "Well. That's unexpected."},
+    {"id": "bmk_neutral_declarative", "bucket": "neutral_declarative", "text": "The meeting starts in ten minutes, and everyone is already waiting."},
+    {"id": "bmk_question_rising", "bucket": "question_rising", "text": "Do you really think that's the best idea?"},
+    {"id": "bmk_punchline_pause", "bucket": "punchline_pause", "text": "I had a plan... right up until the elevator opened."},
+    {"id": "bmk_wandering_sentence", "bucket": "wandering_sentence", "text": "I was going to explain the whole thing, but then I remembered the machine was still running, and honestly that changed the mood."},
+    {"id": "bmk_interruption_restart", "bucket": "interruption_restart", "text": "No, wait, that's not exactly what I meant."},
+    {"id": "bmk_emphasis_heavy", "bucket": "emphasis_heavy", "text": "You have got to be kidding me."},
+    {"id": "bmk_calm_low_energy", "bucket": "calm_low_energy", "text": "It's fine. We can deal with it tomorrow."},
+    {"id": "bmk_host_intro", "bucket": "host_intro", "text": "Good evening, and welcome back to the strangest little contest in town."},
+    {"id": "bmk_counting_list", "bucket": "counting_list", "text": "One, two, three, that's already too many problems."},
+    {"id": "bmk_clause_heavy", "bucket": "clause_heavy", "text": "If you keep staring at it long enough, the whole thing begins to feel less like a mistake and more like a decision."},
+    {"id": "bmk_clipped_question", "bucket": "clipped_question", "text": "And now what?"}
+  ]
+}

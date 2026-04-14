@@ -1,0 +1,17 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,delivery_tags,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_001.wav,restart_disfluent,jeff_prepared_seg_001,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_002.wav,restart_disfluent,jeff_prepared_seg_002,3.1105,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_004.wav,restart_disfluent,jeff_prepared_seg_004,7.8799,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_005.wav,restart_disfluent,jeff_prepared_seg_005,6.9847,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_006.wav,restart_disfluent,jeff_prepared_seg_006,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_007.wav,restart_disfluent,jeff_prepared_seg_007,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_008.wav,restart_disfluent,jeff_prepared_seg_008,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_009.wav,restart_disfluent,jeff_prepared_seg_009,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_011.wav,restart_disfluent,jeff_prepared_seg_011,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_013.wav,restart_disfluent,jeff_prepared_seg_013,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_015.wav,restart_disfluent,jeff_prepared_seg_015,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_016.wav,restart_disfluent,jeff_prepared_seg_016,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_017.wav,restart_disfluent,jeff_prepared_seg_017,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_018.wav,restart_disfluent,jeff_prepared_seg_018,2.6962,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_019.wav,restart_disfluent,jeff_prepared_seg_019,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\restart_disfluent\jeff_prepared_seg_020.wav,restart_disfluent,jeff_prepared_seg_020,6.9121,,unknown,neutral,,,True

@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-04-12T04:40:38Z",
+  "policy_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\_tmp\\reaction_short__clipped_low_latency__run01__policy.json",
+  "policy_id": "character_b_routed_policy_v2_control__reaction_short__clipped_low_latency__run01",
+  "source_policy_id": "character_b_routed_policy_v2_control",
+  "suite_id": "character_b_benchmark_v1__reaction_short",
+  "backend_name": "xtts-worker",
+  "backend_options": {
+    "language_code": null,
+    "xtts_device": "cpu",
+    "xtts_worker_url": "http://127.0.0.1:8050"
+  },
+  "xtts_preset": {
+    "name": "looser_pause_bias",
+    "xtts_split_sentences": "false",
+    "xtts_enable_text_splitting": "false",
+    "xtts_speed": 0.95,
+    "xtts_temperature": 0.85,
+    "xtts_length_penalty": 1.1,
+    "xtts_repetition_penalty": 7.5,
+    "xtts_top_k": 70,
+    "xtts_top_p": 0.92
+  },
+  "mean_overall_style_score": 0.43,
+  "mean_rhythm_similarity": 0.1905,
+  "lineage": {
+    "policy_hash": "2b555d1d8e6e96dff6e07dcd5c30ba1f793884c8fe9081cb31e7e72cd255c432",
+    "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+    "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+    "benchmark_suite_hash": "a92be8e8e201358b0dfc2b6c5e834e50bd51d8333583d4eb8df8596b4a376359",
+    "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+    "rendered_prompt_hash": "74d518cdf97557ca48b0a805867d6d039735bb773e7ad932c4e7c4421843df10"
+  },
+  "results": [
+    {
+      "prompt_id": "bmk_reaction_short",
+      "bucket": "reaction_short",
+      "text": "Well. That's unexpected.",
+      "rendered_text": "Well. That's unexpected.",
+      "prompt_variant": "base",
+      "ref_pack": "clipped_low_latency",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\clipped_low_latency\\run_01\\bmk_reaction_short\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\clipped_low_latency\\run_01\\bmk_reaction_short_report.json",
+      "generation_seconds": 8.426,
+      "pitch_similarity": 0.691,
+      "rhythm_similarity": 0.1905,
+      "texture_similarity": 0.6051,
+      "spectral_similarity": 0.3476,
+      "overall_style_score": 0.43,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "pitch swings too narrow"
+      ]
+    }
+  ]
+}

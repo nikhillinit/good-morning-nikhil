@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\looser_pause_bias\\neutral_variant_01.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.7376,
+    "rhythm_similarity": 0.2451,
+    "texture_similarity": 0.8762,
+    "spectral_similarity": 0.5301,
+    "overall_style_score": 0.5514,
+    "top_mismatches": [
+      "pause timing needs more variance",
+      "spectral color is off target",
+      "texture stability differs from target"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-04-11T16:22:43.330786",
+  "character": "character_b",
+  "profile_path": "C:\\dev\\aro-voice-style-lab\\profiles\\character_b_segments_profile.json",
+  "best_candidate": {
+    "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_local_character_b_neutral_variant_04_report.json",
+    "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_local_character_b_variants\\neutral_variant_04.wav",
+    "overall_style_score": 0.592,
+    "pitch_similarity": 0.8271,
+    "rhythm_similarity": 0.3525,
+    "texture_similarity": 0.7886,
+    "spectral_similarity": 0.5205,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pause timing needs more variance",
+      "pitch swings too narrow"
+    ]
+  },
+  "all_candidates": [
+    {
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_local_character_b_neutral_variant_04_report.json",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_local_character_b_variants\\neutral_variant_04.wav",
+      "overall_style_score": 0.592,
+      "pitch_similarity": 0.8271,
+      "rhythm_similarity": 0.3525,
+      "texture_similarity": 0.7886,
+      "spectral_similarity": 0.5205,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_local_character_b_neutral_variant_03_report.json",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_local_character_b_variants\\neutral_variant_03.wav",
+      "overall_style_score": 0.5613,
+      "pitch_similarity": 0.6821,
+      "rhythm_similarity": 0.292,
+      "texture_similarity": 0.8919,
+      "spectral_similarity": 0.5508,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_local_character_b_neutral_variant_02_report.json",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_local_character_b_variants\\neutral_variant_02.wav",
+      "overall_style_score": 0.5545,
+      "pitch_similarity": 0.7317,
+      "rhythm_similarity": 0.2328,
+      "texture_similarity": 0.8377,
+      "spectral_similarity": 0.6125,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    },
+    {
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_local_character_b_neutral_variant_01_report.json",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_local_character_b_variants\\neutral_variant_01.wav",
+      "overall_style_score": 0.5348,
+      "pitch_similarity": 0.7345,
+      "rhythm_similarity": 0.2449,
+      "texture_similarity": 0.694,
+      "spectral_similarity": 0.6333,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    }
+  ],
+  "baseline_placeholder_best": 0.5122,
+  "baseline_chirp_best": 0.6809,
+  "notes": [
+    "These are first local XTTS variants using the curated reference pack.",
+    "Scores are against the character_b segmented profile.",
+    "If the best XTTS score beats 0.5122, it has improved over the placeholder baseline."
+  ]
+}

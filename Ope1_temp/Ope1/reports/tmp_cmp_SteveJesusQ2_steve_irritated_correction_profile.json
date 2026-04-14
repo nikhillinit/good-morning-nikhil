@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\data\\processed\\steve_clipped_question\\SteveJesusQ2.wav",
+  "target_character": "steve_irritated_correction",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.7825,
+    "rhythm_similarity": 0.4934,
+    "texture_similarity": 0.8967,
+    "spectral_similarity": 0.5541,
+    "overall_style_score": 0.6585,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pitch swings too narrow",
+      "pause timing needs more variance"
+    ]
+  }
+}

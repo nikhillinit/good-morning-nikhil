@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\data\\processed\\steve_irritated_correction\\SteveAlrightJeff.wav",
+  "target_character": "steve_clipped_question",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.2808,
+    "rhythm_similarity": 0.4743,
+    "texture_similarity": 0.9075,
+    "spectral_similarity": 0.3228,
+    "overall_style_score": 0.4823,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pitch swings too narrow",
+      "speech rate drifted from target"
+    ]
+  }
+}

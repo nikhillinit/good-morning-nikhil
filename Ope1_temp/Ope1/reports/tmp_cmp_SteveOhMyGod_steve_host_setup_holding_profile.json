@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\data\\processed\\steve_reaction_short\\SteveOhMyGod.wav",
+  "target_character": "steve_host_setup_holding",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.4586,
+    "rhythm_similarity": 0.1136,
+    "texture_similarity": 0.7717,
+    "spectral_similarity": 0.0265,
+    "overall_style_score": 0.3141,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pause timing needs more variance",
+      "pitch swings too narrow"
+    ]
+  }
+}

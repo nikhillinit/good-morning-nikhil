@@ -1,0 +1,4 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\character_a\Steve.wav,character_a,Steve,38.5493,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a\Steve2.wav,character_a,Steve2,50.2827,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a\Steve3.wav,character_a,Steve3,13.2054,,unknown,neutral,,True

@@ -1,0 +1,17 @@
+{
+  "candidate_path": "outputs\\demo_character\\neutral_variant_01.wav",
+  "target_character": "demo_character",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.4546,
+    "rhythm_similarity": 0.4798,
+    "texture_similarity": 0.8468,
+    "spectral_similarity": 0.5635,
+    "overall_style_score": 0.5636,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pitch swings too narrow",
+      "pause timing needs more variance"
+    ]
+  }
+}

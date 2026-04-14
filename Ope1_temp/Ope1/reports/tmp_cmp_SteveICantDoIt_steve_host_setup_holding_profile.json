@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\data\\processed\\steve_irritated_correction\\SteveICantDoIt.wav",
+  "target_character": "steve_host_setup_holding",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.5397,
+    "rhythm_similarity": 0.1136,
+    "texture_similarity": 0.9478,
+    "spectral_similarity": 0.0482,
+    "overall_style_score": 0.3739,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pause timing needs more variance",
+      "speech rate drifted from target"
+    ]
+  }
+}

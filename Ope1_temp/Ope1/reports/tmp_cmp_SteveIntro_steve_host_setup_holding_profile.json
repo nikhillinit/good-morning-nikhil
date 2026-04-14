@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\data\\processed\\steve_host_setup_holding\\SteveIntro.wav",
+  "target_character": "steve_host_setup_holding",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 1.0,
+    "rhythm_similarity": 0.8288,
+    "texture_similarity": 1.0,
+    "spectral_similarity": 1.0,
+    "overall_style_score": 0.9401,
+    "top_mismatches": [
+      "speech rate drifted from target",
+      "pitch swings too narrow",
+      "pause timing needs more variance"
+    ]
+  }
+}

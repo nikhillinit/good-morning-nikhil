@@ -1,0 +1,9 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,delivery_tags,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\clipped_low_latency\jeff_prepared_seg_002.wav,clipped_low_latency,jeff_prepared_seg_002,3.1105,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\clipped_low_latency\jeff_prepared_seg_004.wav,clipped_low_latency,jeff_prepared_seg_004,7.8799,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\clipped_low_latency\jeff_prepared_seg_011.wav,clipped_low_latency,jeff_prepared_seg_011,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\clipped_low_latency\jeff_prepared_seg_013.wav,clipped_low_latency,jeff_prepared_seg_013,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\clipped_low_latency\jeff_prepared_seg_014.wav,clipped_low_latency,jeff_prepared_seg_014,2.9058,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\clipped_low_latency\jeff_prepared_seg_015.wav,clipped_low_latency,jeff_prepared_seg_015,10.0,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\clipped_low_latency\jeff_prepared_seg_018.wav,clipped_low_latency,jeff_prepared_seg_018,2.6962,,unknown,neutral,,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_routed_refpacks\clipped_low_latency\jeff_prepared_seg_019.wav,clipped_low_latency,jeff_prepared_seg_019,10.0,,unknown,neutral,,,True

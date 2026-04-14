@@ -1,0 +1,164 @@
+{
+  "characters": {
+    "character_a_segments": {
+      "profile_path": "C:\\dev\\aro-voice-style-lab\\profiles\\character_a_segments_profile.json",
+      "clip_count": 13,
+      "best_candidate": {
+        "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_a_segments_neutral_variant_03_report.json",
+        "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_a_segments\\neutral_variant_03.wav",
+        "overall_style_score": 0.4996,
+        "pitch_similarity": 0.495,
+        "rhythm_similarity": 0.6635,
+        "texture_similarity": 0.7182,
+        "spectral_similarity": 0.0,
+        "top_mismatches": [
+          "spectral color is off target",
+          "pitch swings too narrow",
+          "pause timing needs more variance"
+        ]
+      },
+      "all_candidates": [
+        {
+          "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_a_segments_neutral_variant_03_report.json",
+          "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_a_segments\\neutral_variant_03.wav",
+          "overall_style_score": 0.4996,
+          "pitch_similarity": 0.495,
+          "rhythm_similarity": 0.6635,
+          "texture_similarity": 0.7182,
+          "spectral_similarity": 0.0,
+          "top_mismatches": [
+            "spectral color is off target",
+            "pitch swings too narrow",
+            "pause timing needs more variance"
+          ]
+        },
+        {
+          "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_a_segments_neutral_variant_02_report.json",
+          "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_a_segments\\neutral_variant_02.wav",
+          "overall_style_score": 0.4989,
+          "pitch_similarity": 0.5316,
+          "rhythm_similarity": 0.629,
+          "texture_similarity": 0.7291,
+          "spectral_similarity": 0.0,
+          "top_mismatches": [
+            "spectral color is off target",
+            "pitch swings too narrow",
+            "pause timing needs more variance"
+          ]
+        },
+        {
+          "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_a_segments_neutral_variant_04_report.json",
+          "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_a_segments\\neutral_variant_04.wav",
+          "overall_style_score": 0.4951,
+          "pitch_similarity": 0.463,
+          "rhythm_similarity": 0.6753,
+          "texture_similarity": 0.715,
+          "spectral_similarity": 0.0,
+          "top_mismatches": [
+            "spectral color is off target",
+            "pitch swings too narrow",
+            "pause timing needs more variance"
+          ]
+        },
+        {
+          "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_a_segments_neutral_variant_01_report.json",
+          "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_a_segments\\neutral_variant_01.wav",
+          "overall_style_score": 0.4868,
+          "pitch_similarity": 0.5443,
+          "rhythm_similarity": 0.5783,
+          "texture_similarity": 0.7413,
+          "spectral_similarity": 0.0,
+          "top_mismatches": [
+            "spectral color is off target",
+            "pitch swings too narrow",
+            "pause timing needs more variance"
+          ]
+        }
+      ],
+      "notes": [
+        "This summary is based on segmented source audio rather than full-length files.",
+        "Higher scores indicate closer feature alignment to the extracted profile, not higher narration quality."
+      ]
+    },
+    "character_b_segments": {
+      "profile_path": "C:\\dev\\aro-voice-style-lab\\profiles\\character_b_segments_profile.json",
+      "clip_count": 21,
+      "best_candidate": {
+        "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_b_segments_neutral_variant_03_report.json",
+        "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_b_segments\\neutral_variant_03.wav",
+        "overall_style_score": 0.5389,
+        "pitch_similarity": 0.6162,
+        "rhythm_similarity": 0.6921,
+        "texture_similarity": 0.7109,
+        "spectral_similarity": 0.002,
+        "top_mismatches": [
+          "spectral color is off target",
+          "pitch swings too narrow",
+          "pause timing needs more variance"
+        ]
+      },
+      "all_candidates": [
+        {
+          "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_b_segments_neutral_variant_03_report.json",
+          "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_b_segments\\neutral_variant_03.wav",
+          "overall_style_score": 0.5389,
+          "pitch_similarity": 0.6162,
+          "rhythm_similarity": 0.6921,
+          "texture_similarity": 0.7109,
+          "spectral_similarity": 0.002,
+          "top_mismatches": [
+            "spectral color is off target",
+            "pitch swings too narrow",
+            "pause timing needs more variance"
+          ]
+        },
+        {
+          "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_b_segments_neutral_variant_04_report.json",
+          "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_b_segments\\neutral_variant_04.wav",
+          "overall_style_score": 0.5363,
+          "pitch_similarity": 0.5928,
+          "rhythm_similarity": 0.6918,
+          "texture_similarity": 0.6985,
+          "spectral_similarity": 0.0313,
+          "top_mismatches": [
+            "spectral color is off target",
+            "pitch swings too narrow",
+            "pause timing needs more variance"
+          ]
+        },
+        {
+          "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_b_segments_neutral_variant_02_report.json",
+          "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_b_segments\\neutral_variant_02.wav",
+          "overall_style_score": 0.5352,
+          "pitch_similarity": 0.6402,
+          "rhythm_similarity": 0.6642,
+          "texture_similarity": 0.7135,
+          "spectral_similarity": 0.0,
+          "top_mismatches": [
+            "spectral color is off target",
+            "pitch swings too narrow",
+            "pause timing needs more variance"
+          ]
+        },
+        {
+          "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\character_b_segments_neutral_variant_01_report.json",
+          "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_b_segments\\neutral_variant_01.wav",
+          "overall_style_score": 0.5122,
+          "pitch_similarity": 0.6177,
+          "rhythm_similarity": 0.6012,
+          "texture_similarity": 0.7367,
+          "spectral_similarity": 0.0,
+          "top_mismatches": [
+            "spectral color is off target",
+            "pitch swings too narrow",
+            "pause timing needs more variance"
+          ]
+        }
+      ],
+      "notes": [
+        "This summary is based on segmented source audio rather than full-length files.",
+        "Higher scores indicate closer feature alignment to the extracted profile, not higher narration quality."
+      ]
+    }
+  }
+}

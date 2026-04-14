@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\data\\processed\\steve_irritated_correction\\SteveAlrightJeff.wav",
+  "target_character": "steve_reaction_short",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.6331,
+    "rhythm_similarity": 0.7217,
+    "texture_similarity": 0.7914,
+    "spectral_similarity": 0.083,
+    "overall_style_score": 0.5858,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pause timing needs more variance",
+      "texture stability differs from target"
+    ]
+  }
+}

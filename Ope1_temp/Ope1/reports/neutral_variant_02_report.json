@@ -1,0 +1,17 @@
+{
+  "candidate_path": "outputs\\demo_character\\neutral_variant_02.wav",
+  "target_character": "demo_character",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.4185,
+    "rhythm_similarity": 0.4994,
+    "texture_similarity": 0.848,
+    "spectral_similarity": 0.5986,
+    "overall_style_score": 0.5687,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pitch swings too narrow",
+      "speech rate drifted from target"
+    ]
+  }
+}

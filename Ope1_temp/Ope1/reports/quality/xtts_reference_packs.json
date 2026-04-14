@@ -1,0 +1,30 @@
+{
+    "generated_at":  "2026-04-11T15:34:29.1619461-07:00",
+    "intent":  "Curated XTTS reference packs for higher-quality custom backend runs.",
+    "character_a":  {
+                        "reference_dir":  "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_a_xtts_refs",
+                        "files":  [
+                                      "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_a_segments\\Steve2_seg_004.wav",
+                                      "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_a_segments\\Steve_seg_004.wav",
+                                      "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_a_segments\\Steve2_seg_007.wav"
+                                  ],
+                        "rationale":  [
+                                          "Prefer 7-8 second segments for stable speaker conditioning.",
+                                          "Avoid shortest clips and keep references from multiple source takes.",
+                                          "Use these as the first XTTS reference pack before broader experimentation."
+                                      ]
+                    },
+    "character_b":  {
+                        "reference_dir":  "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_xtts_refs",
+                        "files":  [
+                                      "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_004.wav",
+                                      "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_010.wav",
+                                      "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_segments\\jeff_prepared_seg_020.wav"
+                                  ],
+                        "rationale":  [
+                                          "Prefer transcripted segments without cutoff markers.",
+                                          "Keep one mid-length and one cleaner later segment for timbre stability.",
+                                          "Exclude the most fragmented or shortest Jeff segments from the first XTTS pack."
+                                      ]
+                    }
+}

@@ -1,0 +1,49 @@
+cue_id,screen_id,screen_title,speaker,text,order
+screen_0_line_01,SCREEN 0,COLD OPEN,STEVE,"All right, final round\! We got the Nikhil family versus Jeff Goldblum, our returning champion. Go to Jeff: Name something you can do on the computer.",1
+screen_0_line_02,SCREEN 0,COLD OPEN,JEFF,"Ahhhh... well I can tell you what you can do with a computer, Steve... you can suck on the mouse like a giant, pacifier.",2
+screen_0_line_03,SCREEN 0,COLD OPEN,STEVE,"Oh my God. Oh my God, good Lord. Let's see it... Wrong again\!",3
+screen_0_line_04,SCREEN 0,COLD OPEN,JEFF,"The board is just a little timid, Stevie. It fears desire.",4
+screen_0_line_05,SCREEN 0,COLD OPEN,STEVE,"Keep playing with me. Keep playing with me and you're going to find out, Jeff Goldblum. Today, we are here to answer one question: how does Nikhil really come across?",5
+screen_0_line_06,SCREEN 0,COLD OPEN,JEFF,"Survey says... inevitable, unknowable, and lightly caffeinated.",6
+screen_0_line_07,SCREEN 0,COLD OPEN,STEVE,Hit the music.,7
+screen_1_line_01,SCREEN 1,WELCOME,STEVE,"Welcome to Good Morning, Nikhil. You're about to flip through a few very normal television segments.",1
+screen_1_line_02,SCREEN 1,WELCOME,JEFF,"Oh Stevie, I thought of something else you can do with a computer.",2
+screen_1_line_03,SCREEN 1,WELCOME,STEVE,"oh God. No. Lord, no.",3
+screen_2_line_01,SCREEN 2,WHO ARE YOU TO NIKHIL?,STEVE,First things first. How do you know Nikhil?,1
+screen_2_line_02,SCREEN 2,WHO ARE YOU TO NIKHIL?,JEFF,"Family, foe, witness, or lover.",2
+screen_3_3a_line_01,SCREEN 3 (3A),SHOW 1: FAMILY FEUD (TOP 3\),STEVE,Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil.,1
+screen_3b_line_01,SCREEN 3B,FEUD: STRONGEST ANSWER,JEFF,Show me 'handsome'.,1
+screen_3b_line_02,SCREEN 3B,FEUD: STRONGEST ANSWER,STEVE,"Wrong game, Jeff. Which one feels strongest, and why?",2
+screen_3c_line_01,SCREEN 3C,FEUD: NIKHIL TRADEMARK,JEFF,Name a thing he does so often it should come with theme music.,1
+screen_3c_line_02,SCREEN 3C,FEUD: NIKHIL TRADEMARK,STEVE,That is actually a good one Jeff.,2
+screen_4_4a_line_01,SCREEN 4 (4A),COMMERCIAL BREAK: SPONSORED BY,STEVE,This episode of Nikhil is brought to you by...,1
+screen_4_4a_line_02,SCREEN 4 (4A),COMMERCIAL BREAK: SPONSORED BY,JEFF,"A premium blend of polish, intensity, and lightly weaponized seduction just like someone I know.",2
+screen_4b_line_01,SCREEN 4B,WHY THAT BRAND?,STEVE,And why?,1
+screen_4b_line_02,SCREEN 4B,WHY THAT BRAND?,JEFF,We're all just shadows and dust Steve.,2
+screen_5_5a_line_01,SCREEN 5 (5A),SHOW 2: THE BACHELOR,STEVE,"Ladies, you know what time it is. It's the rose ceremony, and one of you is going home tonight. Three roses. One quality goes home.",1
+screen_5b_line_01,SCREEN 5B,BACHELOR: SEND ONE HOME,JEFF,Every board has one weak square.,1
+screen_5b_line_02,SCREEN 5B,BACHELOR: SEND ONE HOME,STEVE,"This ain't no board, Jeff. Send one quality home.",2
+screen_5c_line_01,SCREEN 5C,LIMO CONFESSIONAL,STEVE,In the limo ride home...,1
+screen_5c_line_02,SCREEN 5C,LIMO CONFESSIONAL,JEFF,On her way to the set of 90-Day Fiance. Say Stevie isn't that where -,2
+screen_5c_line_03,SCREEN 5C,LIMO CONFESSIONAL,STEVE,Complete the sentence.,3
+screen_6_6a_line_01,SCREEN 6 (6A),SHOW 3: SHARK TANK,STEVE,"Shark, Nikhil just pitched his brain for 100% of your life savings. Are you in or out?",1
+screen_6_6a_line_02,SCREEN 6 (6A),SHOW 3: SHARK TANK,JEFF,"You know I'll just wait until Aunt Demequa blows it, and then it'll go back to me and I'll steal the round.",2
+screen_6_6a_line_03,SCREEN 6 (6A),SHOW 3: SHARK TANK,STEVE,Do you know where you are,3
+screen_6b_6c_line_01,SCREEN 6B/6C,SHARK FOLLOW-UP (Dynamic),STEVE,Finish the sentence.,1
+screen_7_line_01,SCREEN 7,SHOW 4: SURVIVOR,STEVE,Tribal council. Confessional booth. Just you and the camera.,1
+screen_7_line_02,SCREEN 7,SHOW 4: SURVIVOR,JEFF,"(Whispering) ""So this is... Fast Money in the woods?",2
+screen_7_line_03,SCREEN 7,SHOW 4: SURVIVOR,STEVE,"(Whispering back, firmly) ""No. This is the honest part.",3
+screen_8_8a_8b_line_01,SCREEN 8 (8A & 8B),SHOW 5: MAURY,JEFF,"At last. Something you can do with a computer, Steve...",1
+screen_8_8a_8b_line_02,SCREEN 8 (8A & 8B),SHOW 5: MAURY,STEVE,"No, Jeff. I can't do it.",2
+screen_8_8a_8b_line_03,SCREEN 8 (8A & 8B),SHOW 5: MAURY,JEFF,"You have to read it, Steve. That's the job. That's why they hire you.",3
+screen_8_8a_8b_line_04,SCREEN 8 (8A & 8B),SHOW 5: MAURY,STEVE,I'm not even going to look at the board. And the envelope goes to...,4
+screen_9_line_01,SCREEN 9,PRODUCER'S NOTES,STEVE,Final note from the control room.,1
+screen_9_line_02,SCREEN 9,PRODUCER'S NOTES,JEFF,Fast Money?,2
+screen_9_line_03,SCREEN 9,PRODUCER'S NOTES,STEVE,No. That's a wrap.,3
+screen_10_line_01,SCREEN 10,CLOSING CREDITS,STEVE,That's a wrap.,1
+screen_10_line_02,SCREEN 10,CLOSING CREDITS,JEFF,Did I win?,2
+screen_10_line_03,SCREEN 10,CLOSING CREDITS,STEVE,No.,3
+screen_10_line_04,SCREEN 10,CLOSING CREDITS,JEFF,Did I remain champion?,4
+screen_10_line_05,SCREEN 10,CLOSING CREDITS,STEVE,"...somehow, yes.",5
+post_credit_stinger_line_01,POST-CREDIT STINGER,,STEVE,"(Disembodied voice) ""All right, Jeff. Last chance. Name something you can do on a computer.",1
+post_credit_stinger_line_02,POST-CREDIT STINGER,,JEFF,"Ahhh.., you can shove it up your",2

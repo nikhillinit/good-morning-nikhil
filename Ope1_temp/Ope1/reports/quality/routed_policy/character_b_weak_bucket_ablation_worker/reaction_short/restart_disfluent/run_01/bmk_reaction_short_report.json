@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\restart_disfluent\\run_01\\bmk_reaction_short\\neutral_variant_01.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.8367,
+    "rhythm_similarity": 0.0315,
+    "texture_similarity": 0.7395,
+    "spectral_similarity": 0.4138,
+    "overall_style_score": 0.4509,
+    "top_mismatches": [
+      "pause timing needs more variance",
+      "spectral color is off target",
+      "pitch swings too narrow"
+    ]
+  }
+}

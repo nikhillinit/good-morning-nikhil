@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\staccato\\bmk_counting_list\\neutral_variant_01.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.8482,
+    "rhythm_similarity": 0.1943,
+    "texture_similarity": 0.8567,
+    "spectral_similarity": 0.6205,
+    "overall_style_score": 0.5755,
+    "top_mismatches": [
+      "pause timing needs more variance",
+      "spectral color is off target",
+      "pitch swings too narrow"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\Steve\\steve_in_the_limo.wav",
+  "target_character": "steve_host_setup_holding",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.4084,
+    "rhythm_similarity": 0.3041,
+    "texture_similarity": 0.8885,
+    "spectral_similarity": 0.0104,
+    "overall_style_score": 0.3883,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pause timing needs more variance",
+      "pitch swings too narrow"
+    ]
+  }
+}

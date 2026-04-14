@@ -81,17 +81,10 @@ export function ScreenPlayer({
   const { play, skip, isPlaying, hasEnded, getCurrentTime, isMuted, toggleMute } = useAudioPlayer();
   const [skipped, setSkipped] = useState(false);
   const [timedReveal, setTimedReveal] = useState(false);
-  const [prevScreenId, setPrevScreenId] = useState(screen.id);
   const { currentCaption } = useCaptions(
     screen.id,
     isPlaying ? getCurrentTime : null,
   );
-
-  if (screen.id !== prevScreenId) {
-    setPrevScreenId(screen.id);
-    setSkipped(false);
-    setTimedReveal(false);
-  }
 
   const showUI = hasEnded || skipped || timedReveal;
   const promptOverride =
@@ -108,6 +101,11 @@ export function ScreenPlayer({
       : screen.uiLayout === "left"
       ? "items-start pl-4 sm:pl-12 md:pl-24"
       : "items-center";
+
+  useEffect(() => {
+    setSkipped(false);
+    setTimedReveal(false);
+  }, [screen.id]);
 
   useEffect(() => {
     if (!screen.uiRevealAt || !isPlaying) return;

@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-04-11T18:34:48.971325",
+  "preset": "looser_pause_bias",
+  "packs": [
+    {
+      "pack": "rambling",
+      "mean_overall_style_score": 0.497,
+      "mean_rhythm_similarity": 0.1631,
+      "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\rambling\\summary.json"
+    },
+    {
+      "pack": "staccato",
+      "mean_overall_style_score": 0.4961,
+      "mean_rhythm_similarity": 0.1432,
+      "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\staccato\\summary.json"
+    },
+    {
+      "pack": "pause_heavy",
+      "mean_overall_style_score": 0.4658,
+      "mean_rhythm_similarity": 0.1322,
+      "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\pause_heavy\\summary.json"
+    }
+  ],
+  "best_pack": {
+    "pack": "rambling",
+    "mean_overall_style_score": 0.497,
+    "mean_rhythm_similarity": 0.1631,
+    "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\rambling\\summary.json"
+  },
+  "bucket_best": {
+    "reaction_short": {
+      "pack": "rambling",
+      "prompt_id": "bmk_reaction_short",
+      "overall_style_score": 0.5044,
+      "rhythm_similarity": 0.2001,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\rambling\\bmk_reaction_short\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\rambling\\bmk_reaction_short_report.json"
+    },
+    "neutral_declarative": {
+      "pack": "staccato",
+      "prompt_id": "bmk_neutral_declarative",
+      "overall_style_score": 0.5837,
+      "rhythm_similarity": 0.3512,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\staccato\\bmk_neutral_declarative\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\staccato\\bmk_neutral_declarative_report.json"
+    },
+    "question_rising": {
+      "pack": "staccato",
+      "prompt_id": "bmk_question_rising",
+      "overall_style_score": 0.5504,
+      "rhythm_similarity": 0.2208,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\staccato\\bmk_question_rising\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\staccato\\bmk_question_rising_report.json"
+    },
+    "punchline_pause": {
+      "pack": "staccato",
+      "prompt_id": "bmk_punchline_pause",
+      "overall_style_score": 0.5269,
+      "rhythm_similarity": 0.1987,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\staccato\\bmk_punchline_pause\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\staccato\\bmk_punchline_pause_report.json"
+    },
+    "wandering_sentence": {
+      "pack": "staccato",
+      "prompt_id": "bmk_wandering_sentence",
+      "overall_style_score": 0.5274,
+      "rhythm_similarity": 0.2462,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\staccato\\bmk_wandering_sentence\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\staccato\\bmk_wandering_sentence_report.json"
+    },
+    "interruption_restart": {
+      "pack": "staccato",
+      "prompt_id": "bmk_interruption_restart",
+      "overall_style_score": 0.476,
+      "rhythm_similarity": 0.0271,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\staccato\\bmk_interruption_restart\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\staccato\\bmk_interruption_restart_report.json"
+    },
+    "emphasis_heavy": {
+      "pack": "rambling",
+      "prompt_id": "bmk_emphasis_heavy",
+      "overall_style_score": 0.4772,
+      "rhythm_similarity": 0.2261,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\rambling\\bmk_emphasis_heavy\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\rambling\\bmk_emphasis_heavy_report.json"
+    },
+    "calm_low_energy": {
+      "pack": "pause_heavy",
+      "prompt_id": "bmk_calm_low_energy",
+      "overall_style_score": 0.4841,
+      "rhythm_similarity": 0.2335,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\pause_heavy\\bmk_calm_low_energy\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\pause_heavy\\bmk_calm_low_energy_report.json"
+    },
+    "host_intro": {
+      "pack": "pause_heavy",
+      "prompt_id": "bmk_host_intro",
+      "overall_style_score": 0.6477,
+      "rhythm_similarity": 0.4404,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\pause_heavy\\bmk_host_intro\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\pause_heavy\\bmk_host_intro_report.json"
+    },
+    "counting_list": {
+      "pack": "rambling",
+      "prompt_id": "bmk_counting_list",
+      "overall_style_score": 0.5663,
+      "rhythm_similarity": 0.2697,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\rambling\\bmk_counting_list\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\rambling\\bmk_counting_list_report.json"
+    },
+    "clause_heavy": {
+      "pack": "rambling",
+      "prompt_id": "bmk_clause_heavy",
+      "overall_style_score": 0.4903,
+      "rhythm_similarity": 0.3063,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\rambling\\bmk_clause_heavy\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\rambling\\bmk_clause_heavy_report.json"
+    },
+    "clipped_question": {
+      "pack": "pause_heavy",
+      "prompt_id": "bmk_clipped_question",
+      "overall_style_score": 0.3912,
+      "rhythm_similarity": 0.2375,
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\benchmarks\\character_b_refpack_ablation\\pause_heavy\\bmk_clipped_question\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\refpack_ablation\\pause_heavy\\bmk_clipped_question_report.json"
+    }
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "source_path": "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_shot_list.json",
+  "output_dir": "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview",
+  "rendered_count": 48,
+  "skipped_count": 0,
+  "rendered_cues": [
+    {
+      "cue_id": "screen_0_line_01",
+      "screen_id": "SCREEN 0",
+      "speaker": "STEVE",
+      "text": "All right, final round\\! We got the Nikhil family versus Jeff Goldblum, our returning champion. Go to Jeff: Name something you can do on the computer.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_0\\screen_0_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_0_line_02",
+      "screen_id": "SCREEN 0",
+      "speaker": "JEFF",
+      "text": "Ahhhh... well I can tell you what you can do with a computer, Steve... you can suck on the mouse like a giant, pacifier.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_0\\screen_0_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_0_line_03",
+      "screen_id": "SCREEN 0",
+      "speaker": "STEVE",
+      "text": "Oh my God. Oh my God, good Lord. Let's see it... Wrong again\\!",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_0\\screen_0_line_03\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_0_line_04",
+      "screen_id": "SCREEN 0",
+      "speaker": "JEFF",
+      "text": "The board is just a little timid, Stevie. It fears desire.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_0\\screen_0_line_04\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_0_line_05",
+      "screen_id": "SCREEN 0",
+      "speaker": "STEVE",
+      "text": "Keep playing with me. Keep playing with me and you're going to find out, Jeff Goldblum. Today, we are here to answer one question: how does Nikhil really come across?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_0\\screen_0_line_05\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_0_line_06",
+      "screen_id": "SCREEN 0",
+      "speaker": "JEFF",
+      "text": "Survey says... inevitable, unknowable, and lightly caffeinated.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_0\\screen_0_line_06\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_0_line_07",
+      "screen_id": "SCREEN 0",
+      "speaker": "STEVE",
+      "text": "Hit the music.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_0\\screen_0_line_07\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_1_line_01",
+      "screen_id": "SCREEN 1",
+      "speaker": "STEVE",
+      "text": "Welcome to Good Morning, Nikhil. You're about to flip through a few very normal television segments.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_1\\screen_1_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_1_line_02",
+      "screen_id": "SCREEN 1",
+      "speaker": "JEFF",
+      "text": "Oh Stevie, I thought of something else you can do with a computer.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_1\\screen_1_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_1_line_03",
+      "screen_id": "SCREEN 1",
+      "speaker": "STEVE",
+      "text": "oh God. No. Lord, no.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_1\\screen_1_line_03\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_2_line_01",
+      "screen_id": "SCREEN 2",
+      "speaker": "STEVE",
+      "text": "First things first. How do you know Nikhil?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_2\\screen_2_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_2_line_02",
+      "screen_id": "SCREEN 2",
+      "speaker": "JEFF",
+      "text": "Family, foe, witness, or lover.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_2\\screen_2_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_3_3a_line_01",
+      "screen_id": "SCREEN 3 (3A)",
+      "speaker": "STEVE",
+      "text": "Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_3__3a\\screen_3_3a_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_3b_line_01",
+      "screen_id": "SCREEN 3B",
+      "speaker": "JEFF",
+      "text": "Show me 'handsome'.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_3b\\screen_3b_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_3b_line_02",
+      "screen_id": "SCREEN 3B",
+      "speaker": "STEVE",
+      "text": "Wrong game, Jeff. Which one feels strongest, and why?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_3b\\screen_3b_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_3c_line_01",
+      "screen_id": "SCREEN 3C",
+      "speaker": "JEFF",
+      "text": "Name a thing he does so often it should come with theme music.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_3c\\screen_3c_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_3c_line_02",
+      "screen_id": "SCREEN 3C",
+      "speaker": "STEVE",
+      "text": "That is actually a good one Jeff.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_3c\\screen_3c_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_4_4a_line_01",
+      "screen_id": "SCREEN 4 (4A)",
+      "speaker": "STEVE",
+      "text": "This episode of Nikhil is brought to you by...",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_4__4a\\screen_4_4a_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_4_4a_line_02",
+      "screen_id": "SCREEN 4 (4A)",
+      "speaker": "JEFF",
+      "text": "A premium blend of polish, intensity, and lightly weaponized seduction just like someone I know.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_4__4a\\screen_4_4a_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_4b_line_01",
+      "screen_id": "SCREEN 4B",
+      "speaker": "STEVE",
+      "text": "And why?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_4b\\screen_4b_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_4b_line_02",
+      "screen_id": "SCREEN 4B",
+      "speaker": "JEFF",
+      "text": "We're all just shadows and dust Steve.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_4b\\screen_4b_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_5_5a_line_01",
+      "screen_id": "SCREEN 5 (5A)",
+      "speaker": "STEVE",
+      "text": "Ladies, you know what time it is. It's the rose ceremony, and one of you is going home tonight. Three roses. One quality goes home.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_5__5a\\screen_5_5a_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_5b_line_01",
+      "screen_id": "SCREEN 5B",
+      "speaker": "JEFF",
+      "text": "Every board has one weak square.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_5b\\screen_5b_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_5b_line_02",
+      "screen_id": "SCREEN 5B",
+      "speaker": "STEVE",
+      "text": "This ain't no board, Jeff. Send one quality home.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_5b\\screen_5b_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_5c_line_01",
+      "screen_id": "SCREEN 5C",
+      "speaker": "STEVE",
+      "text": "In the limo ride home...",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_5c\\screen_5c_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_5c_line_02",
+      "screen_id": "SCREEN 5C",
+      "speaker": "JEFF",
+      "text": "On her way to the set of 90-Day Fiance. Say Stevie isn't that where -",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_5c\\screen_5c_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_5c_line_03",
+      "screen_id": "SCREEN 5C",
+      "speaker": "STEVE",
+      "text": "Complete the sentence.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_5c\\screen_5c_line_03\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_6_6a_line_01",
+      "screen_id": "SCREEN 6 (6A)",
+      "speaker": "STEVE",
+      "text": "Shark, Nikhil just pitched his brain for 100% of your life savings. Are you in or out?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_6__6a\\screen_6_6a_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_6_6a_line_02",
+      "screen_id": "SCREEN 6 (6A)",
+      "speaker": "JEFF",
+      "text": "You know I'll just wait until Aunt Demequa blows it, and then it'll go back to me and I'll steal the round.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_6__6a\\screen_6_6a_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_6_6a_line_03",
+      "screen_id": "SCREEN 6 (6A)",
+      "speaker": "STEVE",
+      "text": "Do you know where you are",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_6__6a\\screen_6_6a_line_03\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_6b_6c_line_01",
+      "screen_id": "SCREEN 6B/6C",
+      "speaker": "STEVE",
+      "text": "Finish the sentence.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_6b_6c\\screen_6b_6c_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_7_line_01",
+      "screen_id": "SCREEN 7",
+      "speaker": "STEVE",
+      "text": "Tribal council. Confessional booth. Just you and the camera.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_7\\screen_7_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_7_line_02",
+      "screen_id": "SCREEN 7",
+      "speaker": "JEFF",
+      "text": "(Whispering) \"So this is... Fast Money in the woods?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_7\\screen_7_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_7_line_03",
+      "screen_id": "SCREEN 7",
+      "speaker": "STEVE",
+      "text": "(Whispering back, firmly) \"No. This is the honest part.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_7\\screen_7_line_03\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_8_8a_8b_line_01",
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "speaker": "JEFF",
+      "text": "At last. Something you can do with a computer, Steve...",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_8__8a___8b\\screen_8_8a_8b_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_8_8a_8b_line_02",
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "speaker": "STEVE",
+      "text": "No, Jeff. I can't do it.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_8__8a___8b\\screen_8_8a_8b_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_8_8a_8b_line_03",
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "speaker": "JEFF",
+      "text": "You have to read it, Steve. That's the job. That's why they hire you.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_8__8a___8b\\screen_8_8a_8b_line_03\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_8_8a_8b_line_04",
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "speaker": "STEVE",
+      "text": "I'm not even going to look at the board. And the envelope goes to...",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_8__8a___8b\\screen_8_8a_8b_line_04\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_9_line_01",
+      "screen_id": "SCREEN 9",
+      "speaker": "STEVE",
+      "text": "Final note from the control room.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_9\\screen_9_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_9_line_02",
+      "screen_id": "SCREEN 9",
+      "speaker": "JEFF",
+      "text": "Fast Money?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_9\\screen_9_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_9_line_03",
+      "screen_id": "SCREEN 9",
+      "speaker": "STEVE",
+      "text": "No. That's a wrap.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_9\\screen_9_line_03\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_10_line_01",
+      "screen_id": "SCREEN 10",
+      "speaker": "STEVE",
+      "text": "That's a wrap.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_10\\screen_10_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_10_line_02",
+      "screen_id": "SCREEN 10",
+      "speaker": "JEFF",
+      "text": "Did I win?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_10\\screen_10_line_02\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_10_line_03",
+      "screen_id": "SCREEN 10",
+      "speaker": "STEVE",
+      "text": "No.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_10\\screen_10_line_03\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_10_line_04",
+      "screen_id": "SCREEN 10",
+      "speaker": "JEFF",
+      "text": "Did I remain champion?",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_10\\screen_10_line_04\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "screen_10_line_05",
+      "screen_id": "SCREEN 10",
+      "speaker": "STEVE",
+      "text": "...somehow, yes.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_10\\screen_10_line_05\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "post_credit_stinger_line_01",
+      "screen_id": "POST-CREDIT STINGER",
+      "speaker": "STEVE",
+      "text": "(Disembodied voice) \"All right, Jeff. Last chance. Name something you can do on a computer.",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\post_credit_stinger\\post_credit_stinger_line_01\\neutral_variant_01.wav"
+      ]
+    },
+    {
+      "cue_id": "post_credit_stinger_line_02",
+      "screen_id": "POST-CREDIT STINGER",
+      "speaker": "JEFF",
+      "text": "Ahhh.., you can shove it up your",
+      "substyle": "neutral",
+      "output_paths": [
+        "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\post_credit_stinger\\post_credit_stinger_line_02\\neutral_variant_01.wav"
+      ]
+    }
+  ],
+  "skipped_cues": []
+}

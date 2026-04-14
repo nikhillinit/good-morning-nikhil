@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\data\\processed\\steve_reaction_short\\SteveOhMyGod.wav",
+  "target_character": "steve_irritated_correction",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.6749,
+    "rhythm_similarity": 0.4828,
+    "texture_similarity": 0.7901,
+    "spectral_similarity": 0.2142,
+    "overall_style_score": 0.5386,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pitch swings too narrow",
+      "pause timing needs more variance"
+    ]
+  }
+}

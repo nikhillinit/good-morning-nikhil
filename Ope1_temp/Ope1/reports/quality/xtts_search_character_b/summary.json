@@ -1,0 +1,202 @@
+{
+  "text": "This is a verification sample for the ARO voice style lab.",
+  "character_profile": "C:\\dev\\aro-voice-style-lab\\profiles\\character_b_xtts_refs_profile.json",
+  "target_profile": "C:\\dev\\aro-voice-style-lab\\profiles\\character_b_segments_profile.json",
+  "backend": "xtts-local",
+  "reference_audio_paths": [
+    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_xtts_refs\\jeff_prepared_seg_004.wav",
+    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_xtts_refs\\jeff_prepared_seg_010.wav",
+    "C:\\dev\\aro-voice-style-lab\\data\\processed\\character_b_xtts_refs\\jeff_prepared_seg_020.wav"
+  ],
+  "best_candidate": {
+    "preset": {
+      "name": "balanced",
+      "xtts_split_sentences": "true",
+      "xtts_enable_text_splitting": "false",
+      "xtts_speed": 1.0,
+      "xtts_temperature": 0.75,
+      "xtts_length_penalty": 1.0,
+      "xtts_repetition_penalty": 10.0,
+      "xtts_top_k": 50,
+      "xtts_top_p": 0.85
+    },
+    "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\balanced\\neutral_variant_01.wav",
+    "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_search_character_b\\balanced_report.json",
+    "scores": {
+      "pitch_similarity": 0.8379,
+      "rhythm_similarity": 0.5132,
+      "texture_similarity": 0.8673,
+      "spectral_similarity": 0.5566,
+      "overall_style_score": 0.6739,
+      "top_mismatches": [
+        "spectral color is off target",
+        "pause timing needs more variance",
+        "texture stability differs from target"
+      ]
+    }
+  },
+  "all_candidates": [
+    {
+      "preset": {
+        "name": "balanced",
+        "xtts_split_sentences": "true",
+        "xtts_enable_text_splitting": "false",
+        "xtts_speed": 1.0,
+        "xtts_temperature": 0.75,
+        "xtts_length_penalty": 1.0,
+        "xtts_repetition_penalty": 10.0,
+        "xtts_top_k": 50,
+        "xtts_top_p": 0.85
+      },
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\balanced\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_search_character_b\\balanced_report.json",
+      "scores": {
+        "pitch_similarity": 0.8379,
+        "rhythm_similarity": 0.5132,
+        "texture_similarity": 0.8673,
+        "spectral_similarity": 0.5566,
+        "overall_style_score": 0.6739,
+        "top_mismatches": [
+          "spectral color is off target",
+          "pause timing needs more variance",
+          "texture stability differs from target"
+        ]
+      }
+    },
+    {
+      "preset": {
+        "name": "faster_tight",
+        "xtts_split_sentences": "false",
+        "xtts_enable_text_splitting": "false",
+        "xtts_speed": 1.08,
+        "xtts_temperature": 0.68,
+        "xtts_length_penalty": 0.95,
+        "xtts_repetition_penalty": 11.0,
+        "xtts_top_k": 40,
+        "xtts_top_p": 0.82
+      },
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\faster_tight\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_search_character_b\\faster_tight_report.json",
+      "scores": {
+        "pitch_similarity": 0.6966,
+        "rhythm_similarity": 0.4829,
+        "texture_similarity": 0.8261,
+        "spectral_similarity": 0.5986,
+        "overall_style_score": 0.6281,
+        "top_mismatches": [
+          "pause timing needs more variance",
+          "spectral color is off target",
+          "pitch swings too narrow"
+        ]
+      }
+    },
+    {
+      "preset": {
+        "name": "slower_looser",
+        "xtts_split_sentences": "false",
+        "xtts_enable_text_splitting": "false",
+        "xtts_speed": 0.88,
+        "xtts_temperature": 0.82,
+        "xtts_length_penalty": 1.05,
+        "xtts_repetition_penalty": 8.0,
+        "xtts_top_k": 60,
+        "xtts_top_p": 0.9
+      },
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\slower_looser\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_search_character_b\\slower_looser_report.json",
+      "scores": {
+        "pitch_similarity": 0.7917,
+        "rhythm_similarity": 0.4027,
+        "texture_similarity": 0.8231,
+        "spectral_similarity": 0.5832,
+        "overall_style_score": 0.6201,
+        "top_mismatches": [
+          "pause timing needs more variance",
+          "spectral color is off target",
+          "pitch swings too narrow"
+        ]
+      }
+    },
+    {
+      "preset": {
+        "name": "slower_connected",
+        "xtts_split_sentences": "false",
+        "xtts_enable_text_splitting": "false",
+        "xtts_speed": 0.92,
+        "xtts_temperature": 0.75,
+        "xtts_length_penalty": 1.0,
+        "xtts_repetition_penalty": 9.0,
+        "xtts_top_k": 50,
+        "xtts_top_p": 0.88
+      },
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\slower_connected\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_search_character_b\\slower_connected_report.json",
+      "scores": {
+        "pitch_similarity": 0.803,
+        "rhythm_similarity": 0.2573,
+        "texture_similarity": 0.79,
+        "spectral_similarity": 0.5487,
+        "overall_style_score": 0.5585,
+        "top_mismatches": [
+          "pause timing needs more variance",
+          "spectral color is off target",
+          "texture stability differs from target"
+        ]
+      }
+    },
+    {
+      "preset": {
+        "name": "looser_pause_bias",
+        "xtts_split_sentences": "false",
+        "xtts_enable_text_splitting": "false",
+        "xtts_speed": 0.95,
+        "xtts_temperature": 0.85,
+        "xtts_length_penalty": 1.1,
+        "xtts_repetition_penalty": 7.5,
+        "xtts_top_k": 70,
+        "xtts_top_p": 0.92
+      },
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\looser_pause_bias\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_search_character_b\\looser_pause_bias_report.json",
+      "scores": {
+        "pitch_similarity": 0.7376,
+        "rhythm_similarity": 0.2451,
+        "texture_similarity": 0.8762,
+        "spectral_similarity": 0.5301,
+        "overall_style_score": 0.5514,
+        "top_mismatches": [
+          "pause timing needs more variance",
+          "spectral color is off target",
+          "texture stability differs from target"
+        ]
+      }
+    },
+    {
+      "preset": {
+        "name": "slower_split",
+        "xtts_split_sentences": "true",
+        "xtts_enable_text_splitting": "false",
+        "xtts_speed": 0.9,
+        "xtts_temperature": 0.72,
+        "xtts_length_penalty": 1.05,
+        "xtts_repetition_penalty": 10.0,
+        "xtts_top_k": 55,
+        "xtts_top_p": 0.86
+      },
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_search_character_b\\slower_split\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\xtts_search_character_b\\slower_split_report.json",
+      "scores": {
+        "pitch_similarity": 0.7583,
+        "rhythm_similarity": 0.1742,
+        "texture_similarity": 0.8559,
+        "spectral_similarity": 0.5445,
+        "overall_style_score": 0.5306,
+        "top_mismatches": [
+          "pause timing needs more variance",
+          "spectral color is off target",
+          "pitch swings too narrow"
+        ]
+      }
+    }
+  ]
+}

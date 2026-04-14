@@ -1,0 +1,17 @@
+{
+  "profile_path": "profiles\\demo_character_profile.json",
+  "output_paths": [
+    "outputs\\demo_character\\neutral_variant_01.wav",
+    "outputs\\demo_character\\neutral_variant_02.wav",
+    "outputs\\demo_character\\neutral_variant_03.wav"
+  ],
+  "report_paths": [
+    "reports\\neutral_variant_01_report.json",
+    "reports\\neutral_variant_02_report.json",
+    "reports\\neutral_variant_03_report.json"
+  ],
+  "notes": [
+    "Demo outputs are synthetic placeholder renderings.",
+    "Use prepare-audio plus a permitted voice corpus before real evaluation."
+  ]
+}

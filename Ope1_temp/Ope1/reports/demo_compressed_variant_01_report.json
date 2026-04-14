@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\demo_compressed\\neutral_variant_01.wav",
+  "target_character": "demo_compressed",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.464,
+    "rhythm_similarity": 0.4911,
+    "texture_similarity": 0.8573,
+    "spectral_similarity": 0.53,
+    "overall_style_score": 0.5654,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pitch swings too narrow",
+      "pause timing needs more variance"
+    ]
+  }
+}

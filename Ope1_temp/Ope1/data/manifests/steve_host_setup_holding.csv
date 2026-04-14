@@ -1,0 +1,2 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,delivery_tags,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\steve_host_setup_holding\SteveIntro.wav,steve_host_setup_holding,SteveIntro,11.684,,irritated,host_setup_holding,"host_setup,confidence_medium,evidence_metadata_audit,holding_only","Alright, final round. We got the Miller family versus Jeff Goldblum, our returning champion.",True

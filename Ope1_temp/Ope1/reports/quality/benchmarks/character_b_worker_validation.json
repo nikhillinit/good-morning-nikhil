@@ -1,0 +1,117 @@
+{
+  "local_summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\benchmarks\\character_b_local\\summary.json",
+  "worker_summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\benchmarks\\character_b_worker\\summary.json",
+  "prompt_count": 12,
+  "mean_delta": -0.0216,
+  "max_abs_delta": 0.2851,
+  "comparisons": [
+    {
+      "prompt_id": "bmk_calm_low_energy",
+      "bucket": "calm_low_energy",
+      "local_score": 0.4151,
+      "worker_score": 0.3492,
+      "delta": -0.0659,
+      "local_seconds": 17.04,
+      "worker_seconds": 19.843
+    },
+    {
+      "prompt_id": "bmk_clause_heavy",
+      "bucket": "clause_heavy",
+      "local_score": 0.4863,
+      "worker_score": 0.6432,
+      "delta": 0.1569,
+      "local_seconds": 23.093,
+      "worker_seconds": 21.525
+    },
+    {
+      "prompt_id": "bmk_clipped_question",
+      "bucket": "clipped_question",
+      "local_score": 0.3948,
+      "worker_score": 0.3904,
+      "delta": -0.0044,
+      "local_seconds": 7.209,
+      "worker_seconds": 7.54
+    },
+    {
+      "prompt_id": "bmk_counting_list",
+      "bucket": "counting_list",
+      "local_score": 0.5693,
+      "worker_score": 0.5509,
+      "delta": -0.0184,
+      "local_seconds": 16.514,
+      "worker_seconds": 18.669
+    },
+    {
+      "prompt_id": "bmk_emphasis_heavy",
+      "bucket": "emphasis_heavy",
+      "local_score": 0.4948,
+      "worker_score": 0.4096,
+      "delta": -0.0852,
+      "local_seconds": 11.498,
+      "worker_seconds": 12.575
+    },
+    {
+      "prompt_id": "bmk_host_intro",
+      "bucket": "host_intro",
+      "local_score": 0.5014,
+      "worker_score": 0.558,
+      "delta": 0.0566,
+      "local_seconds": 16.942,
+      "worker_seconds": 15.095
+    },
+    {
+      "prompt_id": "bmk_interruption_restart",
+      "bucket": "interruption_restart",
+      "local_score": 0.4936,
+      "worker_score": 0.504,
+      "delta": 0.0104,
+      "local_seconds": 9.538,
+      "worker_seconds": 14.193
+    },
+    {
+      "prompt_id": "bmk_neutral_declarative",
+      "bucket": "neutral_declarative",
+      "local_score": 0.5044,
+      "worker_score": 0.4402,
+      "delta": -0.0642,
+      "local_seconds": 13.597,
+      "worker_seconds": 10.145
+    },
+    {
+      "prompt_id": "bmk_punchline_pause",
+      "bucket": "punchline_pause",
+      "local_score": 0.4691,
+      "worker_score": 0.4405,
+      "delta": -0.0286,
+      "local_seconds": 10.753,
+      "worker_seconds": 11.151
+    },
+    {
+      "prompt_id": "bmk_question_rising",
+      "bucket": "question_rising",
+      "local_score": 0.5759,
+      "worker_score": 0.5591,
+      "delta": -0.0168,
+      "local_seconds": 9.362,
+      "worker_seconds": 8.668
+    },
+    {
+      "prompt_id": "bmk_reaction_short",
+      "bucket": "reaction_short",
+      "local_score": 0.2686,
+      "worker_score": 0.3538,
+      "delta": 0.0852,
+      "local_seconds": 57.423,
+      "worker_seconds": 30.183
+    },
+    {
+      "prompt_id": "bmk_wandering_sentence",
+      "bucket": "wandering_sentence",
+      "local_score": 0.7784,
+      "worker_score": 0.4933,
+      "delta": -0.2851,
+      "local_seconds": 26.783,
+      "worker_seconds": 18.038
+    }
+  ]
+}

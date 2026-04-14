@@ -1,0 +1,9 @@
+{
+  "index": 3,
+  "substyle": "neutral",
+  "speech_rate_scale": 1.03,
+  "pause_scale": 0.96,
+  "pitch_scale": 0.982,
+  "emphasis_scale": 1.156,
+  "output_path": "C:\\dev\\aro-voice-style-lab\\outputs\\character_b\\neutral_variant_03.wav"
+}

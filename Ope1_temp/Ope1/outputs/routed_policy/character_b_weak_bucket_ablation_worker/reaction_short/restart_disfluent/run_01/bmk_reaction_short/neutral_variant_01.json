@@ -1,0 +1,25 @@
+{
+  "index": 1,
+  "substyle": "neutral",
+  "speech_rate_scale": 1.0,
+  "pause_scale": 1.0,
+  "pitch_scale": 0.961,
+  "emphasis_scale": 1.139,
+  "output_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\restart_disfluent\\run_01\\bmk_reaction_short\\neutral_variant_01.wav",
+  "backend": "xtts-worker",
+  "backend_options": {
+    "backend": "xtts-worker",
+    "model_name": "tts_models/multilingual/multi-dataset/xtts_v2",
+    "language_code": "en",
+    "device": "cpu",
+    "split_sentences": false,
+    "enable_text_splitting": false,
+    "temperature": 0.85,
+    "length_penalty": 1.1,
+    "repetition_penalty": 7.5,
+    "top_k": 70,
+    "top_p": 0.92,
+    "speed": 0.95,
+    "worker_url": "http://127.0.0.1:8050"
+  }
+}

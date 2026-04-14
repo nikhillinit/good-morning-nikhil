@@ -1,0 +1,13 @@
+{
+  "index": 1,
+  "substyle": "neutral",
+  "speech_rate_scale": 1.0,
+  "pause_scale": 1.0,
+  "pitch_scale": 0.992,
+  "emphasis_scale": 1.218,
+  "output_path": "C:\\dev\\aro-voice-style-lab\\outputs\\good_morning_nikhil_preview\\screen_7\\screen_7_line_03\\neutral_variant_01.wav",
+  "backend": "placeholder",
+  "backend_options": {
+    "backend": "placeholder"
+  }
+}

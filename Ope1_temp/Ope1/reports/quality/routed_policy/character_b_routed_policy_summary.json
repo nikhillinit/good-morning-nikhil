@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-04-12T04:40:13Z",
+  "policy_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\character_b_routed_policy_v1.json",
+  "policy_id": null,
+  "source_policy_id": null,
+  "local": {
+    "mean_overall_style_score": 0.4623,
+    "mean_rhythm_similarity": 0.159,
+    "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_local\\summary.json"
+  },
+  "worker": {
+    "mean_overall_style_score": 0.4928,
+    "mean_rhythm_similarity": 0.1892,
+    "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_worker\\summary.json"
+  },
+  "previous_best_monolithic": null,
+  "worker_validation": {
+    "mean_delta": 0.0305,
+    "max_abs_delta": 0.1601,
+    "local_lineage": {},
+    "worker_lineage": {},
+    "lineage_match": null,
+    "validation_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_worker_validation.json"
+  },
+  "conclusion": [
+    "Local and worker routed summaries do not share the same lineage."
+  ]
+}

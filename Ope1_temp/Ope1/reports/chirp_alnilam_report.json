@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\Users\\nikhi\\Downloads\\aro_hd_sample_2_alnilam.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.6574,
+    "rhythm_similarity": 0.8377,
+    "texture_similarity": 0.732,
+    "spectral_similarity": 0.385,
+    "overall_style_score": 0.6809,
+    "top_mismatches": [
+      "spectral color is off target",
+      "pitch swings too narrow",
+      "pause timing needs more variance"
+    ]
+  }
+}

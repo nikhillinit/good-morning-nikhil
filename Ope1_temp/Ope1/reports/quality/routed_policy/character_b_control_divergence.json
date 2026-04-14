@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-04-12T04:39:42Z",
+  "phase": "lineage_lock",
+  "canonical_control_policy": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\character_b_routed_policy_v2_control.json",
+  "references": {
+    "earlier_routed_ablation": {
+      "mean_overall_style_score": 0.5188,
+      "mean_rhythm_similarity": 0.2465
+    },
+    "stale_routed_policy_summary": {
+      "mean_overall_style_score": 0.5032,
+      "mean_rhythm_similarity": 0.2281
+    },
+    "current_worker_control": {
+      "mean_overall_style_score": 0.472,
+      "mean_rhythm_similarity": 0.1346,
+      "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_worker\\summary.json"
+    }
+  },
+  "local_control": {
+    "status": "crashed",
+    "exit_code": -1073741819,
+    "run_log": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_control_debug\\run.log",
+    "partial_output_root": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_debug",
+    "notes": [
+      "Local XTTS crashed natively during reaction_short control generation.",
+      "The crash happened before Python emitted a traceback, so local control is not usable as a policy-quality baseline in this cycle."
+    ]
+  },
+  "verdict": "worker_control_only",
+  "explanation": "The earlier routed high-water marks were not reproduced on the current worker control, and the local control path crashed. The worker control is therefore the only usable canonical control for this execution cycle."
+}

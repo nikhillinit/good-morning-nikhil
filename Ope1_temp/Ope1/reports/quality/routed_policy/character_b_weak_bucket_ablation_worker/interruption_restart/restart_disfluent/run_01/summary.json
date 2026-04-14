@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-04-12T04:41:27Z",
+  "policy_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\_tmp\\interruption_restart__restart_disfluent__run01__policy.json",
+  "policy_id": "character_b_routed_policy_v2_control__interruption_restart__restart_disfluent__run01",
+  "source_policy_id": "character_b_routed_policy_v2_control",
+  "suite_id": "character_b_benchmark_v1__interruption_restart",
+  "backend_name": "xtts-worker",
+  "backend_options": {
+    "language_code": null,
+    "xtts_device": "cpu",
+    "xtts_worker_url": "http://127.0.0.1:8050"
+  },
+  "xtts_preset": {
+    "name": "looser_pause_bias",
+    "xtts_split_sentences": "false",
+    "xtts_enable_text_splitting": "false",
+    "xtts_speed": 0.95,
+    "xtts_temperature": 0.85,
+    "xtts_length_penalty": 1.1,
+    "xtts_repetition_penalty": 7.5,
+    "xtts_top_k": 70,
+    "xtts_top_p": 0.92
+  },
+  "mean_overall_style_score": 0.4874,
+  "mean_rhythm_similarity": 0.0231,
+  "lineage": {
+    "policy_hash": "c3b5768d84030bab1e93bc41b91be218e749e4ea77ed818856400dfed4936190",
+    "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+    "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+    "benchmark_suite_hash": "0977c598f9fe6bc04d57048c1fd3ab5713dca33c43a052d73fac752976d2e6b9",
+    "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+    "rendered_prompt_hash": "df024c108c6a44a86505b413e283e285ea11c40e7a4825a155dac6d65b6b6f01"
+  },
+  "results": [
+    {
+      "prompt_id": "bmk_interruption_restart",
+      "bucket": "interruption_restart",
+      "text": "No, wait, that's not exactly what I meant.",
+      "rendered_text": "No, wait, that's not exactly what I meant.",
+      "prompt_variant": "base",
+      "ref_pack": "restart_disfluent",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\restart_disfluent\\run_01\\bmk_interruption_restart\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\restart_disfluent\\run_01\\bmk_interruption_restart_report.json",
+      "generation_seconds": 9.288,
+      "pitch_similarity": 0.7929,
+      "rhythm_similarity": 0.0231,
+      "texture_similarity": 0.7751,
+      "spectral_similarity": 0.6303,
+      "overall_style_score": 0.4874,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    }
+  ]
+}

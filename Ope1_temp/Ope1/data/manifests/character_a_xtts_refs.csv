@@ -1,0 +1,4 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\character_a_xtts_refs\Steve2_seg_004.wav,character_a_xtts_refs,Steve2_seg_004,8.0722,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_xtts_refs\Steve2_seg_007.wav,character_a_xtts_refs,Steve2_seg_007,7.7396,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_a_xtts_refs\Steve_seg_004.wav,character_a_xtts_refs,Steve_seg_004,8.0789,,unknown,neutral,,True

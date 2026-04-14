@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-04-12T04:40:58Z",
+  "policy_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\_tmp\\calm_low_energy__pause_heavy__run01__policy.json",
+  "policy_id": "character_b_routed_policy_v2_control__calm_low_energy__pause_heavy__run01",
+  "source_policy_id": "character_b_routed_policy_v2_control",
+  "suite_id": "character_b_benchmark_v1__calm_low_energy",
+  "backend_name": "xtts-worker",
+  "backend_options": {
+    "language_code": null,
+    "xtts_device": "cpu",
+    "xtts_worker_url": "http://127.0.0.1:8050"
+  },
+  "xtts_preset": {
+    "name": "looser_pause_bias",
+    "xtts_split_sentences": "false",
+    "xtts_enable_text_splitting": "false",
+    "xtts_speed": 0.95,
+    "xtts_temperature": 0.85,
+    "xtts_length_penalty": 1.1,
+    "xtts_repetition_penalty": 7.5,
+    "xtts_top_k": 70,
+    "xtts_top_p": 0.92
+  },
+  "mean_overall_style_score": 0.4545,
+  "mean_rhythm_similarity": 0.0707,
+  "lineage": {
+    "policy_hash": "b6e20b1fa83e69a5b52aaca0dc44a4d461be219c6d039ebfa1a17a12bcaebdb1",
+    "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+    "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+    "benchmark_suite_hash": "0d6b75be1f8c14ed67ce739b1814c062017fa341c0466bdaefaeecf0201c211d",
+    "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+    "rendered_prompt_hash": "ce596e637418f895255935821a1343509b625a5fb3a9c71e26075e2fb232abc6"
+  },
+  "results": [
+    {
+      "prompt_id": "bmk_calm_low_energy",
+      "bucket": "calm_low_energy",
+      "text": "It's fine. We can deal with it tomorrow.",
+      "rendered_text": "It's fine. We can deal with it tomorrow.",
+      "prompt_variant": "base",
+      "ref_pack": "pause_heavy",
+      "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\pause_heavy\\run_01\\bmk_calm_low_energy\\neutral_variant_01.wav",
+      "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\pause_heavy\\run_01\\bmk_calm_low_energy_report.json",
+      "generation_seconds": 10.403,
+      "pitch_similarity": 0.7232,
+      "rhythm_similarity": 0.0707,
+      "texture_similarity": 0.6745,
+      "spectral_similarity": 0.5702,
+      "overall_style_score": 0.4545,
+      "top_mismatches": [
+        "pause timing needs more variance",
+        "spectral color is off target",
+        "pitch swings too narrow"
+      ]
+    }
+  ]
+}

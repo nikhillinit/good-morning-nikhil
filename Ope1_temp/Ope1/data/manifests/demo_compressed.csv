@@ -1,0 +1,2 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\demo_compressed\neutral_01.wav,demo_compressed,neutral_01,1.5325,,unknown,neutral,,True

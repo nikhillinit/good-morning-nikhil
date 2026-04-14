@@ -1,0 +1,13 @@
+{
+  "index": 3,
+  "substyle": "neutral",
+  "speech_rate_scale": 1.06,
+  "pause_scale": 0.92,
+  "pitch_scale": 1.033,
+  "emphasis_scale": 1.4,
+  "output_path": "outputs\\demo_character\\neutral_variant_03.wav",
+  "backend": "placeholder",
+  "backend_options": {
+    "backend": "placeholder"
+  }
+}

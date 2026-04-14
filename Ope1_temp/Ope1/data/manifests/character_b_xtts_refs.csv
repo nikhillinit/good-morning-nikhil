@@ -1,0 +1,4 @@
+file_path,character,source,duration_sec,quality_score,emotion_tag,style_tag,transcript,keep_flag
+C:\dev\aro-voice-style-lab\data\processed\character_b_xtts_refs\jeff_prepared_seg_004.wav,character_b_xtts_refs,jeff_prepared_seg_004,7.8799,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_xtts_refs\jeff_prepared_seg_010.wav,character_b_xtts_refs,jeff_prepared_seg_010,8.2409,,unknown,neutral,,True
+C:\dev\aro-voice-style-lab\data\processed\character_b_xtts_refs\jeff_prepared_seg_020.wav,character_b_xtts_refs,jeff_prepared_seg_020,6.9121,,unknown,neutral,,True

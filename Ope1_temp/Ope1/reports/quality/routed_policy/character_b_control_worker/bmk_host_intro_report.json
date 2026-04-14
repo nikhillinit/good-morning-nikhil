@@ -1,0 +1,17 @@
+{
+  "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_control_worker\\bmk_host_intro\\neutral_variant_01.wav",
+  "target_character": "character_b_segments",
+  "target_substyle": "global",
+  "scores": {
+    "pitch_similarity": 0.8312,
+    "rhythm_similarity": 0.2034,
+    "texture_similarity": 0.6978,
+    "spectral_similarity": 0.5107,
+    "overall_style_score": 0.5207,
+    "top_mismatches": [
+      "pause timing needs more variance",
+      "spectral color is off target",
+      "pitch swings too narrow"
+    ]
+  }
+}

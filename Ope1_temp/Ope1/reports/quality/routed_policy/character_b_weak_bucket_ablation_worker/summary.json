@@ -1,0 +1,704 @@
+{
+  "generated_at": "2026-04-12T04:41:27Z",
+  "policy_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\character_b_routed_policy_v2_control.json",
+  "policy_id": "character_b_routed_policy_v2_control",
+  "source_policy_id": "character_b_refpack_ablation_routed_control",
+  "suite_id": "character_b_benchmark_v1",
+  "backend_name": "xtts-worker",
+  "repeats": 1,
+  "mandatory_rescue_buckets": [
+    "reaction_short",
+    "clipped_question"
+  ],
+  "bucket_reports": {
+    "reaction_short": {
+      "bucket": "reaction_short",
+      "prompt_id": "bmk_reaction_short",
+      "text": "Well. That's unexpected.",
+      "control": {
+        "bucket": "reaction_short",
+        "pack": "rambling",
+        "control_pack": "rambling",
+        "runs": [
+          {
+            "iteration": 1,
+            "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\rambling\\run_01\\summary.json",
+            "prompt_id": "bmk_reaction_short",
+            "bucket": "reaction_short",
+            "pack": "rambling",
+            "prompt_variant": "base",
+            "ref_pack": "rambling",
+            "overall_style_score": 0.3986,
+            "rhythm_similarity": 0.0343,
+            "pitch_similarity": 0.6198,
+            "spectral_similarity": 0.4663,
+            "texture_similarity": 0.6921,
+            "generation_seconds": 8.132,
+            "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\rambling\\run_01\\bmk_reaction_short\\neutral_variant_01.wav",
+            "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\rambling\\run_01\\bmk_reaction_short_report.json",
+            "lineage": {
+              "policy_hash": "44dcffab426434c45a6af4848e269225ba32de3dd1cd7d4682ad9d8cd74ce723",
+              "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+              "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+              "benchmark_suite_hash": "a92be8e8e201358b0dfc2b6c5e834e50bd51d8333583d4eb8df8596b4a376359",
+              "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+              "rendered_prompt_hash": "74d518cdf97557ca48b0a805867d6d039735bb773e7ad932c4e7c4421843df10"
+            }
+          }
+        ],
+        "mean_overall_style_score": 0.3986,
+        "mean_rhythm_similarity": 0.0343,
+        "mean_pitch_similarity": 0.6198,
+        "mean_spectral_similarity": 0.4663,
+        "mean_texture_similarity": 0.6921
+      },
+      "comparisons": [
+        {
+          "bucket": "reaction_short",
+          "pack": "rambling",
+          "control_pack": "rambling",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\rambling\\run_01\\summary.json",
+              "prompt_id": "bmk_reaction_short",
+              "bucket": "reaction_short",
+              "pack": "rambling",
+              "prompt_variant": "base",
+              "ref_pack": "rambling",
+              "overall_style_score": 0.3986,
+              "rhythm_similarity": 0.0343,
+              "pitch_similarity": 0.6198,
+              "spectral_similarity": 0.4663,
+              "texture_similarity": 0.6921,
+              "generation_seconds": 8.132,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\rambling\\run_01\\bmk_reaction_short\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\rambling\\run_01\\bmk_reaction_short_report.json",
+              "lineage": {
+                "policy_hash": "44dcffab426434c45a6af4848e269225ba32de3dd1cd7d4682ad9d8cd74ce723",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "a92be8e8e201358b0dfc2b6c5e834e50bd51d8333583d4eb8df8596b4a376359",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "74d518cdf97557ca48b0a805867d6d039735bb773e7ad932c4e7c4421843df10"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.3986,
+          "mean_rhythm_similarity": 0.0343,
+          "mean_pitch_similarity": 0.6198,
+          "mean_spectral_similarity": 0.4663,
+          "mean_texture_similarity": 0.6921
+        },
+        {
+          "bucket": "reaction_short",
+          "pack": "restart_disfluent",
+          "control_pack": "rambling",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\restart_disfluent\\run_01\\summary.json",
+              "prompt_id": "bmk_reaction_short",
+              "bucket": "reaction_short",
+              "pack": "restart_disfluent",
+              "prompt_variant": "base",
+              "ref_pack": "restart_disfluent",
+              "overall_style_score": 0.4509,
+              "rhythm_similarity": 0.0315,
+              "pitch_similarity": 0.8367,
+              "spectral_similarity": 0.4138,
+              "texture_similarity": 0.7395,
+              "generation_seconds": 6.42,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\restart_disfluent\\run_01\\bmk_reaction_short\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\restart_disfluent\\run_01\\bmk_reaction_short_report.json",
+              "lineage": {
+                "policy_hash": "6c6cbc28f54da3bbde3835c32e59b777efd84adc7891458ce2d7e5656a3b3805",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "a92be8e8e201358b0dfc2b6c5e834e50bd51d8333583d4eb8df8596b4a376359",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "74d518cdf97557ca48b0a805867d6d039735bb773e7ad932c4e7c4421843df10"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.4509,
+          "mean_rhythm_similarity": 0.0315,
+          "mean_pitch_similarity": 0.8367,
+          "mean_spectral_similarity": 0.4138,
+          "mean_texture_similarity": 0.7395
+        },
+        {
+          "bucket": "reaction_short",
+          "pack": "clipped_low_latency",
+          "control_pack": "rambling",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\clipped_low_latency\\run_01\\summary.json",
+              "prompt_id": "bmk_reaction_short",
+              "bucket": "reaction_short",
+              "pack": "clipped_low_latency",
+              "prompt_variant": "base",
+              "ref_pack": "clipped_low_latency",
+              "overall_style_score": 0.43,
+              "rhythm_similarity": 0.1905,
+              "pitch_similarity": 0.691,
+              "spectral_similarity": 0.3476,
+              "texture_similarity": 0.6051,
+              "generation_seconds": 8.426,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\clipped_low_latency\\run_01\\bmk_reaction_short\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\clipped_low_latency\\run_01\\bmk_reaction_short_report.json",
+              "lineage": {
+                "policy_hash": "2b555d1d8e6e96dff6e07dcd5c30ba1f793884c8fe9081cb31e7e72cd255c432",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "a92be8e8e201358b0dfc2b6c5e834e50bd51d8333583d4eb8df8596b4a376359",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "74d518cdf97557ca48b0a805867d6d039735bb773e7ad932c4e7c4421843df10"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.43,
+          "mean_rhythm_similarity": 0.1905,
+          "mean_pitch_similarity": 0.691,
+          "mean_spectral_similarity": 0.3476,
+          "mean_texture_similarity": 0.6051
+        }
+      ],
+      "best_candidate": {
+        "bucket": "reaction_short",
+        "pack": "clipped_low_latency",
+        "control_pack": "rambling",
+        "runs": [
+          {
+            "iteration": 1,
+            "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\clipped_low_latency\\run_01\\summary.json",
+            "prompt_id": "bmk_reaction_short",
+            "bucket": "reaction_short",
+            "pack": "clipped_low_latency",
+            "prompt_variant": "base",
+            "ref_pack": "clipped_low_latency",
+            "overall_style_score": 0.43,
+            "rhythm_similarity": 0.1905,
+            "pitch_similarity": 0.691,
+            "spectral_similarity": 0.3476,
+            "texture_similarity": 0.6051,
+            "generation_seconds": 8.426,
+            "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\clipped_low_latency\\run_01\\bmk_reaction_short\\neutral_variant_01.wav",
+            "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\reaction_short\\clipped_low_latency\\run_01\\bmk_reaction_short_report.json",
+            "lineage": {
+              "policy_hash": "2b555d1d8e6e96dff6e07dcd5c30ba1f793884c8fe9081cb31e7e72cd255c432",
+              "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+              "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+              "benchmark_suite_hash": "a92be8e8e201358b0dfc2b6c5e834e50bd51d8333583d4eb8df8596b4a376359",
+              "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+              "rendered_prompt_hash": "74d518cdf97557ca48b0a805867d6d039735bb773e7ad932c4e7c4421843df10"
+            }
+          }
+        ],
+        "mean_overall_style_score": 0.43,
+        "mean_rhythm_similarity": 0.1905,
+        "mean_pitch_similarity": 0.691,
+        "mean_spectral_similarity": 0.3476,
+        "mean_texture_similarity": 0.6051
+      },
+      "control_pack": "rambling",
+      "mandatory_rescue": true,
+      "deltas_vs_control": {
+        "overall_style_score": 0.0314,
+        "rhythm_similarity": 0.1562,
+        "pitch_similarity": 0.0712,
+        "spectral_similarity": -0.1187
+      }
+    },
+    "clipped_question": {
+      "bucket": "clipped_question",
+      "prompt_id": "bmk_clipped_question",
+      "text": "And now what?",
+      "control": {
+        "bucket": "clipped_question",
+        "pack": "pause_heavy",
+        "control_pack": "pause_heavy",
+        "runs": [
+          {
+            "iteration": 1,
+            "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\pause_heavy\\run_01\\summary.json",
+            "prompt_id": "bmk_clipped_question",
+            "bucket": "clipped_question",
+            "pack": "pause_heavy",
+            "prompt_variant": "base",
+            "ref_pack": "pause_heavy",
+            "overall_style_score": 0.3882,
+            "rhythm_similarity": 0.0,
+            "pitch_similarity": 0.5667,
+            "spectral_similarity": 0.4444,
+            "texture_similarity": 0.7881,
+            "generation_seconds": 5.173,
+            "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\pause_heavy\\run_01\\bmk_clipped_question\\neutral_variant_01.wav",
+            "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\pause_heavy\\run_01\\bmk_clipped_question_report.json",
+            "lineage": {
+              "policy_hash": "76a557fe3316f65d0b813f73ebfa7b910c830896b82331bfa250d4de03247f0c",
+              "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+              "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+              "benchmark_suite_hash": "1780311c162e5a0d8ed64acee69687e6476f490372548646c29438b8d5e6a936",
+              "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+              "rendered_prompt_hash": "2d0056a7f20c1957d914db24435bc432f821156d23cfd66a9b9f66eb2c89c56c"
+            }
+          }
+        ],
+        "mean_overall_style_score": 0.3882,
+        "mean_rhythm_similarity": 0.0,
+        "mean_pitch_similarity": 0.5667,
+        "mean_spectral_similarity": 0.4444,
+        "mean_texture_similarity": 0.7881
+      },
+      "comparisons": [
+        {
+          "bucket": "clipped_question",
+          "pack": "pause_heavy",
+          "control_pack": "pause_heavy",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\pause_heavy\\run_01\\summary.json",
+              "prompt_id": "bmk_clipped_question",
+              "bucket": "clipped_question",
+              "pack": "pause_heavy",
+              "prompt_variant": "base",
+              "ref_pack": "pause_heavy",
+              "overall_style_score": 0.3882,
+              "rhythm_similarity": 0.0,
+              "pitch_similarity": 0.5667,
+              "spectral_similarity": 0.4444,
+              "texture_similarity": 0.7881,
+              "generation_seconds": 5.173,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\pause_heavy\\run_01\\bmk_clipped_question\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\pause_heavy\\run_01\\bmk_clipped_question_report.json",
+              "lineage": {
+                "policy_hash": "76a557fe3316f65d0b813f73ebfa7b910c830896b82331bfa250d4de03247f0c",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "1780311c162e5a0d8ed64acee69687e6476f490372548646c29438b8d5e6a936",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "2d0056a7f20c1957d914db24435bc432f821156d23cfd66a9b9f66eb2c89c56c"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.3882,
+          "mean_rhythm_similarity": 0.0,
+          "mean_pitch_similarity": 0.5667,
+          "mean_spectral_similarity": 0.4444,
+          "mean_texture_similarity": 0.7881
+        },
+        {
+          "bucket": "clipped_question",
+          "pack": "clipped_low_latency",
+          "control_pack": "pause_heavy",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\clipped_low_latency\\run_01\\summary.json",
+              "prompt_id": "bmk_clipped_question",
+              "bucket": "clipped_question",
+              "pack": "clipped_low_latency",
+              "prompt_variant": "base",
+              "ref_pack": "clipped_low_latency",
+              "overall_style_score": 0.348,
+              "rhythm_similarity": 0.0,
+              "pitch_similarity": 0.4861,
+              "spectral_similarity": 0.2677,
+              "texture_similarity": 0.8647,
+              "generation_seconds": 4.128,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\clipped_low_latency\\run_01\\bmk_clipped_question\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\clipped_low_latency\\run_01\\bmk_clipped_question_report.json",
+              "lineage": {
+                "policy_hash": "7776ee768f595c051f4be8af343227299b8c18958f70227b15346fc1af5b8d23",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "1780311c162e5a0d8ed64acee69687e6476f490372548646c29438b8d5e6a936",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "2d0056a7f20c1957d914db24435bc432f821156d23cfd66a9b9f66eb2c89c56c"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.348,
+          "mean_rhythm_similarity": 0.0,
+          "mean_pitch_similarity": 0.4861,
+          "mean_spectral_similarity": 0.2677,
+          "mean_texture_similarity": 0.8647
+        }
+      ],
+      "best_candidate": {
+        "bucket": "clipped_question",
+        "pack": "clipped_low_latency",
+        "control_pack": "pause_heavy",
+        "runs": [
+          {
+            "iteration": 1,
+            "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\clipped_low_latency\\run_01\\summary.json",
+            "prompt_id": "bmk_clipped_question",
+            "bucket": "clipped_question",
+            "pack": "clipped_low_latency",
+            "prompt_variant": "base",
+            "ref_pack": "clipped_low_latency",
+            "overall_style_score": 0.348,
+            "rhythm_similarity": 0.0,
+            "pitch_similarity": 0.4861,
+            "spectral_similarity": 0.2677,
+            "texture_similarity": 0.8647,
+            "generation_seconds": 4.128,
+            "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\clipped_low_latency\\run_01\\bmk_clipped_question\\neutral_variant_01.wav",
+            "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\clipped_question\\clipped_low_latency\\run_01\\bmk_clipped_question_report.json",
+            "lineage": {
+              "policy_hash": "7776ee768f595c051f4be8af343227299b8c18958f70227b15346fc1af5b8d23",
+              "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+              "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+              "benchmark_suite_hash": "1780311c162e5a0d8ed64acee69687e6476f490372548646c29438b8d5e6a936",
+              "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+              "rendered_prompt_hash": "2d0056a7f20c1957d914db24435bc432f821156d23cfd66a9b9f66eb2c89c56c"
+            }
+          }
+        ],
+        "mean_overall_style_score": 0.348,
+        "mean_rhythm_similarity": 0.0,
+        "mean_pitch_similarity": 0.4861,
+        "mean_spectral_similarity": 0.2677,
+        "mean_texture_similarity": 0.8647
+      },
+      "control_pack": "pause_heavy",
+      "mandatory_rescue": true,
+      "deltas_vs_control": {
+        "overall_style_score": -0.0402,
+        "rhythm_similarity": 0.0,
+        "pitch_similarity": -0.0806,
+        "spectral_similarity": -0.1767
+      }
+    },
+    "calm_low_energy": {
+      "bucket": "calm_low_energy",
+      "prompt_id": "bmk_calm_low_energy",
+      "text": "It's fine. We can deal with it tomorrow.",
+      "control": {
+        "bucket": "calm_low_energy",
+        "pack": "pause_heavy",
+        "control_pack": "pause_heavy",
+        "runs": [
+          {
+            "iteration": 1,
+            "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\pause_heavy\\run_01\\summary.json",
+            "prompt_id": "bmk_calm_low_energy",
+            "bucket": "calm_low_energy",
+            "pack": "pause_heavy",
+            "prompt_variant": "base",
+            "ref_pack": "pause_heavy",
+            "overall_style_score": 0.4545,
+            "rhythm_similarity": 0.0707,
+            "pitch_similarity": 0.7232,
+            "spectral_similarity": 0.5702,
+            "texture_similarity": 0.6745,
+            "generation_seconds": 10.403,
+            "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\pause_heavy\\run_01\\bmk_calm_low_energy\\neutral_variant_01.wav",
+            "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\pause_heavy\\run_01\\bmk_calm_low_energy_report.json",
+            "lineage": {
+              "policy_hash": "b6e20b1fa83e69a5b52aaca0dc44a4d461be219c6d039ebfa1a17a12bcaebdb1",
+              "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+              "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+              "benchmark_suite_hash": "0d6b75be1f8c14ed67ce739b1814c062017fa341c0466bdaefaeecf0201c211d",
+              "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+              "rendered_prompt_hash": "ce596e637418f895255935821a1343509b625a5fb3a9c71e26075e2fb232abc6"
+            }
+          }
+        ],
+        "mean_overall_style_score": 0.4545,
+        "mean_rhythm_similarity": 0.0707,
+        "mean_pitch_similarity": 0.7232,
+        "mean_spectral_similarity": 0.5702,
+        "mean_texture_similarity": 0.6745
+      },
+      "comparisons": [
+        {
+          "bucket": "calm_low_energy",
+          "pack": "pause_heavy",
+          "control_pack": "pause_heavy",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\pause_heavy\\run_01\\summary.json",
+              "prompt_id": "bmk_calm_low_energy",
+              "bucket": "calm_low_energy",
+              "pack": "pause_heavy",
+              "prompt_variant": "base",
+              "ref_pack": "pause_heavy",
+              "overall_style_score": 0.4545,
+              "rhythm_similarity": 0.0707,
+              "pitch_similarity": 0.7232,
+              "spectral_similarity": 0.5702,
+              "texture_similarity": 0.6745,
+              "generation_seconds": 10.403,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\pause_heavy\\run_01\\bmk_calm_low_energy\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\pause_heavy\\run_01\\bmk_calm_low_energy_report.json",
+              "lineage": {
+                "policy_hash": "b6e20b1fa83e69a5b52aaca0dc44a4d461be219c6d039ebfa1a17a12bcaebdb1",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "0d6b75be1f8c14ed67ce739b1814c062017fa341c0466bdaefaeecf0201c211d",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "ce596e637418f895255935821a1343509b625a5fb3a9c71e26075e2fb232abc6"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.4545,
+          "mean_rhythm_similarity": 0.0707,
+          "mean_pitch_similarity": 0.7232,
+          "mean_spectral_similarity": 0.5702,
+          "mean_texture_similarity": 0.6745
+        },
+        {
+          "bucket": "calm_low_energy",
+          "pack": "rambling",
+          "control_pack": "pause_heavy",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\rambling\\run_01\\summary.json",
+              "prompt_id": "bmk_calm_low_energy",
+              "bucket": "calm_low_energy",
+              "pack": "rambling",
+              "prompt_variant": "base",
+              "ref_pack": "rambling",
+              "overall_style_score": 0.5173,
+              "rhythm_similarity": 0.1829,
+              "pitch_similarity": 0.7535,
+              "spectral_similarity": 0.505,
+              "texture_similarity": 0.8197,
+              "generation_seconds": 9.929,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\rambling\\run_01\\bmk_calm_low_energy\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\rambling\\run_01\\bmk_calm_low_energy_report.json",
+              "lineage": {
+                "policy_hash": "13fb0134a6cb2b11a777735e3c85907e893a7f31d1303fbf2223a934b4279935",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "0d6b75be1f8c14ed67ce739b1814c062017fa341c0466bdaefaeecf0201c211d",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "ce596e637418f895255935821a1343509b625a5fb3a9c71e26075e2fb232abc6"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.5173,
+          "mean_rhythm_similarity": 0.1829,
+          "mean_pitch_similarity": 0.7535,
+          "mean_spectral_similarity": 0.505,
+          "mean_texture_similarity": 0.8197
+        }
+      ],
+      "best_candidate": {
+        "bucket": "calm_low_energy",
+        "pack": "rambling",
+        "control_pack": "pause_heavy",
+        "runs": [
+          {
+            "iteration": 1,
+            "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\rambling\\run_01\\summary.json",
+            "prompt_id": "bmk_calm_low_energy",
+            "bucket": "calm_low_energy",
+            "pack": "rambling",
+            "prompt_variant": "base",
+            "ref_pack": "rambling",
+            "overall_style_score": 0.5173,
+            "rhythm_similarity": 0.1829,
+            "pitch_similarity": 0.7535,
+            "spectral_similarity": 0.505,
+            "texture_similarity": 0.8197,
+            "generation_seconds": 9.929,
+            "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\rambling\\run_01\\bmk_calm_low_energy\\neutral_variant_01.wav",
+            "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\calm_low_energy\\rambling\\run_01\\bmk_calm_low_energy_report.json",
+            "lineage": {
+              "policy_hash": "13fb0134a6cb2b11a777735e3c85907e893a7f31d1303fbf2223a934b4279935",
+              "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+              "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+              "benchmark_suite_hash": "0d6b75be1f8c14ed67ce739b1814c062017fa341c0466bdaefaeecf0201c211d",
+              "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+              "rendered_prompt_hash": "ce596e637418f895255935821a1343509b625a5fb3a9c71e26075e2fb232abc6"
+            }
+          }
+        ],
+        "mean_overall_style_score": 0.5173,
+        "mean_rhythm_similarity": 0.1829,
+        "mean_pitch_similarity": 0.7535,
+        "mean_spectral_similarity": 0.505,
+        "mean_texture_similarity": 0.8197
+      },
+      "control_pack": "pause_heavy",
+      "mandatory_rescue": false,
+      "deltas_vs_control": {
+        "overall_style_score": 0.0628,
+        "rhythm_similarity": 0.1122,
+        "pitch_similarity": 0.0303,
+        "spectral_similarity": -0.0652
+      }
+    },
+    "interruption_restart": {
+      "bucket": "interruption_restart",
+      "prompt_id": "bmk_interruption_restart",
+      "text": "No, wait, that's not exactly what I meant.",
+      "control": {
+        "bucket": "interruption_restart",
+        "pack": "staccato",
+        "control_pack": "staccato",
+        "runs": [
+          {
+            "iteration": 1,
+            "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\staccato\\run_01\\summary.json",
+            "prompt_id": "bmk_interruption_restart",
+            "bucket": "interruption_restart",
+            "pack": "staccato",
+            "prompt_variant": "base",
+            "ref_pack": "staccato",
+            "overall_style_score": 0.5285,
+            "rhythm_similarity": 0.1855,
+            "pitch_similarity": 0.7822,
+            "spectral_similarity": 0.64,
+            "texture_similarity": 0.7001,
+            "generation_seconds": 9.876,
+            "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\staccato\\run_01\\bmk_interruption_restart\\neutral_variant_01.wav",
+            "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\staccato\\run_01\\bmk_interruption_restart_report.json",
+            "lineage": {
+              "policy_hash": "eeb8993994f4746d34c8fcd85e3e5fa689df3b718fc802218bb11c51ba9c0245",
+              "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+              "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+              "benchmark_suite_hash": "0977c598f9fe6bc04d57048c1fd3ab5713dca33c43a052d73fac752976d2e6b9",
+              "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+              "rendered_prompt_hash": "df024c108c6a44a86505b413e283e285ea11c40e7a4825a155dac6d65b6b6f01"
+            }
+          }
+        ],
+        "mean_overall_style_score": 0.5285,
+        "mean_rhythm_similarity": 0.1855,
+        "mean_pitch_similarity": 0.7822,
+        "mean_spectral_similarity": 0.64,
+        "mean_texture_similarity": 0.7001
+      },
+      "comparisons": [
+        {
+          "bucket": "interruption_restart",
+          "pack": "staccato",
+          "control_pack": "staccato",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\staccato\\run_01\\summary.json",
+              "prompt_id": "bmk_interruption_restart",
+              "bucket": "interruption_restart",
+              "pack": "staccato",
+              "prompt_variant": "base",
+              "ref_pack": "staccato",
+              "overall_style_score": 0.5285,
+              "rhythm_similarity": 0.1855,
+              "pitch_similarity": 0.7822,
+              "spectral_similarity": 0.64,
+              "texture_similarity": 0.7001,
+              "generation_seconds": 9.876,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\staccato\\run_01\\bmk_interruption_restart\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\staccato\\run_01\\bmk_interruption_restart_report.json",
+              "lineage": {
+                "policy_hash": "eeb8993994f4746d34c8fcd85e3e5fa689df3b718fc802218bb11c51ba9c0245",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "0977c598f9fe6bc04d57048c1fd3ab5713dca33c43a052d73fac752976d2e6b9",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "df024c108c6a44a86505b413e283e285ea11c40e7a4825a155dac6d65b6b6f01"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.5285,
+          "mean_rhythm_similarity": 0.1855,
+          "mean_pitch_similarity": 0.7822,
+          "mean_spectral_similarity": 0.64,
+          "mean_texture_similarity": 0.7001
+        },
+        {
+          "bucket": "interruption_restart",
+          "pack": "restart_disfluent",
+          "control_pack": "staccato",
+          "runs": [
+            {
+              "iteration": 1,
+              "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\restart_disfluent\\run_01\\summary.json",
+              "prompt_id": "bmk_interruption_restart",
+              "bucket": "interruption_restart",
+              "pack": "restart_disfluent",
+              "prompt_variant": "base",
+              "ref_pack": "restart_disfluent",
+              "overall_style_score": 0.4874,
+              "rhythm_similarity": 0.0231,
+              "pitch_similarity": 0.7929,
+              "spectral_similarity": 0.6303,
+              "texture_similarity": 0.7751,
+              "generation_seconds": 9.288,
+              "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\restart_disfluent\\run_01\\bmk_interruption_restart\\neutral_variant_01.wav",
+              "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\restart_disfluent\\run_01\\bmk_interruption_restart_report.json",
+              "lineage": {
+                "policy_hash": "c3b5768d84030bab1e93bc41b91be218e749e4ea77ed818856400dfed4936190",
+                "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+                "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+                "benchmark_suite_hash": "0977c598f9fe6bc04d57048c1fd3ab5713dca33c43a052d73fac752976d2e6b9",
+                "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+                "rendered_prompt_hash": "df024c108c6a44a86505b413e283e285ea11c40e7a4825a155dac6d65b6b6f01"
+              }
+            }
+          ],
+          "mean_overall_style_score": 0.4874,
+          "mean_rhythm_similarity": 0.0231,
+          "mean_pitch_similarity": 0.7929,
+          "mean_spectral_similarity": 0.6303,
+          "mean_texture_similarity": 0.7751
+        }
+      ],
+      "best_candidate": {
+        "bucket": "interruption_restart",
+        "pack": "restart_disfluent",
+        "control_pack": "staccato",
+        "runs": [
+          {
+            "iteration": 1,
+            "summary_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\restart_disfluent\\run_01\\summary.json",
+            "prompt_id": "bmk_interruption_restart",
+            "bucket": "interruption_restart",
+            "pack": "restart_disfluent",
+            "prompt_variant": "base",
+            "ref_pack": "restart_disfluent",
+            "overall_style_score": 0.4874,
+            "rhythm_similarity": 0.0231,
+            "pitch_similarity": 0.7929,
+            "spectral_similarity": 0.6303,
+            "texture_similarity": 0.7751,
+            "generation_seconds": 9.288,
+            "candidate_path": "C:\\dev\\aro-voice-style-lab\\outputs\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\restart_disfluent\\run_01\\bmk_interruption_restart\\neutral_variant_01.wav",
+            "report_path": "C:\\dev\\aro-voice-style-lab\\reports\\quality\\routed_policy\\character_b_weak_bucket_ablation_worker\\interruption_restart\\restart_disfluent\\run_01\\bmk_interruption_restart_report.json",
+            "lineage": {
+              "policy_hash": "c3b5768d84030bab1e93bc41b91be218e749e4ea77ed818856400dfed4936190",
+              "refpack_manifest_hash": "f634ff219a145b2622bbc055b6f729c956a77f81a17b69dc9899d5058957c8de",
+              "prompt_variant_hash": "eca768679be1912848cd01dd621623736a49dbbcbd0c2634e79be2c687da438b",
+              "benchmark_suite_hash": "0977c598f9fe6bc04d57048c1fd3ab5713dca33c43a052d73fac752976d2e6b9",
+              "xtts_preset_hash": "984f049e8b8c7affc4570559ed6a971b799bd1e43435b68924f189ebfde88625",
+              "rendered_prompt_hash": "df024c108c6a44a86505b413e283e285ea11c40e7a4825a155dac6d65b6b6f01"
+            }
+          }
+        ],
+        "mean_overall_style_score": 0.4874,
+        "mean_rhythm_similarity": 0.0231,
+        "mean_pitch_similarity": 0.7929,
+        "mean_spectral_similarity": 0.6303,
+        "mean_texture_similarity": 0.7751
+      },
+      "control_pack": "staccato",
+      "mandatory_rescue": false,
+      "deltas_vs_control": {
+        "overall_style_score": -0.0411,
+        "rhythm_similarity": -0.1624,
+        "pitch_similarity": 0.0107,
+        "spectral_similarity": -0.0097
+      }
+    }
+  }
+}
