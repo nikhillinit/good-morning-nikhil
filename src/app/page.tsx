@@ -9,6 +9,7 @@ import { SceneTransition } from "@/components/SceneTransition";
 import { ReviewScreen } from "@/components/ReviewScreen";
 import { SessionProvider, useSession } from "@/hooks/useSession";
 import { useMediaConsent } from "@/hooks/useMediaConsent";
+import { useAmbientMusic } from "@/hooks/useAmbientMusic";
 import { MediaGate } from "@/components/MediaGate";
 import { PrimaryButton } from "@/components/primitives";
 import {
@@ -71,6 +72,9 @@ function SurveyFlow() {
     : undefined;
   const total = getTotalScreens(screens);
   const reviewableScreenCount = getReviewableScreenCount(screens);
+
+  // Initialize global background music player for cinematic ambiance
+  useAmbientMusic(currentScreen.bgMusic, 0.4, false);
 
   useEffect(() => {
     if (!HAS_SUPABASE) return;

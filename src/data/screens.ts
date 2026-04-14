@@ -57,6 +57,7 @@ export const screens: Screen[] = [
   // ── SCREEN 0: RETRO TV INTRO ──
   {
     id: "intro-tv",
+    bgMusic: "/music/8100a50de29c7f76046522d39513-orig.wav",
     show: "Good Morning Nikhil",
     showEmoji: "🎮",
     audio: "/vo/02-relationship.mp3?v=2",
@@ -85,6 +86,7 @@ export const screens: Screen[] = [
   // ── SCREEN 0.5: INSTRUCTIONS ON TV ──
   {
     id: "intro-instructions",
+    bgMusic: "/music/8100a50de29c7f76046522d39513-orig.wav",
     show: "Good Morning Nikhil",
     showEmoji: "🎮",
     audio: "/vo/01-welcome.mp3?v=2",
@@ -103,6 +105,7 @@ export const screens: Screen[] = [
   // ── SCREEN 1: GMN & FEUD KICKOFF ──
   {
     id: "gmn-feud-kickoff",
+    bgMusic: "/music/8100a50de29c7f76046522d39513-orig.wav",
     show: "Good Morning Nikhil",
     showEmoji: "📺",
     audio: "/vo/00-cold-open.mp3?v=2",
@@ -193,6 +196,7 @@ export const screens: Screen[] = [
   // ── SCREEN 4A: COMMERCIAL BREAK ──
   {
     id: "commercial-break",
+    bgMusic: "/music/Standard_Operating_Failure.mp3",
     show: "Commercial Break",
     showEmoji: "📺",
     audio: "/vo/04a-sponsor.mp3?v=2",
@@ -215,6 +219,7 @@ export const screens: Screen[] = [
   // ── SCREEN 4B: WHY THAT BRAND ──
   {
     id: "commercial-why",
+    bgMusic: "/music/Standard_Operating_Failure.mp3",
     show: "Commercial Break",
     showEmoji: "📺",
     audio: "/vo/04b-sponsor-why.mp3?v=2",
@@ -237,6 +242,7 @@ export const screens: Screen[] = [
   // ── SCREEN 5A: BACHELOR — ROSES ──
   {
     id: "bachelor-roses",
+    bgMusic: "/music/the_bachelor_theme.mp3",
     show: "The Bachelor",
     showEmoji: "🌹",
     audio: "/vo/05a-bachelor-roses.mp3?v=2",
@@ -268,6 +274,7 @@ export const screens: Screen[] = [
   // ── SCREEN 5B: BACHELOR — ELIMINATION ──
   {
     id: "bachelor-eliminate",
+    bgMusic: "/music/the_bachelor_theme.mp3",
     show: "The Bachelor",
     showEmoji: "🌹",
     audio: "/vo/05b-bachelor-eliminate.mp3?v=2",
@@ -299,6 +306,7 @@ export const screens: Screen[] = [
   // ── SCREEN 5C: BACHELOR — LIMO ──
   {
     id: "bachelor-limo",
+    bgMusic: "/music/the_bachelor_theme.mp3",
     show: "The Bachelor",
     showEmoji: "🌹",
     audio: "/vo/05c-bachelor-limo.mp3?v=2",
@@ -324,6 +332,7 @@ export const screens: Screen[] = [
   // ── SCREEN 6A: SHARK TANK — IN OR OUT ──
   {
     id: "shark-invest",
+    bgMusic: "/music/The_Unspoken_Hour.mp3",
     show: "Shark Tank",
     showEmoji: "🦈",
     audio: "/vo/06a-shark.mp3?v=2",
@@ -344,6 +353,7 @@ export const screens: Screen[] = [
   // ── SCREEN 6B/6C: SHARK TANK — FOLLOW-UP ──
   {
     id: "shark-reason",
+    bgMusic: "/music/The_Unspoken_Hour.mp3",
     show: "Shark Tank",
     showEmoji: "🦈",
     audio: "/vo/06b-shark-reason.mp3?v=2",
@@ -365,6 +375,7 @@ export const screens: Screen[] = [
   // ── SCREEN 7: SURVIVOR ──
   {
     id: "survivor",
+    bgMusic: "/music/Tide_of_the_Bone.mp3",
     show: "Survivor",
     showEmoji: "🎙️",
     audio: "/vo/07-survivor.mp3?v=2",
@@ -389,6 +400,7 @@ export const screens: Screen[] = [
   // ── SCREEN 8: MAURY ──
   {
     id: "maury",
+    bgMusic: "/music/The_Last_Question.mp3",
     show: "Maury",
     showEmoji: "📋",
     audio: "/vo/08-maury.mp3?v=2",
