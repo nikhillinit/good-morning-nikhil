@@ -26,55 +26,45 @@ export interface Screen {
   duration?: number; // override auto-detection from audio
   uiRevealAt?: number; // seconds into audio when UI should appear
   video?: string; // path to video in /public/videos/
+  videoBehavior?: "loop" | "pause";
+  uiLayout?: "left" | "right" | "center";
+  mediaPosition?: string; // object-position string defining crop/focus
 }
 
+/**
+ * uiRevealAt Timing Rationale (emotional arc aligned):
+ *
+ * - 0-1s: Instant reveal for pure UI screens (intro-instructions)
+ * - 1-2s: Quick reveal after short setup (shark-reason follow-up)
+ * - 2.5-3.5s: Standard reveal after VO establishes context (feud questions)
+ * - 4-5s: Dramatic reveal after longer VO builds tension (bachelor, shark-invest)
+ * - 5-6s: Extended reveal for peak emotional moments (maury confession, commercial-break)
+ *
+ * Fatigue danger zones (low engagement risk):
+ * - intro-instructions: No audio breaks TV conceit - NEEDS VO GENERATION
+ * - commercial-why: Second consecutive text prompt - consider merging
+ * - shark-reason: Short follow-up after binary choice - NEEDS REACTION AUDIO
+ *
+ * Engagement peaks (high intensity):
+ * - gmn-feud-kickoff (4.8s): Long comedic setup needs full delivery
+ * - bachelor-limo (4.0s): Vulnerability moment needs breathing room
+ * - shark-invest (5.5s): High stakes pitch needs full tension build
+ * - maury (6.0s): Catharsis peak - longest reveal for emotional weight
+ */
+
 export const screens: Screen[] = [
-  // ── SCREEN 0: COLD OPEN ──
+  // ── SCREEN 0: RETRO TV INTRO ──
   {
-    id: "cold-open",
-    show: "Cold Open",
-    showEmoji: "🎬",
-    audio: "/vo/00-cold-open.mp3",
-    bg: "/sets/cold-open-glitch.webp",
-    captions: [
-      'STEVE: "All right, cut the music! Listen up, focus-tester. The network is threatening to cancel \'Nikhil\' after this pilot."',
-      'JEFF: "Another one bites the dust, Steve..."',
-      'STEVE: "Not now, Jeff. This isn\'t just a show. This is my friend\'s life on the line. We need raw data to save his contract."',
-      'JEFF: "Survey says… the pilot is an unwatchable vanity project."',
-      'STEVE: "We just need honest answers to fix him. Hit the music, let\'s start the gauntlet."',
-    ],
-    ui: "start-button",
-    uiRevealAt: 48.0,
-  },
-
-  // ── SCREEN 1: WELCOME ──
-  {
-    id: "welcome",
-    show: "Welcome",
-    showEmoji: "☀️",
-    audio: "/vo/01-welcome.mp3",
-    bg: "/sets/morning-desk.webp",
-    captions: [
-      'STEVE: "Welcome to Good Morning, Nikhil. You are about to be thrown into a barrage of very normal television segments."',
-      'JEFF: "Oh Stevie, I thought of something else you can do with a computer."',
-      'STEVE: "Stay focused! Your answers are the only thing keeping the network from pulling the plug. Let\'s go!"',
-    ],
-    ui: "continue-button",
-    uiRevealAt: 12.4,
-  },
-
-  // ── SCREEN 2: WHO ARE YOU TO NIKHIL? ──
-  {
-    id: "relationship",
-    show: "Meet Our Audience",
-    showEmoji: "👋",
+    id: "intro-tv",
+    show: "Good Morning Nikhil",
+    showEmoji: "🎮",
     audio: "/vo/02-relationship.mp3",
-    bg: "/sets/morning-desk.webp",
+    bg: "crt",
+    videoBehavior: "loop",
+    uiLayout: "center",
+    mediaPosition: "center center",
     captions: [
-      'STEVE: "First things first. We need a completely unbiased, third-party focus-tester. Wait... looking at this file..."',
-      'STEVE: "You actually know Nikhil? Personally? Jeff, who booked this tester!?"',
-      'JEFF: "Family, friend, collaborator... or maybe just a chaotic neutral observer?"',
-      'STEVE: "...this is exactly what we need. A true intervention. How do you know him?"',
+      'STEVE (V.O.): "Player 1... how do you know Nikhil?"'
     ],
     ui: "relationship-picker",
     uiConfig: {
@@ -88,7 +78,47 @@ export const screens: Screen[] = [
       ],
       showAnonymousToggle: true,
     },
-    uiRevealAt: 3.6,
+    uiRevealAt: 1.0,
+  },
+
+  // ── SCREEN 0.5: INSTRUCTIONS ON TV ──
+  {
+    id: "intro-instructions",
+    show: "Good Morning Nikhil",
+    showEmoji: "🎮",
+    audio: "", 
+    bg: "crt",
+    duration: 0.1, // Instantly resolves audio hook
+    uiLayout: "center",
+    captions: [],
+    ui: "continue-button",
+    uiConfig: {
+      prompt: "You'll flip through 7 quick TV-themed segments about Nikhil — each one takes about 30 seconds. Type whatever comes to mind.",
+      label: "Start Testing →",
+    },
+    uiRevealAt: 0,
+  },
+
+  // ── SCREEN 1: GMN & FEUD KICKOFF ──
+  {
+    id: "gmn-feud-kickoff",
+    show: "Good Morning Nikhil",
+    showEmoji: "📺",
+    audio: "/vo/00-cold-open.mp3",
+    bg: "/sets/feud-board.webp",
+    videoBehavior: "loop",
+    uiLayout: "right",
+    mediaPosition: "left center",
+    captions: [
+      'STEVE: "Welcome to Good Morning Nikhil. All right, final round! We got the Nikhil family versus Jeff Goldblum. Name something you can do on the computer."',
+      'JEFF: "Ahhhh… well I can tell you what you can do with a computer, Steve... you can suck on the mouse like a giant, pacifier."',
+      'STEVE: "Wrong again! Let\'s kick it over to our VIP tester."'
+    ],
+    ui: "start-button",
+    uiConfig: {
+      label: "Take Control",
+    },
+    uiRevealAt: 4.8,
   },
 
   // ── SCREEN 3A: FAMILY FEUD — TOP 3 ──
@@ -98,15 +128,19 @@ export const screens: Screen[] = [
     showEmoji: "🎯",
     audio: "/vo/03a-feud-top3.mp3",
     bg: "/sets/feud-board.webp",
+    video: "/videos/feud-top3.mp4",
+    videoBehavior: "loop",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'STEVE: "All right, since you know him, skip the pleasantries. Three words. Fast TV! What comes to mind when you think of this man?"',
+      'STEVE: "We surveyed the deepest darkest recesses of Nikhil\'s hopes and fears. Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil."'
     ],
     ui: "three-text",
     uiConfig: {
       prompt: "Three words that come to YOUR mind about Nikhil.",
       placeholder: ["Answer #1", "Answer #2", "Answer #3"],
     },
-    uiRevealAt: 5.0,
+    uiRevealAt: 3.5,
   },
 
   // ── SCREEN 3B: FEUD — STRONGEST ──
@@ -116,16 +150,18 @@ export const screens: Screen[] = [
     showEmoji: "🎯",
     audio: "/vo/03b-feud-strongest.mp3",
     bg: "/sets/feud-board.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'JEFF: "Show me \'mildly neurotic\'!"',
-      'STEVE: "Wrong game, Jeff. We need deep, uncomfortable truths. Which one of those three words feels the strongest, and why?"',
+      'JEFF: "Show me \'handsome\'."',
+      'STEVE: "Wrong game, Jeff. Which one feels strongest, and why?"'
     ],
     ui: "text-area",
     uiConfig: {
       prompt: "Tell us which one feels most true and why.",
       placeholder: "Which of your 3 answers feels most true, and why?",
     },
-    uiRevealAt: 1.2,
+    uiRevealAt: 3.5,
   },
 
   // ── SCREEN 3C: FEUD — TRADEMARK ──
@@ -135,19 +171,61 @@ export const screens: Screen[] = [
     showEmoji: "🎯",
     audio: "/vo/03c-feud-trademark.mp3",
     bg: "/sets/feud-board.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
       'JEFF: "Name a thing he does so often it should come with theme music."',
-      'STEVE: "That is actually a good one Jeff. Give us the trademark line so we know you\'re not a bot!"',
+      'STEVE: "That is actually a good one Jeff."'
     ],
     ui: "short-text",
     uiConfig: {
       prompt: "Say the trademark line.",
       placeholder: "Name a Nikhil trademark...",
     },
-    uiRevealAt: 5.2,
+    uiRevealAt: 4.0,
   },
 
+  // ── SCREEN 4A: COMMERCIAL BREAK ──
+  {
+    id: "commercial-break",
+    show: "Commercial Break",
+    showEmoji: "📺",
+    audio: "/vo/04a-sponsor.mp3",
+    bg: "/sets/sponsor-pedestal.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
+    captions: [
+      'STEVE: "This episode of Nikhil is brought to you by…"',
+      'JEFF: "A premium blend of polish, intensity, and lightly weaponized seduction just like someone I know."'
+    ],
+    ui: "short-text",
+    uiConfig: {
+      prompt: "What company, product, vibe, aesthetic, or brand sponsors Nikhil?",
+      placeholder: "Brand, Vibe, or Product..."
+    },
+    uiRevealAt: 5.0,
+  },
 
+  // ── SCREEN 4B: WHY THAT BRAND ──
+  {
+    id: "commercial-why",
+    show: "Commercial Break",
+    showEmoji: "📺",
+    audio: "/vo/04b-sponsor-why.mp3",
+    bg: "/sets/sponsor-pedestal.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
+    captions: [
+      'STEVE: "And why?"',
+      'JEFF: "We’re all just shadows and dust Steve."'
+    ],
+    ui: "text-area",
+    uiConfig: {
+      prompt: "Why does that feel on-brand?",
+      placeholder: "Tell us why..."
+    },
+    uiRevealAt: 2.5,
+  },
 
   // ── SCREEN 5A: BACHELOR — ROSES ──
   {
@@ -156,9 +234,10 @@ export const screens: Screen[] = [
     showEmoji: "🌹",
     audio: "/vo/05a-bachelor-roses.mp3",
     bg: "/sets/bachelor-mansion.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'STEVE: "The network says his personality is too cluttered. We need to trim the fat. What are his actual redeeming qualities?"',
-      'JEFF: "Can I just vote him off the island?"',
+      'STEVE: "Ladies, you know what time it is. It’s the rose ceremony, and one of you is going home tonight. Three roses. One quality goes home."'
     ],
     ui: "multi-select",
     uiConfig: {
@@ -175,7 +254,7 @@ export const screens: Screen[] = [
       maxSelect: 3,
       label: "Give 3 roses to Nikhil's strongest qualities",
     },
-    uiRevealAt: 8,
+    uiRevealAt: 4.5,
   },
 
   // ── SCREEN 5B: BACHELOR — ELIMINATION ──
@@ -185,9 +264,11 @@ export const screens: Screen[] = [
     showEmoji: "🌹",
     audio: "/vo/05b-bachelor-eliminate.mp3",
     bg: "/sets/bachelor-mansion.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'JEFF: "Every good protagonist needs a fatal flaw. What\'s his?"',
-      'STEVE: "No, Jeff, we want to know what to cut. Which of these qualities is barely there? Be brutal. We need the data."',
+      'JEFF: "Every board has one weak square."',
+      'STEVE: "This ain’t no board, Jeff. Send one quality home."'
     ],
     ui: "single-select",
     uiConfig: {
@@ -203,7 +284,7 @@ export const screens: Screen[] = [
       ],
       label: "Which quality do you notice least?",
     },
-    uiRevealAt: 2.4,
+    uiRevealAt: 3.5,
   },
 
   // ── SCREEN 5C: BACHELOR — LIMO ──
@@ -212,11 +293,14 @@ export const screens: Screen[] = [
     show: "The Bachelor",
     showEmoji: "🌹",
     audio: "/vo/05c-bachelor-limo.mp3",
+    video: "/videos/bachelor-limo.mp4",
     bg: "/sets/limo-interior.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'STEVE: (Leaning into the limo) "It is over. Look at her crying back there. This trait is going home."',
-      'JEFF: (Over earpiece) "I never stood a chance! He wouldn\'t let me shine!"',
-      'STEVE: "You\'re in the car with her. Complete the sentence for us: why exactly did this trait get cut?"',
+      'STEVE: "In the limo ride home…"',
+      'JEFF: "On her way to the set of 90-Day Fiancé. Say Stevie isn’t that where - "',
+      'STEVE: "Complete the sentence."'
     ],
     ui: "mad-lib",
     uiConfig: {
@@ -224,23 +308,7 @@ export const screens: Screen[] = [
       stem: "I never stood a chance because Nikhil always",
       placeholder: "...",
     },
-    uiRevealAt: 8.2,
-  },
-
-  // ── SCREEN 6: COMMERCIAL BREAK ──
-  {
-    id: "commercial-break",
-    show: "Commercial Break",
-    showEmoji: "📺",
-    audio: "/vo/04a-sponsor.mp3",
-    bg: "/sets/sponsor-pedestal.webp",
-    captions: [
-      'STEVE: "We need a breather. My producer phone is ringing... it\'s the network. They hate it. They absolutely hate it."',
-      'JEFF: "Time for a word from our sponsor! A premium blend of polish, intensity, and accidental eye contact."',
-      'STEVE: "Tester, we are drowning here. I need you to step up. Next round, we\'re dropping the games. It\'s just you and the truth."',
-    ],
-    ui: "continue-button",
-    uiRevealAt: 4.1,
+    uiRevealAt: 4.0,
   },
 
   // ── SCREEN 6A: SHARK TANK — IN OR OUT ──
@@ -249,33 +317,60 @@ export const screens: Screen[] = [
     show: "Shark Tank",
     showEmoji: "🦈",
     audio: "/vo/06a-shark.mp3",
+    video: "/videos/shark-invest.mp4",
     bg: "/sets/shark-warehouse.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'STEVE: "The executives are in the room. They\'re looking at the raw footage of his life. Are they investing in a season two, or are they out?"',
-      'JEFF: "I\'m out immediately. Too much emotional liability."',
-      'STEVE: "Nobody asked you, Jeff! Tester, you know him best. Make the call. Is he worth the investment?"',
+      'STEVE: "Sharks, Nikhil just pitched his brain for 100% of your life savings. Are you in or out?"',
+      'JEFF: "You know I’ll just wait until Aunt Demequa blows it, and then it’ll go back to me and I’ll steal the round."',
+      'STEVE: "Who exactly are you playing against? DO you know where you are?"'
     ],
     ui: "invest-or-pass",
-    uiRevealAt: 16.4,
+    uiRevealAt: 5.5,
   },
 
-  // ── SCREEN 6B: SHARK TANK — FOLLOW-UP ──
+  // ── SCREEN 6B/6C: SHARK TANK — FOLLOW-UP ──
   {
     id: "shark-reason",
     show: "Shark Tank",
     showEmoji: "🦈",
     audio: "/vo/06b-shark-reason.mp3",
     bg: "/sets/shark-warehouse.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'STEVE: "You made your choice. Now you have to justify it to the board. Give me one core strength and one glaring weakness."',
+      'STEVE: "Finish the sentence."'
     ],
     ui: "short-text",
     uiConfig: {
       prompt: "Give one strength and one weakness.",
-      // dynamically set based on invest/pass choice
       placeholder: "Because...",
     },
-    uiRevealAt: 1,
+    uiRevealAt: 1.5,
+  },
+
+  // ── SCREEN 7: SURVIVOR ──
+  {
+    id: "survivor",
+    show: "Survivor",
+    showEmoji: "🎙️",
+    audio: "/vo/07-survivor.mp3",
+    bg: "/sets/tribal-council.webp",
+    videoBehavior: "loop",
+    uiLayout: "right",
+    mediaPosition: "left center",
+    captions: [
+      'STEVE: "Tribal council. Confessional booth. Just you and the camera."',
+      'JEFF: (Whispering) "So this is… Fast Money in the woods?"',
+      'STEVE: (Whispering back, firmly) "No. This is the honest part."'
+    ],
+    ui: "long-text-with-audio",
+    uiConfig: {
+      prompt: "Final words for the tribe.",
+      maxSeconds: 15,
+    },
+    uiRevealAt: 4.0,
   },
 
   // ── SCREEN 8: MAURY ──
@@ -285,11 +380,12 @@ export const screens: Screen[] = [
     showEmoji: "📋",
     audio: "/vo/08-maury.mp3",
     bg: "/sets/maury-studio.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'JEFF: "The polygraph determined... that was a lie!"',
-      'STEVE: "Jeff, stop. We\'re dropping the acts. This isn\'t daytime TV anymore."',
-      'JEFF: "You have to read the results, Steve. The dichotomy of man!"',
-      'STEVE: "I can\'t do it. Tester, you do it. What does he project to the world... and what is the actual truth?"',
+      'STEVE: "No, Jeff. I can’t do it."',
+      'JEFF: "You have to read it, Steve. That’s the job. That’s why they hire you."',
+      'STEVE: "I’m not even going to look at the board. And the envelope goes to..."'
     ],
     ui: "two-text",
     uiConfig: {
@@ -299,27 +395,7 @@ export const screens: Screen[] = [
         "But he actually comes across as...",
       ],
     },
-    uiRevealAt: 12.2,
-  },
-
-  // ── SCREEN 9: SURVIVOR ──
-  {
-    id: "survivor",
-    show: "Survivor",
-    showEmoji: "🎙️",
-    audio: "/vo/07-survivor.mp3",
-    bg: "/sets/tribal-council.webp",
-    captions: [
-      'STEVE: "The flashy studio lights are off. The network has left the building. It\'s just you and the camera... speaking directly to him."',
-      'JEFF: (Whispering) "The tribe has spoken..."',
-      'STEVE: "Leave him a voicenote. Total honesty. This is where we figure out if his character survives."',
-    ],
-    ui: "long-text-with-audio",
-    uiConfig: {
-      prompt: "Final words for the tribe.",
-      maxSeconds: 15,
-    },
-    uiRevealAt: 7.7,
+    uiRevealAt: 6.0,
   },
 
   // ── SCREEN 9: PRODUCER'S NOTES ──
@@ -329,10 +405,12 @@ export const screens: Screen[] = [
     showEmoji: "🎬",
     audio: "/vo/09-producer.mp3",
     bg: "/sets/control-room.webp",
+    uiLayout: "right",
+    mediaPosition: "left center",
     captions: [
-      'STEVE: "I\'m looking at the final timeline in the control room. We\'re about to export the cut."',
-      'JEFF: "Roll the credits! Start the spin-offs!"',
-      'STEVE: "Before we ship this... what are your final director\'s notes? What does he need to change for Season Two of his life?"',
+      'STEVE: "Final note from the control room."',
+      'JEFF: "Fast Money?"',
+      'STEVE: "No. That’s a wrap."'
     ],
     ui: "text-area",
     uiConfig: {
@@ -340,7 +418,7 @@ export const screens: Screen[] = [
       placeholder:
         "What should Nikhil do more of, less of, or more consistently?",
     },
-    uiRevealAt: 3.5,
+    uiRevealAt: 3.0,
   },
 
   // ── SCREEN 10: CREDITS ──
@@ -350,14 +428,33 @@ export const screens: Screen[] = [
     showEmoji: "🎬",
     audio: "/vo/10-credits.mp3",
     bg: "/sets/credits-bg.webp",
+    uiLayout: "center",
+    mediaPosition: "center center",
     captions: [
-      'STEVE: "That\'s a wrap. The data is locked. We did everything we could."',
+      'STEVE: "That’s a wrap."',
       'JEFF: "Did I win?"',
-      'STEVE: "No, Jeff. But maybe Nikhil did."',
-      'JEFF: "Wait, so is the show renewed?"',
-      'STEVE: "That\'s up to him now. Tester... thank you. Seriously. Submitting the findings now."',
+      'STEVE: "No."',
+      'JEFF: "Did I remain champion?"',
+      'STEVE: "…somehow, yes."'
+    ],
+    ui: "none",
+    uiRevealAt: 4.5,
+  },
+
+  // ── SCREEN 11: STINGER ──
+  {
+    id: "post-credits",
+    show: "Post-Credits",
+    showEmoji: "🎬",
+    audio: "/vo/10-credits.mp3",
+    bg: "/sets/credits-bg.webp",
+    uiLayout: "center",
+    mediaPosition: "center center",
+    captions: [
+      'STEVE: (Disembodied voice) "All right, Jeff. Last chance. Name something you can do on a computer."',
+      'JEFF: "Ahhh.., you can shove it up your"'
     ],
     ui: "submit-button",
-    uiRevealAt: 4.6,
+    uiRevealAt: 4.0,
   },
 ];

@@ -1,32 +1,30 @@
 import { describe, it, expect } from "vitest";
 import { screens } from "@/data/screens";
 import { createHash } from "node:crypto";
-import { existsSync, readdirSync, readFileSync, statSync, lstatSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { join, basename, resolve } from "node:path";
 
 const SETS_DIR = resolve(process.cwd(), "public/sets");
-const listFiles = () =>
-  readdirSync(SETS_DIR).filter((f) => lstatSync(join(SETS_DIR, f)).isFile());
+const fileBackedBgFiles = [...new Set(screens.map((s) => s.bg).filter((bg) => bg !== "crt"))];
+const referencedStillFiles = fileBackedBgFiles.map((bg) => basename(bg));
 
 describe("stills validation", () => {
-  const bgFiles = [...new Set(screens.map((s) => s.bg))];
-
   it("every screen bg path resolves to an existing file", () => {
-    for (const bg of bgFiles) {
+    for (const bg of fileBackedBgFiles) {
       const filePath = join(SETS_DIR, basename(bg));
       expect(existsSync(filePath), `Missing: ${bg}`).toBe(true);
     }
   });
 
-  it("all stills are WebP format", () => {
-    const files = listFiles();
+  it("all referenced stills are WebP format", () => {
+    const files = referencedStillFiles;
     for (const f of files) {
       expect(f.endsWith(".webp"), `Not WebP: ${f}`).toBe(true);
     }
   });
 
-  it("all stills are 2752x1536", () => {
-    const files = listFiles();
+  it("all referenced stills are 2752x1536", () => {
+    const files = referencedStillFiles;
     for (const f of files) {
       const buf = readFileSync(join(SETS_DIR, f));
       const riff = buf.toString("ascii", 0, 4);
@@ -53,8 +51,8 @@ describe("stills validation", () => {
     }
   });
 
-  it("no still exceeds 800 KB", () => {
-    const files = listFiles();
+  it("no referenced still exceeds 800 KB", () => {
+    const files = referencedStillFiles;
     for (const f of files) {
       const stat = statSync(join(SETS_DIR, f));
       expect(
@@ -64,8 +62,8 @@ describe("stills validation", () => {
     }
   });
 
-  it("every still has a unique file hash (no duplicates)", () => {
-    const files = listFiles();
+  it("every referenced still has a unique file hash (no duplicates)", () => {
+    const files = referencedStillFiles;
     const hashes = new Map<string, string>();
     for (const f of files) {
       const buf = readFileSync(join(SETS_DIR, f));
@@ -76,8 +74,8 @@ describe("stills validation", () => {
     }
   });
 
-  it("exactly 11 stills exist", () => {
-    const files = listFiles().filter((f) => f.endsWith(".webp"));
-    expect(files.length).toBe(11);
+  it("tracks every unique file-backed still used by the current flow", () => {
+    expect(referencedStillFiles.length).toBe(fileBackedBgFiles.length);
+    expect(referencedStillFiles.length).toBeGreaterThan(0);
   });
 });

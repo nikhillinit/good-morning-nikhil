@@ -9,8 +9,16 @@
   --accent-hover: #facc15;
   --surface: #18181b;
   --surface-hover: rgba(255, 255, 255, 0.1);
-  --muted: #a1a1aa;
+  --muted: #d4d4d8;
   --error: #f87171;
+  --success: #22c55e;
+  --success-soft: rgba(34, 197, 94, 0.18);
+  --success-strong: #15803d;
+  --danger: #f87171;
+  --danger-soft: rgba(127, 29, 29, 0.9);
+  --danger-foreground: #fee2e2;
+  --info: #38bdf8;
+  --info-soft: rgba(56, 189, 248, 0.18);
   --card: rgba(8, 8, 10, 0.82);
   --screen-card: rgba(8, 8, 10, 0.45);
   --card-border: rgba(255, 255, 255, 0.12);
@@ -19,11 +27,78 @@
   --nav-control: rgba(10, 10, 10, 0.72);
   --record: #ef4444;
   --record-pulse: rgba(239, 68, 68, 0.3);
+
+  /* ── Segment identity colors (show-specific spotlights) ───── */
+  --segment-intro: rgba(34, 197, 94, 0.2);
+  --segment-gmn: rgba(234, 179, 8, 0.15);
+  --segment-feud: rgba(59, 130, 246, 0.15);
+  --segment-bachelor: rgba(225, 29, 72, 0.2);
+  --segment-shark: rgba(6, 182, 212, 0.15);
+  --segment-maury: rgba(168, 85, 247, 0.15);
+  --segment-survivor: rgba(217, 119, 6, 0.2);
+
+  /* ── Spacing scale ─────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* ── Border radius scale ───────────────────────────────────── */
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.8rem;
+
+  /* ── Animation timing (synced with animations.ts DURATION) ── */
+  --duration-micro: 50ms;
+  --duration-fast: 100ms;
+  --duration-standard: 200ms;
+  --duration-ui: 350ms;
+  --duration-screen: 300ms;
+  --duration-dramatic: 500ms;
+  --duration-frame: 800ms;
+  --duration-zoom: 1200ms;
+
+  /* ── Easing functions ──────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-breathe: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --ease-organic: cubic-bezier(0.37, 0, 0.63, 1);
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-muted: var(--muted);
+  --color-error: var(--error);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-strong: var(--success-strong);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-card: var(--card);
+  --color-screen-card: var(--screen-card);
+
+  /* Segment identity colors */
+  --color-segment-intro: var(--segment-intro);
+  --color-segment-gmn: var(--segment-gmn);
+  --color-segment-feud: var(--segment-feud);
+  --color-segment-bachelor: var(--segment-bachelor);
+  --color-segment-shark: var(--segment-shark);
+  --color-segment-maury: var(--segment-maury);
+  --color-segment-survivor: var(--segment-survivor);
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -41,12 +116,39 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-/* ── Display typography ──────────────────────────────────────── */
+/* ── Typography Scale ────────────────────────────────────────── */
 
-.font-display {
+/* Semantic classes mapped for consistent design application */
+
+.text-display {
   font-family: var(--font-display), "Impact", sans-serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.text-prompt {
+  font-size: 1rem;
+  line-height: 1.625;
+  font-weight: 500;
+  color: var(--prompt);
+}
+
+@media (min-width: 640px) {
+  .text-prompt {
+    font-size: 1.125rem;
+  }
+}
+
+.text-body {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 /* ── Focus visibility ────────────────────────────────────────── */
@@ -62,13 +164,13 @@ html {
   color-scheme: dark;
 }
 
-/* ── Full viewport height (accounts for mobile browser chrome) ── */
+/* ── Full viewport height (accounts for mobile browser chrome & keyboard) ── */
 
 .h-screen-safe {
   height: 100vh;
-  height: 100svh;
+  height: 100dvh;
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
 }
 
 /* ── Safe area insets for notched devices ─────────────────────── */
@@ -83,9 +185,9 @@ html {
 
 /* ── Mobile keyboard state ───────────────────────────────────── */
 
-body.keyboard-active {
-  /* Allow natural scroll when keyboard opens */
-}
+/* body.keyboard-active {
+  Allow natural scroll when keyboard opens
+} */
 
 body.keyboard-active .fixed.bottom-0 {
   /* Hide bottom progress bar when keyboard is active */
@@ -108,8 +210,17 @@ body.keyboard-active .fixed.bottom-0 {
   border-radius: 1.5rem;
   background: var(--screen-card);
   padding: 1.25rem;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 640px) {
+  .screen-content-card {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .media-gate-card {
@@ -149,4 +260,64 @@ body.keyboard-active .fixed.bottom-0 {
   .orientation-hint-landscape {
     display: none;
   }
+}
+
+/* ── CRT Intro Boot Sequence ──────────────────────────────────────── */
+
+@keyframes crt-on {
+  0% {
+    transform: scale(1, 0.002);
+    background: #fff;
+    filter: brightness(10) saturate(2);
+  }
+  15% {
+    transform: scale(1, 0.002);
+    background: #fef08a; /* Cheery yellow flash */
+    filter: brightness(8) saturate(2);
+  }
+  25% {
+    transform: scale(1, 1);
+    background: #fbcfe8; /* Cheery pink transition */
+    filter: brightness(1.5);
+  }
+  40% {
+    transform: scale(1, 1);
+    background: #f8fafc;
+    filter: brightness(1);
+  }
+  100% {
+    transform: scale(1, 1);
+    background: #f8fafc;
+    filter: brightness(1);
+  }
+}
+
+@keyframes cheery-static {
+  0% { opacity: 0; }
+  15% { opacity: 0; }
+  20% { opacity: 0.6; filter: hue-rotate(0deg) contrast(3); }
+  30% { opacity: 0.4; filter: hue-rotate(90deg) contrast(2); }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.animate-crt-boot {
+  animation: crt-on 2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.animate-cheery-static {
+  animation: cheery-static 2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.crt-scanlines {
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.06) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.crt-vignette {
+  background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.15) 100%);
+  pointer-events: none;
+  z-index: 15;
 }

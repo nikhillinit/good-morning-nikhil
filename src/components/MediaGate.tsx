@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PrimaryButton } from "@/components/primitives";
 
 interface MediaGateProps {
   hasConsented: boolean;
@@ -18,22 +19,22 @@ export function MediaGate({ hasConsented, onConsent }: MediaGateProps) {
         transition={{ duration: 0.5 }}
         className="media-gate-card space-y-6"
       >
-        <h1 className="font-display text-3xl text-yellow-500">
+        <h1 className="text-display text-3xl text-accent">
           Good Morning, Nikhil
         </h1>
-        <p className="max-w-sm text-sm text-zinc-400">
+        <p className="max-w-sm text-body">
           This episode has sound. Put your headphones in or turn your volume up.
         </p>
-        <p className="orientation-hint-landscape text-xs uppercase tracking-[0.18em] text-zinc-500">
+        <p className="orientation-hint-landscape text-caption">
           Landscape works best. The default flow stays tap-and-voice only.
         </p>
-        <button
+        <PrimaryButton
           onClick={onConsent}
-          className="font-display rounded-lg bg-yellow-500 px-10 py-5 text-2xl text-black hover:bg-yellow-400 glow-accent"
+          className="text-display px-10 py-5 text-2xl"
           aria-label="Start Episode"
         >
           Start Episode
-        </button>
+        </PrimaryButton>
       </motion.div>
     </div>
   );

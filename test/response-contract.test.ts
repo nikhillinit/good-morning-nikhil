@@ -12,10 +12,10 @@ import {
   serializeScreenResponse,
 } from "@/lib/response-contract";
 
-const relationshipScreen = screens.find((screen) => screen.id === "relationship")!;
+const relationshipScreen = screens.find((screen) => screen.id === "intro-tv")!;
 const threeTextScreen = screens.find((screen) => screen.id === "feud-top3")!;
 const investScreen = screens.find((screen) => screen.id === "shark-invest")!;
-const coldOpenScreen = screens.find((screen) => screen.id === "cold-open")!;
+const coldOpenScreen = screens.find((screen) => screen.id === "gmn-feud-kickoff")!;
 
 describe("serializeScreenResponse", () => {
   it("serializes view-only screens to zero answer rows", () => {
@@ -34,8 +34,8 @@ describe("serializeScreenResponse", () => {
 
     expect(serialized.answers).toHaveLength(1);
     expect(serialized.answers[0]).toMatchObject({
-      screen_key: "relationship",
-      prompt_key: "relationship.relationship",
+      screen_key: "intro-tv",
+      prompt_key: "intro-tv.relationship",
       answer_type: AnswerType.SINGLE_SELECT,
       value_text: "Friend",
       option_value: "Friend",
@@ -91,9 +91,9 @@ describe("hydrateAllResponses", () => {
         {
           id: "a1",
           session_id: "s1",
-          screen_key: "relationship",
+          screen_key: "intro-tv",
           segment: null,
-          prompt_key: "relationship.relationship",
+          prompt_key: "intro-tv.relationship",
           answer_type: AnswerType.SINGLE_SELECT,
           value_text: "Manager",
           value_int: null,
@@ -149,12 +149,12 @@ describe("hydrateAllResponses", () => {
       },
     );
 
-    expect(hydrated.relationship).toEqual({
+    expect(hydrated["intro-tv"]).toEqual({
       relationship: "Manager",
       anonymous: true,
     });
     expect(hydrated.maury).toEqual(["Relaxed", "Hyper-prepared"]);
-    expect(hydrated["cold-open"]).toBeUndefined();
+    expect(hydrated["gmn-feud-kickoff"]).toBeUndefined();
   });
 });
 

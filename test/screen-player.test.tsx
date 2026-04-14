@@ -28,12 +28,18 @@ vi.mock("@/components/ambient/PaperShimmer", () => ({
   PaperShimmer: () => <div data-testid="paper-shimmer" />,
 }));
 
-vi.mock("@/lib/ambient-map", () => ({
-  getAmbientLayer: () => null,
+vi.mock("@/components/ambient/CRTScreen", () => ({
+  CRTScreen: () => <div data-testid="crt-screen" />,
 }));
 
-vi.mock("@/components/ShowBadge", () => ({
-  ShowBadge: () => <div data-testid="show-badge" />,
+vi.mock("@/components/ambient/TelevisionFrame", () => ({
+  TelevisionFrame: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="television-frame">{children}</div>
+  ),
+}));
+
+vi.mock("@/lib/ambient-map", () => ({
+  getAmbientLayer: () => null,
 }));
 
 vi.mock("@/components/SkipButton", () => ({
@@ -52,6 +58,10 @@ vi.mock("@/components/ui-inputs", () => ({
 
 vi.mock("@/components/MuteToggle", () => ({
   MuteToggle: () => <button>Mute audio</button>,
+}));
+
+vi.mock("@/components/BroadcastTimeline", () => ({
+  BroadcastTimeline: () => <div data-testid="broadcast-timeline" />,
 }));
 
 vi.mock("@/components/QuestionPrompt", () => ({
@@ -76,19 +86,19 @@ function makeScreen(overrides: Partial<Screen> = {}): Screen {
   };
 }
 
+beforeEach(() => {
+  vi.useFakeTimers();
+  play.mockReset();
+  skip.mockReset();
+});
+
+afterEach(() => {
+  vi.runOnlyPendingTimers();
+  vi.useRealTimers();
+  cleanup();
+});
+
 describe("ScreenPlayer animation behavior", () => {
-  beforeEach(() => {
-    vi.useFakeTimers();
-    play.mockReset();
-    skip.mockReset();
-  });
-
-  afterEach(() => {
-    vi.runOnlyPendingTimers();
-    vi.useRealTimers();
-    cleanup();
-  });
-
   it("starts audio after the mount delay", () => {
     render(
       <ScreenPlayer
@@ -110,10 +120,41 @@ describe("ScreenPlayer animation behavior", () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole("button", { name: /skip/i }));
+    fireEvent.click(screen.getAllByRole("button", { name: /skip/i })[0]);
 
     vi.advanceTimersByTime(300);
     expect(skip).toHaveBeenCalled();
     expect(play).not.toHaveBeenCalled();
   });
 });
+
+describe("ScreenPlayer Motion Ownership & Layout", () => {
+  it("renders PaperShimmer when video is disabled", () => {
+    render(<ScreenPlayer screen={makeScreen({ video: undefined })} onComplete={vi.fn()} />);
+    expect(screen.queryByTestId("paper-shimmer")).not.toBeNull();
+  });
+
+  it("kills PaperShimmer when a video is provided", () => {
+    render(<ScreenPlayer screen={makeScreen({ video: "/videos/test.mp4" })} onComplete={vi.fn()} />);
+    expect(screen.queryByTestId("paper-shimmer")).toBeNull();
+  });
+
+  it("applies items-end class when uiLayout is right", () => {
+    // We need to bypass the audio wait to force showUI rendering using skip button
+    render(<ScreenPlayer screen={makeScreen({ uiLayout: "right" })} onComplete={vi.fn()} />);
+    fireEvent.click(screen.getAllByRole("button", { name: /skip/i })[0]);
+    
+    // Check the wrapper
+    const layoutWrapper = screen.getByTestId("layout-wrapper");
+    expect(layoutWrapper.className).toContain("items-end");
+    expect(layoutWrapper.className).toContain("pr-");
+  });
+
+  it("applies mediaPosition correctly to the backdrop", () => {
+    const { container } = render(<ScreenPlayer screen={makeScreen({ mediaPosition: "left top" })} onComplete={vi.fn()} />);
+    
+    const section = container.querySelector("section[aria-label='Cold Open']") as HTMLElement;
+    expect(section.style.backgroundPosition).toBe("left top");
+  });
+});
+

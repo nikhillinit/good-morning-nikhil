@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { uiReveal } from "@/lib/animations";
+import { PrimaryButton, SecondaryButton } from "@/components/primitives";
 import {
   isAudioResponseValue,
   isTextResponseValue,
@@ -66,20 +67,20 @@ export function ReviewScreen({
     >
       <main className="w-full max-w-md space-y-6">
         <div className="text-center">
-          <h1 className="font-display text-3xl text-yellow-500">
+          <h1 className="text-display text-3xl text-accent">
             Ready to wrap?
           </h1>
-          <p className="mt-2 text-sm text-zinc-400">
+          <p className="mt-2 text-body text-muted">
             {answered.length} answers recorded
             {skipped > 0 && ` · ${skipped} skipped`}
           </p>
         </div>
 
         {/* Anonymous toggle */}
-        <div className="flex items-center justify-between rounded-lg bg-zinc-900 px-4 py-3">
+        <div className="flex items-center justify-between rounded-lg bg-surface px-4 py-3">
           <div>
-            <p className="text-sm font-medium text-white">Anonymous</p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-sm font-medium text-foreground">Anonymous</p>
+            <p className="text-caption text-muted">
               {anonymous ? "Nikhil won't see your name" : "Your name will be visible"}
             </p>
           </div>
@@ -92,7 +93,7 @@ export function ReviewScreen({
           >
             <span
               className={`block h-6 w-11 rounded-full transition-colors relative ${
-                anonymous ? "bg-yellow-500" : "bg-zinc-700"
+                anonymous ? "bg-accent" : "bg-surface-hover"
               }`}
             >
               <span
@@ -107,7 +108,7 @@ export function ReviewScreen({
         {/* Expandable answer summary */}
         <button
           onClick={() => setExpanded(!expanded)}
-          className="w-full min-h-[48px] rounded-lg border border-zinc-800 px-4 py-3 text-left text-sm text-zinc-400 hover:border-zinc-600"
+          className="w-full min-h-[48px] rounded-lg border border-surface-hover px-4 py-3 text-left text-sm text-muted hover:border-muted"
         >
           {expanded ? "Hide answers ▲" : "Review your answers ▼"}
         </button>
@@ -116,17 +117,17 @@ export function ReviewScreen({
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
-            className="max-h-64 space-y-2 overflow-y-auto rounded-lg bg-zinc-900/50 p-3"
+            className="max-h-64 space-y-2 overflow-y-auto rounded-lg bg-surface/50 p-3"
           >
             {answered.map(([screenId, value]) => (
-              <div key={screenId} className="border-b border-zinc-800 pb-2 last:border-0">
-                <p className="text-xs text-zinc-500">{screenLabels[screenId] ?? screenId}</p>
+              <div key={screenId} className="border-b border-surface-hover pb-2 last:border-0">
+                <p className="text-caption text-muted">{screenLabels[screenId] ?? screenId}</p>
                 {isAudioResponseValue(value) && value.mediaUrl ? (
                   <audio controls preload="metadata" className="mt-2 w-full" src={value.mediaUrl}>
                     Your browser does not support audio playback.
                   </audio>
                 ) : (
-                  <p className="text-sm text-zinc-300">
+                  <p className="text-body text-foreground">
                     {formatReviewValue(value)}
                   </p>
                 )}
@@ -135,20 +136,19 @@ export function ReviewScreen({
           </motion.div>
         )}
 
-        {/* Action buttons */}
         <div className="space-y-3">
-          <button
+          <PrimaryButton
             onClick={onSubmit}
-            className="font-display w-full rounded-lg bg-yellow-500 py-4 text-xl text-black hover:bg-yellow-400 glow-accent"
+            className="py-4 text-xl"
           >
             Submit Episode
-          </button>
-          <button
+          </PrimaryButton>
+          <SecondaryButton
             onClick={onBack}
-            className="w-full min-h-[48px] rounded-lg bg-white/5 py-3 text-sm text-zinc-400 hover:bg-white/10"
+            className="border-none bg-surface/30 hover:bg-surface/50"
           >
             ← Go back and change something
-          </button>
+          </SecondaryButton>
         </div>
       </main>
     </motion.div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { PrimaryButton, SecondaryButton } from "@/components/primitives";
 import { triggerHaptic } from "@/lib/haptics";
 import {
   isAudioResponseValue,
@@ -238,9 +239,9 @@ export function VoiceRecorder({
   const modeTabBase =
     "flex-1 rounded-lg py-2.5 text-sm font-medium transition-colors text-center";
   const modeTabActive =
-    "bg-yellow-500/15 text-yellow-400 border border-yellow-500/40";
+    "bg-accent/15 text-accent border border-accent/40";
   const modeTabInactive =
-    "text-zinc-400 border border-transparent hover:text-zinc-200";
+    "text-muted border border-transparent hover:text-foreground";
 
   return (
     <motion.div
@@ -277,33 +278,27 @@ export function VoiceRecorder({
               onChange={(event) => setTypedValue(event.target.value)}
               rows={4}
               placeholder="Keep it short and honest."
-              className="w-full rounded-xl border border-[var(--input-border)] bg-black/40 px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-500 focus:outline-none"
+              className="w-full rounded-lg border border-surface-hover bg-surface/80 px-4 py-3 text-foreground placeholder-muted transition-all duration-300 ease-out focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/20"
             />
-            <button
-              onClick={handleSubmitText}
-              className="w-full rounded-xl bg-yellow-500 px-4 py-3 font-semibold text-black transition-colors hover:bg-yellow-400"
-            >
+            <PrimaryButton onClick={handleSubmitText}>
               Lock it in
-            </button>
+            </PrimaryButton>
           </div>
         ) : recordedUrl ? (
           <div className="space-y-4">
-            <p className="text-sm text-zinc-300">
+            <p className="text-body text-foreground">
               Take ready. Play it back, then send it when it sounds right.
             </p>
             <audio controls preload="metadata" className="w-full" src={recordedUrl}>
               Your browser does not support audio playback.
             </audio>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <button
-                onClick={handleSubmitAudio}
-                className="w-full rounded-xl bg-yellow-500 px-4 py-3 font-semibold text-black transition-colors hover:bg-yellow-400"
-              >
+              <PrimaryButton onClick={handleSubmitAudio}>
                 Use this take
-              </button>
+              </PrimaryButton>
               <button
                 onClick={handleStart}
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-zinc-300 transition-colors hover:bg-white/10"
+                className="w-full rounded-lg border border-surface-hover bg-surface/50 px-4 py-3 text-sm text-foreground transition-colors hover:bg-surface"
               >
                 Record again
               </button>
@@ -311,7 +306,7 @@ export function VoiceRecorder({
           </div>
         ) : (
           <div className="space-y-4">
-            <div className="mb-2 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+            <div className="mb-2 flex items-center justify-between text-caption uppercase tracking-[0.18em] text-muted">
               <span>{isRecording ? "Recording" : "Voice response"}</span>
               <span>{timeRemaining}s</span>
             </div>
@@ -337,10 +332,10 @@ export function VoiceRecorder({
               )}
             </motion.button>
             <div className="space-y-1">
-              <p className="text-base font-medium text-white">
+              <p className="text-base font-medium text-foreground">
                 {isRecording ? "Recording now..." : "Tap to record"}
               </p>
-              <p className="text-sm text-zinc-400">
+              <p className="text-body text-muted">
                 {isRecording
                   ? `${timeRemaining}s remaining. We will stop automatically.`
                   : `${maxSeconds}s max`}
@@ -350,14 +345,11 @@ export function VoiceRecorder({
         )}
       </div>
 
-      {error && <p className="text-center text-sm text-red-400">{error}</p>}
+      {error && <p className="text-center text-sm text-error">{error}</p>}
 
-      <button
-        onClick={() => onSubmit(null)}
-        className="block w-full text-center text-sm text-zinc-500 transition-colors hover:text-zinc-300"
-      >
+      <SecondaryButton onClick={() => onSubmit(null)}>
         Skip this one →
-      </button>
+      </SecondaryButton>
     </motion.div>
   );
 }

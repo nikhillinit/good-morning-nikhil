@@ -1,6 +1,8 @@
 const SCREEN_PROMPTS: Record<string, string> = {
   "relationship": "How do you know Nikhil?",
+  "intro-tv": "How do you know Nikhil?",
   "feud-top3": "Give me three adjectives or short phrases that describe Nikhil.",
+  "commercial-break": "What company, product, vibe, aesthetic, or brand sponsors Nikhil?",
   "feud-strongest": "Which of your 3 answers feels most true, and why?",
   "feud-trademark": "Name a thing he does so often it should come with theme music.",
   "sponsor-brand": "What company, product, vibe, aesthetic, or brand sponsors Nikhil?",

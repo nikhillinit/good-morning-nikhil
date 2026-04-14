@@ -7,7 +7,6 @@ import { SCREEN_CAPTIONS } from "@/lib/captions/data";
 const LS_KEY = "gmn-captions-enabled";
 
 function readPreference(): boolean {
-  if (typeof window === "undefined") return true;
   try {
     const stored = localStorage.getItem(LS_KEY);
     return stored === null ? true : stored === "1";
@@ -38,7 +37,11 @@ export function useCaptions(
   const allCaptions = useMemo(() => SCREEN_CAPTIONS[screenKey] ?? [], [screenKey]);
 
   const [currentCaption, setCurrentCaption] = useState<CaptionLine | null>(null);
-  const [captionsEnabled, setCaptionsEnabled] = useState(readPreference);
+  const [captionsEnabled, setCaptionsEnabled] = useState(true);
+
+  useEffect(() => {
+    setCaptionsEnabled(readPreference());
+  }, []);
 
   const rafRef = useRef<number>(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);

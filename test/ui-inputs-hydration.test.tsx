@@ -29,7 +29,7 @@ describe("UIInput hydration", () => {
       />,
     );
 
-    expect(screen.getByRole("button", { name: "I'M OUT" })).toHaveClass("border-red-400");
+    expect(screen.getByRole("button", { name: "I'M OUT" })).toHaveClass("border-danger");
   });
 
   it("preloads a persisted voice recording when a screen is voice-first", () => {

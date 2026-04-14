@@ -220,13 +220,18 @@ STEVE: ...somehow, yes.`;
 
 export const SCREEN_CAPTIONS: Record<string, CaptionLine[]> = {
   "cold-open": parseSRT(SRT_COLD_OPEN),
+  "gmn-feud-kickoff": parseSRT(SRT_COLD_OPEN),
   "welcome": parseSRT(SRT_WELCOME),
+  "intro-instructions": [],
   "relationship": parseSRT(SRT_RELATIONSHIP),
+  "intro-tv": parseSRT(SRT_RELATIONSHIP),
   "feud-top3": parseSRT(SRT_FEUD_TOP3),
   "feud-strongest": parseSRT(SRT_FEUD_STRONGEST),
   "feud-trademark": parseSRT(SRT_FEUD_TRADEMARK),
   "sponsor-brand": parseSRT(SRT_SPONSOR_BRAND),
+  "commercial-break": parseSRT(SRT_SPONSOR_BRAND),
   "sponsor-why": parseSRT(SRT_SPONSOR_WHY),
+  "commercial-why": parseSRT(SRT_SPONSOR_WHY),
   "bachelor-roses": parseSRT(SRT_BACHELOR_ROSES),
   "bachelor-eliminate": parseSRT(SRT_BACHELOR_ELIMINATE),
   "bachelor-limo": parseSRT(SRT_BACHELOR_LIMO),
@@ -236,4 +241,5 @@ export const SCREEN_CAPTIONS: Record<string, CaptionLine[]> = {
   "maury": parseSRT(SRT_MAURY),
   "producer-notes": parseSRT(SRT_PRODUCER_NOTES),
   "credits": parseSRT(SRT_CREDITS),
+  "post-credits": parseSRT(SRT_CREDITS),
 };

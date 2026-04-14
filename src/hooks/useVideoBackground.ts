@@ -5,22 +5,32 @@ import { useEffect, useRef, useState } from "react";
 interface UseVideoBackgroundOptions {
   videoSrc: string | undefined;
   showUI: boolean;
+  behavior?: "loop" | "pause";
 }
 
-export function useVideoBackground({ videoSrc, showUI }: UseVideoBackgroundOptions) {
+export function useVideoBackground({ videoSrc, showUI, behavior = "pause" }: UseVideoBackgroundOptions) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isVideoActive, setIsVideoActive] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [saveData, setSaveData] = useState(false);
 
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  useEffect(() => {
+    if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
+      setPrefersReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    }
+    if (typeof navigator !== "undefined" && "connection" in navigator) {
+      setSaveData((navigator as { connection?: { saveData?: boolean } }).connection?.saveData === true);
+    }
+  }, []);
 
   useEffect(() => {
     if (!videoSrc || prefersReducedMotion || !videoRef.current) return;
 
     const video = videoRef.current;
     video.src = videoSrc;
+    if (behavior === "loop") {
+      video.loop = true;
+    }
     video.load();
 
     const playPromise = video.play();
@@ -38,21 +48,26 @@ export function useVideoBackground({ videoSrc, showUI }: UseVideoBackgroundOptio
       video.load();
       setIsVideoActive(false);
     };
-  }, [videoSrc, prefersReducedMotion]);
+  }, [videoSrc, prefersReducedMotion, behavior]);
 
   useEffect(() => {
     if (!videoRef.current || !isVideoActive) return;
+    
+    // Manage behavior when UI decides to stick
     if (showUI) {
-      videoRef.current.pause();
+      if (behavior === "pause") {
+        videoRef.current.pause();
+      }
+    } else {
+      // Re-play if UI is hidden again (e.g. testing or scrub)
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
     }
-  }, [showUI, isVideoActive]);
+  }, [showUI, isVideoActive, behavior]);
 
-  const shouldSkip =
-    !videoSrc ||
-    prefersReducedMotion ||
-    (typeof navigator !== "undefined" &&
-      "connection" in navigator &&
-      (navigator as { connection?: { saveData?: boolean } }).connection?.saveData === true);
+  const shouldSkip = !videoSrc || prefersReducedMotion || saveData;
 
   return {
     videoRef,

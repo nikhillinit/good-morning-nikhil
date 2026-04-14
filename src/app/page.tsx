@@ -10,6 +10,7 @@ import { ReviewScreen } from "@/components/ReviewScreen";
 import { SessionProvider, useSession } from "@/hooks/useSession";
 import { useMediaConsent } from "@/hooks/useMediaConsent";
 import { MediaGate } from "@/components/MediaGate";
+import { PrimaryButton } from "@/components/primitives";
 import {
   getCompletionStatusForValue,
   getNextScreen,
@@ -334,22 +335,22 @@ function SurveyFlow() {
   if (bootstrapError) {
     return (
       <div className="flex h-screen-safe flex-col items-center justify-center bg-black px-6 text-center">
-        <h1 className="font-display text-3xl text-yellow-500">
+        <h1 className="text-display text-3xl text-accent">
           Good Morning, Nikhil
         </h1>
-        <p className="mt-4 max-w-sm text-sm text-zinc-400">
+        <p className="mt-4 max-w-sm text-body text-muted">
           {bootstrapError}
         </p>
-        <button
+        <PrimaryButton
           onClick={() => {
             setBootstrapError(null);
             setSessionBootstrapped(false);
             setBootstrapVersion((version) => version + 1);
           }}
-          className="mt-6 min-h-[48px] rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black hover:bg-yellow-400 glow-accent"
+          className="mt-6"
         >
           Retry
-        </button>
+        </PrimaryButton>
       </div>
     );
   }
@@ -363,14 +364,14 @@ function SurveyFlow() {
           transition={{ duration: 0.5 }}
           className="space-y-4"
         >
-          <h1 className="font-display text-3xl text-yellow-500">
+          <h1 className="text-display text-3xl text-accent">
             Good Morning, Nikhil
           </h1>
           <div className="flex items-center justify-center gap-2">
             <motion.span
               animate={{ opacity: [0.3, 1, 0.3] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="text-sm uppercase tracking-[0.2em] text-zinc-500"
+              className="text-caption uppercase tracking-[0.2em] text-muted"
             >
               Loading episode
             </motion.span>
@@ -383,13 +384,13 @@ function SurveyFlow() {
   if (submitError) {
     return (
       <div className="flex h-screen-safe flex-col items-center justify-center bg-black px-6 text-center">
-        <h1 className="font-display text-2xl text-white">
+        <h1 className="text-display text-2xl text-foreground">
           Couldn&apos;t submit
         </h1>
-        <p className="mt-2 text-sm text-zinc-400">
+        <p className="mt-2 text-body text-muted">
           Your answers are saved. Try again.
         </p>
-        <button
+        <PrimaryButton
           onClick={async () => {
             setSubmitError(false);
             try {
@@ -402,10 +403,10 @@ function SurveyFlow() {
               setSubmitError(true);
             }
           }}
-          className="mt-6 min-h-[48px] rounded-lg bg-yellow-500 px-8 py-3 font-bold text-black hover:bg-yellow-400 glow-accent"
+          className="mt-6"
         >
           Retry
-        </button>
+        </PrimaryButton>
       </div>
     );
   }
@@ -419,10 +420,10 @@ function SurveyFlow() {
           transition={{ duration: 0.5 }}
           className="space-y-4"
         >
-          <h1 className="font-display text-4xl text-yellow-500">
+          <h1 className="text-display text-4xl text-accent">
             That&apos;s a wrap
           </h1>
-          <p className="text-zinc-400">
+          <p className="text-body text-muted">
             Nikhil will share what everyone said once all responses are in.
           </p>
         </motion.div>
@@ -453,14 +454,14 @@ function SurveyFlow() {
         <div className="fixed left-0 right-0 top-0 z-30 safe-top">
           <div className="mx-auto flex max-w-md flex-col gap-2 px-4 pb-2 pt-3">
             {resumedFrom && (
-              <div className="flex items-center justify-between rounded-lg bg-zinc-800/90 px-4 py-2 backdrop-blur-sm">
-                <p className="text-xs text-zinc-300">
+              <div className="flex items-center justify-between rounded-lg bg-surface/90 px-4 py-2 backdrop-blur-sm">
+                <p className="text-xs text-foreground">
                   Picking up where you left off —{" "}
-                  <span className="text-yellow-400">{resumedFrom}</span>
+                  <span className="text-accent">{resumedFrom}</span>
                 </p>
                 <button
                   onClick={() => setResumedFrom(null)}
-                  className="ml-3 text-xs text-zinc-500 hover:text-zinc-300"
+                  className="ml-3 text-xs text-muted hover:text-foreground"
                   aria-label="Dismiss resume notice"
                 >
                   ✕
@@ -468,12 +469,12 @@ function SurveyFlow() {
               </div>
             )}
             {saveError && (
-              <div className="flex items-center justify-between gap-3 rounded-lg bg-red-950/90 px-4 py-3 backdrop-blur-sm">
-                <p className="text-xs text-red-100">{saveError}</p>
+              <div className="flex items-center justify-between gap-3 rounded-lg bg-danger-soft px-4 py-3 backdrop-blur-sm">
+                <p className="text-xs text-danger-foreground">{saveError}</p>
                 {pendingCompletion?.screenId === currentScreenId && (
                   <button
                     onClick={() => void handleRetrySave()}
-                    className="min-h-[48px] rounded-md bg-red-100 px-3 py-1 text-xs font-semibold text-red-950"
+                    className="min-h-[48px] rounded-md bg-danger-foreground px-3 py-1 text-xs font-semibold text-black"
                   >
                     Retry
                   </button>
@@ -503,14 +504,14 @@ function SurveyFlow() {
       </AnimatePresence>
 
       <div
-        className="fixed bottom-0 left-0 right-0 h-1 bg-zinc-800 safe-bottom"
+        className="fixed bottom-0 left-0 right-0 h-1.5 bg-surface-hover safe-bottom"
         role="progressbar"
         aria-valuenow={Math.max(0, history.length - 1)}
         aria-valuemin={0}
         aria-valuemax={total - 1}
       >
         <div
-          className="h-full bg-yellow-500 transition-all duration-500"
+          className="h-full bg-accent transition-all duration-500"
           style={{
             width: `${(Math.max(0, history.length - 1) / (total - 1)) * 100}%`,
           }}
