@@ -25,7 +25,7 @@ export function MediaGate({ hasConsented, onConsent }: MediaGateProps) {
         <p className="max-w-sm text-body">
           This episode has sound. Put your headphones in or turn your volume up.
         </p>
-        <p className="orientation-hint-landscape text-caption">
+        <p className="orientation-hint-landscape text-caption font-medium text-foreground/85">
           Landscape works best. The default flow stays tap-and-voice only.
         </p>
         <PrimaryButton
