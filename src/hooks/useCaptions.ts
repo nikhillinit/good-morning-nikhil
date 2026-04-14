@@ -37,11 +37,7 @@ export function useCaptions(
   const allCaptions = useMemo(() => SCREEN_CAPTIONS[screenKey] ?? [], [screenKey]);
 
   const [currentCaption, setCurrentCaption] = useState<CaptionLine | null>(null);
-  const [captionsEnabled, setCaptionsEnabled] = useState(true);
-
-  useEffect(() => {
-    setCaptionsEnabled(readPreference());
-  }, []);
+  const [captionsEnabled, setCaptionsEnabled] = useState(readPreference);
 
   const rafRef = useRef<number>(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);

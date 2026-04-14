@@ -84,7 +84,9 @@ export function ReviewScreen({
               {anonymous ? "Nikhil won't see your name" : "Your name will be visible"}
             </p>
           </div>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={onToggleAnonymous}
             role="switch"
             aria-checked={anonymous}
@@ -102,16 +104,15 @@ export function ReviewScreen({
                 }`}
               />
             </span>
-          </button>
+          </motion.button>
         </div>
 
         {/* Expandable answer summary */}
-        <button
+        <SecondaryButton
           onClick={() => setExpanded(!expanded)}
-          className="w-full min-h-[48px] rounded-lg border border-surface-hover px-4 py-3 text-left text-sm text-muted hover:border-muted"
         >
           {expanded ? "Hide answers ▲" : "Review your answers ▼"}
-        </button>
+        </SecondaryButton>
 
         {expanded && (
           <motion.div

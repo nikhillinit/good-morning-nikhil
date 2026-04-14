@@ -1,14 +1,16 @@
 import { createBrowserClient } from "@supabase/ssr";
 import { getStoredSessionId } from "@/lib/session-storage";
+import { getSupabaseEnv } from "@/lib/supabase/config";
 
 export const SESSION_HEADER = "x-survey-session-id";
 
 export function createClient(sessionId?: string) {
   const resolvedSessionId = sessionId ?? getStoredSessionId();
+  const { url, anonKey } = getSupabaseEnv();
 
   return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    url,
+    anonKey,
     resolvedSessionId
       ? {
           global: {

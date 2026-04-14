@@ -70,8 +70,8 @@ export default function RootLayout({
               minHeight: "100vh",
               alignItems: "center",
               justifyContent: "center",
-              background: "#000",
-              color: "#eab308",
+              background: "var(--background)",
+              color: "var(--accent)",
               padding: "2rem",
               textAlign: "center",
               fontFamily: "system-ui, sans-serif",
@@ -81,7 +81,7 @@ export default function RootLayout({
               <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>
                 Good Morning, Nikhil
               </h1>
-              <p style={{ marginTop: "1rem", color: "#a1a1aa" }}>
+              <p style={{ marginTop: "1rem", color: "var(--muted)" }}>
                 This experience requires JavaScript. Please enable it and
                 refresh.
               </p>

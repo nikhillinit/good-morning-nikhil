@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export function TelevisionFrame({ children, zoomedIn = false }: { children: ReactNode; zoomedIn?: boolean }) {
   return (
-    <div className="flex h-screen-safe w-full items-center justify-center bg-zinc-950 sm:bg-zinc-900 sm:p-8 md:p-12 overflow-hidden" style={{ perspective: "1200px" }}>
+    <div className="flex h-screen-safe w-full items-center justify-center bg-background sm:p-8 md:p-12 overflow-hidden" style={{ perspective: "1200px" }}>
       {/* Antigravity Floating TV */}
       <motion.div 
-        className="relative flex flex-col sm:flex-row w-full h-full sm:max-h-[85vh] sm:max-w-5xl sm:rounded-[3rem] sm:bg-[#3a2818] sm:p-[24px] sm:border-[4px] border-[#22160d]"
+        className="relative flex flex-col sm:flex-row w-full h-full sm:max-h-[85vh] sm:max-w-5xl sm:rounded-[3rem] sm:bg-tv-wood sm:p-[24px] sm:border-[4px] border-tv-wood-dark"
         style={{
           boxShadow: "0 40px 100px -10px rgba(0,0,0,0.8), inset 0 6px 15px rgba(255,255,255,0.1), inset 0 -10px 40px rgba(0,0,0,0.6)",
           rotateX: "var(--tv-rotateX, 2deg)"
@@ -19,12 +19,12 @@ export function TelevisionFrame({ children, zoomedIn = false }: { children: Reac
       >
         {/* Antennas (Hidden on mobile for space) */}
         <div className="hidden sm:flex absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-16 origin-bottom -z-10 justify-between px-8">
-          <div className="w-1.5 h-32 bg-zinc-400 rotate-[-30deg] origin-bottom rounded-t-full shadow-lg" />
-          <div className="w-1.5 h-32 bg-zinc-400 rotate-[30deg] origin-bottom rounded-t-full shadow-lg" />
+          <div className="w-1.5 h-32 bg-tv-metal rotate-[-30deg] origin-bottom rounded-t-full shadow-lg" />
+          <div className="w-1.5 h-32 bg-tv-metal rotate-[30deg] origin-bottom rounded-t-full shadow-lg" />
         </div>
 
         {/* Screen Bezel (Dark Plastic) */}
-        <div className="relative flex-1 w-full h-full rounded-none sm:rounded-[2.5rem] bg-black sm:bg-[#1a1c1d] sm:p-[12px] shadow-none sm:shadow-[inset_0_5px_15px_rgba(0,0,0,1)] border-none sm:border sm:border-[#000]">
+        <div className="relative flex-1 w-full h-full rounded-none sm:rounded-[2.5rem] bg-black sm:bg-tv-plastic sm:p-[12px] shadow-none sm:shadow-[inset_0_5px_15px_rgba(0,0,0,1)] border-none sm:border sm:border-tv-chrome">
           {/* Inner Screen - Animates from bounded TV space to Full Screen Viewport */}
           <motion.div 
             layout
@@ -60,10 +60,10 @@ export function TelevisionFrame({ children, zoomedIn = false }: { children: Reac
           </div>
 
           {/* Dials */}
-          <div className="w-16 h-16 rounded-full bg-[#1a1c1d] shadow-[0_4px_10px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1)] border-2 border-[#000] relative flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-tv-plastic shadow-[0_4px_10px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1)] border-2 border-tv-chrome relative flex items-center justify-center">
             <div className="w-1 h-6 bg-white/30 absolute top-1" />
           </div>
-          <div className="w-14 h-14 rounded-full bg-[#1a1c1d] shadow-[0_4px_10px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1)] border-2 border-[#000] relative flex items-center justify-center">
+          <div className="w-14 h-14 rounded-full bg-tv-plastic shadow-[0_4px_10px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1)] border-2 border-tv-chrome relative flex items-center justify-center">
             <div className="w-1 h-5 bg-white/30 absolute top-1" />
           </div>
         </div>

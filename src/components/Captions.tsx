@@ -23,8 +23,8 @@ export function Captions({ caption, visible }: CaptionsProps) {
           <div className="mx-auto max-w-4xl text-center">
             {caption.speaker && (
               <span className={`block mb-1 text-xs md:text-sm font-bold uppercase tracking-[0.2em] opacity-80 text-shadow-overlay ${
-                caption.speaker === "steve" ? "text-yellow-400" :
-                caption.speaker === "jeff" ? "text-blue-400" : "text-white"
+                caption.speaker === "steve" ? "text-speaker-steve" :
+                caption.speaker === "jeff" ? "text-speaker-jeff" : "text-white"
               }`}>
                 {caption.speaker}:
               </span>

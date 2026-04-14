@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 interface UseVideoBackgroundOptions {
   videoSrc: string | undefined;
@@ -8,20 +8,88 @@ interface UseVideoBackgroundOptions {
   behavior?: "loop" | "pause";
 }
 
-export function useVideoBackground({ videoSrc, showUI, behavior = "pause" }: UseVideoBackgroundOptions) {
+type SaveDataConnection = EventTarget & {
+  saveData?: boolean;
+};
+type LegacyMediaQueryList = MediaQueryList & {
+  addListener?: (listener: (event: MediaQueryListEvent) => void) => void;
+  removeListener?: (listener: (event: MediaQueryListEvent) => void) => void;
+};
+
+function getReducedMotionSnapshot(): boolean {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return false;
+  }
+
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function subscribeToReducedMotion(onStoreChange: () => void): () => void {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return () => {};
+  }
+
+  const mediaQuery = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ) as LegacyMediaQueryList;
+
+  if (typeof mediaQuery.addEventListener === "function") {
+    mediaQuery.addEventListener("change", onStoreChange);
+    return () => mediaQuery.removeEventListener("change", onStoreChange);
+  }
+
+  if (typeof mediaQuery.addListener === "function") {
+    mediaQuery.addListener(onStoreChange);
+    return () => mediaQuery.removeListener?.(onStoreChange);
+  }
+
+  return () => {};
+}
+
+function getSaveDataSnapshot(): boolean {
+  if (typeof navigator === "undefined" || !("connection" in navigator)) {
+    return false;
+  }
+
+  return (
+    (navigator as Navigator & { connection?: SaveDataConnection }).connection
+      ?.saveData === true
+  );
+}
+
+function subscribeToSaveData(onStoreChange: () => void): () => void {
+  if (typeof navigator === "undefined" || !("connection" in navigator)) {
+    return () => {};
+  }
+
+  const connection = (navigator as Navigator & { connection?: SaveDataConnection })
+    .connection;
+
+  if (!connection?.addEventListener) {
+    return () => {};
+  }
+
+  connection.addEventListener("change", onStoreChange);
+  return () => connection.removeEventListener("change", onStoreChange);
+}
+
+export function useVideoBackground({
+  videoSrc,
+  showUI,
+  behavior = "pause",
+}: UseVideoBackgroundOptions) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isVideoActive, setIsVideoActive] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [saveData, setSaveData] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
-      setPrefersReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    }
-    if (typeof navigator !== "undefined" && "connection" in navigator) {
-      setSaveData((navigator as { connection?: { saveData?: boolean } }).connection?.saveData === true);
-    }
-  }, []);
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    () => false,
+  );
+  const saveData = useSyncExternalStore(
+    subscribeToSaveData,
+    getSaveDataSnapshot,
+    () => false,
+  );
 
   useEffect(() => {
     if (!videoSrc || prefersReducedMotion || !videoRef.current) return;
@@ -52,7 +120,7 @@ export function useVideoBackground({ videoSrc, showUI, behavior = "pause" }: Use
 
   useEffect(() => {
     if (!videoRef.current || !isVideoActive) return;
-    
+
     // Manage behavior when UI decides to stick
     if (showUI) {
       if (behavior === "pause") {

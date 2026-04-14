@@ -32,11 +32,10 @@ import {
   serializeScreenResponse,
 } from "@/lib/response-contract";
 import { persistScreenResponse } from "@/lib/screen-response-persistence";
+import { hasSupabaseEnv } from "@/lib/supabase/config";
 import { AnswerType, CompletionStatus, InputMethod } from "@/types";
 
-const HAS_SUPABASE =
-  Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
-  Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+const HAS_SUPABASE = hasSupabaseEnv();
 
 const screenLabels = Object.fromEntries(
   screens.map((screen) => [screen.id, screen.show]),
@@ -461,7 +460,7 @@ function SurveyFlow() {
                 </p>
                 <button
                   onClick={() => setResumedFrom(null)}
-                  className="ml-3 text-xs text-muted hover:text-foreground"
+                  className="ml-3 min-h-[48px] px-3 text-xs text-muted hover:text-foreground transition-colors"
                   aria-label="Dismiss resume notice"
                 >
                   ✕
@@ -472,12 +471,12 @@ function SurveyFlow() {
               <div className="flex items-center justify-between gap-3 rounded-lg bg-danger-soft px-4 py-3 backdrop-blur-sm">
                 <p className="text-xs text-danger-foreground">{saveError}</p>
                 {pendingCompletion?.screenId === currentScreenId && (
-                  <button
+                  <PrimaryButton
                     onClick={() => void handleRetrySave()}
-                    className="min-h-[48px] rounded-md bg-danger-foreground px-3 py-1 text-xs font-semibold text-black"
+                    className="!w-auto px-4 py-2 text-xs !min-h-[36px]"
                   >
                     Retry
-                  </button>
+                  </PrimaryButton>
                 )}
               </div>
             )}

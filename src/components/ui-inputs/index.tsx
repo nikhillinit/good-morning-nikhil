@@ -28,13 +28,13 @@ function StartButton({
     typeof config?.label === "string" ? config.label : "Start Episode";
 
   return (
-    <motion.button
+    <PrimaryButton
       {...uiReveal}
       onClick={() => onSubmit(true)}
-      className="text-display rounded-lg bg-accent px-10 py-5 text-2xl text-black hover:bg-accent-hover hover:scale-[1.02] active:scale-[0.98] glow-accent transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+      className="text-display px-10 py-5 text-2xl"
     >
       {label}
-    </motion.button>
+    </PrimaryButton>
   );
 }
 
@@ -54,12 +54,12 @@ function ContinueButton({
           {promptText}
         </p>
       )}
-      <button
+      <SecondaryButton
         onClick={() => onSubmit(true)}
-        className="rounded-lg border border-accent/20 bg-accent/10 px-8 py-3 font-medium text-accent hover:bg-accent/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md"
+        className="border-accent/20 bg-accent/10 text-accent hover:bg-accent/20 hover:text-accent backdrop-blur-md"
       >
         {typeof config?.label === "string" ? config.label : "Continue →"}
-      </button>
+      </SecondaryButton>
     </motion.div>
   );
 }
@@ -106,16 +106,12 @@ function ThreeText({
         {values.map((val, i) => (
           <motion.div 
             key={i}
-            whileFocus={{ scale: 1.05, rotateX: -5 }}
-            whileHover={{ scale: 1.02 }}
+            whileFocus={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="relative"
           >
-            {/* Physical Frame */}
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-zinc-300 to-zinc-600 shadow-[0_10px_20px_rgba(0,0,0,0.5)] pointer-events-none" />
-            <div className="absolute inset-[4px] rounded-md bg-gradient-to-b from-[#0a1930] to-[#040b17] shadow-[inset_0_5px_15px_rgba(0,0,0,1)] pointer-events-none" />
-            
-            <input
+            <InputField
               type="text"
               value={val}
               onChange={(e) => {
@@ -125,15 +121,11 @@ function ThreeText({
               }}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  if (i < 2) {
-                    submitAction();
-                  } else {
-                    submitAction();
-                  }
+                  submitAction();
                 }
               }}
               placeholder={placeholders[i]}
-              className="relative w-full bg-transparent px-6 py-4 text-center font-display text-2xl font-black tracking-widest text-[#eab308] placeholder-[#eab308]/20 focus:outline-none uppercase drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]"
+              className="px-6 py-4 text-center font-display text-2xl font-black tracking-widest text-accent uppercase"
             />
           </motion.div>
         ))}
@@ -379,26 +371,30 @@ function InvestOrPass({
     >
       <p className="mb-3 text-center text-caption text-muted">Would you invest in Nikhil?</p>
       <div className="flex w-full gap-4">
-      <button
+      <motion.button
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         onClick={() => setSelected("in")}
-        className={`font-display flex-1 rounded-lg border-2 py-4 text-xl ${
+        className={`font-display flex-1 rounded-lg border-2 py-4 text-xl transition-colors ${
           selected === "in"
             ? "border-success bg-success-soft text-foreground"
             : "border-success bg-success-soft/40 text-success hover:bg-success-soft"
         }`}
       >
         I&apos;M IN
-      </button>
-      <button
+      </motion.button>
+      <motion.button
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         onClick={() => setSelected("out")}
-        className={`font-display flex-1 rounded-lg border-2 py-4 text-xl ${
+        className={`font-display flex-1 rounded-lg border-2 py-4 text-xl transition-colors ${
           selected === "out"
             ? "border-danger bg-danger-soft text-danger-foreground"
             : "border-danger bg-danger-soft/40 text-danger hover:bg-danger-soft"
         }`}
       >
         I&apos;M OUT
-      </button>
+      </motion.button>
       </div>
       <PrimaryButton
         onClick={() => selected && onSubmit({ choice: selected })}
@@ -571,46 +567,46 @@ function RelationshipPicker({
     <motion.div {...uiReveal} className="w-full max-w-3xl mx-auto space-y-6 font-display uppercase tracking-widest pt-8 sm:pt-12">
       <div className="grid grid-cols-2 gap-x-6 gap-y-6 justify-items-center">
         {options.map((opt) => (
-          <button
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             key={opt}
             onClick={() => setSelected(opt)}
             className={`w-full max-w-[280px] px-4 py-4 rounded-full border-[6px] text-lg sm:text-xl text-center transition-all font-bold ${
               selected === opt 
-                ? 'bg-surface border-surface text-foreground drop-shadow-[0_4px_0_rgba(0,0,0,0.2)]' 
-                : 'bg-transparent border-surface text-foreground hover:bg-surface/20 drop-shadow-none'
+                ? 'bg-surface border-surface text-accent drop-shadow-[0_4px_0_rgba(0,0,0,0.2)]' 
+                : 'bg-transparent border-surface text-foreground hover:bg-surface/30 drop-shadow-none'
             }`}
           >
             {opt}
-          </button>
+          </motion.button>
         ))}
       </div>
       
       <div className="flex flex-col items-center gap-5 pt-4">
         {showAnonymousToggle && (
-          <button
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             type="button"
             onClick={() => setAnonymous((prev) => !prev)}
             className={`w-full max-w-[320px] px-4 py-3 rounded-full border-[6px] text-sm sm:text-base text-center transition-all font-bold ${
               anonymous 
-                ? 'bg-surface border-surface text-foreground drop-shadow-[0_4px_0_rgba(0,0,0,0.2)]' 
-                : 'bg-transparent border-surface text-foreground hover:bg-surface/20 drop-shadow-none'
+                ? 'bg-surface border-surface text-accent drop-shadow-[0_4px_0_rgba(0,0,0,0.2)]' 
+                : 'bg-transparent border-surface-hover text-muted hover:bg-surface/30 drop-shadow-none'
             }`}
           >
             ANONYMITY: {anonymous ? 'ON' : 'OFF'}
-          </button>
+          </motion.button>
         )}
 
-        <button
+        <PrimaryButton
           onClick={() => selected && onSubmit({ relationship: selected, anonymous })}
           disabled={!selected}
-          className={`w-full max-w-[320px] px-6 py-4 rounded-full border-[6px] text-xl sm:text-2xl text-center transition-all font-bold tracking-[0.2em] ${
-            selected 
-              ? 'bg-success border-success-strong text-foreground drop-shadow-[0_4px_0_rgba(21,128,61,1)] hover:bg-success hover:border-success' 
-              : 'bg-transparent border-surface-hover text-muted cursor-not-allowed opacity-70 drop-shadow-none'
-          }`}
+          className="w-full max-w-[320px] rounded-full text-xl sm:text-2xl tracking-[0.2em]"
         >
           {selected ? 'TUNE IN' : 'SELECT TO CONTINUE'}
-        </button>
+        </PrimaryButton>
       </div>
     </motion.div>
   );

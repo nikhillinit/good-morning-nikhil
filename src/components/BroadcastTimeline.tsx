@@ -17,7 +17,7 @@ export function BroadcastTimeline({ currentPhase, totalPhases }: BroadcastTimeli
   return (
     <div className="absolute bottom-0 left-0 w-full h-1.5 z-40 bg-black/40 backdrop-blur-sm pointer-events-none overflow-hidden">
       <motion.div
-        className="h-full bg-gradient-to-r from-red-600 to-amber-500 shadow-[0_0_10px_rgba(220,38,38,0.8)] relative"
+        className="h-full bg-gradient-to-r from-progress-start to-progress-end shadow-[0_0_10px_var(--progress-glow)] relative"
         initial={{ width: 0 }}
         animate={{ width: `${progressPercentage}%` }}
         transition={{ duration: 0.8, ease: "easeOut" }}

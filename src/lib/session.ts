@@ -6,6 +6,7 @@ import {
 import type { SurveySession } from "@/types";
 import { CompletionStatus } from "@/types";
 import { getStoredSessionId } from "@/lib/session-storage";
+import { hasSupabaseEnv } from "@/lib/supabase/config";
 
 export async function createSession(
   data: Partial<SurveySession>,
@@ -39,6 +40,8 @@ export async function createSession(
 export async function getSession(
   sessionId: string,
 ): Promise<SurveySession | null> {
+  if (!hasSupabaseEnv()) return null;
+
   const supabase = createClient(sessionId);
   const { data, error } = await supabase
     .from("survey_sessions")
@@ -54,6 +57,8 @@ export async function getSession(
 }
 
 export async function getOrResumeSession(): Promise<SurveySession | null> {
+  if (!hasSupabaseEnv()) return null;
+
   const sessionId = getStoredSessionId();
   if (!sessionId) return null;
 
