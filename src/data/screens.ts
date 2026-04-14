@@ -29,6 +29,7 @@ export interface Screen {
   videoBehavior?: "loop" | "pause";
   uiLayout?: "left" | "right" | "center";
   mediaPosition?: string; // object-position string defining crop/focus
+  hideTvFrame?: boolean; // when true, zoom past TV frame bezel
 }
 
 /**
@@ -109,6 +110,7 @@ export const screens: Screen[] = [
     videoBehavior: "loop",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "Welcome to Good Morning Nikhil. All right, final round! We got the Nikhil family versus Jeff Goldblum. Name something you can do on the computer."',
       'JEFF: "Ahhhh… well I can tell you what you can do with a computer, Steve... you can suck on the mouse like a giant, pacifier."',
@@ -132,6 +134,7 @@ export const screens: Screen[] = [
     videoBehavior: "loop",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "We surveyed the deepest darkest recesses of Nikhil\'s hopes and fears. Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil."'
     ],
@@ -152,6 +155,7 @@ export const screens: Screen[] = [
     bg: "/sets/feud-board.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'JEFF: "Show me \'handsome\'."',
       'STEVE: "Wrong game, Jeff. Which one feels strongest, and why?"'
@@ -173,6 +177,7 @@ export const screens: Screen[] = [
     bg: "/sets/feud-board.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'JEFF: "Name a thing he does so often it should come with theme music."',
       'STEVE: "That is actually a good one Jeff."'
@@ -194,6 +199,7 @@ export const screens: Screen[] = [
     bg: "/sets/sponsor-pedestal.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "This episode of Nikhil is brought to you by…"',
       'JEFF: "A premium blend of polish, intensity, and lightly weaponized seduction just like someone I know."'
@@ -215,6 +221,7 @@ export const screens: Screen[] = [
     bg: "/sets/sponsor-pedestal.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "And why?"',
       'JEFF: "We’re all just shadows and dust Steve."'
@@ -236,6 +243,7 @@ export const screens: Screen[] = [
     bg: "/sets/bachelor-mansion.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "Ladies, you know what time it is. It’s the rose ceremony, and one of you is going home tonight. Three roses. One quality goes home."'
     ],
@@ -266,6 +274,7 @@ export const screens: Screen[] = [
     bg: "/sets/bachelor-mansion.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'JEFF: "Every board has one weak square."',
       'STEVE: "This ain’t no board, Jeff. Send one quality home."'
@@ -297,6 +306,7 @@ export const screens: Screen[] = [
     bg: "/sets/limo-interior.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "In the limo ride home…"',
       'JEFF: "On her way to the set of 90-Day Fiancé. Say Stevie isn’t that where - "',
@@ -321,6 +331,7 @@ export const screens: Screen[] = [
     bg: "/sets/shark-warehouse.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "Sharks, Nikhil just pitched his brain for 100% of your life savings. Are you in or out?"',
       'JEFF: "You know I’ll just wait until Aunt Demequa blows it, and then it’ll go back to me and I’ll steal the round."',
@@ -339,6 +350,7 @@ export const screens: Screen[] = [
     bg: "/sets/shark-warehouse.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "Finish the sentence."'
     ],
@@ -360,6 +372,7 @@ export const screens: Screen[] = [
     videoBehavior: "loop",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "Tribal council. Confessional booth. Just you and the camera."',
       'JEFF: (Whispering) "So this is… Fast Money in the woods?"',
@@ -382,6 +395,7 @@ export const screens: Screen[] = [
     bg: "/sets/maury-studio.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "No, Jeff. I can’t do it."',
       'JEFF: "You have to read it, Steve. That’s the job. That’s why they hire you."',
@@ -407,6 +421,7 @@ export const screens: Screen[] = [
     bg: "/sets/control-room.webp",
     uiLayout: "right",
     mediaPosition: "left center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "Final note from the control room."',
       'JEFF: "Fast Money?"',
@@ -430,6 +445,7 @@ export const screens: Screen[] = [
     bg: "/sets/credits-bg.webp",
     uiLayout: "center",
     mediaPosition: "center center",
+    hideTvFrame: true,
     captions: [
       'STEVE: "That’s a wrap."',
       'JEFF: "Did I win?"',
@@ -450,6 +466,7 @@ export const screens: Screen[] = [
     bg: "/sets/credits-bg.webp",
     uiLayout: "center",
     mediaPosition: "center center",
+    hideTvFrame: true,
     captions: [
       'STEVE: (Disembodied voice) "All right, Jeff. Last chance. Name something you can do on a computer."',
       'JEFF: "Ahhh.., you can shove it up your"'

@@ -240,7 +240,7 @@ export function ScreenPlayer({
   );
 
   return (
-    <TelevisionFrame zoomedIn={screen.bg !== "crt"}>
+    <TelevisionFrame zoomedIn={screen.hideTvFrame === true}>
       {playerContent}
     </TelevisionFrame>
   );

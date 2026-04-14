@@ -7,7 +7,7 @@
   /* ── Design tokens ─────────────────────────────────────────── */
   --accent: #eab308;
   --accent-hover: #facc15;
-  --surface: #18181b;
+  --surface: rgba(24, 24, 27, 0.8);
   --surface-hover: rgba(255, 255, 255, 0.1);
   --muted: #d4d4d8;
   --error: #f87171;
@@ -36,6 +36,22 @@
   --segment-shark: rgba(6, 182, 212, 0.15);
   --segment-maury: rgba(168, 85, 247, 0.15);
   --segment-survivor: rgba(217, 119, 6, 0.2);
+
+  /* ── TV Frame Materials ───────────────────────────────────── */
+  --tv-wood: #3a2818;
+  --tv-wood-dark: #22160d;
+  --tv-plastic: #1a1c1d;
+  --tv-metal: #a1a1aa;
+  --tv-chrome: #000;
+
+  /* ── Speaker Identity Colors ──────────────────────────────── */
+  --speaker-steve: #facc15;
+  --speaker-jeff: #60a5fa;
+
+  /* ── Progress States ──────────────────────────────────────── */
+  --progress-start: #dc2626;
+  --progress-end: #f59e0b;
+  --progress-glow: rgba(220, 38, 38, 0.8);
 
   /* ── Spacing scale ─────────────────────────────────────────── */
   --space-1: 0.25rem;
@@ -97,6 +113,22 @@
   --color-segment-shark: var(--segment-shark);
   --color-segment-maury: var(--segment-maury);
   --color-segment-survivor: var(--segment-survivor);
+
+  /* TV frame materials */
+  --color-tv-wood: var(--tv-wood);
+  --color-tv-wood-dark: var(--tv-wood-dark);
+  --color-tv-plastic: var(--tv-plastic);
+  --color-tv-metal: var(--tv-metal);
+  --color-tv-chrome: var(--tv-chrome);
+
+  /* Speaker identity colors */
+  --color-speaker-steve: var(--speaker-steve);
+  --color-speaker-jeff: var(--speaker-jeff);
+
+  /* Progress states */
+  --color-progress-start: var(--progress-start);
+  --color-progress-end: var(--progress-end);
+  --color-progress-glow: var(--progress-glow);
 
   /* Fonts */
   --font-sans: var(--font-geist-sans);
