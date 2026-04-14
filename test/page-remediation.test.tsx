@@ -130,7 +130,7 @@ vi.mock("@/components/ScreenPlayer", () => ({
 }));
 
 vi.mock("@/hooks/useMediaConsent", () => ({
-  useMediaConsent: () => ({ hasConsented: true, grantConsent: vi.fn() }),
+  useMediaConsent: () => ({ hasConsented: true, grantConsent: vi.fn(), hydrated: true }),
 }));
 
 vi.mock("@/components/ReviewScreen", () => ({
@@ -154,12 +154,14 @@ vi.mock("@/components/ReviewScreen", () => ({
 
 describe("page remediation flow", () => {
   afterEach(() => {
+    vi.restoreAllMocks();
     cleanup();
   });
 
   beforeEach(() => {
     vi.resetModules();
     vi.clearAllMocks();
+    vi.spyOn(console, "error").mockImplementation(() => {});
     process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon-key";
     mocks.createNewSession.mockResolvedValue(mocks.session);

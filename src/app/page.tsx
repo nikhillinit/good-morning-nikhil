@@ -60,7 +60,7 @@ function SurveyFlow() {
   const { setResponse, hydrateResponses, getResponse, getAllResponses } = useResponses();
   const { session, createNewSession, loading } = useSession();
   const entryStartedAtRef = useRef(0);
-  const { hasConsented, grantConsent } = useMediaConsent();
+  const { hasConsented, grantConsent, hydrated } = useMediaConsent();
 
   const currentIndex = getScreenIndex(currentScreenId, screens);
   const activeIndex = currentIndex === -1 ? 0 : currentIndex;
@@ -322,6 +322,10 @@ function SurveyFlow() {
       setSubmitError(true);
     }
   }, [session]);
+
+  if (!hydrated) {
+    return <div className="h-screen-safe bg-black" />;
+  }
 
   if (!hasConsented) {
     return <MediaGate hasConsented={false} onConsent={grantConsent} />;
