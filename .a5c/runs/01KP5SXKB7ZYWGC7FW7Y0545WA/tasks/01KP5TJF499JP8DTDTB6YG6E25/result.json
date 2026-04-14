@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5TJF499JP8DTDTB6YG6E25",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "design-system-enforcement:S000006:__sdk.breakpoint",
+  "status": "ok",
+  "result": {
+    "approved": true,
+    "response": "Approve"
+  },
+  "startedAt": "2026-04-14T11:04:04.210Z",
+  "finishedAt": "2026-04-14T11:04:04.210Z",
+  "value": {
+    "approved": true,
+    "response": "Approve"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5TJF499JP8DTDTB6YG6E25",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "design-system-enforcement:S000006:__sdk.breakpoint",
+  "stepId": "S000006",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "filesFixed": [
+          "TelevisionFrame.tsx",
+          "Captions.tsx",
+          "BroadcastTimeline.tsx",
+          "layout.tsx"
+        ],
+        "tokensAdded": [
+          "--tv-wood",
+          "--tv-wood-dark",
+          "--tv-plastic",
+          "--tv-metal",
+          "--tv-chrome",
+          "--speaker-steve",
+          "--speaker-jeff",
+          "--progress-start",
+          "--progress-end",
+          "--progress-glow"
+        ]
+      },
+      "question": "Token extension and 5 component fixes complete. Files modified: TelevisionFrame, Captions, BroadcastTimeline, layout. Review and approve to continue to verification?",
+      "title": "Design System Fixes Review"
+    },
+    "requestedAt": "2026-04-14T11:03:37.353Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "filesFixed": [
+          "TelevisionFrame.tsx",
+          "Captions.tsx",
+          "BroadcastTimeline.tsx",
+          "layout.tsx"
+        ],
+        "tokensAdded": [
+          "--tv-wood",
+          "--tv-wood-dark",
+          "--tv-plastic",
+          "--tv-metal",
+          "--tv-chrome",
+          "--speaker-steve",
+          "--speaker-jeff",
+          "--progress-start",
+          "--progress-end",
+          "--progress-glow"
+        ]
+      },
+      "question": "Token extension and 5 component fixes complete. Files modified: TelevisionFrame, Captions, BroadcastTimeline, layout. Review and approve to continue to verification?",
+      "title": "Design System Fixes Review"
+    },
+    "requestedAt": "2026-04-14T11:03:37.353Z"
+  }
+}

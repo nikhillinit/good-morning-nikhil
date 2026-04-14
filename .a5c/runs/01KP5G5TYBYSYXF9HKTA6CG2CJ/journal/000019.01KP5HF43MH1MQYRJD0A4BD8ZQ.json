@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:24:30.580Z",
+  "data": {
+    "effectId": "01KP5HF41FWG1G8ZG33YDV0W7N",
+    "invocationKey": "gmn/design-narrative-coherence:S000009:segment-identity-fix",
+    "invocationHash": "548ecec76d0cc5e60e8ebf1469f0f1abfecfbaf2820469cdfbba11c8c7a50bb5",
+    "stepId": "S000009",
+    "taskId": "segment-identity-fix",
+    "kind": "skill",
+    "label": "Fix Show Segment Identity",
+    "taskDefRef": "tasks/01KP5HF41FWG1G8ZG33YDV0W7N/task.json"
+  },
+  "checksum": "1292c595342a42bdacf54c116974440db5d46be65499d08e7e2f66a51999c4e3"
+}

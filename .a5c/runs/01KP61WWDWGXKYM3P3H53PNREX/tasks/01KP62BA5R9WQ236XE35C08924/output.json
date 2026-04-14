@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "changes": [
+    {"file": "src/data/screens.ts", "description": "Added hideTvFrame?: boolean to Screen interface and set hideTvFrame: true on 16 screens (gmn-feud-kickoff through post-credits)", "linesModified": 17},
+    {"file": "src/components/ScreenPlayer.tsx", "description": "Changed zoomedIn logic from screen.bg !== 'crt' to screen.hideTvFrame === true", "linesModified": 1}
+  ]
+}

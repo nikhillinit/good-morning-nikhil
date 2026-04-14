@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "changes": [
+    {
+      "file": "src/app/globals.css",
+      "description": "Added segment identity tokens (--segment-intro through --segment-survivor), spacing scale (--space-1 through --space-8), radius scale (--radius-md through --radius-2xl), animation duration tokens (--duration-micro through --duration-zoom), and easing function tokens (--ease-out, --ease-breathe, --ease-organic)",
+      "linesChanged": 38
+    },
+    {
+      "file": "src/app/globals.css",
+      "description": "Added segment colors to @theme inline block for Tailwind utility class generation (bg-segment-feud, etc.)",
+      "linesChanged": 8
+    }
+  ],
+  "tokensAdded": {
+    "segments": ["--segment-intro", "--segment-gmn", "--segment-feud", "--segment-bachelor", "--segment-shark", "--segment-maury", "--segment-survivor"],
+    "spacing": ["--space-1", "--space-2", "--space-3", "--space-4", "--space-5", "--space-6", "--space-8"],
+    "radius": ["--radius-md", "--radius-lg", "--radius-xl", "--radius-2xl"],
+    "duration": ["--duration-micro", "--duration-fast", "--duration-standard", "--duration-ui", "--duration-screen", "--duration-dramatic", "--duration-frame", "--duration-zoom"],
+    "easing": ["--ease-out", "--ease-breathe", "--ease-organic"]
+  },
+  "tailwindUtilities": ["bg-segment-intro", "bg-segment-gmn", "bg-segment-feud", "bg-segment-bachelor", "bg-segment-shark", "bg-segment-maury", "bg-segment-survivor"],
+  "testsRun": 9,
+  "testsPassing": 9,
+  "notes": "Production build has pre-existing @utility nesting error unrelated to token additions. Tests pass.",
+  "artifacts": []
+}

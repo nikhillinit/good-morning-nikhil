@@ -1,0 +1,42 @@
+{
+  "currentState": {
+    "frameLogic": {
+      "currentCondition": "zoomedIn prop controls frame visibility - when bg !== 'crt' the frame zooms in (fixed inset-0), when bg === 'crt' frame stays visible with TV chrome",
+      "file": "src/components/ambient/TelevisionFrame.tsx",
+      "line": 33,
+      "details": "ScreenPlayer.tsx line 243: zoomedIn={screen.bg !== 'crt'}"
+    },
+    "cardContrast": {
+      "currentOpacity": "Uses design tokens - InputField: bg-surface/80, ChoiceChip: bg-transparent or bg-surface",
+      "cssVariable": "--surface defined in globals.css",
+      "file": "src/components/ui-inputs/index.tsx",
+      "inputFieldLine": 244
+    },
+    "backgroundAssets": [
+      "bachelor-mansion.webp",
+      "cold-open-glitch.webp",
+      "control-room.webp",
+      "credits-bg.webp",
+      "feud-board.webp",
+      "intro-retro-tv.webp",
+      "limo-interior.webp",
+      "maury-studio.webp",
+      "morning-desk.webp",
+      "shark-warehouse.webp",
+      "sponsor-pedestal.webp",
+      "tribal-council.webp"
+    ],
+    "brandReveal": {
+      "hasVideo": false,
+      "currentBg": "/sets/sponsor-pedestal.webp",
+      "screen": "commercial-break",
+      "note": "No video specified - static background only"
+    },
+    "characterPositioning": {
+      "screen": "bachelor-roses",
+      "currentLayout": "uiLayout: right, mediaPosition: left center",
+      "bg": "/sets/bachelor-mansion.webp",
+      "issues": "No explicit character positioning - relies on static background image crop"
+    }
+  }
+}

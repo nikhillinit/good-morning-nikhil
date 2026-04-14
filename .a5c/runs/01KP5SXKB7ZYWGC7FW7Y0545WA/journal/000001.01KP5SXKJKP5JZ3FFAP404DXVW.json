@@ -1,0 +1,15 @@
+{
+  "type": "RUN_CREATED",
+  "recordedAt": "2026-04-14T10:52:13.780Z",
+  "data": {
+    "runId": "01KP5SXKB7ZYWGC7FW7Y0545WA",
+    "processId": "design-system-enforcement",
+    "entrypoint": {
+      "importPath": "../../processes/design-system-enforcement.js",
+      "exportName": "process"
+    },
+    "inputsRef": "inputs.json",
+    "prompt": "Enforce design token compliance per the design audit findings. Add missing tokens for TV materials, speaker colors, and progress states. Refactor TelevisionFrame, Captions, BroadcastTimeline, and layout.tsx to use semantic tokens. Verify no regressions."
+  },
+  "checksum": "eaf7c82c1b68a19f5cbea665d36f5080970b97327bd1c8b35db8f8d5c5182cdd"
+}

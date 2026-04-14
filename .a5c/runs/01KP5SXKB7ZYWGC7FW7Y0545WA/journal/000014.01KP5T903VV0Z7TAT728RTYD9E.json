@@ -1,0 +1,20 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T10:58:27.068Z",
+  "data": {
+    "effectId": "01KP5T900XNF4W769CSKV6RW4B",
+    "invocationKey": "design-system-enforcement:S000005:component-refactor",
+    "invocationHash": "12e1f855dfb6286e8963efb950f09f3c5aca9f88ff71e27a235e0ecdb0292e08",
+    "stepId": "S000005",
+    "taskId": "component-refactor",
+    "kind": "agent",
+    "label": "design-system",
+    "taskDefRef": "tasks/01KP5T900XNF4W769CSKV6RW4B/task.json",
+    "labels": [
+      "design-system",
+      "refactor",
+      "layout"
+    ]
+  },
+  "checksum": "0226763f5d48b36c45b5984251a22ce2660fd3261b0defb038f2585c9737b93a"
+}

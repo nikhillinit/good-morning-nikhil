@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP635QXMN3PTE36049ZMSTTC",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "visual-polish-immersion:S000005:__sdk.breakpoint",
+  "status": "ok",
+  "result": {
+    "approved": true,
+    "label": "Test and continue",
+    "selection": "continue"
+  },
+  "startedAt": "2026-04-14T13:34:28.610Z",
+  "finishedAt": "2026-04-14T13:34:28.610Z",
+  "value": {
+    "approved": true,
+    "label": "Test and continue",
+    "selection": "continue"
+  }
+}

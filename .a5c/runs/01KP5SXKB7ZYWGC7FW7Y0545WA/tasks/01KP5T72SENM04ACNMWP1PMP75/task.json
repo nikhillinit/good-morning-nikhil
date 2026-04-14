@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5T72SENM04ACNMWP1PMP75",
+  "taskId": "component-refactor",
+  "invocationKey": "design-system-enforcement:S000004:component-refactor",
+  "stepId": "S000004",
+  "kind": "agent",
+  "title": "Refactor BroadcastTimeline",
+  "labels": [
+    "BroadcastTimeline",
+    "design-system",
+    "refactor"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KP5T72SENM04ACNMWP1PMP75/input.json",
+    "outputJsonPath": "tasks/01KP5T72SENM04ACNMWP1PMP75/result.json"
+  },
+  "inputs": {
+    "component": "BroadcastTimeline",
+    "filePath": "src/components/BroadcastTimeline.tsx",
+    "tokensDefined": [
+      "--tv-wood",
+      "--tv-wood-dark",
+      "--tv-plastic",
+      "--tv-metal",
+      "--tv-chrome",
+      "--speaker-steve",
+      "--speaker-jeff",
+      "--progress-start",
+      "--progress-end",
+      "--progress-glow"
+    ],
+    "violations": [
+      "from-red-600 to-amber-500 → semantic progress gradient",
+      "rgba(220,38,38,0.8) → --progress-glow"
+    ]
+  }
+}

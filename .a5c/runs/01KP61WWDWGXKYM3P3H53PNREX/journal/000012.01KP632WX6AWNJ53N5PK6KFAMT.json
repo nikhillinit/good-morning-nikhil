@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T13:32:24.359Z",
+  "data": {
+    "effectId": "01KP632WV31HPMXVB4Z0NQ5P8J",
+    "invocationKey": "visual-polish-immersion:S000004:implement-darker-cards",
+    "invocationHash": "6d76b0efbb99157c8077b5570b342b7169c6479aad4966fb9b91c833ebc8ac1a",
+    "stepId": "S000004",
+    "taskId": "implement-darker-cards",
+    "kind": "agent",
+    "label": "Implement Darker Answer Cards via Design System",
+    "taskDefRef": "tasks/01KP632WV31HPMXVB4Z0NQ5P8J/task.json"
+  },
+  "checksum": "56a77981bd13167ccb937c5edc2c97798b2f88f510bb5eb15af3d11cd4216898"
+}

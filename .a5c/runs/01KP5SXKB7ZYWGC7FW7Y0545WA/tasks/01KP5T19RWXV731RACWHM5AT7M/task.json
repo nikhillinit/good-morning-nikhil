@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5T19RWXV731RACWHM5AT7M",
+  "taskId": "component-refactor",
+  "invocationKey": "design-system-enforcement:S000002:component-refactor",
+  "stepId": "S000002",
+  "kind": "agent",
+  "title": "Refactor TelevisionFrame",
+  "labels": [
+    "design-system",
+    "refactor",
+    "TelevisionFrame"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KP5T19RWXV731RACWHM5AT7M/input.json",
+    "outputJsonPath": "tasks/01KP5T19RWXV731RACWHM5AT7M/result.json"
+  },
+  "inputs": {
+    "component": "TelevisionFrame",
+    "filePath": "src/components/ambient/TelevisionFrame.tsx",
+    "tokensDefined": [
+      "--tv-wood",
+      "--tv-wood-dark",
+      "--tv-plastic",
+      "--tv-metal",
+      "--tv-chrome",
+      "--speaker-steve",
+      "--speaker-jeff",
+      "--progress-start",
+      "--progress-end",
+      "--progress-glow"
+    ],
+    "violations": [
+      "bg-zinc-950, bg-zinc-900 → bg-background or semantic",
+      "bg-[#3a2818] → --tv-wood",
+      "border-[#22160d] → --tv-wood-dark",
+      "bg-zinc-400 → --tv-metal",
+      "bg-[#1a1c1d] → --tv-plastic"
+    ]
+  }
+}

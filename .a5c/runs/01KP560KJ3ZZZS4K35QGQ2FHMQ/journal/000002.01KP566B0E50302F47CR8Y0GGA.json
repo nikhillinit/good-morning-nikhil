@@ -1,0 +1,13 @@
+{
+  "type": "RUN_FAILED",
+  "recordedAt": "2026-04-14T05:07:28.402Z",
+  "data": {
+    "harness": "internal",
+    "error": {
+      "name": "InvalidTaskDefinitionError",
+      "message": "ctx.task requires a DefinedTask created via defineTask()",
+      "stack": "InvalidTaskDefinitionError: ctx.task requires a DefinedTask created via defineTask()\n    at runTaskIntrinsic (C:\\Users\\nikhi\\AppData\\Local\\npm-cache\\_npx\\1772edbd0db9903c\\node_modules\\@a5c-ai\\babysitter-sdk\\dist\\runtime\\intrinsics\\task.js:22:15)\n    at Object.task (C:\\Users\\nikhi\\AppData\\Local\\npm-cache\\_npx\\1772edbd0db9903c\\node_modules\\@a5c-ai\\babysitter-sdk\\dist\\runtime\\processContext.js:69:68)\n    at process (file:///C:/dev/good-morning-nikhil/scripts/orchestrate-vo.mjs:28:35)\n    at C:\\Users\\nikhi\\AppData\\Local\\npm-cache\\_npx\\1772edbd0db9903c\\node_modules\\@a5c-ai\\babysitter-sdk\\dist\\runtime\\orchestrateIteration.js:87:105\n    at async C:\\Users\\nikhi\\AppData\\Local\\npm-cache\\_npx\\1772edbd0db9903c\\node_modules\\@a5c-ai\\babysitter-sdk\\dist\\runtime\\orchestrateIteration.js:87:28\n    at async withRunLock (C:\\Users\\nikhi\\AppData\\Local\\npm-cache\\_npx\\1772edbd0db9903c\\node_modules\\@a5c-ai\\babysitter-sdk\\dist\\storage\\lock.js:80:16)\n    at async orchestrateIteration (C:\\Users\\nikhi\\AppData\\Local\\npm-cache\\_npx\\1772edbd0db9903c\\node_modules\\@a5c-ai\\babysitter-sdk\\dist\\runtime\\orchestrateIteration.js:62:12)\n    at async orchestrateIterationWithProcessLoadRetry (C:\\Users\\nikhi\\AppData\\Local\\npm-cache\\_npx\\1772edbd0db9903c\\node_modules\\@a5c-ai\\babysitter-sdk\\dist\\cli\\commands\\harnessPhase2.js:365:20)\n    at async Object.execute (C:\\Users\\nikhi\\AppData\\Local\\npm-cache\\_npx\\1772edbd0db9903c\\node_modules\\@a5c-ai\\babysitter-sdk\\dist\\cli\\commands\\harnessPhase2.js:848:36)\n    at async executePreparedToolCall (file:///C:/Users/nikhi/AppData/Local/npm-cache/_npx/1772edbd0db9903c/node_modules/@mariozechner/pi-agent-core/dist/agent-loop.js:335:24)"
+    }
+  },
+  "checksum": "53477f9bf85035c38fea7b3186256c34e894d9fd8da6cdf0a30fa9212854e966"
+}

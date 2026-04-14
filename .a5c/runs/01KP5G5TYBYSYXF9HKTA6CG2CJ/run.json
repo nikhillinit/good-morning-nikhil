@@ -1,0 +1,14 @@
+{
+  "runId": "01KP5G5TYBYSYXF9HKTA6CG2CJ",
+  "request": "gmn/design-narrative-coherence",
+  "processId": "gmn/design-narrative-coherence",
+  "entrypoint": {
+    "importPath": "../../processes/design-narrative-coherence.js",
+    "exportName": "process"
+  },
+  "processPath": "../../processes/design-narrative-coherence.js",
+  "layoutVersion": "2026.01-storage-preview",
+  "createdAt": "2026-04-14T08:01:57.762Z",
+  "prompt": "Design improvements and consistency in alignment with the overall narrative arc",
+  "completionProof": "2b06bdc5830c22848db8dde3b6eb94a6"
+}

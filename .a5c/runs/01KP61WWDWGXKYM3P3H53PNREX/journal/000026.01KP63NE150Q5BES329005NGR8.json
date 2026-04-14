@@ -1,0 +1,15 @@
+{
+  "type": "STOP_HOOK_INVOKED",
+  "recordedAt": "2026-04-14T13:42:31.719Z",
+  "data": {
+    "sessionId": "82268a7e-a9a9-4e6f-8bf4-fff324fd7c04",
+    "iteration": 9,
+    "decision": "block",
+    "reason": "continue_loop",
+    "runState": "created",
+    "pendingKinds": "",
+    "hasPromise": false,
+    "timestamp": "2026-04-14T13:42:31.715Z"
+  },
+  "checksum": "0bf8f8abea3b9be8da240204626e3b7934e4943262f2e256605f413383881f7e"
+}

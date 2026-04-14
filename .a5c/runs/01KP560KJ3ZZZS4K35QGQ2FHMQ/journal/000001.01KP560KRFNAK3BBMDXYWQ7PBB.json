@@ -1,0 +1,16 @@
+{
+  "type": "RUN_CREATED",
+  "recordedAt": "2026-04-14T05:04:20.753Z",
+  "data": {
+    "runId": "01KP560KJ3ZZZS4K35QGQ2FHMQ",
+    "processId": "orchestrate-vo",
+    "entrypoint": {
+      "importPath": "../../../scripts/orchestrate-vo.js",
+      "exportName": "process"
+    },
+    "harness": "internal",
+    "inputsRef": "inputs.json",
+    "prompt": "Generate the script for the gmn-feud-kickoff segment"
+  },
+  "checksum": "7f09bff7313d1af54f768472bebab10f89ee5e3de42de617809142c95e009a7a"
+}

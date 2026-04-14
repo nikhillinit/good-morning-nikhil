@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5H25NQTQACPCBHNYXVRRS4",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "gmn/design-narrative-coherence:S000006:__sdk.breakpoint",
+  "status": "ok",
+  "result": {
+    "approvedAt": "2026-04-14T08:17:30.000Z",
+    "feedback": null,
+    "response": "Approve and implement",
+    "success": true
+  },
+  "startedAt": "2026-04-14T08:17:52.737Z",
+  "finishedAt": "2026-04-14T08:17:52.737Z",
+  "value": {
+    "approvedAt": "2026-04-14T08:17:30.000Z",
+    "feedback": null,
+    "response": "Approve and implement",
+    "success": true
+  }
+}

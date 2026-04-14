@@ -1,0 +1,14 @@
+{
+  "runId": "01KP61WWDWGXKYM3P3H53PNREX",
+  "request": "visual-polish-immersion",
+  "processId": "visual-polish-immersion",
+  "entrypoint": {
+    "importPath": "../../processes/visual-polish-immersion.js",
+    "exportName": "process"
+  },
+  "processPath": "../../processes/visual-polish-immersion.js",
+  "layoutVersion": "2026.01-storage-preview",
+  "createdAt": "2026-04-14T13:11:38.733Z",
+  "prompt": "Visual polish immersion: TV frame removal, illustrated backgrounds, darker cards, brand reveal, character z-index fix",
+  "completionProof": "c07ec501d601f471ae821b9dfe1d050c"
+}

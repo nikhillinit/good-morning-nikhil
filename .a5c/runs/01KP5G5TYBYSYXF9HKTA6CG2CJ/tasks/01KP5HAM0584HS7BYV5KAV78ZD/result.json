@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5HAM0584HS7BYV5KAV78ZD",
+  "taskId": "typography-layout-fix",
+  "invocationKey": "gmn/design-narrative-coherence:S000008:typography-layout-fix",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "changes": [
+      {
+        "description": "Added segment identity tokens (--segment-intro through --segment-survivor), spacing scale (--space-1 through --space-8), radius scale (--radius-md through --radius-2xl), animation duration tokens (--duration-micro through --duration-zoom), and easing function tokens (--ease-out, --ease-breathe, --ease-organic)",
+        "file": "src/app/globals.css",
+        "linesChanged": 38
+      },
+      {
+        "description": "Added segment colors to @theme inline block for Tailwind utility class generation (bg-segment-feud, etc.)",
+        "file": "src/app/globals.css",
+        "linesChanged": 8
+      }
+    ],
+    "notes": "Production build has pre-existing @utility nesting error unrelated to token additions. Tests pass.",
+    "success": true,
+    "tailwindUtilities": [
+      "bg-segment-intro",
+      "bg-segment-gmn",
+      "bg-segment-feud",
+      "bg-segment-bachelor",
+      "bg-segment-shark",
+      "bg-segment-maury",
+      "bg-segment-survivor"
+    ],
+    "testsPassing": 9,
+    "testsRun": 9,
+    "tokensAdded": {
+      "duration": [
+        "--duration-micro",
+        "--duration-fast",
+        "--duration-standard",
+        "--duration-ui",
+        "--duration-screen",
+        "--duration-dramatic",
+        "--duration-frame",
+        "--duration-zoom"
+      ],
+      "easing": [
+        "--ease-out",
+        "--ease-breathe",
+        "--ease-organic"
+      ],
+      "radius": [
+        "--radius-md",
+        "--radius-lg",
+        "--radius-xl",
+        "--radius-2xl"
+      ],
+      "segments": [
+        "--segment-intro",
+        "--segment-gmn",
+        "--segment-feud",
+        "--segment-bachelor",
+        "--segment-shark",
+        "--segment-maury",
+        "--segment-survivor"
+      ],
+      "spacing": [
+        "--space-1",
+        "--space-2",
+        "--space-3",
+        "--space-4",
+        "--space-5",
+        "--space-6",
+        "--space-8"
+      ]
+    }
+  },
+  "startedAt": "2026-04-14T08:24:15.797Z",
+  "finishedAt": "2026-04-14T08:24:15.797Z",
+  "value": {
+    "artifacts": [],
+    "changes": [
+      {
+        "description": "Added segment identity tokens (--segment-intro through --segment-survivor), spacing scale (--space-1 through --space-8), radius scale (--radius-md through --radius-2xl), animation duration tokens (--duration-micro through --duration-zoom), and easing function tokens (--ease-out, --ease-breathe, --ease-organic)",
+        "file": "src/app/globals.css",
+        "linesChanged": 38
+      },
+      {
+        "description": "Added segment colors to @theme inline block for Tailwind utility class generation (bg-segment-feud, etc.)",
+        "file": "src/app/globals.css",
+        "linesChanged": 8
+      }
+    ],
+    "notes": "Production build has pre-existing @utility nesting error unrelated to token additions. Tests pass.",
+    "success": true,
+    "tailwindUtilities": [
+      "bg-segment-intro",
+      "bg-segment-gmn",
+      "bg-segment-feud",
+      "bg-segment-bachelor",
+      "bg-segment-shark",
+      "bg-segment-maury",
+      "bg-segment-survivor"
+    ],
+    "testsPassing": 9,
+    "testsRun": 9,
+    "tokensAdded": {
+      "duration": [
+        "--duration-micro",
+        "--duration-fast",
+        "--duration-standard",
+        "--duration-ui",
+        "--duration-screen",
+        "--duration-dramatic",
+        "--duration-frame",
+        "--duration-zoom"
+      ],
+      "easing": [
+        "--ease-out",
+        "--ease-breathe",
+        "--ease-organic"
+      ],
+      "radius": [
+        "--radius-md",
+        "--radius-lg",
+        "--radius-xl",
+        "--radius-2xl"
+      ],
+      "segments": [
+        "--segment-intro",
+        "--segment-gmn",
+        "--segment-feud",
+        "--segment-bachelor",
+        "--segment-shark",
+        "--segment-maury",
+        "--segment-survivor"
+      ],
+      "spacing": [
+        "--space-1",
+        "--space-2",
+        "--space-3",
+        "--space-4",
+        "--space-5",
+        "--space-6",
+        "--space-8"
+      ]
+    }
+  }
+}

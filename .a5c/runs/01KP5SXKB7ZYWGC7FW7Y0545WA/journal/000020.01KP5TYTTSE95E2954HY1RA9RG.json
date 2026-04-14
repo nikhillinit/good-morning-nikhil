@@ -1,0 +1,19 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T11:10:22.553Z",
+  "data": {
+    "effectId": "01KP5TYTREXGN7YHZJZ8WVCX63",
+    "invocationKey": "design-system-enforcement:S000007:verification",
+    "invocationHash": "4468a33246961eed24532596818062d7c14793e0b0c06007f7a974725647f8b2",
+    "stepId": "S000007",
+    "taskId": "verification",
+    "kind": "agent",
+    "label": "design-system",
+    "taskDefRef": "tasks/01KP5TYTREXGN7YHZJZ8WVCX63/task.json",
+    "labels": [
+      "design-system",
+      "verification"
+    ]
+  },
+  "checksum": "77094db6484a47d68e5c0cf69cc636776058a19f589164abce97f592362d0eba"
+}

@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5G6Q03G3AYT4RS3AV88YHV",
+  "taskId": "narrative-arc-audit",
+  "invocationKey": "gmn/design-narrative-coherence:S000002:narrative-arc-audit",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "conceitStrength": {
+      "moderate": [
+        "intro-tv",
+        "feud-strongest",
+        "feud-trademark",
+        "shark-invest",
+        "credits"
+      ],
+      "strong": [
+        "gmn-feud-kickoff",
+        "feud-top3",
+        "bachelor-roses",
+        "bachelor-limo",
+        "survivor",
+        "maury",
+        "post-credits"
+      ],
+      "weak": [
+        "intro-instructions",
+        "commercial-why",
+        "shark-reason"
+      ]
+    },
+    "emotionalFlow": {
+      "alignment": 8,
+      "currentArc": "Setup → Humor (Feud kickoff) → Tension (Feud questions) → Humor/Break (Commercial) → Tension/Vulnerability (Bachelor) → High Tension (Shark Tank) → Peak Vulnerability (Survivor confessional) → Catharsis (Maury revelation) → Reflection (Producer notes) → Resolution (Credits/Stinger)",
+      "targetArc": "tension → humor → reflection"
+    },
+    "pacingIssues": [
+      {
+        "issue": "No VO breaks TV conceit immersion",
+        "recommendation": "Add brief VO or fold instructions into gmn-feud-kickoff",
+        "screenId": "intro-instructions"
+      },
+      {
+        "issue": "Two consecutive commercial screens may feel slow",
+        "recommendation": "Consider collapsing into single screen",
+        "screenId": "commercial-why"
+      },
+      {
+        "issue": "VO only 2.2s, prompt asks for strength AND weakness but single text field",
+        "recommendation": "Split into two fields or clarify single response expected",
+        "screenId": "shark-reason"
+      },
+      {
+        "issue": "Missing VO file 11-stinger.mp3",
+        "recommendation": "Generate stinger VO to complete post-credits",
+        "screenId": "post-credits"
+      }
+    ],
+    "screens": [
+      {
+        "emotionalBeat": "setup",
+        "id": "intro-tv",
+        "show": "Good Morning Nikhil",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "setup",
+        "id": "intro-instructions",
+        "show": "Good Morning Nikhil",
+        "strength": 2
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "gmn-feud-kickoff",
+        "show": "Good Morning Nikhil",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "feud-top3",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "feud-strongest",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "feud-trademark",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "commercial-break",
+        "show": "Commercial Break",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "commercial-why",
+        "show": "Commercial Break",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "bachelor-roses",
+        "show": "The Bachelor",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "bachelor-eliminate",
+        "show": "The Bachelor",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "vulnerability",
+        "id": "bachelor-limo",
+        "show": "The Bachelor",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "shark-invest",
+        "show": "Shark Tank",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "shark-reason",
+        "show": "Shark Tank",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "vulnerability",
+        "id": "survivor",
+        "show": "Survivor",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "catharsis",
+        "id": "maury",
+        "show": "Maury",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "producer-notes",
+        "show": "Control Room",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "catharsis",
+        "id": "credits",
+        "show": "Credits",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "post-credits",
+        "show": "Post-Credits",
+        "strength": 4
+      }
+    ],
+    "showOrderAnalysis": {
+      "assessment": "Strong progression. Order is emotionally sound.",
+      "current": "Feud → Bachelor → Shark Tank → Survivor → Maury",
+      "recommendation": "No changes needed"
+    },
+    "success": true
+  },
+  "startedAt": "2026-04-14T08:05:23.787Z",
+  "finishedAt": "2026-04-14T08:05:23.787Z",
+  "value": {
+    "artifacts": [],
+    "conceitStrength": {
+      "moderate": [
+        "intro-tv",
+        "feud-strongest",
+        "feud-trademark",
+        "shark-invest",
+        "credits"
+      ],
+      "strong": [
+        "gmn-feud-kickoff",
+        "feud-top3",
+        "bachelor-roses",
+        "bachelor-limo",
+        "survivor",
+        "maury",
+        "post-credits"
+      ],
+      "weak": [
+        "intro-instructions",
+        "commercial-why",
+        "shark-reason"
+      ]
+    },
+    "emotionalFlow": {
+      "alignment": 8,
+      "currentArc": "Setup → Humor (Feud kickoff) → Tension (Feud questions) → Humor/Break (Commercial) → Tension/Vulnerability (Bachelor) → High Tension (Shark Tank) → Peak Vulnerability (Survivor confessional) → Catharsis (Maury revelation) → Reflection (Producer notes) → Resolution (Credits/Stinger)",
+      "targetArc": "tension → humor → reflection"
+    },
+    "pacingIssues": [
+      {
+        "issue": "No VO breaks TV conceit immersion",
+        "recommendation": "Add brief VO or fold instructions into gmn-feud-kickoff",
+        "screenId": "intro-instructions"
+      },
+      {
+        "issue": "Two consecutive commercial screens may feel slow",
+        "recommendation": "Consider collapsing into single screen",
+        "screenId": "commercial-why"
+      },
+      {
+        "issue": "VO only 2.2s, prompt asks for strength AND weakness but single text field",
+        "recommendation": "Split into two fields or clarify single response expected",
+        "screenId": "shark-reason"
+      },
+      {
+        "issue": "Missing VO file 11-stinger.mp3",
+        "recommendation": "Generate stinger VO to complete post-credits",
+        "screenId": "post-credits"
+      }
+    ],
+    "screens": [
+      {
+        "emotionalBeat": "setup",
+        "id": "intro-tv",
+        "show": "Good Morning Nikhil",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "setup",
+        "id": "intro-instructions",
+        "show": "Good Morning Nikhil",
+        "strength": 2
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "gmn-feud-kickoff",
+        "show": "Good Morning Nikhil",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "feud-top3",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "feud-strongest",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "feud-trademark",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "commercial-break",
+        "show": "Commercial Break",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "commercial-why",
+        "show": "Commercial Break",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "bachelor-roses",
+        "show": "The Bachelor",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "bachelor-eliminate",
+        "show": "The Bachelor",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "vulnerability",
+        "id": "bachelor-limo",
+        "show": "The Bachelor",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "shark-invest",
+        "show": "Shark Tank",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "shark-reason",
+        "show": "Shark Tank",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "vulnerability",
+        "id": "survivor",
+        "show": "Survivor",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "catharsis",
+        "id": "maury",
+        "show": "Maury",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "producer-notes",
+        "show": "Control Room",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "catharsis",
+        "id": "credits",
+        "show": "Credits",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "post-credits",
+        "show": "Post-Credits",
+        "strength": 4
+      }
+    ],
+    "showOrderAnalysis": {
+      "assessment": "Strong progression. Order is emotionally sound.",
+      "current": "Feud → Bachelor → Shark Tank → Survivor → Maury",
+      "recommendation": "No changes needed"
+    },
+    "success": true
+  }
+}

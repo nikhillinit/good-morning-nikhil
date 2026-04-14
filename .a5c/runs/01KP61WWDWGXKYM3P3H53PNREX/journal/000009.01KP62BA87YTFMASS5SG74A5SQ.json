@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T13:19:31.592Z",
+  "data": {
+    "effectId": "01KP62BA5R9WQ236XE35C08924",
+    "invocationKey": "visual-polish-immersion:S000003:implement-frame-removal",
+    "invocationHash": "23350d94a38d2445b3b9308c0c41c87aa919e0fefe83bf184fc42e852febbf9b",
+    "stepId": "S000003",
+    "taskId": "implement-frame-removal",
+    "kind": "agent",
+    "label": "Implement TV Frame Removal via Screen Data",
+    "taskDefRef": "tasks/01KP62BA5R9WQ236XE35C08924/task.json"
+  },
+  "checksum": "e3ea7803f7b1a5626ba377004f6b5753ffe15f35c0b3fb4e60843bd8b03b45f3"
+}

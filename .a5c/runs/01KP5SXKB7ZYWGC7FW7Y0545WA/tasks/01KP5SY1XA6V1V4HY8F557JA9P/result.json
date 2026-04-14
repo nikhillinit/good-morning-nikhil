@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5SY1XA6V1V4HY8F557JA9P",
+  "taskId": "token-extension",
+  "invocationKey": "design-system-enforcement:S000001:token-extension",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "tokens": [
+      "--tv-wood",
+      "--tv-wood-dark",
+      "--tv-plastic",
+      "--tv-metal",
+      "--tv-chrome",
+      "--speaker-steve",
+      "--speaker-jeff",
+      "--progress-start",
+      "--progress-end",
+      "--progress-glow"
+    ]
+  },
+  "startedAt": "2026-04-14T10:53:46.235Z",
+  "finishedAt": "2026-04-14T10:53:46.235Z",
+  "value": {
+    "artifacts": [],
+    "tokens": [
+      "--tv-wood",
+      "--tv-wood-dark",
+      "--tv-plastic",
+      "--tv-metal",
+      "--tv-chrome",
+      "--speaker-steve",
+      "--speaker-jeff",
+      "--progress-start",
+      "--progress-end",
+      "--progress-glow"
+    ]
+  }
+}

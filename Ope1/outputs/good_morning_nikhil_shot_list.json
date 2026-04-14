@@ -1,0 +1,940 @@
+{
+  "title": "GOOD MORNING, NIKHIL: Master Shot List",
+  "source_path": "C:\\Users\\nikhi\\Downloads\\GOOD MORNING, NIKHIL - Master Shot List (1).md",
+  "screen_count": 18,
+  "dialogue_cue_count": 48,
+  "screens": [
+    {
+      "screen_id": "SCREEN 0",
+      "title": "COLD OPEN",
+      "art_visual_prompt": "Hyper-kinetic, glitchy montage sequence. A garish \"GOOD MORNING, NIKHIL\" logo in giant 3D gold text dominates the screen. Rapid flash cuts: glowing Family Feud 'X's, falling Bachelor roses, a shadowy shark fin, flickering tribal torches, and a Maury envelope slapping onto a desk. It settles on Steve staring deadpan at the camera, while Jeff stands beside him, looking smugly at an invisible board.",
+      "total_timing_sec": 10.0,
+      "ui_reveal": "Start Episode button appears.",
+      "audio_lines": [
+        {
+          "cue_id": "screen_0_line_01",
+          "screen_id": "SCREEN 0",
+          "screen_title": "COLD OPEN",
+          "speaker": "STEVE",
+          "text": "All right, final round\\! We got the Nikhil family versus Jeff Goldblum, our returning champion. Go to Jeff: Name something you can do on the computer.",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_0_line_02",
+          "screen_id": "SCREEN 0",
+          "screen_title": "COLD OPEN",
+          "speaker": "JEFF",
+          "text": "Ahhhh... well I can tell you what you can do with a computer, Steve... you can suck on the mouse like a giant, pacifier.",
+          "order": 2
+        },
+        {
+          "cue_id": "screen_0_line_03",
+          "screen_id": "SCREEN 0",
+          "screen_title": "COLD OPEN",
+          "speaker": "STEVE",
+          "text": "Oh my God. Oh my God, good Lord. Let's see it... Wrong again\\!",
+          "order": 3
+        },
+        {
+          "cue_id": "screen_0_line_04",
+          "screen_id": "SCREEN 0",
+          "screen_title": "COLD OPEN",
+          "speaker": "JEFF",
+          "text": "The board is just a little timid, Stevie. It fears desire.",
+          "order": 4
+        },
+        {
+          "cue_id": "screen_0_line_05",
+          "screen_id": "SCREEN 0",
+          "screen_title": "COLD OPEN",
+          "speaker": "STEVE",
+          "text": "Keep playing with me. Keep playing with me and you're going to find out, Jeff Goldblum. Today, we are here to answer one question: how does Nikhil really come across?",
+          "order": 5
+        },
+        {
+          "cue_id": "screen_0_line_06",
+          "screen_id": "SCREEN 0",
+          "screen_title": "COLD OPEN",
+          "speaker": "JEFF",
+          "text": "Survey says... inevitable, unknowable, and lightly caffeinated.",
+          "order": 6
+        },
+        {
+          "cue_id": "screen_0_line_07",
+          "screen_id": "SCREEN 0",
+          "screen_title": "COLD OPEN",
+          "speaker": "STEVE",
+          "text": "Hit the music.",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 1",
+      "title": "WELCOME",
+      "art_visual_prompt": "A brightly lit, generic morning-show desk (think *GMA* but slightly cheaper). Steve sits with hands folded tight. Jeff stands slightly off-axis, completely ignoring the desk, holding a makeshift buzzer.",
+      "total_timing_sec": 4.0,
+      "ui_reveal": "Explainer text (\"You're about to go through 5 quick TV segments...\") and Continue button.",
+      "audio_lines": [
+        {
+          "cue_id": "screen_1_line_01",
+          "screen_id": "SCREEN 1",
+          "screen_title": "WELCOME",
+          "speaker": "STEVE",
+          "text": "Welcome to Good Morning, Nikhil. You're about to flip through a few very normal television segments.",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_1_line_02",
+          "screen_id": "SCREEN 1",
+          "screen_title": "WELCOME",
+          "speaker": "JEFF",
+          "text": "Oh Stevie, I thought of something else you can do with a computer.",
+          "order": 2
+        },
+        {
+          "cue_id": "screen_1_line_03",
+          "screen_id": "SCREEN 1",
+          "screen_title": "WELCOME",
+          "speaker": "STEVE",
+          "text": "oh God. No. Lord, no.",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 2",
+      "title": "WHO ARE YOU TO NIKHIL?",
+      "art_visual_prompt": "Camera zooms slightly on Steve. A clean, glossy lower-third graphic slides in: \"MEET OUR STUDIO AUDIENCE.",
+      "total_timing_sec": 3.0,
+      "ui_reveal": "How do you know Nikhil?\" Multiple choice options and Stay anonymous toggle.",
+      "audio_lines": [
+        {
+          "cue_id": "screen_2_line_01",
+          "screen_id": "SCREEN 2",
+          "screen_title": "WHO ARE YOU TO NIKHIL?",
+          "speaker": "STEVE",
+          "text": "First things first. How do you know Nikhil?",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_2_line_02",
+          "screen_id": "SCREEN 2",
+          "screen_title": "WHO ARE YOU TO NIKHIL?",
+          "speaker": "JEFF",
+          "text": "Family, foe, witness, or lover.",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 3 (3A)",
+      "title": "SHOW 1: FAMILY FEUD (TOP 3\\)",
+      "art_visual_prompt": "The lighting violently shifts to the dark blues and yellows of a classic Family Feud set. The iconic board lights up behind them.",
+      "total_timing_sec": 3.5,
+      "ui_reveal": "3 blank input boxes slide onto the screen.",
+      "audio_lines": [
+        {
+          "cue_id": "screen_3_3a_line_01",
+          "screen_id": "SCREEN 3 (3A)",
+          "screen_title": "SHOW 1: FAMILY FEUD (TOP 3\\)",
+          "speaker": "STEVE",
+          "text": "Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil.",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 3B",
+      "title": "FEUD: STRONGEST ANSWER",
+      "art_visual_prompt": "Cut to Jeff. He's leaning in, eyes wide, pointing a finger triumphantly at the empty air. Cut back to Steve rubbing his temples.",
+      "total_timing_sec": 3.5,
+      "ui_reveal": "Text area input (\"Which of your 3 answers feels most true, and why?\").",
+      "audio_lines": [
+        {
+          "cue_id": "screen_3b_line_01",
+          "screen_id": "SCREEN 3B",
+          "screen_title": "FEUD: STRONGEST ANSWER",
+          "speaker": "JEFF",
+          "text": "Show me 'handsome'.",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_3b_line_02",
+          "screen_id": "SCREEN 3B",
+          "screen_title": "FEUD: STRONGEST ANSWER",
+          "speaker": "STEVE",
+          "text": "Wrong game, Jeff. Which one feels strongest, and why?",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 3C",
+      "title": "FEUD: NIKHIL TRADEMARK",
+      "art_visual_prompt": "Medium shot of both. Steve looks surprisingly impressed; Jeff looks vindicated.",
+      "total_timing_sec": 4.0,
+      "ui_reveal": "Short text input (\"Name a Nikhil trademark...\").",
+      "audio_lines": [
+        {
+          "cue_id": "screen_3c_line_01",
+          "screen_id": "SCREEN 3C",
+          "screen_title": "FEUD: NIKHIL TRADEMARK",
+          "speaker": "JEFF",
+          "text": "Name a thing he does so often it should come with theme music.",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_3c_line_02",
+          "screen_id": "SCREEN 3C",
+          "screen_title": "FEUD: NIKHIL TRADEMARK",
+          "speaker": "STEVE",
+          "text": "That is actually a good one Jeff.",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 4 (4A)",
+      "title": "COMMERCIAL BREAK: SPONSORED BY",
+      "art_visual_prompt": "Cheesy \"Sponsored By\" bumper graphic. A velvet-draped product pedestal is center stage, surrounded by low-hanging fog machine smoke. There is absolutely nothing on the pedestal.",
+      "total_timing_sec": 5.0,
+      "ui_reveal": "Short text input (\"What company, product, vibe, aesthetic, or brand...\").",
+      "audio_lines": [
+        {
+          "cue_id": "screen_4_4a_line_01",
+          "screen_id": "SCREEN 4 (4A)",
+          "screen_title": "COMMERCIAL BREAK: SPONSORED BY",
+          "speaker": "STEVE",
+          "text": "This episode of Nikhil is brought to you by...",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_4_4a_line_02",
+          "screen_id": "SCREEN 4 (4A)",
+          "screen_title": "COMMERCIAL BREAK: SPONSORED BY",
+          "speaker": "JEFF",
+          "text": "A premium blend of polish, intensity, and lightly weaponized seduction just like someone I know.",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 4B",
+      "title": "WHY THAT BRAND?",
+      "art_visual_prompt": "Extreme close-up of Jeff's face looking off into the middle distance, deeply moved by his own profound nonsense.",
+      "total_timing_sec": 2.5,
+      "ui_reveal": "Text area input (\"Why does that feel on-brand?\").",
+      "audio_lines": [
+        {
+          "cue_id": "screen_4b_line_01",
+          "screen_id": "SCREEN 4B",
+          "screen_title": "WHY THAT BRAND?",
+          "speaker": "STEVE",
+          "text": "And why?",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_4b_line_02",
+          "screen_id": "SCREEN 4B",
+          "screen_title": "WHY THAT BRAND?",
+          "speaker": "JEFF",
+          "text": "We're all just shadows and dust Steve.",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 5 (5A)",
+      "title": "SHOW 2: THE BACHELOR",
+      "art_visual_prompt": "Sudden channel change static. We are now in a candlelit mansion. Steve is holding a silver platter with three roses. Jeff is completely out of focus in the background, examining a prop suit of armor.",
+      "total_timing_sec": 4.5,
+      "ui_reveal": "8 multi-select options (max 3 selection).",
+      "audio_lines": [
+        {
+          "cue_id": "screen_5_5a_line_01",
+          "screen_id": "SCREEN 5 (5A)",
+          "screen_title": "SHOW 2: THE BACHELOR",
+          "speaker": "STEVE",
+          "text": "Ladies, you know what time it is. It's the rose ceremony, and one of you is going home tonight. Three roses. One quality goes home.",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 5B",
+      "title": "BACHELOR: SEND ONE HOME",
+      "art_visual_prompt": "Jeff wanders back into focus, whispering ominously. Steve glares at him, clearly wishing he were anywhere else.",
+      "total_timing_sec": 3.5,
+      "ui_reveal": "Same 8 options, single select elimination.",
+      "audio_lines": [
+        {
+          "cue_id": "screen_5b_line_01",
+          "screen_id": "SCREEN 5B",
+          "screen_title": "BACHELOR: SEND ONE HOME",
+          "speaker": "JEFF",
+          "text": "Every board has one weak square.",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_5b_line_02",
+          "screen_id": "SCREEN 5B",
+          "screen_title": "BACHELOR: SEND ONE HOME",
+          "speaker": "STEVE",
+          "text": "This ain't no board, Jeff. Send one quality home.",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 5C",
+      "title": "LIMO CONFESSIONAL",
+      "art_visual_prompt": "Interior of a dark, cramped limousine. Streetlights sweep across Steve's exhausted face.",
+      "total_timing_sec": 4.0,
+      "ui_reveal": "Mad-libs style text input (\"I never stood a chance...\").",
+      "audio_lines": [
+        {
+          "cue_id": "screen_5c_line_01",
+          "screen_id": "SCREEN 5C",
+          "screen_title": "LIMO CONFESSIONAL",
+          "speaker": "STEVE",
+          "text": "In the limo ride home...",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_5c_line_02",
+          "screen_id": "SCREEN 5C",
+          "screen_title": "LIMO CONFESSIONAL",
+          "speaker": "JEFF",
+          "text": "On her way to the set of 90-Day Fiance. Say Stevie isn't that where -",
+          "order": 2
+        },
+        {
+          "cue_id": "screen_5c_line_03",
+          "screen_id": "SCREEN 5C",
+          "screen_title": "LIMO CONFESSIONAL",
+          "speaker": "STEVE",
+          "text": "Complete the sentence.",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 6 (6A)",
+      "title": "SHOW 3: SHARK TANK",
+      "art_visual_prompt": "Wide shot of an intimidating, dark warehouse set. One dramatic spotlight hits Steve. Jeff is leaning into the spotlight, frantically mashing a disconnected Feud buzzer.",
+      "total_timing_sec": 5.5,
+      "ui_reveal": "IN\" or \"OUT\" choice buttons.",
+      "audio_lines": [
+        {
+          "cue_id": "screen_6_6a_line_01",
+          "screen_id": "SCREEN 6 (6A)",
+          "screen_title": "SHOW 3: SHARK TANK",
+          "speaker": "STEVE",
+          "text": "Shark, Nikhil just pitched his brain for 100% of your life savings. Are you in or out?",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_6_6a_line_02",
+          "screen_id": "SCREEN 6 (6A)",
+          "screen_title": "SHOW 3: SHARK TANK",
+          "speaker": "JEFF",
+          "text": "You know I'll just wait until Aunt Demequa blows it, and then it'll go back to me and I'll steal the round.",
+          "order": 2
+        },
+        {
+          "cue_id": "screen_6_6a_line_03",
+          "screen_id": "SCREEN 6 (6A)",
+          "screen_title": "SHOW 3: SHARK TANK",
+          "speaker": "STEVE",
+          "text": "Do you know where you are",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 6B/6C",
+      "title": "SHARK FOLLOW-UP (Dynamic)",
+      "art_visual_prompt": "Tight angle on Steve leaning over a mahogany desk, staring piercingly into the camera.",
+      "total_timing_sec": 1.5,
+      "ui_reveal": "Conditional short text input (IN terms or OUT hire).",
+      "audio_lines": [
+        {
+          "cue_id": "screen_6b_6c_line_01",
+          "screen_id": "SCREEN 6B/6C",
+          "screen_title": "SHARK FOLLOW-UP (Dynamic)",
+          "speaker": "STEVE",
+          "text": "Finish the sentence.",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 7",
+      "title": "SHOW 4: SURVIVOR",
+      "art_visual_prompt": "Tone abruptly shifts. It's midnight. Crickets chirp softly. Steve is in a dimly lit bamboo hut, illuminated by flickering torchlight. Very calm, slightly grainy night-vision aesthetic.",
+      "total_timing_sec": 4.0,
+      "ui_reveal": "Long text area \\+ Audio Record button.",
+      "audio_lines": [
+        {
+          "cue_id": "screen_7_line_01",
+          "screen_id": "SCREEN 7",
+          "screen_title": "SHOW 4: SURVIVOR",
+          "speaker": "STEVE",
+          "text": "Tribal council. Confessional booth. Just you and the camera.",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_7_line_02",
+          "screen_id": "SCREEN 7",
+          "screen_title": "SHOW 4: SURVIVOR",
+          "speaker": "JEFF",
+          "text": "(Whispering) \"So this is... Fast Money in the woods?",
+          "order": 2
+        },
+        {
+          "cue_id": "screen_7_line_03",
+          "screen_id": "SCREEN 7",
+          "screen_title": "SHOW 4: SURVIVOR",
+          "speaker": "STEVE",
+          "text": "(Whispering back, firmly) \"No. This is the honest part.",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "title": "SHOW 5: MAURY",
+      "art_visual_prompt": "Harsh, bright daytime TV lighting. Cheap beige set chairs. Steve sits in one, utterly defeated. Jeff is proudly standing behind a portable chunk of the Family Feud podium he has somehow dragged onto the set. The emotional weight here is real, not a joke.",
+      "total_timing_sec": 6.0,
+      "ui_reveal": "Two stacked text inputs (What he projects vs. What he actually comes across as).",
+      "audio_lines": [
+        {
+          "cue_id": "screen_8_8a_8b_line_01",
+          "screen_id": "SCREEN 8 (8A & 8B)",
+          "screen_title": "SHOW 5: MAURY",
+          "speaker": "JEFF",
+          "text": "At last. Something you can do with a computer, Steve...",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_8_8a_8b_line_02",
+          "screen_id": "SCREEN 8 (8A & 8B)",
+          "screen_title": "SHOW 5: MAURY",
+          "speaker": "STEVE",
+          "text": "No, Jeff. I can't do it.",
+          "order": 2
+        },
+        {
+          "cue_id": "screen_8_8a_8b_line_03",
+          "screen_id": "SCREEN 8 (8A & 8B)",
+          "screen_title": "SHOW 5: MAURY",
+          "speaker": "JEFF",
+          "text": "You have to read it, Steve. That's the job. That's why they hire you.",
+          "order": 3
+        },
+        {
+          "cue_id": "screen_8_8a_8b_line_04",
+          "screen_id": "SCREEN 8 (8A & 8B)",
+          "screen_title": "SHOW 5: MAURY",
+          "speaker": "STEVE",
+          "text": "I'm not even going to look at the board. And the envelope goes to...",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 9",
+      "title": "PRODUCER'S NOTES",
+      "art_visual_prompt": "A jarring shift to a behind-the-scenes control room view. Monitors frame the shot, a red \"REC\" light blinks. A digital clipboard graphic anchors the screen. Steve is strictly business.",
+      "total_timing_sec": 3.0,
+      "ui_reveal": "Long text input (\"What should Nikhil do more of/less of...\").",
+      "audio_lines": [
+        {
+          "cue_id": "screen_9_line_01",
+          "screen_id": "SCREEN 9",
+          "screen_title": "PRODUCER'S NOTES",
+          "speaker": "STEVE",
+          "text": "Final note from the control room.",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_9_line_02",
+          "screen_id": "SCREEN 9",
+          "screen_title": "PRODUCER'S NOTES",
+          "speaker": "JEFF",
+          "text": "Fast Money?",
+          "order": 2
+        },
+        {
+          "cue_id": "screen_9_line_03",
+          "screen_id": "SCREEN 9",
+          "screen_title": "PRODUCER'S NOTES",
+          "speaker": "STEVE",
+          "text": "No. That's a wrap.",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "screen_id": "SCREEN 10",
+      "title": "CLOSING CREDITS",
+      "art_visual_prompt": "Golden text starts scrolling. Behind the text, chaotic, blurred B-roll plays of Jeff wandering onto other game show sets while Steve yells silently in the background.",
+      "total_timing_sec": 4.5,
+      "ui_reveal": "Final Submit button.",
+      "audio_lines": [
+        {
+          "cue_id": "screen_10_line_01",
+          "screen_id": "SCREEN 10",
+          "screen_title": "CLOSING CREDITS",
+          "speaker": "STEVE",
+          "text": "That's a wrap.",
+          "order": 1
+        },
+        {
+          "cue_id": "screen_10_line_02",
+          "screen_id": "SCREEN 10",
+          "screen_title": "CLOSING CREDITS",
+          "speaker": "JEFF",
+          "text": "Did I win?",
+          "order": 2
+        },
+        {
+          "cue_id": "screen_10_line_03",
+          "screen_id": "SCREEN 10",
+          "screen_title": "CLOSING CREDITS",
+          "speaker": "STEVE",
+          "text": "No.",
+          "order": 3
+        },
+        {
+          "cue_id": "screen_10_line_04",
+          "screen_id": "SCREEN 10",
+          "screen_title": "CLOSING CREDITS",
+          "speaker": "JEFF",
+          "text": "Did I remain champion?",
+          "order": 4
+        },
+        {
+          "cue_id": "screen_10_line_05",
+          "screen_id": "SCREEN 10",
+          "screen_title": "CLOSING CREDITS",
+          "speaker": "STEVE",
+          "text": "...somehow, yes.",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "screen_id": "POST-CREDIT STINGER",
+      "title": "",
+      "art_visual_prompt": "Pitch black screen. A single beat of silence. Suddenly, a solitary Family Feud podium light turns on, illuminating Jeff's face in the dark.",
+      "total_timing_sec": 4.0,
+      "ui_reveal": "Cut to black immediately. Final App state loads.",
+      "audio_lines": [
+        {
+          "cue_id": "post_credit_stinger_line_01",
+          "screen_id": "POST-CREDIT STINGER",
+          "screen_title": "",
+          "speaker": "STEVE",
+          "text": "(Disembodied voice) \"All right, Jeff. Last chance. Name something you can do on a computer.",
+          "order": 1
+        },
+        {
+          "cue_id": "post_credit_stinger_line_02",
+          "screen_id": "POST-CREDIT STINGER",
+          "screen_title": "",
+          "speaker": "JEFF",
+          "text": "Ahhh.., you can shove it up your",
+          "order": 2
+        }
+      ]
+    }
+  ],
+  "dialogue_cues": [
+    {
+      "cue_id": "screen_0_line_01",
+      "screen_id": "SCREEN 0",
+      "screen_title": "COLD OPEN",
+      "speaker": "STEVE",
+      "text": "All right, final round\\! We got the Nikhil family versus Jeff Goldblum, our returning champion. Go to Jeff: Name something you can do on the computer.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_0_line_02",
+      "screen_id": "SCREEN 0",
+      "screen_title": "COLD OPEN",
+      "speaker": "JEFF",
+      "text": "Ahhhh... well I can tell you what you can do with a computer, Steve... you can suck on the mouse like a giant, pacifier.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_0_line_03",
+      "screen_id": "SCREEN 0",
+      "screen_title": "COLD OPEN",
+      "speaker": "STEVE",
+      "text": "Oh my God. Oh my God, good Lord. Let's see it... Wrong again\\!",
+      "order": 3
+    },
+    {
+      "cue_id": "screen_0_line_04",
+      "screen_id": "SCREEN 0",
+      "screen_title": "COLD OPEN",
+      "speaker": "JEFF",
+      "text": "The board is just a little timid, Stevie. It fears desire.",
+      "order": 4
+    },
+    {
+      "cue_id": "screen_0_line_05",
+      "screen_id": "SCREEN 0",
+      "screen_title": "COLD OPEN",
+      "speaker": "STEVE",
+      "text": "Keep playing with me. Keep playing with me and you're going to find out, Jeff Goldblum. Today, we are here to answer one question: how does Nikhil really come across?",
+      "order": 5
+    },
+    {
+      "cue_id": "screen_0_line_06",
+      "screen_id": "SCREEN 0",
+      "screen_title": "COLD OPEN",
+      "speaker": "JEFF",
+      "text": "Survey says... inevitable, unknowable, and lightly caffeinated.",
+      "order": 6
+    },
+    {
+      "cue_id": "screen_0_line_07",
+      "screen_id": "SCREEN 0",
+      "screen_title": "COLD OPEN",
+      "speaker": "STEVE",
+      "text": "Hit the music.",
+      "order": 7
+    },
+    {
+      "cue_id": "screen_1_line_01",
+      "screen_id": "SCREEN 1",
+      "screen_title": "WELCOME",
+      "speaker": "STEVE",
+      "text": "Welcome to Good Morning, Nikhil. You're about to flip through a few very normal television segments.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_1_line_02",
+      "screen_id": "SCREEN 1",
+      "screen_title": "WELCOME",
+      "speaker": "JEFF",
+      "text": "Oh Stevie, I thought of something else you can do with a computer.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_1_line_03",
+      "screen_id": "SCREEN 1",
+      "screen_title": "WELCOME",
+      "speaker": "STEVE",
+      "text": "oh God. No. Lord, no.",
+      "order": 3
+    },
+    {
+      "cue_id": "screen_2_line_01",
+      "screen_id": "SCREEN 2",
+      "screen_title": "WHO ARE YOU TO NIKHIL?",
+      "speaker": "STEVE",
+      "text": "First things first. How do you know Nikhil?",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_2_line_02",
+      "screen_id": "SCREEN 2",
+      "screen_title": "WHO ARE YOU TO NIKHIL?",
+      "speaker": "JEFF",
+      "text": "Family, foe, witness, or lover.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_3_3a_line_01",
+      "screen_id": "SCREEN 3 (3A)",
+      "screen_title": "SHOW 1: FAMILY FEUD (TOP 3\\)",
+      "speaker": "STEVE",
+      "text": "Top three answers on the board. Give me three adjectives or short phrases that describe Nikhil.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_3b_line_01",
+      "screen_id": "SCREEN 3B",
+      "screen_title": "FEUD: STRONGEST ANSWER",
+      "speaker": "JEFF",
+      "text": "Show me 'handsome'.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_3b_line_02",
+      "screen_id": "SCREEN 3B",
+      "screen_title": "FEUD: STRONGEST ANSWER",
+      "speaker": "STEVE",
+      "text": "Wrong game, Jeff. Which one feels strongest, and why?",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_3c_line_01",
+      "screen_id": "SCREEN 3C",
+      "screen_title": "FEUD: NIKHIL TRADEMARK",
+      "speaker": "JEFF",
+      "text": "Name a thing he does so often it should come with theme music.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_3c_line_02",
+      "screen_id": "SCREEN 3C",
+      "screen_title": "FEUD: NIKHIL TRADEMARK",
+      "speaker": "STEVE",
+      "text": "That is actually a good one Jeff.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_4_4a_line_01",
+      "screen_id": "SCREEN 4 (4A)",
+      "screen_title": "COMMERCIAL BREAK: SPONSORED BY",
+      "speaker": "STEVE",
+      "text": "This episode of Nikhil is brought to you by...",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_4_4a_line_02",
+      "screen_id": "SCREEN 4 (4A)",
+      "screen_title": "COMMERCIAL BREAK: SPONSORED BY",
+      "speaker": "JEFF",
+      "text": "A premium blend of polish, intensity, and lightly weaponized seduction just like someone I know.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_4b_line_01",
+      "screen_id": "SCREEN 4B",
+      "screen_title": "WHY THAT BRAND?",
+      "speaker": "STEVE",
+      "text": "And why?",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_4b_line_02",
+      "screen_id": "SCREEN 4B",
+      "screen_title": "WHY THAT BRAND?",
+      "speaker": "JEFF",
+      "text": "We're all just shadows and dust Steve.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_5_5a_line_01",
+      "screen_id": "SCREEN 5 (5A)",
+      "screen_title": "SHOW 2: THE BACHELOR",
+      "speaker": "STEVE",
+      "text": "Ladies, you know what time it is. It's the rose ceremony, and one of you is going home tonight. Three roses. One quality goes home.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_5b_line_01",
+      "screen_id": "SCREEN 5B",
+      "screen_title": "BACHELOR: SEND ONE HOME",
+      "speaker": "JEFF",
+      "text": "Every board has one weak square.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_5b_line_02",
+      "screen_id": "SCREEN 5B",
+      "screen_title": "BACHELOR: SEND ONE HOME",
+      "speaker": "STEVE",
+      "text": "This ain't no board, Jeff. Send one quality home.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_5c_line_01",
+      "screen_id": "SCREEN 5C",
+      "screen_title": "LIMO CONFESSIONAL",
+      "speaker": "STEVE",
+      "text": "In the limo ride home...",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_5c_line_02",
+      "screen_id": "SCREEN 5C",
+      "screen_title": "LIMO CONFESSIONAL",
+      "speaker": "JEFF",
+      "text": "On her way to the set of 90-Day Fiance. Say Stevie isn't that where -",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_5c_line_03",
+      "screen_id": "SCREEN 5C",
+      "screen_title": "LIMO CONFESSIONAL",
+      "speaker": "STEVE",
+      "text": "Complete the sentence.",
+      "order": 3
+    },
+    {
+      "cue_id": "screen_6_6a_line_01",
+      "screen_id": "SCREEN 6 (6A)",
+      "screen_title": "SHOW 3: SHARK TANK",
+      "speaker": "STEVE",
+      "text": "Shark, Nikhil just pitched his brain for 100% of your life savings. Are you in or out?",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_6_6a_line_02",
+      "screen_id": "SCREEN 6 (6A)",
+      "screen_title": "SHOW 3: SHARK TANK",
+      "speaker": "JEFF",
+      "text": "You know I'll just wait until Aunt Demequa blows it, and then it'll go back to me and I'll steal the round.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_6_6a_line_03",
+      "screen_id": "SCREEN 6 (6A)",
+      "screen_title": "SHOW 3: SHARK TANK",
+      "speaker": "STEVE",
+      "text": "Do you know where you are",
+      "order": 3
+    },
+    {
+      "cue_id": "screen_6b_6c_line_01",
+      "screen_id": "SCREEN 6B/6C",
+      "screen_title": "SHARK FOLLOW-UP (Dynamic)",
+      "speaker": "STEVE",
+      "text": "Finish the sentence.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_7_line_01",
+      "screen_id": "SCREEN 7",
+      "screen_title": "SHOW 4: SURVIVOR",
+      "speaker": "STEVE",
+      "text": "Tribal council. Confessional booth. Just you and the camera.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_7_line_02",
+      "screen_id": "SCREEN 7",
+      "screen_title": "SHOW 4: SURVIVOR",
+      "speaker": "JEFF",
+      "text": "(Whispering) \"So this is... Fast Money in the woods?",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_7_line_03",
+      "screen_id": "SCREEN 7",
+      "screen_title": "SHOW 4: SURVIVOR",
+      "speaker": "STEVE",
+      "text": "(Whispering back, firmly) \"No. This is the honest part.",
+      "order": 3
+    },
+    {
+      "cue_id": "screen_8_8a_8b_line_01",
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "screen_title": "SHOW 5: MAURY",
+      "speaker": "JEFF",
+      "text": "At last. Something you can do with a computer, Steve...",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_8_8a_8b_line_02",
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "screen_title": "SHOW 5: MAURY",
+      "speaker": "STEVE",
+      "text": "No, Jeff. I can't do it.",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_8_8a_8b_line_03",
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "screen_title": "SHOW 5: MAURY",
+      "speaker": "JEFF",
+      "text": "You have to read it, Steve. That's the job. That's why they hire you.",
+      "order": 3
+    },
+    {
+      "cue_id": "screen_8_8a_8b_line_04",
+      "screen_id": "SCREEN 8 (8A & 8B)",
+      "screen_title": "SHOW 5: MAURY",
+      "speaker": "STEVE",
+      "text": "I'm not even going to look at the board. And the envelope goes to...",
+      "order": 4
+    },
+    {
+      "cue_id": "screen_9_line_01",
+      "screen_id": "SCREEN 9",
+      "screen_title": "PRODUCER'S NOTES",
+      "speaker": "STEVE",
+      "text": "Final note from the control room.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_9_line_02",
+      "screen_id": "SCREEN 9",
+      "screen_title": "PRODUCER'S NOTES",
+      "speaker": "JEFF",
+      "text": "Fast Money?",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_9_line_03",
+      "screen_id": "SCREEN 9",
+      "screen_title": "PRODUCER'S NOTES",
+      "speaker": "STEVE",
+      "text": "No. That's a wrap.",
+      "order": 3
+    },
+    {
+      "cue_id": "screen_10_line_01",
+      "screen_id": "SCREEN 10",
+      "screen_title": "CLOSING CREDITS",
+      "speaker": "STEVE",
+      "text": "That's a wrap.",
+      "order": 1
+    },
+    {
+      "cue_id": "screen_10_line_02",
+      "screen_id": "SCREEN 10",
+      "screen_title": "CLOSING CREDITS",
+      "speaker": "JEFF",
+      "text": "Did I win?",
+      "order": 2
+    },
+    {
+      "cue_id": "screen_10_line_03",
+      "screen_id": "SCREEN 10",
+      "screen_title": "CLOSING CREDITS",
+      "speaker": "STEVE",
+      "text": "No.",
+      "order": 3
+    },
+    {
+      "cue_id": "screen_10_line_04",
+      "screen_id": "SCREEN 10",
+      "screen_title": "CLOSING CREDITS",
+      "speaker": "JEFF",
+      "text": "Did I remain champion?",
+      "order": 4
+    },
+    {
+      "cue_id": "screen_10_line_05",
+      "screen_id": "SCREEN 10",
+      "screen_title": "CLOSING CREDITS",
+      "speaker": "STEVE",
+      "text": "...somehow, yes.",
+      "order": 5
+    },
+    {
+      "cue_id": "post_credit_stinger_line_01",
+      "screen_id": "POST-CREDIT STINGER",
+      "screen_title": "",
+      "speaker": "STEVE",
+      "text": "(Disembodied voice) \"All right, Jeff. Last chance. Name something you can do on a computer.",
+      "order": 1
+    },
+    {
+      "cue_id": "post_credit_stinger_line_02",
+      "screen_id": "POST-CREDIT STINGER",
+      "screen_title": "",
+      "speaker": "JEFF",
+      "text": "Ahhh.., you can shove it up your",
+      "order": 2
+    }
+  ]
+}

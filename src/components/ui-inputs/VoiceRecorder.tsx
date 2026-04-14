@@ -252,7 +252,7 @@ export function VoiceRecorder({
     >
       {/* Mode selector — type and record as co-equal options */}
       {!isRecording && (
-        <div className="flex gap-2 rounded-xl bg-black/25 p-1 backdrop-blur-sm">
+        <div className="flex gap-2 rounded-xl bg-surface/50 p-1 backdrop-blur-sm">
           <button
             onClick={() => { setError(null); setInputMode("type"); }}
             className={`${modeTabBase} ${inputMode === "type" ? modeTabActive : modeTabInactive}`}
@@ -270,7 +270,7 @@ export function VoiceRecorder({
         </div>
       )}
 
-      <div className="rounded-2xl border border-[var(--input-border)] bg-black/25 p-5 text-center backdrop-blur-sm">
+      <div className="rounded-2xl border border-input-border bg-surface/50 p-5 text-center backdrop-blur-sm">
         {inputMode === "type" ? (
           <div className="space-y-3">
             <textarea
@@ -319,10 +319,10 @@ export function VoiceRecorder({
                   ? `Stop recording your answer for ${prompt}`
                   : `Start recording your answer for ${prompt}`
               }
-              className={`mx-auto flex h-24 w-24 items-center justify-center rounded-full border-4 border-white/10 text-white shadow-lg transition-colors ${
+              className={`mx-auto flex h-24 w-24 items-center justify-center rounded-full border-4 border-card-border text-white shadow-lg transition-colors ${
                 isRecording
-                  ? "bg-[var(--record)] motion-safe:animate-pulse"
-                  : "bg-[var(--nav-control)] hover:bg-black/80"
+                  ? "bg-error motion-safe:animate-pulse"
+                  : "bg-nav-control hover:bg-black/80"
               }`}
             >
               {isRecording ? (

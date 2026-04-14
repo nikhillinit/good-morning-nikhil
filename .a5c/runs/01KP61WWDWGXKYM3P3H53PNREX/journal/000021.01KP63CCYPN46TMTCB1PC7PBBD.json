@@ -1,0 +1,18 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T13:37:35.702Z",
+  "data": {
+    "effectId": "01KP63CCWG8BYSYGDPH9BK6811",
+    "invocationKey": "visual-polish-immersion:S000007:__sdk.breakpoint",
+    "invocationHash": "0eeacd56aa1899cd08f89890550168482fc6549aa329e132617a997234fba209",
+    "stepId": "S000007",
+    "taskId": "__sdk.breakpoint",
+    "kind": "breakpoint",
+    "label": "breakpoint",
+    "taskDefRef": "tasks/01KP63CCWG8BYSYGDPH9BK6811/task.json",
+    "labels": [
+      "breakpoint"
+    ]
+  },
+  "checksum": "7cdece033991e1c86d8f9f9a2243f1308e90a755d472f8623f6ee9ef64a7087b"
+}

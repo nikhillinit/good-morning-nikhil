@@ -1,0 +1,36 @@
+[INFO] 2026-04-14T08:05:32Z Hook script invoked
+[INFO] 2026-04-14T08:05:32Z PLUGIN_ROOT=/c/Users/nikhi/.claude/plugins/cache/a5c-ai/babysitter/4.0.144
+[INFO] 2026-04-14T08:05:33Z Hook input received (1049 bytes)
+[INFO] 2026-04-14T08:05:34.047Z handleHookRunStop started
+[INFO] 2026-04-14T08:05:34.058Z Hook input received
+[INFO] 2026-04-14T08:05:34.059Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Session ID: 0f153863-0a68-47cd-8204-d6e5170ac846
+[INFO] 2026-04-14T08:05:34.060Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Resolved pluginRoot: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144
+[INFO] 2026-04-14T08:05:34.061Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Resolved stateDir: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state
+[INFO] 2026-04-14T08:05:34.062Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Checking session file at: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state/0f153863-0a68-47cd-8204-d6e5170ac846.md
+[INFO] 2026-04-14T08:05:34.087Z [session=0f153863-0a68-47cd-8204-d6e5170ac846 run=01KP5G5TYBYSYXF9HKTA6CG2CJ] Run state: unknown
+[WARN] 2026-04-14T08:05:34.088Z [session=0f153863-0a68-47cd-8204-d6e5170ac846 run=01KP5G5TYBYSYXF9HKTA6CG2CJ] Run state unknown for 01KP5G5TYBYSYXF9HKTA6CG2CJ — allowing exit but preserving session file for recovery
+[INFO] 2026-04-14T08:05:34Z CLI exit code=0
+[INFO] 2026-04-14T08:09:04Z Hook script invoked
+[INFO] 2026-04-14T08:09:04Z PLUGIN_ROOT=/c/Users/nikhi/.claude/plugins/cache/a5c-ai/babysitter/4.0.144
+[INFO] 2026-04-14T08:09:04Z Hook input received (1015 bytes)
+[INFO] 2026-04-14T08:09:05.827Z handleHookRunStop started
+[INFO] 2026-04-14T08:09:05.838Z Hook input received
+[INFO] 2026-04-14T08:09:05.839Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Session ID: 0f153863-0a68-47cd-8204-d6e5170ac846
+[INFO] 2026-04-14T08:09:05.839Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Resolved pluginRoot: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144
+[INFO] 2026-04-14T08:09:05.840Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Resolved stateDir: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state
+[INFO] 2026-04-14T08:09:05.841Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Checking session file at: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state/0f153863-0a68-47cd-8204-d6e5170ac846.md
+[INFO] 2026-04-14T08:09:05.865Z [session=0f153863-0a68-47cd-8204-d6e5170ac846 run=01KP5G5TYBYSYXF9HKTA6CG2CJ] Run state: unknown
+[WARN] 2026-04-14T08:09:05.867Z [session=0f153863-0a68-47cd-8204-d6e5170ac846 run=01KP5G5TYBYSYXF9HKTA6CG2CJ] Run state unknown for 01KP5G5TYBYSYXF9HKTA6CG2CJ — allowing exit but preserving session file for recovery
+[INFO] 2026-04-14T08:09:06Z CLI exit code=0
+[INFO] 2026-04-14T08:13:09Z Hook script invoked
+[INFO] 2026-04-14T08:13:09Z PLUGIN_ROOT=/c/Users/nikhi/.claude/plugins/cache/a5c-ai/babysitter/4.0.144
+[INFO] 2026-04-14T08:13:10Z Hook input received (929 bytes)
+[INFO] 2026-04-14T08:13:11.165Z handleHookRunStop started
+[INFO] 2026-04-14T08:13:11.177Z Hook input received
+[INFO] 2026-04-14T08:13:11.178Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Session ID: 0f153863-0a68-47cd-8204-d6e5170ac846
+[INFO] 2026-04-14T08:13:11.179Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Resolved pluginRoot: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144
+[INFO] 2026-04-14T08:13:11.180Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Resolved stateDir: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state
+[INFO] 2026-04-14T08:13:11.180Z [session=0f153863-0a68-47cd-8204-d6e5170ac846] Checking session file at: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state/0f153863-0a68-47cd-8204-d6e5170ac846.md
+[INFO] 2026-04-14T08:13:11.206Z [session=0f153863-0a68-47cd-8204-d6e5170ac846 run=01KP5G5TYBYSYXF9HKTA6CG2CJ] Run state: unknown
+[WARN] 2026-04-14T08:13:11.208Z [session=0f153863-0a68-47cd-8204-d6e5170ac846 run=01KP5G5TYBYSYXF9HKTA6CG2CJ] Run state unknown for 01KP5G5TYBYSYXF9HKTA6CG2CJ — allowing exit but preserving session file for recovery
+[INFO] 2026-04-14T08:13:11Z CLI exit code=0

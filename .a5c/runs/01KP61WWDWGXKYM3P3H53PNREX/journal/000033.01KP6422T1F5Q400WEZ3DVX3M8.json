@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T13:49:26.209Z",
+  "data": {
+    "effectId": "01KP6422QTM95G1023Z71M0QKH",
+    "invocationKey": "visual-polish-immersion:S000011:verify-visual-quality",
+    "invocationHash": "888e948b9e5dc734fe83d71265d39113795d2d265be9cf6bf7c4ac3bcce5445e",
+    "stepId": "S000011",
+    "taskId": "verify-visual-quality",
+    "kind": "agent",
+    "label": "Verify Visual Quality",
+    "taskDefRef": "tasks/01KP6422QTM95G1023Z71M0QKH/task.json"
+  },
+  "checksum": "47aa974d3074c2decab761d43fb844b2619bf76dfe506fb7b935ee5378b29056"
+}

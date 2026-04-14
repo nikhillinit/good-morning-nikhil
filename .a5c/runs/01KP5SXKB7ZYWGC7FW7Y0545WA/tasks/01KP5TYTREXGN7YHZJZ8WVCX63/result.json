@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5TYTREXGN7YHZJZ8WVCX63",
+  "taskId": "verification",
+  "invocationKey": "design-system-enforcement:S000007:verification",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "notes": "1 pre-existing flaky test timeout unrelated to design system. TypeScript clean. All tokens defined. No palette violations in src/components/.",
+    "passed": true,
+    "remainingViolations": [],
+    "testsRun": 112
+  },
+  "startedAt": "2026-04-14T11:18:37.279Z",
+  "finishedAt": "2026-04-14T11:18:37.279Z",
+  "value": {
+    "artifacts": [],
+    "notes": "1 pre-existing flaky test timeout unrelated to design system. TypeScript clean. All tokens defined. No palette violations in src/components/.",
+    "passed": true,
+    "remainingViolations": [],
+    "testsRun": 112
+  }
+}

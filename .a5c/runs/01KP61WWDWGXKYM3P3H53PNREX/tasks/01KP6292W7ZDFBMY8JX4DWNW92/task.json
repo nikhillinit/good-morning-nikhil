@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP6292W7ZDFBMY8JX4DWNW92",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "visual-polish-immersion:S000002:__sdk.breakpoint",
+  "stepId": "S000002",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "options": [
+        {
+          "label": "Proceed with all changes",
+          "value": "all"
+        },
+        {
+          "label": "Proceed with code changes only",
+          "value": "code-only"
+        },
+        {
+          "label": "Review analysis and adjust",
+          "value": "review"
+        }
+      ],
+      "question": "Current state analysis complete. Found: 5 areas analyzed. Review the current state before proceeding with changes?",
+      "title": "Analysis Complete - Review Current State"
+    },
+    "requestedAt": "2026-04-14T13:18:18.503Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "options": [
+        {
+          "label": "Proceed with all changes",
+          "value": "all"
+        },
+        {
+          "label": "Proceed with code changes only",
+          "value": "code-only"
+        },
+        {
+          "label": "Review analysis and adjust",
+          "value": "review"
+        }
+      ],
+      "question": "Current state analysis complete. Found: 5 areas analyzed. Review the current state before proceeding with changes?",
+      "title": "Analysis Complete - Review Current State"
+    },
+    "requestedAt": "2026-04-14T13:18:18.503Z"
+  }
+}

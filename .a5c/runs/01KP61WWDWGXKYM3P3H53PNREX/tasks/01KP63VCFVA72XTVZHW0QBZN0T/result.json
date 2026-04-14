@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP63VCFVA72XTVZHW0QBZN0T",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "visual-polish-immersion:S000010:__sdk.breakpoint",
+  "status": "ok",
+  "result": {
+    "approved": true,
+    "label": "Add to asset specs for manual fix",
+    "selection": "asset"
+  },
+  "startedAt": "2026-04-14T13:46:26.766Z",
+  "finishedAt": "2026-04-14T13:46:26.766Z",
+  "value": {
+    "approved": true,
+    "label": "Add to asset specs for manual fix",
+    "selection": "asset"
+  }
+}

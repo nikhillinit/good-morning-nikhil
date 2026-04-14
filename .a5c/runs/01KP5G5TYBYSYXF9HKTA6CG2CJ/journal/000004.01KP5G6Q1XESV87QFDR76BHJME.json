@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:02:26.493Z",
+  "data": {
+    "effectId": "01KP5G6Q03G3AYT4RS3AV88YHV",
+    "invocationKey": "gmn/design-narrative-coherence:S000002:narrative-arc-audit",
+    "invocationHash": "1f722a452f8c21f58b153b5c26f7f413ffc36fb4f7436e73a045983523841911",
+    "stepId": "S000002",
+    "taskId": "narrative-arc-audit",
+    "kind": "agent",
+    "label": "Audit Narrative Arc",
+    "taskDefRef": "tasks/01KP5G6Q03G3AYT4RS3AV88YHV/task.json"
+  },
+  "checksum": "1fa90750f896af939e1f517cc5a2c9d55dcb03248dd56793bf7fa6d74d71b78d"
+}

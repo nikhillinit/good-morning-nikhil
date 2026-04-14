@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP63NVQCJ4SNZWTSYFY5WEH4",
+  "taskId": "fix-character-positioning",
+  "invocationKey": "visual-polish-immersion:S000009:fix-character-positioning",
+  "stepId": "S000009",
+  "kind": "agent",
+  "title": "Fix Steve Character Positioning",
+  "io": {
+    "inputJsonPath": "tasks/01KP63NVQCJ4SNZWTSYFY5WEH4/input.json",
+    "outputJsonPath": "tasks/01KP63NVQCJ4SNZWTSYFY5WEH4/output.json"
+  },
+  "inputs": {
+    "screen": "bachelor-roses"
+  }
+}

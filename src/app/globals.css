@@ -104,6 +104,8 @@
   --color-info-soft: var(--info-soft);
   --color-card: var(--card);
   --color-screen-card: var(--screen-card);
+  --color-card-border: var(--card-border);
+  --color-input-border: var(--input-border);
 
   /* Segment identity colors */
   --color-segment-intro: var(--segment-intro);

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5T900XNF4W769CSKV6RW4B",
+  "taskId": "component-refactor",
+  "invocationKey": "design-system-enforcement:S000005:component-refactor",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "changes": [
+      "#000 → var(--background)",
+      "#eab308 → var(--accent)",
+      "#a1a1aa → var(--muted)"
+    ]
+  },
+  "startedAt": "2026-04-14T11:03:02.141Z",
+  "finishedAt": "2026-04-14T11:03:02.141Z",
+  "value": {
+    "artifacts": [],
+    "changes": [
+      "#000 → var(--background)",
+      "#eab308 → var(--accent)",
+      "#a1a1aa → var(--muted)"
+    ]
+  }
+}

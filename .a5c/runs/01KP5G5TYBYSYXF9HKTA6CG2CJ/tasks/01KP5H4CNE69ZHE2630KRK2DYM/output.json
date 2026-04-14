@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "changes": [
+    {
+      "file": "src/lib/animations.ts",
+      "description": "Added canonical DURATION scale export (MICRO, FAST, STANDARD, UI, SCREEN, DRAMATIC, FRAME, ZOOM) and updated all presets to use it",
+      "linesChanged": 35
+    },
+    {
+      "file": "src/components/SceneTransition.tsx",
+      "description": "Added NEEDS_BUFFER_PAIRS for emotional intensity transitions; buffer transitions now use DRAMATIC timing (0.5s) vs standard SCREEN (0.3s); imported DURATION and easing constants from animations.ts",
+      "linesChanged": 20
+    }
+  ],
+  "durationScale": {
+    "MICRO": "0.05s - instant feedback",
+    "FAST": "0.1s - hover/micro-interactions",
+    "STANDARD": "0.2s - captions, fades",
+    "UI": "0.35s - form reveals",
+    "SCREEN": "0.3s - screen transitions",
+    "DRAMATIC": "0.5s - show changes, emotional beats",
+    "FRAME": "0.8s - TV dissolves",
+    "ZOOM": "1.2s - TV zoom immersion shift"
+  },
+  "bufferTransitions": [
+    "Good Morning Nikhil→Family Feud",
+    "Commercial Break→The Bachelor",
+    "Shark Tank→Survivor",
+    "Survivor→Maury",
+    "Maury→Control Room"
+  ],
+  "testsRun": 108,
+  "testsPassing": 97,
+  "testsFailing": 11,
+  "failureAnalysis": "Pre-existing failures unrelated to transition changes: UI selector mismatches, screen arc test outdated, missing stills files",
+  "artifacts": []
+}

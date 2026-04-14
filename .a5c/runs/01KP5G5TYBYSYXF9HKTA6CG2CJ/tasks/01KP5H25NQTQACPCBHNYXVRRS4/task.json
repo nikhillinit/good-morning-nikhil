@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5H25NQTQACPCBHNYXVRRS4",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "gmn/design-narrative-coherence:S000006:__sdk.breakpoint",
+  "stepId": "S000006",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "focusAreas": [
+          "visual-transitions",
+          "typography-layout",
+          "segment-identity",
+          "audio-vo-pacing"
+        ]
+      },
+      "options": [
+        "Approve and implement",
+        "Adjust plan"
+      ],
+      "question": "## Design & Narrative Coherence Plan Ready\n\n**Issues Found:** undefined\n**High Priority:** 0\n**Estimated Changes:** undefined\n\n### Emotional Arc Assessment:\nArc has strong bones but three structural weaknesses: (1) intro-instructions breaks immersion with dead air; (2) commercial-why and shark-reason create fatigue valleys before Survivor/Maury peaks; (3) Jeff confusion gag has diminishing returns by third occurrence. TV conceit strongest during Feud and Maury, weakest during intro-instructions and shark-reason.\n\n### Key Improvements Planned:\nReview pending\n\nApprove to proceed with implementation, or provide feedback to adjust the plan.",
+      "title": "Design Plan Review"
+    },
+    "requestedAt": "2026-04-14T08:17:26.199Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "focusAreas": [
+          "visual-transitions",
+          "typography-layout",
+          "segment-identity",
+          "audio-vo-pacing"
+        ]
+      },
+      "options": [
+        "Approve and implement",
+        "Adjust plan"
+      ],
+      "question": "## Design & Narrative Coherence Plan Ready\n\n**Issues Found:** undefined\n**High Priority:** 0\n**Estimated Changes:** undefined\n\n### Emotional Arc Assessment:\nArc has strong bones but three structural weaknesses: (1) intro-instructions breaks immersion with dead air; (2) commercial-why and shark-reason create fatigue valleys before Survivor/Maury peaks; (3) Jeff confusion gag has diminishing returns by third occurrence. TV conceit strongest during Feud and Maury, weakest during intro-instructions and shark-reason.\n\n### Key Improvements Planned:\nReview pending\n\nApprove to proceed with implementation, or provide feedback to adjust the plan.",
+      "title": "Design Plan Review"
+    },
+    "requestedAt": "2026-04-14T08:17:26.199Z"
+  }
+}

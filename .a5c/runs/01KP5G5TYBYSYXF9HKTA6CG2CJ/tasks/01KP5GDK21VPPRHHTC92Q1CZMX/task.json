@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5GDK21VPPRHHTC92Q1CZMX",
+  "taskId": "emotional-arc-mapping",
+  "invocationKey": "gmn/design-narrative-coherence:S000003:emotional-arc-mapping",
+  "stepId": "S000003",
+  "kind": "agent",
+  "title": "Map Emotional Arc",
+  "io": {
+    "inputJsonPath": "tasks/01KP5GDK21VPPRHHTC92Q1CZMX/input.json",
+    "outputJsonPath": "tasks/01KP5GDK21VPPRHHTC92Q1CZMX/result.json"
+  },
+  "inputs": {
+    "currentEmotionalFlow": {
+      "alignment": 8,
+      "currentArc": "Setup → Humor (Feud kickoff) → Tension (Feud questions) → Humor/Break (Commercial) → Tension/Vulnerability (Bachelor) → High Tension (Shark Tank) → Peak Vulnerability (Survivor confessional) → Catharsis (Maury revelation) → Reflection (Producer notes) → Resolution (Credits/Stinger)",
+      "targetArc": "tension → humor → reflection"
+    },
+    "screens": [
+      {
+        "emotionalBeat": "setup",
+        "id": "intro-tv",
+        "show": "Good Morning Nikhil",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "setup",
+        "id": "intro-instructions",
+        "show": "Good Morning Nikhil",
+        "strength": 2
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "gmn-feud-kickoff",
+        "show": "Good Morning Nikhil",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "feud-top3",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "feud-strongest",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "feud-trademark",
+        "show": "Family Feud",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "commercial-break",
+        "show": "Commercial Break",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "commercial-why",
+        "show": "Commercial Break",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "bachelor-roses",
+        "show": "The Bachelor",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "bachelor-eliminate",
+        "show": "The Bachelor",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "vulnerability",
+        "id": "bachelor-limo",
+        "show": "The Bachelor",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "tension",
+        "id": "shark-invest",
+        "show": "Shark Tank",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "shark-reason",
+        "show": "Shark Tank",
+        "strength": 3
+      },
+      {
+        "emotionalBeat": "vulnerability",
+        "id": "survivor",
+        "show": "Survivor",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "catharsis",
+        "id": "maury",
+        "show": "Maury",
+        "strength": 5
+      },
+      {
+        "emotionalBeat": "reflection",
+        "id": "producer-notes",
+        "show": "Control Room",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "catharsis",
+        "id": "credits",
+        "show": "Credits",
+        "strength": 4
+      },
+      {
+        "emotionalBeat": "humor",
+        "id": "post-credits",
+        "show": "Post-Credits",
+        "strength": 4
+      }
+    ],
+    "targetArc": "tension-humor-reflection"
+  }
+}

@@ -29,7 +29,7 @@ export function QuestionPrompt({
           style={{ transformStyle: "preserve-3d" }}
         >
           {/* Antigravity Glassmorphic Lower-Third Chyron */}
-          <div className="relative overflow-hidden rounded-xl border border-white/20 bg-card backdrop-blur-xl p-4 sm:p-6 shadow-[0_20px_40px_rgba(0,0,0,0.5),inset_0_2px_10px_rgba(255,255,255,0.1)]">
+          <div className="relative overflow-hidden rounded-xl border border-card-border bg-screen-card backdrop-blur-xl p-4 sm:p-6 shadow-2xl">
             {/* Glass shine */}
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
             

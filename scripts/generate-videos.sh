@@ -22,10 +22,10 @@ declare -a SCREENS=(
   "welcome|morning-desk.webp|medium shot, slow pan right, morning show desk, studio lights warming up, subtle camera drift"
   "feud-top3|feud-board.webp|wide shot, static then slow dolly in, Family Feud board center stage, answer slots visible, stage lights sweep"
   "bachelor-roses|bachelor-mansion.webp|wide shot, low angle, slow crane up, mansion interior, candelabras, rose petals catching light"
-  "bachelor-limo|limo-interior.webp|medium shot, slow truck left, limo interior, city lights streaming past windows, moody blue tones"
-  "shark-invest|shark-warehouse.webp|wide shot, slight low angle, slow dolly in, warehouse set, shark chairs visible, dramatic top-lighting"
+  "bachelor-limo|limo-interior.webp|wide shot interior, slow continuous tracking, left third features host speaking, right two-thirds empty dark leather seating"
+  "shark-invest|shark-warehouse.webp|wide master shot, industrial pitch warehouse, far left third features billionaire investor, entire right side shadowed negative space void"
   "survivor|tribal-council.webp|medium shot, slow push in, tribal council, torches flickering, jungle ambiance, intimate confessional"
-  "maury|maury-studio.webp|medium shot, static then slow pan, talk show studio, audience seats, dramatic envelope lighting"
+  "maury|maury-studio.webp|brightly lit talk show studio, left third features energetic talk show host looking into lens, right two-thirds vast empty studio space"
   "credits|credits-bg.webp|wide shot, slow pull out, empty studio, lights dimming one by one, wrap-up energy"
 )
 
@@ -58,7 +58,7 @@ generate_video() {
   log "  Prompt: $full_prompt"
 
   # Call infsh CLI for image-to-video
-  if ! infsh i2v \
+  if ! /mnt/c/Users/nikhi/.local/bin/infsh.exe i2v \
     --model "$MODEL" \
     --image "$image_path" \
     --prompt "$full_prompt" \

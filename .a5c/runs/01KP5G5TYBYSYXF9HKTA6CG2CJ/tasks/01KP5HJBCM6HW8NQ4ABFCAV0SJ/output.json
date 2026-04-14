@@ -1,0 +1,65 @@
+{
+  "success": true,
+  "changes": [
+    {
+      "file": "src/data/screens.ts",
+      "description": "Added comprehensive timing rationale documentation block explaining uiRevealAt scale (0-1s instant, 1-2s quick, 2.5-3.5s standard, 4-5s dramatic, 5-6s peak), fatigue danger zones, and engagement peaks",
+      "linesChanged": 20
+    }
+  ],
+  "timingAnalysis": {
+    "instantReveal": {
+      "range": "0-1s",
+      "screens": ["intro-instructions"],
+      "rationale": "Pure UI screens with no audio setup"
+    },
+    "quickReveal": {
+      "range": "1-2s",
+      "screens": ["shark-reason"],
+      "rationale": "Short follow-up after binary choice"
+    },
+    "standardReveal": {
+      "range": "2.5-3.5s",
+      "screens": ["feud-top3", "feud-strongest", "producer-notes", "bachelor-eliminate"],
+      "rationale": "VO establishes context before prompt"
+    },
+    "dramaticReveal": {
+      "range": "4-5s",
+      "screens": ["gmn-feud-kickoff", "feud-trademark", "bachelor-roses", "bachelor-limo", "survivor", "post-credits"],
+      "rationale": "Longer VO builds tension or emotion"
+    },
+    "peakReveal": {
+      "range": "5-6s",
+      "screens": ["commercial-break", "shark-invest", "maury"],
+      "rationale": "Maximum emotional weight needs full delivery"
+    }
+  },
+  "audioGapsRequiringGeneration": [
+    {
+      "screen": "intro-instructions",
+      "issue": "No audio (empty string) breaks TV conceit immersion",
+      "recommendation": "Generate Steve VO delivering instructions in character",
+      "priority": "high"
+    },
+    {
+      "screen": "shark-reason",
+      "issue": "VO only 2.2s, no acknowledgment of invest/pass choice",
+      "recommendation": "Add Steve reaction audio based on user's choice",
+      "priority": "high"
+    },
+    {
+      "screen": "post-credits",
+      "issue": "Reuses credits audio instead of dedicated stinger",
+      "recommendation": "Generate unique stinger VO",
+      "priority": "medium"
+    }
+  ],
+  "structuralRecommendations": [
+    {
+      "screen": "commercial-why",
+      "recommendation": "Consider merging into commercial-break to reduce fatigue valley",
+      "impact": "Would reduce screen count by 1, strengthen pacing"
+    }
+  ],
+  "artifacts": []
+}

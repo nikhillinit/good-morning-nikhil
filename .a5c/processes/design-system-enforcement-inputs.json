@@ -1,0 +1,63 @@
+{
+  "auditFindings": {
+    "scores": {
+      "consistency": 61,
+      "accessibility": 74,
+      "ramsProxy": 72
+    },
+    "criticalIssues": [
+      {
+        "id": "tv-shell-hardcoded",
+        "severity": "high",
+        "file": "src/components/ambient/TelevisionFrame.tsx",
+        "description": "TV shell ignores token system, hardcodes materials/colors",
+        "violations": [
+          "bg-zinc-950 (line 8)",
+          "bg-zinc-900 (line 8)",
+          "bg-[#3a2818] (line 11, wood)",
+          "border-[#22160d] (line 11, wood dark)",
+          "bg-zinc-400 (line 22-23, antennas)",
+          "bg-[#1a1c1d] (lines 27, 63, 66, plastic)"
+        ]
+      },
+      {
+        "id": "captions-speaker-colors",
+        "severity": "medium",
+        "file": "src/components/Captions.tsx",
+        "description": "Speaker colors use literal palettes",
+        "violations": [
+          "text-yellow-400 (line 26, steve)",
+          "text-blue-400 (line 27, jeff)"
+        ]
+      },
+      {
+        "id": "timeline-progress-colors",
+        "severity": "medium",
+        "file": "src/components/BroadcastTimeline.tsx",
+        "description": "Progress bar uses literal gradient colors",
+        "violations": [
+          "from-red-600 (line 20)",
+          "to-amber-500 (line 20)",
+          "rgba(220,38,38,0.8) (line 20, glow)"
+        ]
+      },
+      {
+        "id": "layout-inline-hex",
+        "severity": "low",
+        "file": "src/app/layout.tsx",
+        "description": "Layout fallback uses inline hex styles",
+        "violations": [
+          "inline style colors in noscript (line 59)"
+        ]
+      }
+    ],
+    "missingTokens": [
+      "TV materials (wood, plastic, chrome, metal)",
+      "Speaker identity colors",
+      "Progress bar gradient",
+      "Nav control chrome"
+    ],
+    "designRule": "DESIGN.md line 13: Do not manually apply literal Tailwind palettes"
+  },
+  "projectName": "good-morning-nikhil"
+}

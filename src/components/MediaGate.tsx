@@ -19,7 +19,7 @@ export function MediaGate({ hasConsented, onConsent }: MediaGateProps) {
         transition={{ duration: 0.5 }}
         className="media-gate-card space-y-6"
       >
-        <h1 className="text-display text-3xl text-accent">
+        <h1 className="text-display text-3xl text-foreground">
           Good Morning, Nikhil
         </h1>
         <p className="max-w-sm text-body">

@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:27:38.668Z",
+  "data": {
+    "effectId": "01KP5HMVPNYHQD231NDNVGMK4M",
+    "invocationKey": "gmn/design-narrative-coherence:S000011:quality-validation",
+    "invocationHash": "77d5ea0d90a2e320c6bbc7fb2f1fe12bc7b22d5240b712a11ed522a150d0bc73",
+    "stepId": "S000011",
+    "taskId": "quality-validation",
+    "kind": "agent",
+    "label": "Validate Quality",
+    "taskDefRef": "tasks/01KP5HMVPNYHQD231NDNVGMK4M/task.json"
+  },
+  "checksum": "2e205296f0162d1eab777c7e23e1a5c3073b221107c2f63506298b42f392f1fb"
+}

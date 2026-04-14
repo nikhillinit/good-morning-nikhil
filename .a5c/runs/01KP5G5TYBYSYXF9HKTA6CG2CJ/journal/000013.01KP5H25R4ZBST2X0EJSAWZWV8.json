@@ -1,0 +1,18 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:17:26.278Z",
+  "data": {
+    "effectId": "01KP5H25NQTQACPCBHNYXVRRS4",
+    "invocationKey": "gmn/design-narrative-coherence:S000006:__sdk.breakpoint",
+    "invocationHash": "8ee72f03bfa6bf4c74247dc3e090ade586751c2beef8670c318346f287d1e0bd",
+    "stepId": "S000006",
+    "taskId": "__sdk.breakpoint",
+    "kind": "breakpoint",
+    "label": "breakpoint",
+    "taskDefRef": "tasks/01KP5H25NQTQACPCBHNYXVRRS4/task.json",
+    "labels": [
+      "breakpoint"
+    ]
+  },
+  "checksum": "dc5fb684b2b4cb124831669efadf2a881609b4616773f6772b26365ce95c24b1"
+}

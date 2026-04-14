@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP6422QTM95G1023Z71M0QKH",
+  "taskId": "verify-visual-quality",
+  "invocationKey": "visual-polish-immersion:S000011:verify-visual-quality",
+  "stepId": "S000011",
+  "kind": "agent",
+  "title": "Verify Visual Quality",
+  "io": {
+    "inputJsonPath": "tasks/01KP6422QTM95G1023Z71M0QKH/input.json",
+    "outputJsonPath": "tasks/01KP6422QTM95G1023Z71M0QKH/output.json"
+  },
+  "inputs": {
+    "changesImplemented": [
+      {
+        "changes": [
+          {
+            "description": "Added hideTvFrame?: boolean to Screen interface and set hideTvFrame: true on 16 screens (gmn-feud-kickoff through post-credits)",
+            "file": "src/data/screens.ts",
+            "linesModified": 17
+          },
+          {
+            "description": "Changed zoomedIn logic from screen.bg !== 'crt' to screen.hideTvFrame === true",
+            "file": "src/components/ScreenPlayer.tsx",
+            "linesModified": 1
+          }
+        ],
+        "success": true,
+        "task": "frame-removal"
+      },
+      {
+        "changes": [
+          {
+            "description": "Modified --surface variable from solid #18181b to rgba(24, 24, 27, 0.8) for 80% opacity",
+            "file": "src/app/globals.css",
+            "linesModified": 1
+          }
+        ],
+        "contrastAfter": "80% opacity (rgba with 0.8 alpha)",
+        "contrastBefore": "100% opacity (solid #18181b)",
+        "success": true,
+        "task": "darker-cards"
+      },
+      {
+        "assetNote": "Need 3 new assets: (1) bachelor-mansion-bg.webp - mansion without Steve/roses, (2) steve-character.png - transparent PNG, (3) rose-overlay.png - foreground roses. Plus code changes to ScreenPlayer for foreground overlay support.",
+        "changes": [],
+        "fixDescription": "The bachelor-roses screen renders bachelor-mansion.webp as a single flattened background. Steve and roses are baked into one composite - no separate PNG layers exist. ScreenPlayer only supports: (1) single bg image, (2) optional video, (3) ambient particle effects. To achieve Steve behind roses, need separate assets and code changes for foreground overlay support.",
+        "issueType": "asset",
+        "layerStructure": [
+          {
+            "layer": "background",
+            "notes": "bachelor-mansion.webp (currently has Steve + roses baked in)",
+            "zIndex": 0
+          },
+          {
+            "layer": "video-bg",
+            "notes": "VideoBackground component - not used on this screen",
+            "zIndex": 1
+          },
+          {
+            "layer": "ambient-effects",
+            "notes": "CandleFlicker via getAmbientLayer()",
+            "zIndex": 2
+          },
+          {
+            "layer": "spotlight-gradient",
+            "notes": "Vignette overlay",
+            "zIndex": 3
+          },
+          {
+            "layer": "bottom-gradient",
+            "notes": "Black gradient at bottom",
+            "zIndex": 4
+          },
+          {
+            "layer": "main-content",
+            "notes": "UI elements (cards, inputs)",
+            "zIndex": 10
+          }
+        ],
+        "task": "character-positioning"
+      }
+    ],
+    "targetUrl": "http://localhost:3000"
+  }
+}

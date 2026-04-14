@@ -1,0 +1,17 @@
+{
+  "styleGuide": {
+    "visualStyle": "painterly-cinematic",
+    "colorPalette": ["#1E3A5F", "#D4AF37", "#8B2942", "#FFF8E7", "#0F1D2F", "#FFD700", "#C41E3A", "#F7E7CE"],
+    "lightingApproach": "Professional three-point lighting: 45-degree key light with show-specific color temperature (2700K-5600K), 40-70% fill, rim/back light for separation. Atmospheric depth haze, lens bloom, natural vignettes (15-25%), subtle film grain (3-8%).",
+    "characterStyle": "TV talent aesthetic with natural human proportions, professional broadcast makeup. Soft edge rendering without hard outlines, subtle skin texture, catchlights in eyes. Avoid cartoon proportions, cel-shading, or mobile game tropes.",
+    "moodBoards": [
+      "Family Feud (Steve Harvey era) - blue LED backdrop, gold survey board",
+      "The Bachelor (ABC) - rose ceremony candlelight, soft focus cinematography",
+      "Shark Tank (ABC) - industrial warehouse, dramatic spotlights",
+      "Survivor (CBS) - tribal council firelight, documentary realism",
+      "Maury (Syndicated) - classic talk show stage",
+      "Roger Deakins cinematography - controlled naturalistic lighting"
+    ]
+  },
+  "styleGuidePath": ".a5c/processes/assets/style-guide.md"
+}

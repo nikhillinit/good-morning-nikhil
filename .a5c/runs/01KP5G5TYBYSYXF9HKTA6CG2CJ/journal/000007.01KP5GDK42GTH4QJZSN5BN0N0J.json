@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:06:11.843Z",
+  "data": {
+    "effectId": "01KP5GDK21VPPRHHTC92Q1CZMX",
+    "invocationKey": "gmn/design-narrative-coherence:S000003:emotional-arc-mapping",
+    "invocationHash": "0c5d96924c9353fdff025501d0ada2e560f211b61204c95ba27c43bb00d32674",
+    "stepId": "S000003",
+    "taskId": "emotional-arc-mapping",
+    "kind": "agent",
+    "label": "Map Emotional Arc",
+    "taskDefRef": "tasks/01KP5GDK21VPPRHHTC92Q1CZMX/task.json"
+  },
+  "checksum": "89866a9104b04b50fb38e474f6da9e3b07d2fb82f614765bdf6adae25d7f9d21"
+}

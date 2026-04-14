@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "arcMap": [
+    {"screenId": "intro-tv", "currentBeat": "setup", "recommendedBeat": "curiosity", "intensity": 4, "transitionQuality": "smooth"},
+    {"screenId": "intro-instructions", "currentBeat": "setup", "recommendedBeat": "anticipation", "intensity": 2, "transitionQuality": "jarring", "notes": "DEAD AIR. No audio breaks immersion."},
+    {"screenId": "gmn-feud-kickoff", "currentBeat": "humor", "recommendedBeat": "humor", "intensity": 7, "transitionQuality": "needs-buffer"},
+    {"screenId": "feud-top3", "currentBeat": "tension", "recommendedBeat": "engagement", "intensity": 5, "transitionQuality": "smooth"},
+    {"screenId": "feud-strongest", "currentBeat": "reflection", "recommendedBeat": "reflection", "intensity": 5, "transitionQuality": "smooth"},
+    {"screenId": "feud-trademark", "currentBeat": "humor", "recommendedBeat": "playful-recall", "intensity": 4, "transitionQuality": "smooth"},
+    {"screenId": "commercial-break", "currentBeat": "humor", "recommendedBeat": "absurdist-relief", "intensity": 4, "transitionQuality": "smooth"},
+    {"screenId": "commercial-why", "currentBeat": "reflection", "recommendedBeat": "micro-reflection", "intensity": 3, "transitionQuality": "jarring", "notes": "FATIGUE RISK. Cut or merge."},
+    {"screenId": "bachelor-roses", "currentBeat": "tension", "recommendedBeat": "selection-pressure", "intensity": 6, "transitionQuality": "needs-buffer"},
+    {"screenId": "bachelor-eliminate", "currentBeat": "tension", "recommendedBeat": "confrontation", "intensity": 6, "transitionQuality": "smooth"},
+    {"screenId": "bachelor-limo", "currentBeat": "vulnerability", "recommendedBeat": "vulnerability", "intensity": 7, "transitionQuality": "smooth", "notes": "EMOTIONAL PEAK"},
+    {"screenId": "shark-invest", "currentBeat": "tension", "recommendedBeat": "high-stakes", "intensity": 8, "transitionQuality": "smooth", "notes": "TENSION PEAK"},
+    {"screenId": "shark-reason", "currentBeat": "reflection", "recommendedBeat": "justification", "intensity": 4, "transitionQuality": "jarring", "notes": "ANTICLIMACTIC after invest/pass"},
+    {"screenId": "survivor", "currentBeat": "vulnerability", "recommendedBeat": "confession", "intensity": 8, "transitionQuality": "needs-buffer", "notes": "VULNERABILITY PEAK"},
+    {"screenId": "maury", "currentBeat": "catharsis", "recommendedBeat": "revelation", "intensity": 8, "transitionQuality": "smooth", "notes": "CATHARSIS PEAK"},
+    {"screenId": "producer-notes", "currentBeat": "reflection", "recommendedBeat": "synthesis", "intensity": 5, "transitionQuality": "needs-buffer"},
+    {"screenId": "credits", "currentBeat": "catharsis", "recommendedBeat": "resolution", "intensity": 4, "transitionQuality": "smooth"},
+    {"screenId": "post-credits", "currentBeat": "humor", "recommendedBeat": "stinger", "intensity": 6, "transitionQuality": "smooth"}
+  ],
+  "summary": "Arc has strong bones but three structural weaknesses: (1) intro-instructions breaks immersion with dead air; (2) commercial-why and shark-reason create fatigue valleys before Survivor/Maury peaks; (3) Jeff confusion gag has diminishing returns by third occurrence. TV conceit strongest during Feud and Maury, weakest during intro-instructions and shark-reason.",
+  "recommendations": [
+    {"priority": "high", "screen": "intro-instructions", "action": "Add Steve V.O. delivering instructions in character with ambient TV static bed", "rationale": "Zero-audio breaks TV illusion"},
+    {"priority": "high", "screen": "commercial-why", "action": "Merge into commercial-break. Cut Jeff shadows and dust line.", "rationale": "Two consecutive text areas create fatigue valley"},
+    {"priority": "high", "screen": "shark-reason", "action": "Add Steve reaction audio based on invest/pass choice before follow-up prompt", "rationale": "Binary choice needs acknowledgment"},
+    {"priority": "medium", "screen": "bachelor-roses", "action": "Add 2-second transitional sting with rose ceremony audio cue", "rationale": "Show transitions need ceremony"},
+    {"priority": "medium", "screen": "survivor", "action": "Add ambient tribal council fire crackle audio bed", "rationale": "Atmospheric audio sells confessional intimacy"},
+    {"priority": "medium", "screen": "producer-notes", "action": "Replace Jeff 'Fast Money?' with 'Wait, so nobody won?'", "rationale": "Third Fast Money reference has diminishing returns"},
+    {"priority": "low", "screen": "feud-trademark", "action": "Add Steve 'Survey SAYS...' reaction with board sound", "rationale": "Missing signature Feud moment"},
+    {"priority": "low", "screen": "credits", "action": "Add scrolling credits overlay with silly production credits", "rationale": "Visual interest to prevent early abandonment"}
+  ],
+  "fatigueAnalysis": {
+    "dangerZones": ["intro-instructions", "commercial-why", "shark-reason", "survivor"],
+    "engagementPeaks": ["gmn-feud-kickoff", "bachelor-limo", "shark-invest", "maury", "post-credits"],
+    "recoveryPoints": ["feud-trademark", "commercial-break", "credits"]
+  },
+  "artifacts": []
+}

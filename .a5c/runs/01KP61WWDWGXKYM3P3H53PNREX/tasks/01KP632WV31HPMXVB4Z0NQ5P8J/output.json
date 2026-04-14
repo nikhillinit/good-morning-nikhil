@@ -1,0 +1,8 @@
+{
+  "success": true,
+  "changes": [
+    {"file": "src/app/globals.css", "description": "Modified --surface variable from solid #18181b to rgba(24, 24, 27, 0.8) for 80% opacity", "linesModified": 1}
+  ],
+  "contrastBefore": "100% opacity (solid #18181b)",
+  "contrastAfter": "80% opacity (rgba with 0.8 alpha)"
+}

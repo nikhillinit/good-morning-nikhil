@@ -87,7 +87,7 @@ export const screens: Screen[] = [
     id: "intro-instructions",
     show: "Good Morning Nikhil",
     showEmoji: "🎮",
-    audio: "", 
+    audio: "/vo/01-welcome.mp3",
     bg: "crt",
     duration: 0.1, // Instantly resolves audio hook
     uiLayout: "center",
@@ -462,7 +462,7 @@ export const screens: Screen[] = [
     id: "post-credits",
     show: "Post-Credits",
     showEmoji: "🎬",
-    audio: "/vo/10-credits.mp3",
+    audio: "/vo/11-post-credits.mp3",
     bg: "/sets/credits-bg.webp",
     uiLayout: "center",
     mediaPosition: "center center",

@@ -1,0 +1,12 @@
+{
+  "type": "EFFECT_RESOLVED",
+  "recordedAt": "2026-04-14T10:58:01.105Z",
+  "data": {
+    "effectId": "01KP5T72SENM04ACNMWP1PMP75",
+    "status": "ok",
+    "resultRef": "tasks/01KP5T72SENM04ACNMWP1PMP75/result.json",
+    "startedAt": "2026-04-14T10:58:00.946Z",
+    "finishedAt": "2026-04-14T10:58:00.946Z"
+  },
+  "checksum": "058a86a6f9cbb1d9c77cefcc4ff12c0cfc583c436931c493f9db70c0e6cf0bc4"
+}

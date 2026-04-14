@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:22:03.109Z",
+  "data": {
+    "effectId": "01KP5HAM0584HS7BYV5KAV78ZD",
+    "invocationKey": "gmn/design-narrative-coherence:S000008:typography-layout-fix",
+    "invocationHash": "6a0ce57ee14589341bc226817cd5158e27d9080773f16f665ffd068e46891d24",
+    "stepId": "S000008",
+    "taskId": "typography-layout-fix",
+    "kind": "skill",
+    "label": "Fix Typography & Layout",
+    "taskDefRef": "tasks/01KP5HAM0584HS7BYV5KAV78ZD/task.json"
+  },
+  "checksum": "ab7c507cc28c15f91dc6c2a6e962a3968f9483bf972d5b96d2d20b229fe12324"
+}

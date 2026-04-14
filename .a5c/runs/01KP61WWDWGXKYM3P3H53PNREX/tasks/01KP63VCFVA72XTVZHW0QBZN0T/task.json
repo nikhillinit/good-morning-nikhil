@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP63VCFVA72XTVZHW0QBZN0T",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "visual-polish-immersion:S000010:__sdk.breakpoint",
+  "stepId": "S000010",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "options": [
+        {
+          "label": "Apply fix if code-based",
+          "value": "apply"
+        },
+        {
+          "label": "Add to asset specs for manual fix",
+          "value": "asset"
+        },
+        {
+          "label": "Skip for now",
+          "value": "skip"
+        }
+      ],
+      "question": "Character positioning analysis: Issue type is \"asset\". The bachelor-roses screen renders bachelor-mansion.webp as a single flattened background. Steve and roses are baked into one composite - no separate PNG layers exist. ScreenPlayer only supports: (1) single bg image, (2) optional video, (3) ambient particle effects. To achieve Steve behind roses, need separate assets and code changes for foreground overlay support.. How would you like to proceed?",
+      "title": "Character Art Fix"
+    },
+    "requestedAt": "2026-04-14T13:45:46.745Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "options": [
+        {
+          "label": "Apply fix if code-based",
+          "value": "apply"
+        },
+        {
+          "label": "Add to asset specs for manual fix",
+          "value": "asset"
+        },
+        {
+          "label": "Skip for now",
+          "value": "skip"
+        }
+      ],
+      "question": "Character positioning analysis: Issue type is \"asset\". The bachelor-roses screen renders bachelor-mansion.webp as a single flattened background. Steve and roses are baked into one composite - no separate PNG layers exist. ScreenPlayer only supports: (1) single bg image, (2) optional video, (3) ambient particle effects. To achieve Steve behind roses, need separate assets and code changes for foreground overlay support.. How would you like to proceed?",
+      "title": "Character Art Fix"
+    },
+    "requestedAt": "2026-04-14T13:45:46.745Z"
+  }
+}

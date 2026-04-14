@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5T57DQDGDYZA9GD49628DJ",
+  "taskId": "component-refactor",
+  "invocationKey": "design-system-enforcement:S000003:component-refactor",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "changes": [
+      "text-yellow-400 → text-speaker-steve (line 26)",
+      "text-blue-400 → text-speaker-jeff (line 27)"
+    ]
+  },
+  "startedAt": "2026-04-14T10:56:57.192Z",
+  "finishedAt": "2026-04-14T10:56:57.192Z",
+  "value": {
+    "artifacts": [],
+    "changes": [
+      "text-yellow-400 → text-speaker-steve (line 26)",
+      "text-blue-400 → text-speaker-jeff (line 27)"
+    ]
+  }
+}

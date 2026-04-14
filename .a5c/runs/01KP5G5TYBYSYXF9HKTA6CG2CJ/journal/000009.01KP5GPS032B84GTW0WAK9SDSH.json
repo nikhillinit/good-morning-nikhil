@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:11:12.772Z",
+  "data": {
+    "effectId": "01KP5GPRXAA2FRYZDZW602CNXZ",
+    "invocationKey": "gmn/design-narrative-coherence:S000004:design-token-extraction",
+    "invocationHash": "e55fdbc73548d9d47165bbe0069d5919b3b95b28df333df23d95a8b521b80d73",
+    "stepId": "S000004",
+    "taskId": "design-token-extraction",
+    "kind": "agent",
+    "label": "Extract Design Tokens",
+    "taskDefRef": "tasks/01KP5GPRXAA2FRYZDZW602CNXZ/task.json"
+  },
+  "checksum": "8c62935aa06ab197397b141852b33fee71f23db10637b56e3dd8335700ac4165"
+}

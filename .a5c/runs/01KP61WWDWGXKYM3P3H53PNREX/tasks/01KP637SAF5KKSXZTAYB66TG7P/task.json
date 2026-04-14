@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP637SAF5KKSXZTAYB66TG7P",
+  "taskId": "art-direction",
+  "invocationKey": "visual-polish-immersion:S000006:art-direction",
+  "stepId": "S000006",
+  "kind": "agent",
+  "title": "Establish Art Direction & Style Guide",
+  "io": {
+    "inputJsonPath": "tasks/01KP637SAF5KKSXZTAYB66TG7P/input.json",
+    "outputJsonPath": "tasks/01KP637SAF5KKSXZTAYB66TG7P/output.json"
+  },
+  "inputs": {
+    "artStyle": "painterly-cinematic"
+  }
+}

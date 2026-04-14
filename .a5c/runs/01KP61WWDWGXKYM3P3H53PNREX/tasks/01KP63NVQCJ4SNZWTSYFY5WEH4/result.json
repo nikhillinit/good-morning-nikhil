@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP63NVQCJ4SNZWTSYFY5WEH4",
+  "taskId": "fix-character-positioning",
+  "invocationKey": "visual-polish-immersion:S000009:fix-character-positioning",
+  "status": "ok",
+  "result": {
+    "assetNote": "Need 3 new assets: (1) bachelor-mansion-bg.webp - mansion without Steve/roses, (2) steve-character.png - transparent PNG, (3) rose-overlay.png - foreground roses. Plus code changes to ScreenPlayer for foreground overlay support.",
+    "changes": [],
+    "fixDescription": "The bachelor-roses screen renders bachelor-mansion.webp as a single flattened background. Steve and roses are baked into one composite - no separate PNG layers exist. ScreenPlayer only supports: (1) single bg image, (2) optional video, (3) ambient particle effects. To achieve Steve behind roses, need separate assets and code changes for foreground overlay support.",
+    "issueType": "asset",
+    "layerStructure": [
+      {
+        "layer": "background",
+        "notes": "bachelor-mansion.webp (currently has Steve + roses baked in)",
+        "zIndex": 0
+      },
+      {
+        "layer": "video-bg",
+        "notes": "VideoBackground component - not used on this screen",
+        "zIndex": 1
+      },
+      {
+        "layer": "ambient-effects",
+        "notes": "CandleFlicker via getAmbientLayer()",
+        "zIndex": 2
+      },
+      {
+        "layer": "spotlight-gradient",
+        "notes": "Vignette overlay",
+        "zIndex": 3
+      },
+      {
+        "layer": "bottom-gradient",
+        "notes": "Black gradient at bottom",
+        "zIndex": 4
+      },
+      {
+        "layer": "main-content",
+        "notes": "UI elements (cards, inputs)",
+        "zIndex": 10
+      }
+    ]
+  },
+  "startedAt": "2026-04-14T13:45:12.918Z",
+  "finishedAt": "2026-04-14T13:45:12.918Z",
+  "value": {
+    "assetNote": "Need 3 new assets: (1) bachelor-mansion-bg.webp - mansion without Steve/roses, (2) steve-character.png - transparent PNG, (3) rose-overlay.png - foreground roses. Plus code changes to ScreenPlayer for foreground overlay support.",
+    "changes": [],
+    "fixDescription": "The bachelor-roses screen renders bachelor-mansion.webp as a single flattened background. Steve and roses are baked into one composite - no separate PNG layers exist. ScreenPlayer only supports: (1) single bg image, (2) optional video, (3) ambient particle effects. To achieve Steve behind roses, need separate assets and code changes for foreground overlay support.",
+    "issueType": "asset",
+    "layerStructure": [
+      {
+        "layer": "background",
+        "notes": "bachelor-mansion.webp (currently has Steve + roses baked in)",
+        "zIndex": 0
+      },
+      {
+        "layer": "video-bg",
+        "notes": "VideoBackground component - not used on this screen",
+        "zIndex": 1
+      },
+      {
+        "layer": "ambient-effects",
+        "notes": "CandleFlicker via getAmbientLayer()",
+        "zIndex": 2
+      },
+      {
+        "layer": "spotlight-gradient",
+        "notes": "Vignette overlay",
+        "zIndex": 3
+      },
+      {
+        "layer": "bottom-gradient",
+        "notes": "Black gradient at bottom",
+        "zIndex": 4
+      },
+      {
+        "layer": "main-content",
+        "notes": "UI elements (cards, inputs)",
+        "zIndex": 10
+      }
+    ]
+  }
+}

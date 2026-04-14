@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:26:16.412Z",
+  "data": {
+    "effectId": "01KP5HJBCM6HW8NQ4ABFCAV0SJ",
+    "invocationKey": "gmn/design-narrative-coherence:S000010:audio-vo-pacing-fix",
+    "invocationHash": "c4d25d98e951a4f3d688895127e73a57f6c40ef2363550045f0cafc38702e23b",
+    "stepId": "S000010",
+    "taskId": "audio-vo-pacing-fix",
+    "kind": "skill",
+    "label": "Fix Audio/VO Pacing",
+    "taskDefRef": "tasks/01KP5HJBCM6HW8NQ4ABFCAV0SJ/task.json"
+  },
+  "checksum": "e3ca0611cd523828fd61b734265da03147fa0383e22df28086bb6f524fefac86"
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP63CCWG8BYSYGDPH9BK6811",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "visual-polish-immersion:S000007:__sdk.breakpoint",
+  "stepId": "S000007",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "options": [
+        {
+          "label": "Approve and continue",
+          "value": "continue"
+        },
+        {
+          "label": "Revise style direction",
+          "value": "revise"
+        }
+      ],
+      "question": "Art direction established: painterly-cinematic. Style guide written to .a5c/processes/assets/style-guide.md. Review before generating asset specs?",
+      "title": "Art Direction Complete"
+    },
+    "requestedAt": "2026-04-14T13:37:35.631Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "options": [
+        {
+          "label": "Approve and continue",
+          "value": "continue"
+        },
+        {
+          "label": "Revise style direction",
+          "value": "revise"
+        }
+      ],
+      "question": "Art direction established: painterly-cinematic. Style guide written to .a5c/processes/assets/style-guide.md. Review before generating asset specs?",
+      "title": "Art Direction Complete"
+    },
+    "requestedAt": "2026-04-14T13:37:35.631Z"
+  }
+}

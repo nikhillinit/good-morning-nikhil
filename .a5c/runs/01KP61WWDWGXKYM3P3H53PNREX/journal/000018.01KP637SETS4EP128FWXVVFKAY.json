@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T13:35:04.666Z",
+  "data": {
+    "effectId": "01KP637SAF5KKSXZTAYB66TG7P",
+    "invocationKey": "visual-polish-immersion:S000006:art-direction",
+    "invocationHash": "a0a02ff9401740e9bcd4c6d1dd3dc7f7bb15e5eb7999b3cac2f14429c34718f4",
+    "stepId": "S000006",
+    "taskId": "art-direction",
+    "kind": "agent",
+    "label": "Establish Art Direction & Style Guide",
+    "taskDefRef": "tasks/01KP637SAF5KKSXZTAYB66TG7P/task.json"
+  },
+  "checksum": "4daffbee19657f84665754b85d754c152f24b80891af3051fb8bb79189c3e665"
+}

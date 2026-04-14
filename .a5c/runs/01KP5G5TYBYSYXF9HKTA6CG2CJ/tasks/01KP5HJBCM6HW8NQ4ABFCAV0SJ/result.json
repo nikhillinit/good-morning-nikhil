@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5HJBCM6HW8NQ4ABFCAV0SJ",
+  "taskId": "audio-vo-pacing-fix",
+  "invocationKey": "gmn/design-narrative-coherence:S000010:audio-vo-pacing-fix",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "audioGapsRequiringGeneration": [
+      {
+        "issue": "No audio (empty string) breaks TV conceit immersion",
+        "priority": "high",
+        "recommendation": "Generate Steve VO delivering instructions in character",
+        "screen": "intro-instructions"
+      },
+      {
+        "issue": "VO only 2.2s, no acknowledgment of invest/pass choice",
+        "priority": "high",
+        "recommendation": "Add Steve reaction audio based on user's choice",
+        "screen": "shark-reason"
+      },
+      {
+        "issue": "Reuses credits audio instead of dedicated stinger",
+        "priority": "medium",
+        "recommendation": "Generate unique stinger VO",
+        "screen": "post-credits"
+      }
+    ],
+    "changes": [
+      {
+        "description": "Added comprehensive timing rationale documentation block explaining uiRevealAt scale (0-1s instant, 1-2s quick, 2.5-3.5s standard, 4-5s dramatic, 5-6s peak), fatigue danger zones, and engagement peaks",
+        "file": "src/data/screens.ts",
+        "linesChanged": 20
+      }
+    ],
+    "structuralRecommendations": [
+      {
+        "impact": "Would reduce screen count by 1, strengthen pacing",
+        "recommendation": "Consider merging into commercial-break to reduce fatigue valley",
+        "screen": "commercial-why"
+      }
+    ],
+    "success": true,
+    "timingAnalysis": {
+      "dramaticReveal": {
+        "range": "4-5s",
+        "rationale": "Longer VO builds tension or emotion",
+        "screens": [
+          "gmn-feud-kickoff",
+          "feud-trademark",
+          "bachelor-roses",
+          "bachelor-limo",
+          "survivor",
+          "post-credits"
+        ]
+      },
+      "instantReveal": {
+        "range": "0-1s",
+        "rationale": "Pure UI screens with no audio setup",
+        "screens": [
+          "intro-instructions"
+        ]
+      },
+      "peakReveal": {
+        "range": "5-6s",
+        "rationale": "Maximum emotional weight needs full delivery",
+        "screens": [
+          "commercial-break",
+          "shark-invest",
+          "maury"
+        ]
+      },
+      "quickReveal": {
+        "range": "1-2s",
+        "rationale": "Short follow-up after binary choice",
+        "screens": [
+          "shark-reason"
+        ]
+      },
+      "standardReveal": {
+        "range": "2.5-3.5s",
+        "rationale": "VO establishes context before prompt",
+        "screens": [
+          "feud-top3",
+          "feud-strongest",
+          "producer-notes",
+          "bachelor-eliminate"
+        ]
+      }
+    }
+  },
+  "startedAt": "2026-04-14T08:27:21.683Z",
+  "finishedAt": "2026-04-14T08:27:21.683Z",
+  "value": {
+    "artifacts": [],
+    "audioGapsRequiringGeneration": [
+      {
+        "issue": "No audio (empty string) breaks TV conceit immersion",
+        "priority": "high",
+        "recommendation": "Generate Steve VO delivering instructions in character",
+        "screen": "intro-instructions"
+      },
+      {
+        "issue": "VO only 2.2s, no acknowledgment of invest/pass choice",
+        "priority": "high",
+        "recommendation": "Add Steve reaction audio based on user's choice",
+        "screen": "shark-reason"
+      },
+      {
+        "issue": "Reuses credits audio instead of dedicated stinger",
+        "priority": "medium",
+        "recommendation": "Generate unique stinger VO",
+        "screen": "post-credits"
+      }
+    ],
+    "changes": [
+      {
+        "description": "Added comprehensive timing rationale documentation block explaining uiRevealAt scale (0-1s instant, 1-2s quick, 2.5-3.5s standard, 4-5s dramatic, 5-6s peak), fatigue danger zones, and engagement peaks",
+        "file": "src/data/screens.ts",
+        "linesChanged": 20
+      }
+    ],
+    "structuralRecommendations": [
+      {
+        "impact": "Would reduce screen count by 1, strengthen pacing",
+        "recommendation": "Consider merging into commercial-break to reduce fatigue valley",
+        "screen": "commercial-why"
+      }
+    ],
+    "success": true,
+    "timingAnalysis": {
+      "dramaticReveal": {
+        "range": "4-5s",
+        "rationale": "Longer VO builds tension or emotion",
+        "screens": [
+          "gmn-feud-kickoff",
+          "feud-trademark",
+          "bachelor-roses",
+          "bachelor-limo",
+          "survivor",
+          "post-credits"
+        ]
+      },
+      "instantReveal": {
+        "range": "0-1s",
+        "rationale": "Pure UI screens with no audio setup",
+        "screens": [
+          "intro-instructions"
+        ]
+      },
+      "peakReveal": {
+        "range": "5-6s",
+        "rationale": "Maximum emotional weight needs full delivery",
+        "screens": [
+          "commercial-break",
+          "shark-invest",
+          "maury"
+        ]
+      },
+      "quickReveal": {
+        "range": "1-2s",
+        "rationale": "Short follow-up after binary choice",
+        "screens": [
+          "shark-reason"
+        ]
+      },
+      "standardReveal": {
+        "range": "2.5-3.5s",
+        "rationale": "VO establishes context before prompt",
+        "screens": [
+          "feud-top3",
+          "feud-strongest",
+          "producer-notes",
+          "bachelor-eliminate"
+        ]
+      }
+    }
+  }
+}

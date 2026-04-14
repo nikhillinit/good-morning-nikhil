@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:02:26.395Z",
+  "data": {
+    "effectId": "01KP5G6PVPPB38BEJCCZJF8F2W",
+    "invocationKey": "gmn/design-narrative-coherence:S000001:design-system-audit",
+    "invocationHash": "a3057689cd183a8c530eb4f595f1d86a993bae531ce526acbd9b6fcb3e5de6aa",
+    "stepId": "S000001",
+    "taskId": "design-system-audit",
+    "kind": "agent",
+    "label": "Audit Design System",
+    "taskDefRef": "tasks/01KP5G6PVPPB38BEJCCZJF8F2W/task.json"
+  },
+  "checksum": "03bd0c174d94b03708fbecb070d3ae0ef1e453cdd159be1755af1fd3cf8b6dd9"
+}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5HF41FWG1G8ZG33YDV0W7N",
+  "taskId": "segment-identity-fix",
+  "invocationKey": "gmn/design-narrative-coherence:S000009:segment-identity-fix",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "benefitsAchieved": [
+      "Segment colors now centralized in CSS variables (globals.css)",
+      "Single source of truth for segment identity colors",
+      "Easy to adjust segment colors without code changes",
+      "Maintainable mapping structure for future segments"
+    ],
+    "changes": [
+      {
+        "description": "Replaced hardcoded segment spotlight colors with CSS variable references (var(--segment-*)); added SEGMENT_SPOTLIGHTS config map and getSegmentKey helper for cleaner segment-to-color mapping",
+        "file": "src/components/ScreenPlayer.tsx",
+        "linesChanged": 30
+      }
+    ],
+    "failureAnalysis": "Pre-existing backgroundPosition test failure unrelated to segment identity changes",
+    "segmentMappings": {
+      "bachelor-*": "var(--segment-bachelor) - rose, bottom spotlight",
+      "credits": "var(--segment-gmn) - yellow, center spotlight",
+      "feud-*": "var(--segment-feud) - blue, center spotlight",
+      "gmn/producer": "var(--segment-gmn) - yellow, top spotlight",
+      "intro-tv": "var(--segment-intro) - green, center spotlight",
+      "maury": "var(--segment-maury) - purple, center spotlight",
+      "shark-*": "var(--segment-shark) - cyan, center spotlight",
+      "survivor": "var(--segment-survivor) - amber, top spotlight with alpha boost"
+    },
+    "success": true,
+    "testsFailing": 1,
+    "testsPassing": 5,
+    "testsRun": 6
+  },
+  "startedAt": "2026-04-14T08:25:45.997Z",
+  "finishedAt": "2026-04-14T08:25:45.997Z",
+  "value": {
+    "artifacts": [],
+    "benefitsAchieved": [
+      "Segment colors now centralized in CSS variables (globals.css)",
+      "Single source of truth for segment identity colors",
+      "Easy to adjust segment colors without code changes",
+      "Maintainable mapping structure for future segments"
+    ],
+    "changes": [
+      {
+        "description": "Replaced hardcoded segment spotlight colors with CSS variable references (var(--segment-*)); added SEGMENT_SPOTLIGHTS config map and getSegmentKey helper for cleaner segment-to-color mapping",
+        "file": "src/components/ScreenPlayer.tsx",
+        "linesChanged": 30
+      }
+    ],
+    "failureAnalysis": "Pre-existing backgroundPosition test failure unrelated to segment identity changes",
+    "segmentMappings": {
+      "bachelor-*": "var(--segment-bachelor) - rose, bottom spotlight",
+      "credits": "var(--segment-gmn) - yellow, center spotlight",
+      "feud-*": "var(--segment-feud) - blue, center spotlight",
+      "gmn/producer": "var(--segment-gmn) - yellow, top spotlight",
+      "intro-tv": "var(--segment-intro) - green, center spotlight",
+      "maury": "var(--segment-maury) - purple, center spotlight",
+      "shark-*": "var(--segment-shark) - cyan, center spotlight",
+      "survivor": "var(--segment-survivor) - amber, top spotlight with alpha boost"
+    },
+    "success": true,
+    "testsFailing": 1,
+    "testsPassing": 5,
+    "testsRun": 6
+  }
+}

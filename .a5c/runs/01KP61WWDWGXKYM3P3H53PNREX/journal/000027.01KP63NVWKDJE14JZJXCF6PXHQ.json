@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T13:42:45.908Z",
+  "data": {
+    "effectId": "01KP63NVQCJ4SNZWTSYFY5WEH4",
+    "invocationKey": "visual-polish-immersion:S000009:fix-character-positioning",
+    "invocationHash": "6e40544a62b9caf153af86a73c03e32cc2ab17ee165a1409c04378de84ee96b4",
+    "stepId": "S000009",
+    "taskId": "fix-character-positioning",
+    "kind": "agent",
+    "label": "Fix Steve Character Positioning",
+    "taskDefRef": "tasks/01KP63NVQCJ4SNZWTSYFY5WEH4/task.json"
+  },
+  "checksum": "8654ef8ddb21d89c050b66c90fc41fb2907ac57d95b6533e738958ba893f296d"
+}

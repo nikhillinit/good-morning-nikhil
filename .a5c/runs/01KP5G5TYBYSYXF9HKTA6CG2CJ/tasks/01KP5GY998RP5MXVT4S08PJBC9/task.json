@@ -1,0 +1,659 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5GY998RP5MXVT4S08PJBC9",
+  "taskId": "inconsistency-resolution",
+  "invocationKey": "gmn/design-narrative-coherence:S000005:inconsistency-resolution",
+  "stepId": "S000005",
+  "kind": "agent",
+  "title": "Plan Inconsistency Resolutions",
+  "io": {
+    "inputJsonPath": "tasks/01KP5GY998RP5MXVT4S08PJBC9/input.json",
+    "outputJsonPath": "tasks/01KP5GY998RP5MXVT4S08PJBC9/result.json"
+  },
+  "inputs": {
+    "designAudit": {
+      "artifacts": [],
+      "findings": {
+        "animations": {
+          "easings": [
+            "EASE_OUT [0.16, 1, 0.3, 1]",
+            "EASE_BREATHE [0.45, 0.05, 0.55, 0.95]",
+            "EASE_ORGANIC [0.37, 0.0, 0.63, 1.0]"
+          ],
+          "library": "Framer Motion"
+        },
+        "colors": {
+          "primary": "#eab308 (yellow-500)",
+          "segmentSpotlights": {
+            "bachelor": "rgba(225, 29, 72, 0.2)",
+            "feud": "rgba(59, 130, 246, 0.15)",
+            "intro-tv": "rgba(34, 197, 94, 0.2)",
+            "maury": "rgba(168, 85, 247, 0.15)",
+            "shark": "rgba(6, 182, 212, 0.15)",
+            "survivor": "rgba(217, 119, 6, 0.2)"
+          }
+        },
+        "designTokens": {
+          "defined": [
+            "--accent (#eab308)",
+            "--accent-hover (#facc15)",
+            "--surface (#18181b)",
+            "--surface-hover (rgba(255,255,255,0.1))",
+            "--muted (#a1a1aa)",
+            "--error (#f87171)",
+            "--card (rgba(8,8,10,0.82))",
+            "--screen-card (rgba(8,8,10,0.45))",
+            "--card-border (rgba(255,255,255,0.12))",
+            "--prompt (#f4f4f5)",
+            "--input-border (rgba(255,255,255,0.14))",
+            "--nav-control (rgba(10,10,10,0.72))",
+            "--record (#ef4444)",
+            "--record-pulse (rgba(239,68,68,0.3))"
+          ],
+          "gaps": [
+            "No segment-specific color tokens (Feud blue, Bachelor rose, Shark cyan, etc.)",
+            "No typography scale tokens",
+            "No spacing scale tokens",
+            "No transition duration tokens"
+          ],
+          "usage": "Partial adoption - CSS variables defined but many components use hardcoded Tailwind colors instead"
+        },
+        "typography": {
+          "fonts": [
+            "Geist Sans (body)",
+            "Display font with Impact fallback (headlines)"
+          ],
+          "scale": {
+            "buttons": "text-2xl (primary), text-sm (secondary)",
+            "captions": "text-lg md:text-2xl (hero: text-xl md:text-3xl)",
+            "labels": "text-sm, text-xs",
+            "prompts": "text-base sm:text-lg"
+          }
+        }
+      },
+      "inconsistencies": [
+        {
+          "area": "colors",
+          "description": "Error text uses both text-red-400 and text-red-500",
+          "files": [
+            "src/components/ui-inputs/index.tsx"
+          ],
+          "severity": "low"
+        },
+        {
+          "area": "colors",
+          "description": "Segment spotlight colors hardcoded instead of using design tokens",
+          "files": [
+            "src/components/ScreenPlayer.tsx"
+          ],
+          "severity": "medium"
+        },
+        {
+          "area": "spacing",
+          "description": "Inconsistent gap values: space-y-3, space-y-4, gap-2, gap-3, gap-4",
+          "files": [
+            "src/components/ui-inputs/index.tsx"
+          ],
+          "severity": "low"
+        },
+        {
+          "area": "typography",
+          "description": "Input placeholder colors vary: placeholder-zinc-400, placeholder-zinc-600",
+          "files": [
+            "src/components/ui-inputs/index.tsx"
+          ],
+          "severity": "low"
+        },
+        {
+          "area": "borders",
+          "description": "Border radius inconsistent: rounded-lg, rounded-xl, rounded-2xl for similar elements",
+          "files": [
+            "src/components/ui-inputs/index.tsx"
+          ],
+          "severity": "medium"
+        },
+        {
+          "area": "segment-identity",
+          "description": "Show segments lack distinct UI theming - all use same yellow accent",
+          "files": [
+            "src/components/ui-inputs/index.tsx",
+            "src/components/QuestionPrompt.tsx"
+          ],
+          "severity": "high"
+        },
+        {
+          "area": "animations",
+          "description": "RelationshipPicker uses inline transitions instead of shared presets",
+          "files": [
+            "src/components/ui-inputs/index.tsx"
+          ],
+          "severity": "low"
+        },
+        {
+          "area": "transitions",
+          "description": "Transition durations vary: 0.3s, 0.35s, 0.4s, 0.5s without clear scale",
+          "files": [
+            "src/lib/animations.ts"
+          ],
+          "severity": "low"
+        },
+        {
+          "area": "audio-vo-pacing",
+          "description": "uiRevealAt timing varies widely (0s to 6s) without documented rationale",
+          "files": [
+            "src/data/screens.ts"
+          ],
+          "severity": "medium"
+        },
+        {
+          "area": "visual-transitions",
+          "description": "TelevisionFrame zoom (1.2s) differs from screen transitions (0.3s)",
+          "files": [
+            "src/components/ambient/TelevisionFrame.tsx"
+          ],
+          "severity": "medium"
+        },
+        {
+          "area": "colors",
+          "description": "QuestionPrompt uses border-amber-500 instead of --accent token",
+          "files": [
+            "src/components/QuestionPrompt.tsx"
+          ],
+          "severity": "low"
+        },
+        {
+          "area": "buttons",
+          "description": "Primary button styles defined inline in multiple components",
+          "files": [
+            "src/components/ui-inputs/index.tsx",
+            "src/components/MediaGate.tsx"
+          ],
+          "severity": "medium"
+        }
+      ],
+      "recommendations": [
+        "Create segment-specific color tokens (--feud-accent, --bachelor-accent, etc.)",
+        "Extract shared button components to reduce duplication",
+        "Standardize border-radius scale",
+        "Create spacing tokens",
+        "Standardize transition durations: 0.2s (micro), 0.3s (standard), 0.5s (dramatic)",
+        "Document uiRevealAt timing rationale",
+        "Implement segment-aware theming based on show context"
+      ],
+      "success": true
+    },
+    "designTokens": {
+      "artifacts": [],
+      "cssAdditions": ":root {\n  --segment-intro: rgba(34, 197, 94, 0.2);\n  --segment-gmn: rgba(234, 179, 8, 0.15);\n  --segment-feud: rgba(59, 130, 246, 0.15);\n  --segment-bachelor: rgba(225, 29, 72, 0.2);\n  --segment-shark: rgba(6, 182, 212, 0.15);\n  --segment-maury: rgba(168, 85, 247, 0.15);\n  --segment-survivor: rgba(217, 119, 6, 0.2);\n  --space-1: 0.25rem;\n  --space-2: 0.5rem;\n  --space-3: 0.75rem;\n  --space-4: 1rem;\n  --space-5: 1.25rem;\n  --space-6: 1.5rem;\n  --space-8: 2rem;\n  --radius-md: 0.5rem;\n  --radius-lg: 1rem;\n  --radius-xl: 1.5rem;\n  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);\n  --ease-breathe: cubic-bezier(0.45, 0.05, 0.55, 0.95);\n  --duration-micro: 50ms;\n  --duration-fast: 100ms;\n  --duration-standard: 200ms;\n  --duration-ui: 350ms;\n  --duration-screen: 300ms;\n  --duration-dramatic: 500ms;\n}",
+      "gaps": [
+        "Segment spotlight colors hardcoded in ScreenPlayer.tsx",
+        "No typography scale tokens",
+        "No spacing scale tokens",
+        "Animation durations not exposed as CSS variables",
+        "Easing functions not available as CSS variables",
+        "Television frame colors hardcoded",
+        "No semantic shadow tokens"
+      ],
+      "normalized": {
+        "animations": {
+          "--duration-dramatic": "500ms",
+          "--duration-fast": "100ms",
+          "--duration-micro": "50ms",
+          "--duration-screen": "300ms",
+          "--duration-standard": "200ms",
+          "--duration-ui": "350ms",
+          "--ease-breathe": "cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+          "--ease-organic": "cubic-bezier(0.37, 0, 0.63, 1)",
+          "--ease-out": "cubic-bezier(0.16, 1, 0.3, 1)"
+        },
+        "colors": {
+          "--color-accent": "#eab308",
+          "--color-accent-hover": "#facc15",
+          "--color-card": "rgba(8, 8, 10, 0.82)",
+          "--color-error": "#f87171",
+          "--color-muted": "#a1a1aa",
+          "--color-prompt": "#f4f4f5",
+          "--color-surface": "#18181b"
+        },
+        "radius": {
+          "--radius-2xl": "1.8rem",
+          "--radius-lg": "1rem",
+          "--radius-md": "0.5rem",
+          "--radius-xl": "1.5rem"
+        },
+        "segments": {
+          "--segment-bachelor": "rgba(225, 29, 72, 0.2)",
+          "--segment-feud": "rgba(59, 130, 246, 0.15)",
+          "--segment-gmn": "rgba(234, 179, 8, 0.15)",
+          "--segment-intro": "rgba(34, 197, 94, 0.2)",
+          "--segment-maury": "rgba(168, 85, 247, 0.15)",
+          "--segment-shark": "rgba(6, 182, 212, 0.15)",
+          "--segment-survivor": "rgba(217, 119, 6, 0.2)"
+        },
+        "spacing": {
+          "--space-1": "0.25rem",
+          "--space-2": "0.5rem",
+          "--space-3": "0.75rem",
+          "--space-4": "1rem",
+          "--space-5": "1.25rem",
+          "--space-6": "1.5rem",
+          "--space-8": "2rem"
+        }
+      },
+      "success": true,
+      "tokens": {
+        "animations": {
+          "EASE_BREATHE": "[0.45, 0.05, 0.55, 0.95]",
+          "EASE_ORGANIC": "[0.37, 0.0, 0.63, 1.0]",
+          "EASE_OUT": "[0.16, 1, 0.3, 1]"
+        },
+        "colors": {
+          "--accent": "#eab308",
+          "--accent-hover": "#facc15",
+          "--card": "rgba(8, 8, 10, 0.82)",
+          "--card-border": "rgba(255, 255, 255, 0.12)",
+          "--error": "#f87171",
+          "--muted": "#a1a1aa",
+          "--prompt": "#f4f4f5",
+          "--record": "#ef4444",
+          "--screen-card": "rgba(8, 8, 10, 0.45)",
+          "--surface": "#18181b"
+        },
+        "segments": {
+          "bachelor": "rgba(225, 29, 72, 0.2)",
+          "feud": "rgba(59, 130, 246, 0.15)",
+          "gmn": "rgba(234, 179, 8, 0.15)",
+          "intro-tv": "rgba(34, 197, 94, 0.2)",
+          "maury": "rgba(168, 85, 247, 0.15)",
+          "shark": "rgba(6, 182, 212, 0.15)",
+          "survivor": "rgba(217, 119, 6, 0.2)"
+        }
+      }
+    },
+    "emotionalArcMap": {
+      "arcMap": [
+        {
+          "currentBeat": "setup",
+          "intensity": 4,
+          "recommendedBeat": "curiosity",
+          "screenId": "intro-tv",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "setup",
+          "intensity": 2,
+          "notes": "DEAD AIR. No audio breaks immersion.",
+          "recommendedBeat": "anticipation",
+          "screenId": "intro-instructions",
+          "transitionQuality": "jarring"
+        },
+        {
+          "currentBeat": "humor",
+          "intensity": 7,
+          "recommendedBeat": "humor",
+          "screenId": "gmn-feud-kickoff",
+          "transitionQuality": "needs-buffer"
+        },
+        {
+          "currentBeat": "tension",
+          "intensity": 5,
+          "recommendedBeat": "engagement",
+          "screenId": "feud-top3",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "reflection",
+          "intensity": 5,
+          "recommendedBeat": "reflection",
+          "screenId": "feud-strongest",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "humor",
+          "intensity": 4,
+          "recommendedBeat": "playful-recall",
+          "screenId": "feud-trademark",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "humor",
+          "intensity": 4,
+          "recommendedBeat": "absurdist-relief",
+          "screenId": "commercial-break",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "reflection",
+          "intensity": 3,
+          "notes": "FATIGUE RISK. Cut or merge.",
+          "recommendedBeat": "micro-reflection",
+          "screenId": "commercial-why",
+          "transitionQuality": "jarring"
+        },
+        {
+          "currentBeat": "tension",
+          "intensity": 6,
+          "recommendedBeat": "selection-pressure",
+          "screenId": "bachelor-roses",
+          "transitionQuality": "needs-buffer"
+        },
+        {
+          "currentBeat": "tension",
+          "intensity": 6,
+          "recommendedBeat": "confrontation",
+          "screenId": "bachelor-eliminate",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "vulnerability",
+          "intensity": 7,
+          "notes": "EMOTIONAL PEAK",
+          "recommendedBeat": "vulnerability",
+          "screenId": "bachelor-limo",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "tension",
+          "intensity": 8,
+          "notes": "TENSION PEAK",
+          "recommendedBeat": "high-stakes",
+          "screenId": "shark-invest",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "reflection",
+          "intensity": 4,
+          "notes": "ANTICLIMACTIC after invest/pass",
+          "recommendedBeat": "justification",
+          "screenId": "shark-reason",
+          "transitionQuality": "jarring"
+        },
+        {
+          "currentBeat": "vulnerability",
+          "intensity": 8,
+          "notes": "VULNERABILITY PEAK",
+          "recommendedBeat": "confession",
+          "screenId": "survivor",
+          "transitionQuality": "needs-buffer"
+        },
+        {
+          "currentBeat": "catharsis",
+          "intensity": 8,
+          "notes": "CATHARSIS PEAK",
+          "recommendedBeat": "revelation",
+          "screenId": "maury",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "reflection",
+          "intensity": 5,
+          "recommendedBeat": "synthesis",
+          "screenId": "producer-notes",
+          "transitionQuality": "needs-buffer"
+        },
+        {
+          "currentBeat": "catharsis",
+          "intensity": 4,
+          "recommendedBeat": "resolution",
+          "screenId": "credits",
+          "transitionQuality": "smooth"
+        },
+        {
+          "currentBeat": "humor",
+          "intensity": 6,
+          "recommendedBeat": "stinger",
+          "screenId": "post-credits",
+          "transitionQuality": "smooth"
+        }
+      ],
+      "artifacts": [],
+      "fatigueAnalysis": {
+        "dangerZones": [
+          "intro-instructions",
+          "commercial-why",
+          "shark-reason",
+          "survivor"
+        ],
+        "engagementPeaks": [
+          "gmn-feud-kickoff",
+          "bachelor-limo",
+          "shark-invest",
+          "maury",
+          "post-credits"
+        ],
+        "recoveryPoints": [
+          "feud-trademark",
+          "commercial-break",
+          "credits"
+        ]
+      },
+      "recommendations": [
+        {
+          "action": "Add Steve V.O. delivering instructions in character with ambient TV static bed",
+          "priority": "high",
+          "rationale": "Zero-audio breaks TV illusion",
+          "screen": "intro-instructions"
+        },
+        {
+          "action": "Merge into commercial-break. Cut Jeff shadows and dust line.",
+          "priority": "high",
+          "rationale": "Two consecutive text areas create fatigue valley",
+          "screen": "commercial-why"
+        },
+        {
+          "action": "Add Steve reaction audio based on invest/pass choice before follow-up prompt",
+          "priority": "high",
+          "rationale": "Binary choice needs acknowledgment",
+          "screen": "shark-reason"
+        },
+        {
+          "action": "Add 2-second transitional sting with rose ceremony audio cue",
+          "priority": "medium",
+          "rationale": "Show transitions need ceremony",
+          "screen": "bachelor-roses"
+        },
+        {
+          "action": "Add ambient tribal council fire crackle audio bed",
+          "priority": "medium",
+          "rationale": "Atmospheric audio sells confessional intimacy",
+          "screen": "survivor"
+        },
+        {
+          "action": "Replace Jeff 'Fast Money?' with 'Wait, so nobody won?'",
+          "priority": "medium",
+          "rationale": "Third Fast Money reference has diminishing returns",
+          "screen": "producer-notes"
+        },
+        {
+          "action": "Add Steve 'Survey SAYS...' reaction with board sound",
+          "priority": "low",
+          "rationale": "Missing signature Feud moment",
+          "screen": "feud-trademark"
+        },
+        {
+          "action": "Add scrolling credits overlay with silly production credits",
+          "priority": "low",
+          "rationale": "Visual interest to prevent early abandonment",
+          "screen": "credits"
+        }
+      ],
+      "success": true,
+      "summary": "Arc has strong bones but three structural weaknesses: (1) intro-instructions breaks immersion with dead air; (2) commercial-why and shark-reason create fatigue valleys before Survivor/Maury peaks; (3) Jeff confusion gag has diminishing returns by third occurrence. TV conceit strongest during Feud and Maury, weakest during intro-instructions and shark-reason."
+    },
+    "focusAreas": [
+      "visual-transitions",
+      "typography-layout",
+      "segment-identity",
+      "audio-vo-pacing"
+    ],
+    "narrativeAudit": {
+      "artifacts": [],
+      "conceitStrength": {
+        "moderate": [
+          "intro-tv",
+          "feud-strongest",
+          "feud-trademark",
+          "shark-invest",
+          "credits"
+        ],
+        "strong": [
+          "gmn-feud-kickoff",
+          "feud-top3",
+          "bachelor-roses",
+          "bachelor-limo",
+          "survivor",
+          "maury",
+          "post-credits"
+        ],
+        "weak": [
+          "intro-instructions",
+          "commercial-why",
+          "shark-reason"
+        ]
+      },
+      "emotionalFlow": {
+        "alignment": 8,
+        "currentArc": "Setup → Humor (Feud kickoff) → Tension (Feud questions) → Humor/Break (Commercial) → Tension/Vulnerability (Bachelor) → High Tension (Shark Tank) → Peak Vulnerability (Survivor confessional) → Catharsis (Maury revelation) → Reflection (Producer notes) → Resolution (Credits/Stinger)",
+        "targetArc": "tension → humor → reflection"
+      },
+      "pacingIssues": [
+        {
+          "issue": "No VO breaks TV conceit immersion",
+          "recommendation": "Add brief VO or fold instructions into gmn-feud-kickoff",
+          "screenId": "intro-instructions"
+        },
+        {
+          "issue": "Two consecutive commercial screens may feel slow",
+          "recommendation": "Consider collapsing into single screen",
+          "screenId": "commercial-why"
+        },
+        {
+          "issue": "VO only 2.2s, prompt asks for strength AND weakness but single text field",
+          "recommendation": "Split into two fields or clarify single response expected",
+          "screenId": "shark-reason"
+        },
+        {
+          "issue": "Missing VO file 11-stinger.mp3",
+          "recommendation": "Generate stinger VO to complete post-credits",
+          "screenId": "post-credits"
+        }
+      ],
+      "screens": [
+        {
+          "emotionalBeat": "setup",
+          "id": "intro-tv",
+          "show": "Good Morning Nikhil",
+          "strength": 4
+        },
+        {
+          "emotionalBeat": "setup",
+          "id": "intro-instructions",
+          "show": "Good Morning Nikhil",
+          "strength": 2
+        },
+        {
+          "emotionalBeat": "humor",
+          "id": "gmn-feud-kickoff",
+          "show": "Good Morning Nikhil",
+          "strength": 5
+        },
+        {
+          "emotionalBeat": "tension",
+          "id": "feud-top3",
+          "show": "Family Feud",
+          "strength": 4
+        },
+        {
+          "emotionalBeat": "reflection",
+          "id": "feud-strongest",
+          "show": "Family Feud",
+          "strength": 4
+        },
+        {
+          "emotionalBeat": "humor",
+          "id": "feud-trademark",
+          "show": "Family Feud",
+          "strength": 4
+        },
+        {
+          "emotionalBeat": "humor",
+          "id": "commercial-break",
+          "show": "Commercial Break",
+          "strength": 3
+        },
+        {
+          "emotionalBeat": "reflection",
+          "id": "commercial-why",
+          "show": "Commercial Break",
+          "strength": 3
+        },
+        {
+          "emotionalBeat": "tension",
+          "id": "bachelor-roses",
+          "show": "The Bachelor",
+          "strength": 4
+        },
+        {
+          "emotionalBeat": "tension",
+          "id": "bachelor-eliminate",
+          "show": "The Bachelor",
+          "strength": 4
+        },
+        {
+          "emotionalBeat": "vulnerability",
+          "id": "bachelor-limo",
+          "show": "The Bachelor",
+          "strength": 5
+        },
+        {
+          "emotionalBeat": "tension",
+          "id": "shark-invest",
+          "show": "Shark Tank",
+          "strength": 5
+        },
+        {
+          "emotionalBeat": "reflection",
+          "id": "shark-reason",
+          "show": "Shark Tank",
+          "strength": 3
+        },
+        {
+          "emotionalBeat": "vulnerability",
+          "id": "survivor",
+          "show": "Survivor",
+          "strength": 5
+        },
+        {
+          "emotionalBeat": "catharsis",
+          "id": "maury",
+          "show": "Maury",
+          "strength": 5
+        },
+        {
+          "emotionalBeat": "reflection",
+          "id": "producer-notes",
+          "show": "Control Room",
+          "strength": 4
+        },
+        {
+          "emotionalBeat": "catharsis",
+          "id": "credits",
+          "show": "Credits",
+          "strength": 4
+        },
+        {
+          "emotionalBeat": "humor",
+          "id": "post-credits",
+          "show": "Post-Credits",
+          "strength": 4
+        }
+      ],
+      "showOrderAnalysis": {
+        "assessment": "Strong progression. Order is emotionally sound.",
+        "current": "Feud → Bachelor → Shark Tank → Survivor → Maury",
+        "recommendation": "No changes needed"
+      },
+      "success": true
+    }
+  }
+}

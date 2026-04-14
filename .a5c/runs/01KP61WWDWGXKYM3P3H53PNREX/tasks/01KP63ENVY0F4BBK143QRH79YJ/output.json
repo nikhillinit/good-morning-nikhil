@@ -1,0 +1,21 @@
+{
+  "assetSpecs": [
+    {"name": "intro-retro-tv.webp", "type": "background", "description": "Vintage 1980s CRT television in cozy living room"},
+    {"name": "cold-open-glitch.webp", "type": "background", "description": "VHS glitch effect with chromatic aberration"},
+    {"name": "morning-desk.webp", "type": "background", "description": "Network morning show anchor desk"},
+    {"name": "feud-board.webp", "type": "background", "description": "Family Feud survey board with gold trim"},
+    {"name": "sponsor-pedestal.webp", "type": "background", "description": "Premium product photography setup"},
+    {"name": "bachelor-mansion.webp", "type": "background", "description": "Bachelor mansion at twilight with rose gardens"},
+    {"name": "limo-interior.webp", "type": "background", "description": "Stretch limousine interior with champagne"},
+    {"name": "shark-warehouse.webp", "type": "background", "description": "Shark Tank studio from entrepreneur view"},
+    {"name": "tribal-council.webp", "type": "background", "description": "Survivor tribal council with fire pit"},
+    {"name": "maury-studio.webp", "type": "background", "description": "Maury talk show studio"},
+    {"name": "control-room.webp", "type": "background", "description": "TV production control room"},
+    {"name": "credits-bg.webp", "type": "background", "description": "Elegant credits backdrop"},
+    {"name": "commercial-break.mp4", "type": "video", "description": "5-second brand reveal with smoke and spotlight"}
+  ],
+  "specFiles": [
+    ".a5c/processes/assets/illustrated-backgrounds-spec.md",
+    ".a5c/processes/assets/brand-reveal-video-spec.md"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5T72SENM04ACNMWP1PMP75",
+  "taskId": "component-refactor",
+  "invocationKey": "design-system-enforcement:S000004:component-refactor",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "changes": [
+      "from-red-600 → from-progress-start",
+      "to-amber-500 → to-progress-end",
+      "rgba(220,38,38,0.8) → var(--progress-glow)"
+    ]
+  },
+  "startedAt": "2026-04-14T10:58:00.946Z",
+  "finishedAt": "2026-04-14T10:58:00.946Z",
+  "value": {
+    "artifacts": [],
+    "changes": [
+      "from-red-600 → from-progress-start",
+      "to-amber-500 → to-progress-end",
+      "rgba(220,38,38,0.8) → var(--progress-glow)"
+    ]
+  }
+}

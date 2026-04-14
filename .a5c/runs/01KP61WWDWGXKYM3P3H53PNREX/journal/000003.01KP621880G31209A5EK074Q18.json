@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T13:14:01.857Z",
+  "data": {
+    "effectId": "01KP6218554D1RDW71V0MXDQ9B",
+    "invocationKey": "visual-polish-immersion:S000001:analyze-current-state",
+    "invocationHash": "14b0dee413d2d3e4b781ef05877efb40e9db61d12e539c2618b9227a0b437331",
+    "stepId": "S000001",
+    "taskId": "analyze-current-state",
+    "kind": "agent",
+    "label": "Analyze Current Visual State",
+    "taskDefRef": "tasks/01KP6218554D1RDW71V0MXDQ9B/task.json"
+  },
+  "checksum": "6a1784f41c02727444ab5d2638358f9f58331b6b95eb43db9eda468ff732818e"
+}

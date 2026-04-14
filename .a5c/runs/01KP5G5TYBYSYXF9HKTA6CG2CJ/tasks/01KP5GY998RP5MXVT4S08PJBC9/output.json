@@ -1,0 +1,202 @@
+{
+  "success": true,
+  "resolutionPlan": {
+    "phases": [
+      {
+        "id": "phase-1-immersion-critical",
+        "name": "Fix Immersion Breakers",
+        "priority": "critical",
+        "rationale": "Zero-audio screens and weak conceit moments destroy the TV-show illusion. intro-instructions has dead air that makes respondents question if the app is broken. These must be fixed first to maintain emotional engagement.",
+        "tasks": [
+          {
+            "id": "task-1a-intro-instructions-vo",
+            "description": "Add Steve VO to intro-instructions screen to eliminate dead air",
+            "files": ["src/data/screens.ts", "public/vo/00a-intro-instructions.mp3"],
+            "estimatedEffort": "medium",
+            "dependencies": [],
+            "implementation": "1. Generate TTS via ElevenLabs: 'All right player, here's how this works. Seven quick TV segments about Nikhil. Type whatever comes to mind.' 2. Update screens.ts intro-instructions: set audio to '/vo/00a-intro-instructions.mp3', remove duration:0.1 hack, add captions array with the VO text."
+          },
+          {
+            "id": "task-1b-merge-commercial-screens",
+            "description": "Merge commercial-why into commercial-break to eliminate fatigue valley",
+            "files": ["src/data/screens.ts", "public/vo/04a-sponsor.mp3"],
+            "estimatedEffort": "medium",
+            "dependencies": [],
+            "implementation": "1. Extend sponsor VO to include 'And why?' follow-up. 2. Change commercial-break UI from 'short-text' to 'two-text' with labels ['Brand/Vibe/Product', 'Why it fits']. 3. Remove commercial-why screen entirely from screens array. 4. Update test assertions for new screen count."
+          },
+          {
+            "id": "task-1c-shark-reason-reaction",
+            "description": "Add Steve reaction audio to shark-reason based on invest/pass choice",
+            "files": ["src/data/screens.ts", "public/vo/06b-shark-invest.mp3", "public/vo/06c-shark-pass.mp3", "src/components/ScreenPlayer.tsx"],
+            "estimatedEffort": "large",
+            "dependencies": [],
+            "implementation": "1. Generate two TTS clips: 'You're in! Bold move. Now tell me why.' and 'You're out! Smart or scared? Tell me why.' 2. Add conditional audio selection in ScreenPlayer based on previous answer (shark-invest choice stored in survey state). 3. Update screens.ts shark-reason with dynamic audio reference."
+          },
+          {
+            "id": "task-1d-post-credits-stinger",
+            "description": "Verify post-credits stinger VO exists and plays correctly",
+            "files": ["public/vo/11-stinger.mp3", "src/data/screens.ts"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "1. Check if 11-stinger.mp3 exists and has content. 2. If missing, generate TTS for the Jeff/Steve computer gag. 3. Verify captions match audio timing."
+          }
+        ]
+      },
+      {
+        "id": "phase-2-segment-identity",
+        "name": "Establish Segment Visual Identity",
+        "priority": "high",
+        "rationale": "All shows currently use the same yellow accent color. Without visual distinction, the TV-show conceit feels like a gimmick rather than an immersive experience. Segment theming reinforces the narrative arc.",
+        "tasks": [
+          {
+            "id": "task-2a-segment-tokens",
+            "description": "Create CSS custom properties for segment-specific accent colors",
+            "files": ["src/app/globals.css"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "Add to :root: --segment-intro: #22c55e (green), --segment-feud: #3b82f6 (blue), --segment-bachelor: #e11d48 (rose), --segment-shark: #06b6d4 (cyan), --segment-maury: #a855f7 (purple), --segment-survivor: #d97706 (amber), --segment-commercial: #eab308 (yellow), --segment-credits: #71717a (zinc)."
+          },
+          {
+            "id": "task-2b-spotlight-tokens",
+            "description": "Replace hardcoded spotlight colors with token references",
+            "files": ["src/components/ScreenPlayer.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": ["task-2a-segment-tokens"],
+            "implementation": "1. Create getSegmentToken(screenId) utility that returns the token name. 2. Update getSpotlightGradient to use CSS variable references via var(--segment-*). 3. Add segment token as data attribute on section for downstream component use."
+          },
+          {
+            "id": "task-2c-question-prompt-theming",
+            "description": "Update QuestionPrompt border to use segment accent instead of hardcoded amber",
+            "files": ["src/components/QuestionPrompt.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": ["task-2a-segment-tokens"],
+            "implementation": "1. Accept segmentId prop. 2. Map segmentId to --segment-* token. 3. Replace border-amber-500 with dynamic border color using style={{ borderColor: 'var(--segment-feud)' }} pattern or Tailwind arbitrary value."
+          },
+          {
+            "id": "task-2d-ui-inputs-accent",
+            "description": "Pass segment accent to UI input components for themed buttons and focus rings",
+            "files": ["src/components/ui-inputs/index.tsx", "src/components/primitives.tsx"],
+            "estimatedEffort": "medium",
+            "dependencies": ["task-2a-segment-tokens"],
+            "implementation": "1. Add accent?: string prop to UIInputProps. 2. Thread accent through to PrimaryButton and focus states. 3. For MVP, pass accent via CSS variable on wrapper div: style={{ '--ui-accent': 'var(--segment-feud)' }}."
+          }
+        ]
+      },
+      {
+        "id": "phase-3-animation-harmonization",
+        "name": "Harmonize Animation Timing",
+        "priority": "medium",
+        "rationale": "Inconsistent durations (0.3s, 0.35s, 0.4s, 0.5s) create subtle jarring moments. A defined scale makes motion feel intentional and polished.",
+        "tasks": [
+          {
+            "id": "task-3a-duration-scale",
+            "description": "Define canonical duration scale in animations.ts",
+            "files": ["src/lib/animations.ts"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "Add exported constants: DURATION_MICRO = 0.15, DURATION_FAST = 0.25, DURATION_STANDARD = 0.35, DURATION_SLOW = 0.5, DURATION_DRAMATIC = 0.8. Document scale in comment block."
+          },
+          {
+            "id": "task-3b-television-frame-timing",
+            "description": "Align TelevisionFrame zoom duration with screen transitions",
+            "files": ["src/components/ambient/TelevisionFrame.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": ["task-3a-duration-scale"],
+            "implementation": "1. Import DURATION_DRAMATIC from animations.ts. 2. Replace hardcoded 1.2s with DURATION_DRAMATIC (0.8s) for tighter feel, or document why 1.2s is intentional deviation."
+          },
+          {
+            "id": "task-3c-relationship-picker-animations",
+            "description": "Replace inline transitions with shared presets in RelationshipPicker",
+            "files": ["src/components/ui-inputs/index.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": ["task-3a-duration-scale"],
+            "implementation": "1. Import interactiveScale and duration constants. 2. Replace transition-all duration-300 with Framer Motion variants using interactiveScale. 3. Use DURATION_STANDARD for transition prop."
+          },
+          {
+            "id": "task-3d-ui-reveal-timing-audit",
+            "description": "Document uiRevealAt timing rationale for each screen",
+            "files": ["src/data/screens.ts"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "Add inline comments explaining timing: 0s = no audio, 1-2s = short intro, 3-4s = standard, 5-6s = dramatic buildup. Group screens by timing pattern to verify consistency."
+          }
+        ]
+      },
+      {
+        "id": "phase-4-token-consistency",
+        "name": "Consolidate Design Tokens",
+        "priority": "medium",
+        "rationale": "Scattered inline styles for buttons, spacing, and colors make the codebase harder to maintain and create subtle visual inconsistencies.",
+        "tasks": [
+          {
+            "id": "task-4a-spacing-scale",
+            "description": "Define spacing scale and replace ad-hoc gap values",
+            "files": ["src/app/globals.css", "src/components/ui-inputs/index.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "1. Document spacing scale: space-2 (8px), space-3 (12px), space-4 (16px), space-6 (24px). 2. Audit space-y-3, space-y-4, gap-2, gap-3, gap-4 usage. 3. Standardize on space-4 for form groups, space-3 for tight groups."
+          },
+          {
+            "id": "task-4b-border-radius-audit",
+            "description": "Standardize border radius usage",
+            "files": ["src/components/ui-inputs/index.tsx", "src/components/QuestionPrompt.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "Define scale: rounded-md (buttons, inputs), rounded-lg (cards, panels), rounded-xl (modals, overlays), rounded-full (pills, chips). Replace inconsistent rounded-2xl with rounded-xl."
+          },
+          {
+            "id": "task-4c-error-text-consolidation",
+            "description": "Standardize error text color to single token",
+            "files": ["src/components/ui-inputs/index.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "1. Use text-error token (maps to text-red-500 in globals.css). 2. Replace all instances of text-red-400 and text-red-500 with text-error. 3. Verify error color has sufficient contrast ratio."
+          },
+          {
+            "id": "task-4d-placeholder-color-audit",
+            "description": "Standardize input placeholder colors",
+            "files": ["src/components/ui-inputs/index.tsx", "src/components/primitives.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "Standardize on placeholder-muted token (maps to placeholder-zinc-500). Replace placeholder-zinc-400 and placeholder-zinc-600 with consistent token."
+          }
+        ]
+      },
+      {
+        "id": "phase-5-polish",
+        "name": "Final Polish Pass",
+        "priority": "low",
+        "rationale": "Minor inconsistencies that don't break immersion but improve overall fit and finish.",
+        "tasks": [
+          {
+            "id": "task-5a-primary-button-extraction",
+            "description": "Ensure all primary buttons use PrimaryButton primitive",
+            "files": ["src/components/ui-inputs/index.tsx", "src/components/MediaGate.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "Audit inline button styles in StartButton, ContinueButton, RelationshipPicker. Replace with PrimaryButton/SecondaryButton primitives or document exceptions."
+          },
+          {
+            "id": "task-5b-mad-lib-styling",
+            "description": "Update MadLib inline input to use design tokens",
+            "files": ["src/components/ui-inputs/index.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": ["task-2a-segment-tokens"],
+            "implementation": "Replace hardcoded border-yellow-500, text-yellow-300 with segment-aware accent tokens. Use --ui-accent CSS variable pattern."
+          },
+          {
+            "id": "task-5c-three-text-tokens",
+            "description": "Extract ThreeText physical frame styling to reusable pattern",
+            "files": ["src/components/ui-inputs/index.tsx"],
+            "estimatedEffort": "small",
+            "dependencies": [],
+            "implementation": "The Feud board styling is intentionally unique. Document as segment-specific exception. Consider extracting FeudInput component if reused."
+          }
+        ]
+      }
+    ],
+    "totalEstimatedEffort": "Phase 1: 2-3 days (audio generation + conditional logic). Phase 2: 1 day. Phase 3: 0.5 day. Phase 4: 0.5 day. Phase 5: 0.5 day. Total: 4-5 days.",
+    "riskAssessment": "Key risks: (1) TTS generation quality for new VO lines - mitigate with human recording fallback. (2) Conditional audio for shark-reason requires survey state threading - may need architecture discussion. (3) Screen count change from merging commercial screens will break any hardcoded indices - run test suite after. (4) CSS variable approach for segment theming may not work with Tailwind JIT - test in dev before committing."
+  },
+  "artifacts": []
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5HF41FWG1G8ZG33YDV0W7N",
+  "taskId": "segment-identity-fix",
+  "invocationKey": "gmn/design-narrative-coherence:S000009:segment-identity-fix",
+  "stepId": "S000009",
+  "kind": "skill",
+  "title": "Fix Show Segment Identity",
+  "io": {
+    "inputJsonPath": "tasks/01KP5HF41FWG1G8ZG33YDV0W7N/input.json",
+    "outputJsonPath": "tasks/01KP5HF41FWG1G8ZG33YDV0W7N/result.json"
+  },
+  "inputs": {
+    "designTokens": {
+      "artifacts": [],
+      "cssAdditions": ":root {\n  --segment-intro: rgba(34, 197, 94, 0.2);\n  --segment-gmn: rgba(234, 179, 8, 0.15);\n  --segment-feud: rgba(59, 130, 246, 0.15);\n  --segment-bachelor: rgba(225, 29, 72, 0.2);\n  --segment-shark: rgba(6, 182, 212, 0.15);\n  --segment-maury: rgba(168, 85, 247, 0.15);\n  --segment-survivor: rgba(217, 119, 6, 0.2);\n  --space-1: 0.25rem;\n  --space-2: 0.5rem;\n  --space-3: 0.75rem;\n  --space-4: 1rem;\n  --space-5: 1.25rem;\n  --space-6: 1.5rem;\n  --space-8: 2rem;\n  --radius-md: 0.5rem;\n  --radius-lg: 1rem;\n  --radius-xl: 1.5rem;\n  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);\n  --ease-breathe: cubic-bezier(0.45, 0.05, 0.55, 0.95);\n  --duration-micro: 50ms;\n  --duration-fast: 100ms;\n  --duration-standard: 200ms;\n  --duration-ui: 350ms;\n  --duration-screen: 300ms;\n  --duration-dramatic: 500ms;\n}",
+      "gaps": [
+        "Segment spotlight colors hardcoded in ScreenPlayer.tsx",
+        "No typography scale tokens",
+        "No spacing scale tokens",
+        "Animation durations not exposed as CSS variables",
+        "Easing functions not available as CSS variables",
+        "Television frame colors hardcoded",
+        "No semantic shadow tokens"
+      ],
+      "normalized": {
+        "animations": {
+          "--duration-dramatic": "500ms",
+          "--duration-fast": "100ms",
+          "--duration-micro": "50ms",
+          "--duration-screen": "300ms",
+          "--duration-standard": "200ms",
+          "--duration-ui": "350ms",
+          "--ease-breathe": "cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+          "--ease-organic": "cubic-bezier(0.37, 0, 0.63, 1)",
+          "--ease-out": "cubic-bezier(0.16, 1, 0.3, 1)"
+        },
+        "colors": {
+          "--color-accent": "#eab308",
+          "--color-accent-hover": "#facc15",
+          "--color-card": "rgba(8, 8, 10, 0.82)",
+          "--color-error": "#f87171",
+          "--color-muted": "#a1a1aa",
+          "--color-prompt": "#f4f4f5",
+          "--color-surface": "#18181b"
+        },
+        "radius": {
+          "--radius-2xl": "1.8rem",
+          "--radius-lg": "1rem",
+          "--radius-md": "0.5rem",
+          "--radius-xl": "1.5rem"
+        },
+        "segments": {
+          "--segment-bachelor": "rgba(225, 29, 72, 0.2)",
+          "--segment-feud": "rgba(59, 130, 246, 0.15)",
+          "--segment-gmn": "rgba(234, 179, 8, 0.15)",
+          "--segment-intro": "rgba(34, 197, 94, 0.2)",
+          "--segment-maury": "rgba(168, 85, 247, 0.15)",
+          "--segment-shark": "rgba(6, 182, 212, 0.15)",
+          "--segment-survivor": "rgba(217, 119, 6, 0.2)"
+        },
+        "spacing": {
+          "--space-1": "0.25rem",
+          "--space-2": "0.5rem",
+          "--space-3": "0.75rem",
+          "--space-4": "1rem",
+          "--space-5": "1.25rem",
+          "--space-6": "1.5rem",
+          "--space-8": "2rem"
+        }
+      },
+      "success": true,
+      "tokens": {
+        "animations": {
+          "EASE_BREATHE": "[0.45, 0.05, 0.55, 0.95]",
+          "EASE_ORGANIC": "[0.37, 0.0, 0.63, 1.0]",
+          "EASE_OUT": "[0.16, 1, 0.3, 1]"
+        },
+        "colors": {
+          "--accent": "#eab308",
+          "--accent-hover": "#facc15",
+          "--card": "rgba(8, 8, 10, 0.82)",
+          "--card-border": "rgba(255, 255, 255, 0.12)",
+          "--error": "#f87171",
+          "--muted": "#a1a1aa",
+          "--prompt": "#f4f4f5",
+          "--record": "#ef4444",
+          "--screen-card": "rgba(8, 8, 10, 0.45)",
+          "--surface": "#18181b"
+        },
+        "segments": {
+          "bachelor": "rgba(225, 29, 72, 0.2)",
+          "feud": "rgba(59, 130, 246, 0.15)",
+          "gmn": "rgba(234, 179, 8, 0.15)",
+          "intro-tv": "rgba(34, 197, 94, 0.2)",
+          "maury": "rgba(168, 85, 247, 0.15)",
+          "shark": "rgba(6, 182, 212, 0.15)",
+          "survivor": "rgba(217, 119, 6, 0.2)"
+        }
+      }
+    },
+    "projectRoot": "C:/dev/good-morning-nikhil",
+    "showSegments": [
+      "family-feud",
+      "bachelor",
+      "shark-tank",
+      "survivor",
+      "maury"
+    ]
+  }
+}

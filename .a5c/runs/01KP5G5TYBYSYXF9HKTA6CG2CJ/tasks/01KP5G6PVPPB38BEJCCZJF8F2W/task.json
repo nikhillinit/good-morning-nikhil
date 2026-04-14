@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5G6PVPPB38BEJCCZJF8F2W",
+  "taskId": "design-system-audit",
+  "invocationKey": "gmn/design-narrative-coherence:S000001:design-system-audit",
+  "stepId": "S000001",
+  "kind": "agent",
+  "title": "Audit Design System",
+  "io": {
+    "inputJsonPath": "tasks/01KP5G6PVPPB38BEJCCZJF8F2W/input.json",
+    "outputJsonPath": "tasks/01KP5G6PVPPB38BEJCCZJF8F2W/result.json"
+  },
+  "inputs": {
+    "focusAreas": [
+      "visual-transitions",
+      "typography-layout",
+      "segment-identity",
+      "audio-vo-pacing"
+    ],
+    "projectRoot": "C:/dev/good-morning-nikhil"
+  }
+}

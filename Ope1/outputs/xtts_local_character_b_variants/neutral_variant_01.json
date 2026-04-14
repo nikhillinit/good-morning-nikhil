@@ -1,0 +1,10 @@
+{
+  "index": 1,
+  "substyle": "neutral",
+  "speech_rate_scale": 0.91,
+  "pause_scale": 1.12,
+  "pitch_scale": 0.899,
+  "emphasis_scale": 1.111,
+  "output_path": "C:\\dev\\aro-voice-style-lab\\outputs\\xtts_local_character_b_variants\\neutral_variant_01.wav",
+  "backend": "xtts-local"
+}

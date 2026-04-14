@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T13:38:50.425Z",
+  "data": {
+    "effectId": "01KP63ENVY0F4BBK143QRH79YJ",
+    "invocationKey": "visual-polish-immersion:S000008:create-asset-specs",
+    "invocationHash": "e0f1dcaab706e81782e3828ff61bcf9fc1da095733c6803db0cb90c0193a03c7",
+    "stepId": "S000008",
+    "taskId": "create-asset-specs",
+    "kind": "agent",
+    "label": "Create Illustrated Asset Specifications",
+    "taskDefRef": "tasks/01KP63ENVY0F4BBK143QRH79YJ/task.json"
+  },
+  "checksum": "7917d7f312652b408d963a2d0b66d45ef3c4b989a43767d2d87b28de68f8ed7d"
+}

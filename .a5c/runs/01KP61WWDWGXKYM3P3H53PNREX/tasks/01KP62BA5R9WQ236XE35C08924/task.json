@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP62BA5R9WQ236XE35C08924",
+  "taskId": "implement-frame-removal",
+  "invocationKey": "visual-polish-immersion:S000003:implement-frame-removal",
+  "stepId": "S000003",
+  "kind": "agent",
+  "title": "Implement TV Frame Removal via Screen Data",
+  "io": {
+    "inputJsonPath": "tasks/01KP62BA5R9WQ236XE35C08924/input.json",
+    "outputJsonPath": "tasks/01KP62BA5R9WQ236XE35C08924/output.json"
+  },
+  "inputs": {
+    "currentState": {
+      "backgroundAssets": [
+        "bachelor-mansion.webp",
+        "cold-open-glitch.webp",
+        "control-room.webp",
+        "credits-bg.webp",
+        "feud-board.webp",
+        "intro-retro-tv.webp",
+        "limo-interior.webp",
+        "maury-studio.webp",
+        "morning-desk.webp",
+        "shark-warehouse.webp",
+        "sponsor-pedestal.webp",
+        "tribal-council.webp"
+      ],
+      "brandReveal": {
+        "currentBg": "/sets/sponsor-pedestal.webp",
+        "hasVideo": false,
+        "note": "No video specified - static background only",
+        "screen": "commercial-break"
+      },
+      "cardContrast": {
+        "cssVariable": "--surface defined in globals.css",
+        "currentOpacity": "Uses design tokens - InputField: bg-surface/80, ChoiceChip: bg-transparent or bg-surface",
+        "file": "src/components/ui-inputs/index.tsx",
+        "inputFieldLine": 244
+      },
+      "characterPositioning": {
+        "bg": "/sets/bachelor-mansion.webp",
+        "currentLayout": "uiLayout: right, mediaPosition: left center",
+        "issues": "No explicit character positioning - relies on static background image crop",
+        "screen": "bachelor-roses"
+      },
+      "frameLogic": {
+        "currentCondition": "zoomedIn prop controls frame visibility - when bg !== 'crt' the frame zooms in (fixed inset-0), when bg === 'crt' frame stays visible with TV chrome",
+        "details": "ScreenPlayer.tsx line 243: zoomedIn={screen.bg !== 'crt'}",
+        "file": "src/components/ambient/TelevisionFrame.tsx",
+        "line": 33
+      }
+    }
+  }
+}

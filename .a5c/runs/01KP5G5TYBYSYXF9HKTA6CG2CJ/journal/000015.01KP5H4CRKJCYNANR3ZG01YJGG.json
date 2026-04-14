@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:18:38.996Z",
+  "data": {
+    "effectId": "01KP5H4CNE69ZHE2630KRK2DYM",
+    "invocationKey": "gmn/design-narrative-coherence:S000007:visual-transition-fix",
+    "invocationHash": "0068c93dfc89f17129a16542dc8288311bb7a6cee232976a517b9e057a8efdf3",
+    "stepId": "S000007",
+    "taskId": "visual-transition-fix",
+    "kind": "skill",
+    "label": "Fix Visual Transitions",
+    "taskDefRef": "tasks/01KP5H4CNE69ZHE2630KRK2DYM/task.json"
+  },
+  "checksum": "0efb1838b4eaa30b25b84a11f1357d405ca46251ec02d83b2f739609f8bdb511"
+}

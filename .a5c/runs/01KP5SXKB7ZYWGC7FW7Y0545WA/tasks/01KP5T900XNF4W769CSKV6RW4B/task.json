@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5T900XNF4W769CSKV6RW4B",
+  "taskId": "component-refactor",
+  "invocationKey": "design-system-enforcement:S000005:component-refactor",
+  "stepId": "S000005",
+  "kind": "agent",
+  "title": "Refactor layout",
+  "labels": [
+    "design-system",
+    "layout",
+    "refactor"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KP5T900XNF4W769CSKV6RW4B/input.json",
+    "outputJsonPath": "tasks/01KP5T900XNF4W769CSKV6RW4B/result.json"
+  },
+  "inputs": {
+    "component": "layout",
+    "filePath": "src/app/layout.tsx",
+    "tokensDefined": [
+      "--tv-wood",
+      "--tv-wood-dark",
+      "--tv-plastic",
+      "--tv-metal",
+      "--tv-chrome",
+      "--speaker-steve",
+      "--speaker-jeff",
+      "--progress-start",
+      "--progress-end",
+      "--progress-glow"
+    ],
+    "violations": [
+      "inline hex styles in noscript fallback → use CSS variables"
+    ]
+  }
+}

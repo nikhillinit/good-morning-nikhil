@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP632WV31HPMXVB4Z0NQ5P8J",
+  "taskId": "implement-darker-cards",
+  "invocationKey": "visual-polish-immersion:S000004:implement-darker-cards",
+  "status": "ok",
+  "result": {
+    "changes": [
+      {
+        "description": "Modified --surface variable from solid #18181b to rgba(24, 24, 27, 0.8) for 80% opacity",
+        "file": "src/app/globals.css",
+        "linesModified": 1
+      }
+    ],
+    "contrastAfter": "80% opacity (rgba with 0.8 alpha)",
+    "contrastBefore": "100% opacity (solid #18181b)",
+    "success": true
+  },
+  "startedAt": "2026-04-14T13:33:23.213Z",
+  "finishedAt": "2026-04-14T13:33:23.213Z",
+  "value": {
+    "changes": [
+      {
+        "description": "Modified --surface variable from solid #18181b to rgba(24, 24, 27, 0.8) for 80% opacity",
+        "file": "src/app/globals.css",
+        "linesModified": 1
+      }
+    ],
+    "contrastAfter": "80% opacity (rgba with 0.8 alpha)",
+    "contrastBefore": "100% opacity (solid #18181b)",
+    "success": true
+  }
+}

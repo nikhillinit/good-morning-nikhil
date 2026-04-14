@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:29:16.589Z",
+  "data": {
+    "effectId": "01KP5HQVB4VZYWFQHQ0W0Z832Z",
+    "invocationKey": "gmn/design-narrative-coherence:S000012:generate-report",
+    "invocationHash": "b869b6f55284ee7c4600c1ed26d66c6f626e74130474c51012e82ea591268c05",
+    "stepId": "S000012",
+    "taskId": "generate-report",
+    "kind": "agent",
+    "label": "Generate Final Report",
+    "taskDefRef": "tasks/01KP5HQVB4VZYWFQHQ0W0Z832Z/task.json"
+  },
+  "checksum": "2e8038ce605d0b4a4db389e4037b06bc8ab878ef7951c848d1949ef6d1bafe08"
+}

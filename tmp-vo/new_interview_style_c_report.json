@@ -1,0 +1,140 @@
+{
+  "segment_01_0127_0350": {
+    "description": "Early acting obsession and Carnegie Mellon introduction",
+    "input": "/home/ubuntu/audio_style_task/new_interview_segments/segment_01_0127_0350.wav",
+    "keep_ranges_seconds": [
+      [
+        0.0,
+        61.7
+      ],
+      [
+        62.6,
+        78.7
+      ],
+      [
+        79.5,
+        82.4
+      ],
+      [
+        83.3,
+        131.2
+      ],
+      [
+        134.5,
+        138.1
+      ],
+      [
+        139.0,
+        142.0
+      ]
+    ],
+    "isolated_output": "/home/ubuntu/audio_style_task/new_interview_isolated/segment_01_0127_0350_isolated.wav",
+    "styled_outputs": {
+      "style_c_natural": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_01_0127_0350_style_c_natural.mp3",
+      "style_c_theatrical": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_01_0127_0350_style_c_theatrical.mp3"
+    }
+  },
+  "segment_02_0627_0810": {
+    "description": "Self-discovery as an actor and audition process",
+    "input": "/home/ubuntu/audio_style_task/new_interview_segments/segment_02_0627_0810.wav",
+    "keep_ranges_seconds": [
+      [
+        0.0,
+        103.0
+      ]
+    ],
+    "isolated_output": "/home/ubuntu/audio_style_task/new_interview_isolated/segment_02_0627_0810_isolated.wav",
+    "styled_outputs": {
+      "style_c_natural": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_02_0627_0810_style_c_natural.mp3",
+      "style_c_theatrical": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_02_0627_0810_style_c_theatrical.mp3"
+    }
+  },
+  "segment_03_1537_1603": {
+    "description": "Brother musical influences",
+    "input": "/home/ubuntu/audio_style_task/new_interview_segments/segment_03_1537_1603.wav",
+    "keep_ranges_seconds": [
+      [
+        4.8,
+        25.4
+      ]
+    ],
+    "isolated_output": "/home/ubuntu/audio_style_task/new_interview_isolated/segment_03_1537_1603_isolated.wav",
+    "styled_outputs": {
+      "style_c_natural": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_03_1537_1603_style_c_natural.mp3",
+      "style_c_theatrical": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_03_1537_1603_style_c_theatrical.mp3"
+    }
+  },
+  "segment_04_1903_2020": {
+    "description": "Mildred Snitzer Orchestra origin story",
+    "input": "/home/ubuntu/audio_style_task/new_interview_segments/segment_04_1903_2020.wav",
+    "keep_ranges_seconds": [
+      [
+        0.0,
+        33.0
+      ],
+      [
+        35.0,
+        76.9
+      ]
+    ],
+    "isolated_output": "/home/ubuntu/audio_style_task/new_interview_isolated/segment_04_1903_2020_isolated.wav",
+    "styled_outputs": {
+      "style_c_natural": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_04_1903_2020_style_c_natural.mp3",
+      "style_c_theatrical": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_04_1903_2020_style_c_theatrical.mp3"
+    }
+  },
+  "segment_05_2150_2242": {
+    "description": "Music-relationship passage from the selected acting-approach range",
+    "input": "/home/ubuntu/audio_style_task/new_interview_segments/segment_05_2150_2242.wav",
+    "keep_ranges_seconds": [
+      [
+        0.0,
+        26.8
+      ],
+      [
+        48.4,
+        52.0
+      ]
+    ],
+    "isolated_output": "/home/ubuntu/audio_style_task/new_interview_isolated/segment_05_2150_2242_isolated.wav",
+    "styled_outputs": {
+      "style_c_natural": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_05_2150_2242_style_c_natural.mp3",
+      "style_c_theatrical": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_05_2150_2242_style_c_theatrical.mp3"
+    }
+  },
+  "segment_06_3701_3853": {
+    "description": "Kaos overview with interviewer prompts removed",
+    "input": "/home/ubuntu/audio_style_task/new_interview_segments/segment_06_3701_3853.wav",
+    "keep_ranges_seconds": [
+      [
+        0.0,
+        17.04
+      ],
+      [
+        21.12,
+        44.08
+      ],
+      [
+        48.32,
+        67.6
+      ],
+      [
+        70.88,
+        85.12
+      ],
+      [
+        85.76,
+        87.84
+      ],
+      [
+        98.08,
+        105.28
+      ]
+    ],
+    "isolated_output": "/home/ubuntu/audio_style_task/new_interview_isolated/segment_06_3701_3853_isolated.wav",
+    "styled_outputs": {
+      "style_c_natural": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_06_3701_3853_style_c_natural.mp3",
+      "style_c_theatrical": "/home/ubuntu/audio_style_task/new_interview_styled_style_c/segment_06_3701_3853_style_c_theatrical.mp3"
+    }
+  }
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Morning Nikhil - Survey Form</title>
+    <style>
+        :root {
+            --bg-color: #f9f9fb;
+            --surface: #ffffff;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --accent: #0066cc;
+            --accent-hover: #0055aa;
+            --border: #d2d2d7;
+            --radius: 12px;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 40px 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        .section {
+            background-color: var(--surface);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .caption {
+            display: block;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            box-sizing: border-box;
+            background-color: #fafafa;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            margin-bottom: 16px;
+        }
+
+        input[type="text"]:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+            background-color: var(--surface);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .radio-label, .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .radio-label input, .checkbox-label input {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .grid-inputs {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        @media (min-width: 600px) {
+            .grid-inputs {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .two-col {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .submit-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+            margin-top: 24px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .mad-lib-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .mad-lib-container input {
+            flex-grow: 1;
+            margin-bottom: 0;
+            min-width: 200px;
+        }
+
+        /* Checkbox limits instruction */
+        .limit-instruction {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Good Morning Nikhil</h1>
+        <p class="subtitle">Offline Survey Fallback</p>
+    </header>
+
+    <form onsubmit="event.preventDefault(); alert('This is a static HTML render of the survey. Submissions require the Next.js runtime.');">
+        
+        <!-- Intro -->
+        <div class="section">
+            <span class="section-tag">Intro</span>
+            <h3>How do you know Nikhil?</h3>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="relationship" value="Family"> Family</label>
+                <label class="radio-label"><input type="radio" name="relationship" value="Friend"> Friend</label>
+                <label class="radio-label"><input type="radio" name="relationship" value="Classmate"> Classmate</label>
+                <label class="radio-label"><input type="radio" name="relationship" value="Colleague"> Colleague</label>
+                <label class="radio-label"><input type="radio" name="relationship" value="Manager"> Manager</label>
+                <label class="radio-label"><input type="radio" name="relationship" value="Other"> Other</label>
+            </div>
+            
+            <label class="checkbox-label" style="margin-top: 24px;">
+                <input type="checkbox" name="anonymous"> <strong>Keep my submission totally anonymous</strong>
+            </label>
+        </div>
+
+        <!-- Family Feud 1 -->
+        <div class="section">
+            <span class="section-tag">Family Feud</span>
+            <h3>Three words that come to YOUR mind about Nikhil.</h3>
+            <span class="caption">Give me three adjectives or short phrases that describe Nikhil.</span>
+            
+            <div class="grid-inputs">
+                <input type="text" name="feud_word_1" placeholder="Answer #1">
+                <input type="text" name="feud_word_2" placeholder="Answer #2">
+                <input type="text" name="feud_word_3" placeholder="Answer #3">
+            </div>
+        </div>
+
+        <!-- Family Feud 2 -->
+        <div class="section">
+            <span class="section-tag">Family Feud</span>
+            <h3>Which one feels strongest, and why?</h3>
+            <span class="caption">Tell us which of the three answers above feels most true and why.</span>
+            <textarea name="feud_strongest" placeholder="Which of your 3 answers feels most true, and why?"></textarea>
+        </div>
+
+        <!-- Family Feud 3 -->
+        <div class="section">
+            <span class="section-tag">Family Feud</span>
+            <h3>Say the trademark line.</h3>
+            <span class="caption">Name a thing he does so often it should come with theme music.</span>
+            <input type="text" name="feud_trademark" placeholder="Name a Nikhil trademark...">
+        </div>
+
+        <!-- Commercial Break -->
+        <div class="section">
+            <span class="section-tag">Commercial Break</span>
+            <h3>What company, product, vibe, aesthetic, or brand sponsors Nikhil?</h3>
+            <input type="text" name="commercial_brand" placeholder="Brand, Vibe, or Product...">
+            
+            <label class="label mt-4">Why does that feel on-brand?</label>
+            <textarea name="commercial_why" placeholder="Tell us why..."></textarea>
+        </div>
+
+        <!-- The Bachelor 1 -->
+        <div class="section">
+            <span class="section-tag">The Bachelor</span>
+            <h3>Give 3 roses to Nikhil's strongest qualities</h3>
+            <span class="limit-instruction">Please select up to 3 options.</span>
+            <div class="checkbox-group">
+                <label class="checkbox-label"><input type="checkbox" name="rose_1" value="Already Has Notes"> Already Has Notes</label>
+                <label class="checkbox-label"><input type="checkbox" name="rose_2" value="Questioned The Premise"> Questioned The Premise</label>
+                <label class="checkbox-label"><input type="checkbox" name="rose_3" value="Genuinely Very Earnest"> Genuinely Very Earnest</label>
+                <label class="checkbox-label"><input type="checkbox" name="rose_4" value="Most Serious Unserious"> Most Serious Unserious</label>
+                <label class="checkbox-label"><input type="checkbox" name="rose_5" value="Needs It Perfect"> Needs It Perfect</label>
+                <label class="checkbox-label"><input type="checkbox" name="rose_6" value="Cares Too Much"> Cares Too Much</label>
+                <label class="checkbox-label"><input type="checkbox" name="rose_7" value="Makes Complex Things Clear"> Makes Complex Things Clear</label>
+                <label class="checkbox-label"><input type="checkbox" name="rose_8" value="Intense Presence"> Intense Presence</label>
+            </div>
+        </div>
+
+        <!-- The Bachelor 2 -->
+        <div class="section">
+            <span class="section-tag">The Bachelor</span>
+            <h3>Which quality do you notice least?</h3>
+            <span class="caption">Send one quality home.</span>
+            <select name="bachelor_eliminate">
+                <option value="" disabled selected>Select an option...</option>
+                <option value="Already Has Notes">Already Has Notes</option>
+                <option value="Questioned The Premise">Questioned The Premise</option>
+                <option value="Genuinely Very Earnest">Genuinely Very Earnest</option>
+                <option value="Most Serious Unserious">Most Serious Unserious</option>
+                <option value="Needs It Perfect">Needs It Perfect</option>
+                <option value="Cares Too Much">Cares Too Much</option>
+                <option value="Makes Complex Things Clear">Makes Complex Things Clear</option>
+                <option value="Intense Presence">Intense Presence</option>
+            </select>
+        </div>
+
+        <!-- The Bachelor 3 -->
+        <div class="section">
+            <span class="section-tag">The Bachelor</span>
+            <h3>Finish the limo-exit sentence.</h3>
+            
+            <div class="mad-lib-container">
+                "I never stood a chance because Nikhil always 
+                <input type="text" name="bachelor_limo" placeholder="...">"
+            </div>
+        </div>
+
+        <!-- Shark Tank -->
+        <div class="section">
+            <span class="section-tag">Shark Tank</span>
+            <h3>Are you in or out?</h3>
+            <span class="caption">Nikhil just pitched his brain for 100% of your life savings.</span>
+            
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="shark_decision" value="Invest"> Invest</label>
+                <label class="radio-label"><input type="radio" name="shark_decision" value="Pass"> Pass</label>
+            </div>
+
+            <label class="label mt-4">Give one strength and one weakness.</label>
+            <textarea name="shark_reason" placeholder="Because..."></textarea>
+        </div>
+
+        <!-- Survivor -->
+        <div class="section">
+            <span class="section-tag">Survivor</span>
+            <h3>Final words for the tribe.</h3>
+            <span class="caption">Confessional booth. Just you and the camera.</span>
+            <textarea name="survivor_words" placeholder="(In the app, this is recorded with your microphone) You can type your final words here..."></textarea>
+        </div>
+
+        <!-- Maury -->
+        <div class="section">
+            <span class="section-tag">Maury</span>
+            <h3>The Confession.</h3>
+            
+            <div class="two-col">
+                <div>
+                    <label class="label">Nikhil projects that he is...</label>
+                    <input type="text" name="maury_projects" placeholder="Type here...">
+                </div>
+                <div>
+                    <label class="label">But he actually comes across as...</label>
+                    <input type="text" name="maury_actual" placeholder="Type here...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Room -->
+        <div class="section">
+            <span class="section-tag">Control Room</span>
+            <h3>Director's notes.</h3>
+            <span class="caption">What should Nikhil do more of, less of, or more consistently?</span>
+            <textarea name="producer_notes" placeholder="Final thoughts..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Review & Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

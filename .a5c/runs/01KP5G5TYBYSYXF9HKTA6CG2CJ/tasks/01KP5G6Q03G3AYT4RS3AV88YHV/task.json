@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5G6Q03G3AYT4RS3AV88YHV",
+  "taskId": "narrative-arc-audit",
+  "invocationKey": "gmn/design-narrative-coherence:S000002:narrative-arc-audit",
+  "stepId": "S000002",
+  "kind": "agent",
+  "title": "Audit Narrative Arc",
+  "io": {
+    "inputJsonPath": "tasks/01KP5G6Q03G3AYT4RS3AV88YHV/input.json",
+    "outputJsonPath": "tasks/01KP5G6Q03G3AYT4RS3AV88YHV/result.json"
+  },
+  "inputs": {
+    "narrativeFocus": "emotional-journey",
+    "projectRoot": "C:/dev/good-morning-nikhil"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T08:15:18.918Z",
+  "data": {
+    "effectId": "01KP5GY998RP5MXVT4S08PJBC9",
+    "invocationKey": "gmn/design-narrative-coherence:S000005:inconsistency-resolution",
+    "invocationHash": "cd60e8eed7e2811028a94719f8ff5ea2b718bd94c66f5d5f0bb44bc8e30b71d6",
+    "stepId": "S000005",
+    "taskId": "inconsistency-resolution",
+    "kind": "agent",
+    "label": "Plan Inconsistency Resolutions",
+    "taskDefRef": "tasks/01KP5GY998RP5MXVT4S08PJBC9/task.json"
+  },
+  "checksum": "1f6450ac0a46d17dea96c6865f835dc3e871d390aded7ed016c00b5c601d614b"
+}

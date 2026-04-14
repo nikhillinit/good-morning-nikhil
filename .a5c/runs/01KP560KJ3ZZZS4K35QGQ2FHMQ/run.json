@@ -1,0 +1,16 @@
+{
+  "runId": "01KP560KJ3ZZZS4K35QGQ2FHMQ",
+  "request": "orchestrate-vo",
+  "processId": "orchestrate-vo",
+  "harness": "internal",
+  "entrypoint": {
+    "importPath": "../../../scripts/orchestrate-vo.mjs",
+    "exportName": "process"
+  },
+  "processPath": "../../../scripts/orchestrate-vo.mjs",
+  "layoutVersion": "2026.01-storage-preview",
+  "createdAt": "2026-04-14T05:04:20.627Z",
+  "prompt": "Generate the script for the gmn-feud-kickoff segment",
+  "nonInteractive": true,
+  "completionProof": "3a85a8720b5ceaaf0c1746703d4582d5"
+}

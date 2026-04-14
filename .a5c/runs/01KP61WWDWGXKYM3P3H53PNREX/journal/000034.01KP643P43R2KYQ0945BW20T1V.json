@@ -1,0 +1,12 @@
+{
+  "type": "EFFECT_RESOLVED",
+  "recordedAt": "2026-04-14T13:50:18.758Z",
+  "data": {
+    "effectId": "01KP6422QTM95G1023Z71M0QKH",
+    "status": "ok",
+    "resultRef": "tasks/01KP6422QTM95G1023Z71M0QKH/result.json",
+    "startedAt": "2026-04-14T13:50:18.551Z",
+    "finishedAt": "2026-04-14T13:50:18.551Z"
+  },
+  "checksum": "07dce6d66745ff93d0a28d0670e2b98e82ed57bf3a0f05e14d1547c4ff8633ce"
+}

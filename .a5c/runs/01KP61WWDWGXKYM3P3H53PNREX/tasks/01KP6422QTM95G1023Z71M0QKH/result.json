@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP6422QTM95G1023Z71M0QKH",
+  "taskId": "verify-visual-quality",
+  "invocationKey": "visual-polish-immersion:S000011:verify-visual-quality",
+  "status": "ok",
+  "result": {
+    "overallScore": 75,
+    "recommendations": [
+      "Generate brand reveal video from brand-reveal-video-spec.md",
+      "Create 3 PNG layers for bachelor-roses: background, Steve character, rose overlay",
+      "Update ScreenPlayer to support foreground overlay layers"
+    ],
+    "verificationReport": {
+      "brandReveal": {
+        "notes": "Asset spec exists at brand-reveal-video-spec.md. Video not yet implemented.",
+        "score": "partial"
+      },
+      "cardContrast": {
+        "notes": "--surface changed to rgba(24, 24, 27, 0.8) providing 80% opacity.",
+        "score": "pass"
+      },
+      "characterPositioning": {
+        "notes": "Documented in asset specs for future fix. Asset issue requires 3 new PNGs.",
+        "score": "partial"
+      },
+      "frameRemoval": {
+        "notes": "hideTvFrame property implemented correctly on 16 screens. ScreenPlayer uses screen.hideTvFrame === true.",
+        "score": "pass"
+      }
+    }
+  },
+  "startedAt": "2026-04-14T13:50:18.551Z",
+  "finishedAt": "2026-04-14T13:50:18.551Z",
+  "value": {
+    "overallScore": 75,
+    "recommendations": [
+      "Generate brand reveal video from brand-reveal-video-spec.md",
+      "Create 3 PNG layers for bachelor-roses: background, Steve character, rose overlay",
+      "Update ScreenPlayer to support foreground overlay layers"
+    ],
+    "verificationReport": {
+      "brandReveal": {
+        "notes": "Asset spec exists at brand-reveal-video-spec.md. Video not yet implemented.",
+        "score": "partial"
+      },
+      "cardContrast": {
+        "notes": "--surface changed to rgba(24, 24, 27, 0.8) providing 80% opacity.",
+        "score": "pass"
+      },
+      "characterPositioning": {
+        "notes": "Documented in asset specs for future fix. Asset issue requires 3 new PNGs.",
+        "score": "partial"
+      },
+      "frameRemoval": {
+        "notes": "hideTvFrame property implemented correctly on 16 screens. ScreenPlayer uses screen.hideTvFrame === true.",
+        "score": "pass"
+      }
+    }
+  }
+}

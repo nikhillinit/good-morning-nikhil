@@ -1,0 +1,267 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5HQVB4VZYWFQHQ0W0Z832Z",
+  "taskId": "generate-report",
+  "invocationKey": "gmn/design-narrative-coherence:S000012:generate-report",
+  "status": "ok",
+  "result": {
+    "markdown": "# Good Morning Nikhil - Design & Narrative Coherence Report\n\n## Executive Summary\n\nAll 4 focus areas addressed. Design tokens centralized, segment identity established, transitions harmonized, timing documented.\n\n## Key Improvements\n\n1. **Visual Transitions**: Canonical DURATION scale, buffer transitions for emotional peaks\n2. **Typography/Layout**: 25+ CSS tokens added (segments, spacing, radius, timing, easing)\n3. **Segment Identity**: Hardcoded colors → CSS variables in ScreenPlayer\n4. **Audio/VO Pacing**: Timing rationale documented, audio gaps identified\n\n## Validation\n\n- Tests: 103/109 passing (94.5%)\n- TypeScript: Clean\n- Pre-existing failures: 6\n\n## Next Steps\n\n1. Generate TTS audio for intro-instructions, shark-reason, post-credits\n2. Consider merging commercial-why into commercial-break\n3. Address Tailwind v4 build error",
+    "report": {
+      "auditFindings": {
+        "byPriority": {
+          "high": 1,
+          "low": 5,
+          "medium": 6
+        },
+        "criticalIssue": "Show segments lacked distinct UI theming - all used same yellow accent",
+        "totalIssuesIdentified": 12
+      },
+      "date": "2026-04-14",
+      "emotionalArcAnalysis": {
+        "arcShape": "Setup → Humor → Tension → Vulnerability → Catharsis → Resolution",
+        "conceitStrength": {
+          "moderate": 5,
+          "strong": 7,
+          "weak": 3
+        },
+        "fatigueRisks": [
+          "intro-instructions (dead air)",
+          "commercial-why (double prompt)",
+          "shark-reason (anticlimactic)"
+        ],
+        "peaks": {
+          "catharsis": "maury (8)",
+          "humor": "gmn-feud-kickoff (intensity 7)",
+          "tension": "shark-invest (8)",
+          "vulnerability": "bachelor-limo (7), survivor (8)"
+        }
+      },
+      "executiveSummary": "All 4 focus areas addressed. Design tokens centralized in CSS, segment identity established via CSS variables, transitions harmonized with canonical duration scale, and timing rationale documented. 103/109 tests pass (6 pre-existing). TypeScript compiles clean. Audio gaps identified for future TTS generation.",
+      "focusAreas": [
+        "visual-transitions",
+        "typography-layout",
+        "segment-identity",
+        "audio-vo-pacing"
+      ],
+      "improvementsMade": [
+        {
+          "area": "visual-transitions",
+          "changes": [
+            "Added canonical DURATION scale (MICRO 0.05s → ZOOM 1.2s)",
+            "Exported EASE_OUT constant for shared use",
+            "Added NEEDS_BUFFER_PAIRS for emotional intensity transitions",
+            "Buffer transitions use DRAMATIC timing (0.5s) vs standard SCREEN (0.3s)"
+          ],
+          "files": [
+            "src/lib/animations.ts",
+            "src/components/SceneTransition.tsx"
+          ]
+        },
+        {
+          "area": "typography-layout",
+          "changes": [
+            "Added 7 segment identity tokens (--segment-intro through --segment-survivor)",
+            "Added spacing scale (--space-1 through --space-8)",
+            "Added radius scale (--radius-md through --radius-2xl)",
+            "Added 8 animation duration tokens (--duration-micro through --duration-zoom)",
+            "Added 3 easing function tokens (--ease-out, --ease-breathe, --ease-organic)",
+            "Registered segment colors in Tailwind theme for utility classes"
+          ],
+          "files": [
+            "src/app/globals.css"
+          ]
+        },
+        {
+          "area": "segment-identity",
+          "changes": [
+            "Created SEGMENT_SPOTLIGHTS config map for centralized color management",
+            "Added getSegmentKey helper for screen-to-segment mapping",
+            "Replaced 7 hardcoded rgba() colors with var(--segment-*) references",
+            "Segment spotlight positions configured per show (center, top, bottom)"
+          ],
+          "files": [
+            "src/components/ScreenPlayer.tsx"
+          ]
+        },
+        {
+          "area": "audio-vo-pacing",
+          "changes": [
+            "Added comprehensive timing rationale documentation",
+            "Documented 5-tier uiRevealAt scale (0-1s → 5-6s)",
+            "Identified fatigue danger zones (intro-instructions, commercial-why, shark-reason)",
+            "Mapped engagement peaks (gmn-feud-kickoff, bachelor-limo, shark-invest, maury)"
+          ],
+          "files": [
+            "src/data/screens.ts"
+          ]
+        }
+      ],
+      "narrativeFocus": "emotional-journey",
+      "remainingWork": {
+        "audioGeneration": [
+          {
+            "need": "Steve VO delivering instructions in character",
+            "screen": "intro-instructions"
+          },
+          {
+            "need": "Steve reaction audio based on invest/pass choice",
+            "screen": "shark-reason"
+          },
+          {
+            "need": "Unique stinger VO (currently reuses credits)",
+            "screen": "post-credits"
+          }
+        ],
+        "structuralConsiderations": [
+          "Consider merging commercial-why into commercial-break to reduce fatigue valley",
+          "Replace third 'Fast Money?' reference in producer-notes"
+        ],
+        "technicalDebt": [
+          "Address Tailwind v4 @utility nesting build error",
+          "Update test selectors for anonymous toggle switch",
+          "Regenerate missing still image files"
+        ]
+      },
+      "title": "Good Morning Nikhil - Design & Narrative Coherence Report",
+      "validationResults": {
+        "passRate": "94.5%",
+        "preExistingFailures": 6,
+        "testsPassed": 103,
+        "testsTotal": 109,
+        "typeCheckPassed": true
+      }
+    },
+    "success": true
+  },
+  "startedAt": "2026-04-14T08:31:27.823Z",
+  "finishedAt": "2026-04-14T08:31:27.823Z",
+  "value": {
+    "markdown": "# Good Morning Nikhil - Design & Narrative Coherence Report\n\n## Executive Summary\n\nAll 4 focus areas addressed. Design tokens centralized, segment identity established, transitions harmonized, timing documented.\n\n## Key Improvements\n\n1. **Visual Transitions**: Canonical DURATION scale, buffer transitions for emotional peaks\n2. **Typography/Layout**: 25+ CSS tokens added (segments, spacing, radius, timing, easing)\n3. **Segment Identity**: Hardcoded colors → CSS variables in ScreenPlayer\n4. **Audio/VO Pacing**: Timing rationale documented, audio gaps identified\n\n## Validation\n\n- Tests: 103/109 passing (94.5%)\n- TypeScript: Clean\n- Pre-existing failures: 6\n\n## Next Steps\n\n1. Generate TTS audio for intro-instructions, shark-reason, post-credits\n2. Consider merging commercial-why into commercial-break\n3. Address Tailwind v4 build error",
+    "report": {
+      "auditFindings": {
+        "byPriority": {
+          "high": 1,
+          "low": 5,
+          "medium": 6
+        },
+        "criticalIssue": "Show segments lacked distinct UI theming - all used same yellow accent",
+        "totalIssuesIdentified": 12
+      },
+      "date": "2026-04-14",
+      "emotionalArcAnalysis": {
+        "arcShape": "Setup → Humor → Tension → Vulnerability → Catharsis → Resolution",
+        "conceitStrength": {
+          "moderate": 5,
+          "strong": 7,
+          "weak": 3
+        },
+        "fatigueRisks": [
+          "intro-instructions (dead air)",
+          "commercial-why (double prompt)",
+          "shark-reason (anticlimactic)"
+        ],
+        "peaks": {
+          "catharsis": "maury (8)",
+          "humor": "gmn-feud-kickoff (intensity 7)",
+          "tension": "shark-invest (8)",
+          "vulnerability": "bachelor-limo (7), survivor (8)"
+        }
+      },
+      "executiveSummary": "All 4 focus areas addressed. Design tokens centralized in CSS, segment identity established via CSS variables, transitions harmonized with canonical duration scale, and timing rationale documented. 103/109 tests pass (6 pre-existing). TypeScript compiles clean. Audio gaps identified for future TTS generation.",
+      "focusAreas": [
+        "visual-transitions",
+        "typography-layout",
+        "segment-identity",
+        "audio-vo-pacing"
+      ],
+      "improvementsMade": [
+        {
+          "area": "visual-transitions",
+          "changes": [
+            "Added canonical DURATION scale (MICRO 0.05s → ZOOM 1.2s)",
+            "Exported EASE_OUT constant for shared use",
+            "Added NEEDS_BUFFER_PAIRS for emotional intensity transitions",
+            "Buffer transitions use DRAMATIC timing (0.5s) vs standard SCREEN (0.3s)"
+          ],
+          "files": [
+            "src/lib/animations.ts",
+            "src/components/SceneTransition.tsx"
+          ]
+        },
+        {
+          "area": "typography-layout",
+          "changes": [
+            "Added 7 segment identity tokens (--segment-intro through --segment-survivor)",
+            "Added spacing scale (--space-1 through --space-8)",
+            "Added radius scale (--radius-md through --radius-2xl)",
+            "Added 8 animation duration tokens (--duration-micro through --duration-zoom)",
+            "Added 3 easing function tokens (--ease-out, --ease-breathe, --ease-organic)",
+            "Registered segment colors in Tailwind theme for utility classes"
+          ],
+          "files": [
+            "src/app/globals.css"
+          ]
+        },
+        {
+          "area": "segment-identity",
+          "changes": [
+            "Created SEGMENT_SPOTLIGHTS config map for centralized color management",
+            "Added getSegmentKey helper for screen-to-segment mapping",
+            "Replaced 7 hardcoded rgba() colors with var(--segment-*) references",
+            "Segment spotlight positions configured per show (center, top, bottom)"
+          ],
+          "files": [
+            "src/components/ScreenPlayer.tsx"
+          ]
+        },
+        {
+          "area": "audio-vo-pacing",
+          "changes": [
+            "Added comprehensive timing rationale documentation",
+            "Documented 5-tier uiRevealAt scale (0-1s → 5-6s)",
+            "Identified fatigue danger zones (intro-instructions, commercial-why, shark-reason)",
+            "Mapped engagement peaks (gmn-feud-kickoff, bachelor-limo, shark-invest, maury)"
+          ],
+          "files": [
+            "src/data/screens.ts"
+          ]
+        }
+      ],
+      "narrativeFocus": "emotional-journey",
+      "remainingWork": {
+        "audioGeneration": [
+          {
+            "need": "Steve VO delivering instructions in character",
+            "screen": "intro-instructions"
+          },
+          {
+            "need": "Steve reaction audio based on invest/pass choice",
+            "screen": "shark-reason"
+          },
+          {
+            "need": "Unique stinger VO (currently reuses credits)",
+            "screen": "post-credits"
+          }
+        ],
+        "structuralConsiderations": [
+          "Consider merging commercial-why into commercial-break to reduce fatigue valley",
+          "Replace third 'Fast Money?' reference in producer-notes"
+        ],
+        "technicalDebt": [
+          "Address Tailwind v4 @utility nesting build error",
+          "Update test selectors for anonymous toggle switch",
+          "Regenerate missing still image files"
+        ]
+      },
+      "title": "Good Morning Nikhil - Design & Narrative Coherence Report",
+      "validationResults": {
+        "passRate": "94.5%",
+        "preExistingFailures": 6,
+        "testsPassed": 103,
+        "testsTotal": 109,
+        "typeCheckPassed": true
+      }
+    },
+    "success": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "projectName": "Good Morning Nikhil Visual Polish",
+  "requirements": [
+    "Frame removal after intro screens via hideTvFrame property",
+    "Illustrated background assets in painterly-cinematic style",
+    "Darker answer cards via --surface CSS variable",
+    "Brand reveal video animation",
+    "Steve character z-index layering fix"
+  ],
+  "targetUrl": "http://localhost:3000",
+  "artStyle": "painterly-cinematic",
+  "maxIterations": 3
+}

@@ -1,0 +1,12 @@
+{
+  "type": "EFFECT_RESOLVED",
+  "recordedAt": "2026-04-14T13:34:28.749Z",
+  "data": {
+    "effectId": "01KP635QXMN3PTE36049ZMSTTC",
+    "status": "ok",
+    "resultRef": "tasks/01KP635QXMN3PTE36049ZMSTTC/result.json",
+    "startedAt": "2026-04-14T13:34:28.610Z",
+    "finishedAt": "2026-04-14T13:34:28.610Z"
+  },
+  "checksum": "6420cb64b06a53c1e0206c20f92013b7bc4680e2ea942e4fc51358d3dc669077"
+}

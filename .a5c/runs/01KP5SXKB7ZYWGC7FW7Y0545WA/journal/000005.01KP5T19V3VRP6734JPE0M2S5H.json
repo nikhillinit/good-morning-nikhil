@@ -1,0 +1,20 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T10:54:14.884Z",
+  "data": {
+    "effectId": "01KP5T19RWXV731RACWHM5AT7M",
+    "invocationKey": "design-system-enforcement:S000002:component-refactor",
+    "invocationHash": "4584fe7ef18c12a6971211fad60e86b5f98262d5d78c4315523ae2c033ada62e",
+    "stepId": "S000002",
+    "taskId": "component-refactor",
+    "kind": "agent",
+    "label": "design-system",
+    "taskDefRef": "tasks/01KP5T19RWXV731RACWHM5AT7M/task.json",
+    "labels": [
+      "design-system",
+      "refactor",
+      "TelevisionFrame"
+    ]
+  },
+  "checksum": "40d8bdb9f14a9a80a543076ee50668bc8287ad3e07a39d93c7b08bfd9ff5435b"
+}

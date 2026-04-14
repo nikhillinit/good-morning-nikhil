@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP62BA5R9WQ236XE35C08924",
+  "taskId": "implement-frame-removal",
+  "invocationKey": "visual-polish-immersion:S000003:implement-frame-removal",
+  "status": "ok",
+  "result": {
+    "changes": [
+      {
+        "description": "Added hideTvFrame?: boolean to Screen interface and set hideTvFrame: true on 16 screens (gmn-feud-kickoff through post-credits)",
+        "file": "src/data/screens.ts",
+        "linesModified": 17
+      },
+      {
+        "description": "Changed zoomedIn logic from screen.bg !== 'crt' to screen.hideTvFrame === true",
+        "file": "src/components/ScreenPlayer.tsx",
+        "linesModified": 1
+      }
+    ],
+    "success": true
+  },
+  "startedAt": "2026-04-14T13:31:52.399Z",
+  "finishedAt": "2026-04-14T13:31:52.399Z",
+  "value": {
+    "changes": [
+      {
+        "description": "Added hideTvFrame?: boolean to Screen interface and set hideTvFrame: true on 16 screens (gmn-feud-kickoff through post-credits)",
+        "file": "src/data/screens.ts",
+        "linesModified": 17
+      },
+      {
+        "description": "Changed zoomedIn logic from screen.bg !== 'crt' to screen.hideTvFrame === true",
+        "file": "src/components/ScreenPlayer.tsx",
+        "linesModified": 1
+      }
+    ],
+    "success": true
+  }
+}

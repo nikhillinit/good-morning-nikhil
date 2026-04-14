@@ -1,0 +1,19 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-04-14T10:52:28.539Z",
+  "data": {
+    "effectId": "01KP5SY1XA6V1V4HY8F557JA9P",
+    "invocationKey": "design-system-enforcement:S000001:token-extension",
+    "invocationHash": "a079626530d88207d03dff2ea714266e198dc01f69ba515e7db52cc76a0961cf",
+    "stepId": "S000001",
+    "taskId": "token-extension",
+    "kind": "agent",
+    "label": "design-system",
+    "taskDefRef": "tasks/01KP5SY1XA6V1V4HY8F557JA9P/task.json",
+    "labels": [
+      "design-system",
+      "tokens"
+    ]
+  },
+  "checksum": "0a805c94b18c40ab3cb68ef774e2029b0f1604ec3fd51f7bece56eaf427bcd92"
+}

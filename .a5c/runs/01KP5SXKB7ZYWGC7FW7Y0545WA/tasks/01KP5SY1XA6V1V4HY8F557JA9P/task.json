@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5SY1XA6V1V4HY8F557JA9P",
+  "taskId": "token-extension",
+  "invocationKey": "design-system-enforcement:S000001:token-extension",
+  "stepId": "S000001",
+  "kind": "agent",
+  "title": "Extend Design Tokens",
+  "labels": [
+    "design-system",
+    "tokens"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KP5SY1XA6V1V4HY8F557JA9P/input.json",
+    "outputJsonPath": "tasks/01KP5SY1XA6V1V4HY8F557JA9P/result.json"
+  },
+  "inputs": {
+    "auditFindings": {
+      "criticalIssues": [
+        {
+          "description": "TV shell ignores token system, hardcodes materials/colors",
+          "file": "src/components/ambient/TelevisionFrame.tsx",
+          "id": "tv-shell-hardcoded",
+          "severity": "high",
+          "violations": [
+            "bg-zinc-950 (line 8)",
+            "bg-zinc-900 (line 8)",
+            "bg-[#3a2818] (line 11, wood)",
+            "border-[#22160d] (line 11, wood dark)",
+            "bg-zinc-400 (line 22-23, antennas)",
+            "bg-[#1a1c1d] (lines 27, 63, 66, plastic)"
+          ]
+        },
+        {
+          "description": "Speaker colors use literal palettes",
+          "file": "src/components/Captions.tsx",
+          "id": "captions-speaker-colors",
+          "severity": "medium",
+          "violations": [
+            "text-yellow-400 (line 26, steve)",
+            "text-blue-400 (line 27, jeff)"
+          ]
+        },
+        {
+          "description": "Progress bar uses literal gradient colors",
+          "file": "src/components/BroadcastTimeline.tsx",
+          "id": "timeline-progress-colors",
+          "severity": "medium",
+          "violations": [
+            "from-red-600 (line 20)",
+            "to-amber-500 (line 20)",
+            "rgba(220,38,38,0.8) (line 20, glow)"
+          ]
+        },
+        {
+          "description": "Layout fallback uses inline hex styles",
+          "file": "src/app/layout.tsx",
+          "id": "layout-inline-hex",
+          "severity": "low",
+          "violations": [
+            "inline style colors in noscript (line 59)"
+          ]
+        }
+      ],
+      "designRule": "DESIGN.md line 13: Do not manually apply literal Tailwind palettes",
+      "missingTokens": [
+        "TV materials (wood, plastic, chrome, metal)",
+        "Speaker identity colors",
+        "Progress bar gradient",
+        "Nav control chrome"
+      ],
+      "scores": {
+        "accessibility": 74,
+        "consistency": 61,
+        "ramsProxy": 72
+      }
+    },
+    "missingTokens": [
+      "TV materials (wood, plastic, chrome, metal)",
+      "Speaker identity colors (steve, jeff)",
+      "Progress bar gradient tokens",
+      "Nav control chrome"
+    ]
+  }
+}

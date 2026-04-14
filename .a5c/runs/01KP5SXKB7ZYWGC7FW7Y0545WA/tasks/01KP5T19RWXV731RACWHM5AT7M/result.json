@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KP5T19RWXV731RACWHM5AT7M",
+  "taskId": "component-refactor",
+  "invocationKey": "design-system-enforcement:S000002:component-refactor",
+  "status": "ok",
+  "result": {
+    "artifacts": [],
+    "changes": [
+      "Line 8: bg-zinc-950 sm:bg-zinc-900 → bg-background",
+      "Line 11: sm:bg-[#3a2818] → sm:bg-tv-wood",
+      "Line 11: border-[#22160d] → border-tv-wood-dark",
+      "Lines 22-23: bg-zinc-400 → bg-tv-metal (antennas)",
+      "Line 27: bg-[#1a1c1d] → bg-tv-plastic, border-[#000] → border-tv-chrome (screen bezel)",
+      "Lines 63, 66: bg-[#1a1c1d] → bg-tv-plastic, border-[#000] → border-tv-chrome (dials)"
+    ]
+  },
+  "startedAt": "2026-04-14T10:56:01.709Z",
+  "finishedAt": "2026-04-14T10:56:01.709Z",
+  "value": {
+    "artifacts": [],
+    "changes": [
+      "Line 8: bg-zinc-950 sm:bg-zinc-900 → bg-background",
+      "Line 11: sm:bg-[#3a2818] → sm:bg-tv-wood",
+      "Line 11: border-[#22160d] → border-tv-wood-dark",
+      "Lines 22-23: bg-zinc-400 → bg-tv-metal (antennas)",
+      "Line 27: bg-[#1a1c1d] → bg-tv-plastic, border-[#000] → border-tv-chrome (screen bezel)",
+      "Lines 63, 66: bg-[#1a1c1d] → bg-tv-plastic, border-[#000] → border-tv-chrome (dials)"
+    ]
+  }
+}

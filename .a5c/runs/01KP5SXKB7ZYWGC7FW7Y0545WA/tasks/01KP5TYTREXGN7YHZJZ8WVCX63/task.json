@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KP5TYTREXGN7YHZJZ8WVCX63",
+  "taskId": "verification",
+  "invocationKey": "design-system-enforcement:S000007:verification",
+  "stepId": "S000007",
+  "kind": "agent",
+  "title": "Verify Design System Changes",
+  "labels": [
+    "design-system",
+    "verification"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KP5TYTREXGN7YHZJZ8WVCX63/input.json",
+    "outputJsonPath": "tasks/01KP5TYTREXGN7YHZJZ8WVCX63/result.json"
+  },
+  "inputs": {
+    "testsToRun": "npm test",
+    "visualCheck": "Start dev server and verify TV frame renders correctly"
+  }
+}
