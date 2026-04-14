@@ -123,16 +123,17 @@ const generateAudioTask = defineTask('generate-audio', (args) => ({
     name: 'audio-director',
     prompt: {
       role: 'Audio Director',
-      task: 'Simulate or orchestrate the VO audio generation for the provided script. Ensure no arcade tropes exist in spoken dialogue.',
-      context: `${TV_BROADCAST_CONTEXT}\n\nScript: ${args.script}\nAudio Feedback: ${args.audioFeedback || 'None'}`,
+      task: 'Simulate or orchestrate the VO audio generation for the provided script utilizing VoxCPM2 Tokenizer-Free zero-shot parameters for true-to-life cloning. Ensure no arcade tropes exist in spoken dialogue.',
+      context: `${TV_BROADCAST_CONTEXT}\n\nVoxCPM2 Voice Design Guidelines:\n- Pass the SK-MAC-007 descriptors directly to VoxCPM2's creative guidance vector.\n- Ensure intonation mimics the pacing metrics provided.\n\nScript: ${args.script}\nAudio Feedback: ${args.audioFeedback || 'None'}`,
       outputFormat: 'JSON'
     },
     outputSchema: {
       type: 'object',
       properties: {
-        audioPath: { type: 'string' }
+        audioPath: { type: 'string' },
+        voxCPMPrompt: { type: 'string', description: 'The finalized VoxCPM2 voice design configuration used' }
       },
-      required: ['audioPath']
+      required: ['audioPath', 'voxCPMPrompt']
     }
   }
 }));
