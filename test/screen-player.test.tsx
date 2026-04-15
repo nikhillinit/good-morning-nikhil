@@ -1,22 +1,7 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Screen } from "@/data/screens";
 import { ScreenPlayer } from "@/components/ScreenPlayer";
-
-const play = vi.fn();
-const skip = vi.fn();
-
-vi.mock("@/hooks/useAudioPlayer", () => ({
-  useAudioPlayer: () => ({
-    play,
-    skip,
-    isPlaying: false,
-    hasEnded: false,
-    getCurrentTime: () => 0,
-    isMuted: false,
-    toggleMute: vi.fn(),
-  }),
-}));
 
 vi.mock("@/hooks/useCaptions", () => ({
   useCaptions: () => ({
@@ -53,7 +38,11 @@ vi.mock("@/components/SkipButton", () => ({
 }));
 
 vi.mock("@/components/ui-inputs", () => ({
-  UIInput: () => <div data-testid="ui-input" />,
+  UIInput: ({ onSubmit }: { onSubmit: (value: unknown) => void }) => (
+    <div data-testid="ui-input">
+      <button onClick={() => onSubmit("submitted value")}>submit input</button>
+    </div>
+  ),
 }));
 
 vi.mock("@/components/MuteToggle", () => ({
@@ -88,8 +77,6 @@ function makeScreen(overrides: Partial<Screen> = {}): Screen {
 
 beforeEach(() => {
   vi.useFakeTimers();
-  play.mockReset();
-  skip.mockReset();
 });
 
 afterEach(() => {
@@ -99,49 +86,138 @@ afterEach(() => {
 });
 
 describe("ScreenPlayer animation behavior", () => {
-  it("starts audio after the mount delay", () => {
+  it("reveals the UI after the configured narration timing threshold", () => {
     render(
       <ScreenPlayer
         screen={makeScreen()}
+        isNarrationPlaying={true}
+        hasNarrationEnded={false}
+        getNarrationTime={() => 0}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={vi.fn()}
         onComplete={vi.fn()}
       />,
     );
 
-    expect(play).not.toHaveBeenCalled();
-    vi.advanceTimersByTime(300);
-    expect(play).toHaveBeenCalledWith("/vo/test.mp3");
+    expect(screen.queryByTestId("ui-input")).toBeNull();
+    act(() => {
+      vi.advanceTimersByTime(20_000);
+    });
+    expect(screen.getByTestId("ui-input")).toBeInTheDocument();
   });
 
-  it("does not start audio if the user skips before playback begins", () => {
+  it("delegates skip to the parent narration controller", () => {
+    const onSkipNarration = vi.fn();
     render(
       <ScreenPlayer
         screen={makeScreen()}
+        isNarrationPlaying={false}
+        hasNarrationEnded={false}
+        getNarrationTime={() => 0}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={onSkipNarration}
         onComplete={vi.fn()}
       />,
     );
 
     fireEvent.click(screen.getAllByRole("button", { name: /skip/i })[0]);
 
-    vi.advanceTimersByTime(300);
-    expect(skip).toHaveBeenCalled();
-    expect(play).not.toHaveBeenCalled();
+    expect(onSkipNarration).toHaveBeenCalledTimes(1);
+  });
+
+  it("submits the current screen value through the parent handler", () => {
+    const onComplete = vi.fn();
+
+    render(
+      <ScreenPlayer
+        screen={makeScreen({ ui: "short-text" })}
+        isNarrationPlaying={false}
+        hasNarrationEnded={true}
+        getNarrationTime={() => 0}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={vi.fn()}
+        onComplete={onComplete}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: /submit input/i }));
+
+    expect(onComplete).toHaveBeenCalledWith("submitted value");
+  });
+
+  it("delegates back navigation to the parent handler", () => {
+    const onBack = vi.fn();
+
+    render(
+      <ScreenPlayer
+        screen={makeScreen({ ui: "short-text" })}
+        isNarrationPlaying={false}
+        hasNarrationEnded={true}
+        getNarrationTime={() => 0}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={vi.fn()}
+        onComplete={vi.fn()}
+        onBack={onBack}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: /back/i }));
+
+    expect(onBack).toHaveBeenCalledTimes(1);
   });
 });
 
 describe("ScreenPlayer Motion Ownership & Layout", () => {
   it("renders PaperShimmer when video is disabled", () => {
-    render(<ScreenPlayer screen={makeScreen({ video: undefined })} onComplete={vi.fn()} />);
+    render(
+      <ScreenPlayer
+        screen={makeScreen({ video: undefined })}
+        isNarrationPlaying={false}
+        hasNarrationEnded={true}
+        getNarrationTime={() => 0}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={vi.fn()}
+        onComplete={vi.fn()}
+      />,
+    );
     expect(screen.queryByTestId("paper-shimmer")).not.toBeNull();
   });
 
   it("kills PaperShimmer when a video is provided", () => {
-    render(<ScreenPlayer screen={makeScreen({ video: "/videos/test.mp4" })} onComplete={vi.fn()} />);
+    render(
+      <ScreenPlayer
+        screen={makeScreen({ video: "/videos/test.mp4" })}
+        isNarrationPlaying={false}
+        hasNarrationEnded={true}
+        getNarrationTime={() => 0}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={vi.fn()}
+        onComplete={vi.fn()}
+      />,
+    );
     expect(screen.queryByTestId("paper-shimmer")).toBeNull();
   });
 
   it("applies items-end class when uiLayout is right", () => {
     // We need to bypass the audio wait to force showUI rendering using skip button
-    render(<ScreenPlayer screen={makeScreen({ uiLayout: "right" })} onComplete={vi.fn()} />);
+    render(
+      <ScreenPlayer
+        screen={makeScreen({ uiLayout: "right" })}
+        isNarrationPlaying={false}
+        hasNarrationEnded={false}
+        getNarrationTime={() => 0}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={vi.fn()}
+        onComplete={vi.fn()}
+      />,
+    );
     fireEvent.click(screen.getAllByRole("button", { name: /skip/i })[0]);
     
     // Check the wrapper
@@ -151,7 +227,18 @@ describe("ScreenPlayer Motion Ownership & Layout", () => {
   });
 
   it("applies mediaPosition correctly to the backdrop", () => {
-    const { container } = render(<ScreenPlayer screen={makeScreen({ mediaPosition: "left top" })} onComplete={vi.fn()} />);
+    const { container } = render(
+      <ScreenPlayer
+        screen={makeScreen({ mediaPosition: "left top" })}
+        isNarrationPlaying={false}
+        hasNarrationEnded={true}
+        getNarrationTime={() => 0}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={vi.fn()}
+        onComplete={vi.fn()}
+      />,
+    );
     
     const section = container.querySelector("section[aria-label='Cold Open']") as HTMLElement;
     expect(section.style.backgroundPosition).toBe("left top");

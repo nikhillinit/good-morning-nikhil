@@ -16,6 +16,7 @@ export type UIType =
 
 export interface Screen {
   id: string;
+  bgMusic?: string; // optional ambient underscore in /public/music/
   show: string;
   showEmoji: string;
   audio: string; // path to VO clip in /public/vo/
@@ -62,6 +63,7 @@ export const screens: Screen[] = [
     showEmoji: "🎮",
     audio: "/vo/02-relationship.mp3?v=2",
     bg: "crt",
+    video: "/videos/intro-tv.mp4",
     videoBehavior: "loop",
     uiLayout: "center",
     mediaPosition: "center center",
@@ -110,6 +112,7 @@ export const screens: Screen[] = [
     showEmoji: "📺",
     audio: "/vo/00-cold-open.mp3?v=2",
     bg: "/sets/feud-board.webp",
+    video: "/videos/gmn-feud-kickoff.mp4",
     videoBehavior: "loop",
     uiLayout: "right",
     mediaPosition: "left center",
@@ -201,6 +204,7 @@ export const screens: Screen[] = [
     showEmoji: "📺",
     audio: "/vo/04a-sponsor.mp3?v=2",
     bg: "/sets/sponsor-pedestal.webp",
+    video: "/videos/commercial-break.mp4",
     uiLayout: "right",
     mediaPosition: "left center",
     hideTvFrame: true,
@@ -247,6 +251,7 @@ export const screens: Screen[] = [
     showEmoji: "🌹",
     audio: "/vo/05a-bachelor-roses.mp3?v=2",
     bg: "/sets/bachelor-mansion.webp",
+    video: "/videos/bachelor-roses.mp4",
     uiLayout: "right",
     mediaPosition: "left center",
     hideTvFrame: true,
@@ -380,6 +385,7 @@ export const screens: Screen[] = [
     showEmoji: "🎙️",
     audio: "/vo/07-survivor.mp3?v=2",
     bg: "/sets/tribal-council.webp",
+    video: "/videos/survivor.mp4",
     videoBehavior: "loop",
     uiLayout: "right",
     mediaPosition: "left center",
@@ -405,6 +411,7 @@ export const screens: Screen[] = [
     showEmoji: "📋",
     audio: "/vo/08-maury.mp3?v=2",
     bg: "/sets/maury-studio.webp",
+    video: "/videos/maury.mp4",
     uiLayout: "right",
     mediaPosition: "left center",
     hideTvFrame: true,
@@ -431,6 +438,7 @@ export const screens: Screen[] = [
     showEmoji: "🎬",
     audio: "/vo/09-producer.mp3?v=2",
     bg: "/sets/control-room.webp",
+    video: "/videos/producer-notes.mp4",
     uiLayout: "right",
     mediaPosition: "left center",
     hideTvFrame: true,
@@ -455,6 +463,7 @@ export const screens: Screen[] = [
     showEmoji: "🎬",
     audio: "/vo/10-credits.mp3?v=2",
     bg: "/sets/credits-bg.webp",
+    video: "/videos/credits.mp4",
     uiLayout: "center",
     mediaPosition: "center center",
     hideTvFrame: true,

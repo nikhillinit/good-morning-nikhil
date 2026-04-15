@@ -1,7 +1,16 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Howl } from "howler";
+
+function inferFormat(src: string): string | undefined {
+  const normalized = src.split("?")[0]?.split("#")[0] ?? "";
+  const ext = normalized.split(".").pop()?.toLowerCase();
+
+  if (!ext) return undefined;
+  if (ext === "m4a") return "mp4";
+  return ext;
+}
 
 export function useAudioPlayer() {
   const howlRef = useRef<Howl | null>(null);
@@ -15,23 +24,28 @@ export function useAudioPlayer() {
     if (howlRef.current) {
       howlRef.current.stop();
       howlRef.current.unload();
+      howlRef.current = null;
     }
 
     setHasEnded(false);
     setIsPlaying(true);
 
+    const format = inferFormat(src);
+
     const howl = new Howl({
       src: [src],
-      html5: true,
+      format: format ? [format] : undefined,
       onend: () => {
         setIsPlaying(false);
         setHasEnded(true);
+        howlRef.current = null;
         onEnd?.();
       },
       onloaderror: () => {
         // If audio fails to load, skip to UI reveal
         setIsPlaying(false);
         setHasEnded(true);
+        howlRef.current = null;
         onEnd?.();
       },
     });
@@ -45,6 +59,7 @@ export function useAudioPlayer() {
     if (howlRef.current) {
       howlRef.current.stop();
       howlRef.current.unload();
+      howlRef.current = null;
     }
     setIsPlaying(false);
     setHasEnded(true);
@@ -54,9 +69,18 @@ export function useAudioPlayer() {
     if (howlRef.current) {
       howlRef.current.stop();
       howlRef.current.unload();
+      howlRef.current = null;
     }
     setIsPlaying(false);
     setHasEnded(false);
+  }, []);
+
+  useEffect(() => () => {
+    if (howlRef.current) {
+      howlRef.current.stop();
+      howlRef.current.unload();
+      howlRef.current = null;
+    }
   }, []);
 
   const getCurrentTime = useCallback((): number => {

@@ -10,6 +10,7 @@ import { ReviewScreen } from "@/components/ReviewScreen";
 import { SessionProvider, useSession } from "@/hooks/useSession";
 import { useMediaConsent } from "@/hooks/useMediaConsent";
 import { useAmbientMusic } from "@/hooks/useAmbientMusic";
+import { useAudioPlayer } from "@/hooks/useAudioPlayer";
 import { MediaGate } from "@/components/MediaGate";
 import { PrimaryButton } from "@/components/primitives";
 import {
@@ -62,6 +63,16 @@ function SurveyFlow() {
   const { session, createNewSession, loading } = useSession();
   const entryStartedAtRef = useRef(0);
   const { hasConsented, grantConsent, hydrated } = useMediaConsent();
+  const {
+    play: playNarration,
+    skip: skipNarration,
+    stop: stopNarration,
+    isPlaying: isNarrationPlaying,
+    hasEnded: hasNarrationEnded,
+    getCurrentTime: getNarrationTime,
+    isMuted: isNarrationMuted,
+    toggleMute: toggleNarrationMute,
+  } = useAudioPlayer();
 
   const currentIndex = getScreenIndex(currentScreenId, screens);
   const activeIndex = currentIndex === -1 ? 0 : currentIndex;
@@ -75,6 +86,35 @@ function SurveyFlow() {
 
   // Initialize global background music player for cinematic ambiance
   useAmbientMusic(currentScreen.bgMusic, 0.4, false);
+
+  const narrationEnabled =
+    hydrated &&
+    hasConsented &&
+    sessionBootstrapped &&
+    !bootstrapError &&
+    !showReview &&
+    !submitted &&
+    !submitError;
+
+  useEffect(() => {
+    if (!narrationEnabled) {
+      stopNarration();
+    }
+  }, [narrationEnabled, stopNarration]);
+
+  useEffect(() => {
+    if (!narrationEnabled || !currentScreen.audio) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      playNarration(currentScreen.audio);
+    }, 300);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [currentScreen.id, currentScreen.audio, narrationEnabled, playNarration]);
 
   useEffect(() => {
     if (!HAS_SUPABASE) return;
@@ -211,12 +251,13 @@ function SurveyFlow() {
 
   const handleBack = useCallback(() => {
     if (history.length <= 1) return;
+    stopNarration();
     const nextHistory = history.slice(0, -1);
     setHistory(nextHistory);
     setCurrentScreenId(nextHistory[nextHistory.length - 1]);
     setShowReview(false);
     setSaveError(null);
-  }, [history]);
+  }, [history, stopNarration]);
 
   const handleToggleAnonymous = useCallback(() => {
     setAnonymous((prev) => {
@@ -233,6 +274,7 @@ function SurveyFlow() {
 
   const persistAndAdvance = useCallback(
     async (value: unknown) => {
+      stopNarration();
       const nextId = getNextScreen(currentScreenId, screens);
       const timeSpentMs = Math.max(0, Date.now() - entryStartedAtRef.current);
       const completionStatus = getCompletionStatusForValue(currentScreen, value);
@@ -279,11 +321,13 @@ function SurveyFlow() {
       currentScreenId,
       session,
       setResponse,
+      stopNarration,
     ],
   );
 
   const handleComplete = useCallback(
     async (value: unknown) => {
+      stopNarration();
       if (!HAS_SUPABASE || !session?.id) {
         const serialized = serializeScreenResponse(currentScreen, value);
         setResponse(currentScreen.id, serialized.reviewValue);
@@ -303,6 +347,7 @@ function SurveyFlow() {
       persistAndAdvance,
       session,
       setResponse,
+      stopNarration,
     ],
   );
 
@@ -316,6 +361,7 @@ function SurveyFlow() {
 
   const handleFinalSubmit = useCallback(async () => {
     try {
+      stopNarration();
       if (session?.id) {
         await submitSession(session.id);
       }
@@ -325,7 +371,7 @@ function SurveyFlow() {
       console.error("Failed to submit session", error);
       setSubmitError(true);
     }
-  }, [session]);
+  }, [session, stopNarration]);
 
   if (!hydrated) {
     return <div className="h-screen-safe bg-black" />;
@@ -448,9 +494,6 @@ function SurveyFlow() {
     );
   }
 
-  const nextScreen = screens[activeIndex + 1];
-  const nextScreenVideo = nextScreen?.video;
-
   return (
     <div className="h-screen-safe bg-black">
       {(resumedFrom || saveError) && (
@@ -496,10 +539,15 @@ function SurveyFlow() {
         >
           <ScreenPlayer
             screen={currentScreen}
-            nextScreenVideo={nextScreenVideo}
             initialValue={getResponse(currentScreen.id)}
             screenIndex={activeIndex}
             totalScreens={screens.length}
+            isNarrationPlaying={isNarrationPlaying}
+            hasNarrationEnded={hasNarrationEnded}
+            getNarrationTime={getNarrationTime}
+            isNarrationMuted={isNarrationMuted}
+            onToggleNarrationMute={toggleNarrationMute}
+            onSkipNarration={skipNarration}
             onComplete={handleComplete}
             onBack={history.length > 1 ? handleBack : undefined}
           />

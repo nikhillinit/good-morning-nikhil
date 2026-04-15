@@ -2,6 +2,10 @@ import { describe, expect, it } from "vitest";
 import { screens } from "@/data/screens";
 import { getScreenPrompt } from "@/lib/screen-prompts";
 
+function stripQuery(path: string | undefined): string | undefined {
+  return path?.split("?")[0];
+}
+
 describe("screen arc", () => {
   it("keeps the merged commercial-break question in the current flow", () => {
     const ids = screens.map((screen) => screen.id);
@@ -13,7 +17,7 @@ describe("screen arc", () => {
     const commercialBreak = screens.find((screen) => screen.id === "commercial-break");
     expect(commercialBreak?.ui).toBe("short-text");
     expect(getScreenPrompt("commercial-break")).toContain("company");
-    expect(commercialBreak?.audio).toBe("/vo/04a-sponsor.mp3");
+    expect(stripQuery(commercialBreak?.audio)).toBe("/vo/04a-sponsor.mp3");
     expect(commercialBreak?.bg).toBe("/sets/sponsor-pedestal.webp");
   });
 

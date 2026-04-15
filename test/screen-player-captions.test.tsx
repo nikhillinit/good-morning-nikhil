@@ -3,20 +3,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Screen } from "@/data/screens";
 import { ScreenPlayer } from "@/components/ScreenPlayer";
 
-const play = vi.fn();
-
-vi.mock("@/hooks/useAudioPlayer", () => ({
-  useAudioPlayer: () => ({
-    play,
-    skip: vi.fn(),
-    isPlaying: true,
-    hasEnded: false,
-    getCurrentTime: () => 1500,
-    isMuted: false,
-    toggleMute: vi.fn(),
-  }),
-}));
-
 vi.mock("@/hooks/useCaptions", () => ({
   useCaptions: () => ({
     currentCaption: {
@@ -90,7 +76,6 @@ function makeScreen(overrides: Partial<Screen> = {}): Screen {
 
 beforeEach(() => {
   vi.useFakeTimers();
-  play.mockReset();
 });
 
 afterEach(() => {
@@ -104,6 +89,12 @@ describe("ScreenPlayer captions", () => {
     render(
       <ScreenPlayer
         screen={makeScreen()}
+        isNarrationPlaying={true}
+        hasNarrationEnded={false}
+        getNarrationTime={() => 1.5}
+        isNarrationMuted={false}
+        onToggleNarrationMute={vi.fn()}
+        onSkipNarration={vi.fn()}
         onComplete={vi.fn()}
       />,
     );

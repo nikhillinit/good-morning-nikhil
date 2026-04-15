@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Screen } from "@/data/screens";
-import { useAudioPlayer } from "@/hooks/useAudioPlayer";
 import { useCaptions } from "@/hooks/useCaptions";
 import { screenEnter, uiReveal } from "@/lib/animations";
 import { PaperShimmer } from "./ambient/PaperShimmer";
@@ -61,32 +60,41 @@ const getSpotlightGradient = (id: string, hasVideo: boolean) => {
 
 interface ScreenPlayerProps {
   screen: Screen;
-  nextScreenVideo?: string;
   initialValue?: unknown;
   screenIndex?: number;
   totalScreens?: number;
+  isNarrationPlaying: boolean;
+  hasNarrationEnded: boolean;
+  getNarrationTime: () => number;
+  isNarrationMuted: boolean;
+  onToggleNarrationMute: () => void;
+  onSkipNarration: () => void;
   onComplete: (value: unknown) => void;
   onBack?: () => void;
 }
 
 export function ScreenPlayer({
   screen,
-  nextScreenVideo,
   initialValue,
   screenIndex,
   totalScreens,
+  isNarrationPlaying,
+  hasNarrationEnded,
+  getNarrationTime,
+  isNarrationMuted,
+  onToggleNarrationMute,
+  onSkipNarration,
   onComplete,
   onBack,
 }: ScreenPlayerProps) {
-  const { play, skip, isPlaying, hasEnded, getCurrentTime, isMuted, toggleMute } = useAudioPlayer();
   const [skipped, setSkipped] = useState(false);
   const [timedReveal, setTimedReveal] = useState(false);
   const { currentCaption } = useCaptions(
     screen.id,
-    isPlaying ? getCurrentTime : null,
+    isNarrationPlaying ? getNarrationTime : null,
   );
 
-  const showUI = hasEnded || skipped || timedReveal;
+  const showUI = hasNarrationEnded || skipped || timedReveal;
   const promptOverride =
     typeof screen.uiConfig?.prompt === "string" ? screen.uiConfig.prompt : undefined;
   const showContentCard =
@@ -103,51 +111,26 @@ export function ScreenPlayer({
       : "items-center";
 
   useEffect(() => {
-    setSkipped(false);
-    setTimedReveal(false);
-  }, [screen.id]);
-
-  useEffect(() => {
-    if (!screen.uiRevealAt || !isPlaying) return;
+    if (!screen.uiRevealAt || !isNarrationPlaying) return;
     const timer = setTimeout(() => setTimedReveal(true), screen.uiRevealAt * 1000);
     return () => clearTimeout(timer);
-  }, [screen.id, screen.uiRevealAt, isPlaying]);
-
-  useEffect(() => {
-    if (skipped) return;
-    const timer = setTimeout(() => {
-      if (!skipped) play(screen.audio);
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [screen.id, screen.audio, play, skipped]);
-
-  useEffect(() => {
-    if (!nextScreenVideo) return;
-
-    if (
-      typeof navigator !== "undefined" &&
-      "connection" in navigator &&
-      (navigator as { connection?: { saveData?: boolean } }).connection?.saveData
-    ) {
-      return;
-    }
-
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "video";
-    link.type = "video/mp4";
-    link.href = nextScreenVideo;
-    document.head.appendChild(link);
-
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, [nextScreenVideo]);
+  }, [screen.id, screen.uiRevealAt, isNarrationPlaying]);
 
   const handleSkip = useCallback(() => {
-    skip();
+    onSkipNarration();
     setSkipped(true);
-  }, [skip]);
+  }, [onSkipNarration]);
+
+  const handleComplete = useCallback(
+    (value: unknown) => {
+      void onComplete(value);
+    },
+    [onComplete],
+  );
+
+  const handleBack = useCallback(() => {
+    onBack?.();
+  }, [onBack]);
 
   const hasVideo = !!screen.video;
 
@@ -185,18 +168,21 @@ export function ScreenPlayer({
           <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
         </>
       )}
-      <MuteToggle isMuted={isMuted} onToggle={toggleMute} />
+      <MuteToggle isMuted={isNarrationMuted} onToggle={onToggleNarrationMute} />
 
       <BroadcastTimeline currentPhase={screenIndex ?? 0} totalPhases={totalScreens ?? 0} />
 
       <main className="screen-player-main relative z-10 flex w-full flex-col px-4 h-full" style={{ perspective: "1000px" }}>
         <SkipButton visible={!showUI} onClick={handleSkip} />
 
-        <Captions caption={currentCaption} visible={isPlaying && !hasEnded} />
+        <Captions
+          caption={currentCaption}
+          visible={isNarrationPlaying && !hasNarrationEnded}
+        />
 
         {onBack && (
           <button
-            onClick={onBack}
+            onClick={handleBack}
             className="absolute bottom-8 left-4 z-20 flex min-h-[48px] items-center gap-2 rounded-full border border-white/10 bg-black/70 px-4 py-2 text-sm text-white safe-bottom backdrop-blur-sm transition-colors hover:bg-black/85"
           >
             ← Back
@@ -227,7 +213,7 @@ export function ScreenPlayer({
                   type={screen.ui}
                   config={screen.uiConfig}
                   initialValue={initialValue}
-                  onSubmit={onComplete}
+                  onSubmit={handleComplete}
                 />
               </div>
             </motion.div>
