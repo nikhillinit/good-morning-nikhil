@@ -49,6 +49,7 @@ See: .planning/PROJECT.md (updated 2026-04-12)
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 260413-3fa | IndexedDB offline queue for voice response uploads | 2026-04-13 | b8fbc76 | [260413-3fa-indexeddb-offline-queue-for-voice-respon](./quick/260413-3fa-indexeddb-offline-queue-for-voice-respon/) |
+| 260414-sok | Add diagnostic logging and error handlers to useAmbientMusic | 2026-04-14 | b3bf75e | [260414-sok-add-diagnostic-logging-and-error-handler](./quick/260414-sok-add-diagnostic-logging-and-error-handler/) |
 
 ## Decisions Log
 
@@ -61,4 +62,4 @@ See: .planning/PROJECT.md (updated 2026-04-12)
 | Skip discuss phase (workflow.skip_discuss=true) — ROADMAP is the spec | — | 2026-04-12 |
 
 ---
-*Last activity: 2026-04-13 - Completed quick task 260413-3fa: IndexedDB offline queue for voice response uploads*
+*Last activity: 2026-04-15 - Completed quick task 260414-sok: Add diagnostic logging and error handlers to useAmbientMusic*
