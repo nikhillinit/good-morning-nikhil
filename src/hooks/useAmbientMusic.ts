@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Howl } from "howler";
 
 const FADE_DURATION = 1500; // 1.5 seconds crossfade
+
+type HowlWithSource = Howl & {
+  _src?: string;
+};
 
 export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boolean = false) {
   const currentHowl = useRef<Howl | null>(null);
@@ -25,7 +29,9 @@ export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boo
     }
 
     // New source requested. If it's already playing, do nothing but ensure volume is valid
-    if (currentHowl.current && currentHowl.current.playing() && (currentHowl.current as any)._src === src) {
+    const activeHowl = currentHowl.current as HowlWithSource | null;
+
+    if (activeHowl && activeHowl.playing() && activeHowl._src === src) {
       return;
     }
 
@@ -52,21 +58,34 @@ export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boo
     // Instantiate and play new howl
     const newHowl = new Howl({
       src: [src],
-      html5: true,
+      html5: true, // required for large audio files to stream
       loop: true,
-      volume: 0,
+      volume: volume, // start at target volume if fade fails
+      onload: () => {
+        console.log(`[AmbientMusic] Loaded:`, src);
+        newHowl.volume(0); // initialize to 0 upon load
+        newHowl.fade(0, volume, FADE_DURATION); // then fade up
+      },
+      onloaderror: (_id: number, error: unknown) => {
+        console.error(`[AmbientMusic] Load error for ${src}:`, error);
+      },
+      onplayerror: (_id: number, error: unknown) => {
+        console.error(`[AmbientMusic] Play error for ${src}:`, error);
+      },
+      onplay: () => {
+        console.log(`[AmbientMusic] Playing:`, src);
+      },
     });
     
     // Store source for comparison
-    (newHowl as any)._src = src;
+    (newHowl as HowlWithSource)._src = src;
 
-    newHowl.play();
-    newHowl.fade(0, volume, FADE_DURATION);
+    newHowl.play(); // will queue until loaded
     newHowl.mute(isMuted);
 
     currentHowl.current = newHowl;
 
-  }, [src, volume]);
+  }, [src, volume, isMuted]);
 
   useEffect(() => {
     if (currentHowl.current) {
