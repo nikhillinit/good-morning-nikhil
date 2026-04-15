@@ -9,6 +9,15 @@ type HowlWithSource = Howl & {
   _src?: string;
 };
 
+function inferFormat(src: string): string | undefined {
+  const normalized = src.split("?")[0]?.split("#")[0] ?? "";
+  const ext = normalized.split(".").pop()?.toLowerCase();
+
+  if (!ext) return undefined;
+  if (ext === "m4a") return "mp4";
+  return ext;
+}
+
 export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boolean = false) {
   const currentHowl = useRef<Howl | null>(null);
   const fadingHowl = useRef<Howl | null>(null);
@@ -56,9 +65,10 @@ export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boo
     }
 
     // Instantiate and play new howl
+    const format = inferFormat(src);
     const newHowl = new Howl({
       src: [src],
-      html5: true, // required for large audio files to stream
+      format: format ? [format] : undefined,
       loop: true,
       volume: volume, // start at target volume if fade fails
       onload: () => {
@@ -68,9 +78,18 @@ export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boo
       },
       onloaderror: (_id: number, error: unknown) => {
         console.error(`[AmbientMusic] Load error for ${src}:`, error);
+        if (currentHowl.current === newHowl) {
+          currentHowl.current = null;
+        }
+        newHowl.unload();
       },
       onplayerror: (_id: number, error: unknown) => {
         console.error(`[AmbientMusic] Play error for ${src}:`, error);
+        if (currentHowl.current === newHowl) {
+          currentHowl.current = null;
+        }
+        newHowl.stop();
+        newHowl.unload();
       },
       onplay: () => {
         console.log(`[AmbientMusic] Playing:`, src);

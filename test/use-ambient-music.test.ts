@@ -60,6 +60,11 @@ describe("useAmbientMusic – Howler event handlers", () => {
     expect(typeof capturedHowlOptions.onplay).toBe("function");
   });
 
+  it("passes an explicit format derived from the source path", () => {
+    renderWithSrc("/audio/test-track.wav?v=2");
+    expect(capturedHowlOptions.format).toEqual(["wav"]);
+  });
+
   it("onloaderror logs console.error with [AmbientMusic] prefix", () => {
     const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     renderWithSrc("/audio/test.mp3");
@@ -102,5 +107,14 @@ describe("useAmbientMusic – Howler event handlers", () => {
       expect.stringContaining("[AmbientMusic]"),
       expect.anything()
     );
+  });
+
+  it("unloads the current howl after a play error", () => {
+    renderWithSrc("/audio/test.mp3");
+    const handler = capturedHowlOptions.onplayerror as (_id: unknown, error: unknown) => void;
+    handler(1, "autoplay blocked");
+
+    expect(mockHowlInstance.stop).toHaveBeenCalledTimes(1);
+    expect(mockHowlInstance.unload).toHaveBeenCalledTimes(1);
   });
 });

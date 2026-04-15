@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PrimaryButton } from "@/components/primitives";
+import { unlockAudioPlayback } from "@/lib/audio-unlock";
 
 interface MediaGateProps {
   hasConsented: boolean;
@@ -10,6 +11,11 @@ interface MediaGateProps {
 
 export function MediaGate({ hasConsented, onConsent }: MediaGateProps) {
   if (hasConsented) return null;
+
+  async function handleConsent() {
+    await unlockAudioPlayback();
+    onConsent();
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black px-6 text-center">
@@ -29,7 +35,7 @@ export function MediaGate({ hasConsented, onConsent }: MediaGateProps) {
           Landscape works best. The default flow stays tap-and-voice only.
         </p>
         <PrimaryButton
-          onClick={onConsent}
+          onClick={() => void handleConsent()}
           className="text-display px-10 py-5 text-2xl"
           aria-label="Start Episode"
         >

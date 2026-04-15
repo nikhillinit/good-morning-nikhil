@@ -84,8 +84,8 @@ function SurveyFlow() {
   const total = getTotalScreens(screens);
   const reviewableScreenCount = getReviewableScreenCount(screens);
 
-  // Initialize global background music player for cinematic ambiance
-  useAmbientMusic(currentScreen.bgMusic, 0.4, false);
+  // Only initialize background music after explicit media consent.
+  useAmbientMusic(hasConsented ? currentScreen.bgMusic : undefined, 0.4, false);
 
   const narrationEnabled =
     hydrated &&
