@@ -49,11 +49,6 @@ function ContinueButton({
   
   return (
     <motion.div {...uiReveal} className="space-y-3 text-center">
-      {promptText && (
-        <p className="text-body text-balance mx-auto max-w-sm">
-          {promptText}
-        </p>
-      )}
       <SecondaryButton
         onClick={() => onSubmit(true)}
         className="border-accent/20 bg-accent/10 text-accent hover:bg-accent/20 hover:text-accent backdrop-blur-md"

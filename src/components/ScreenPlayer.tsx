@@ -132,27 +132,63 @@ export function ScreenPlayer({
     onBack?.();
   }, [onBack]);
 
-  const hasVideo = !!screen.video;
+  const hasVideo = false;
+
+  const getAnimationVariants = (): any => {
+    if (screen.bg === "crt") return {};
+    const baseDuration = (screen.duration || 10) * 1.5; // slow movement
+    switch (screen.imageAnimation) {
+      case "pan-left":
+        return {
+          initial: { backgroundPosition: "100% 50%", backgroundSize: "cover" },
+          animate: { backgroundPosition: "0% 50%", transition: { duration: baseDuration, ease: "linear" } }
+        };
+      case "pan-right":
+        return {
+          initial: { backgroundPosition: "0% 50%", backgroundSize: "cover" },
+          animate: { backgroundPosition: "100% 50%", transition: { duration: baseDuration, ease: "linear" } }
+        };
+      case "pan-slow":
+        return {
+          initial: { backgroundPosition: "50% 50%", backgroundSize: "120%" },
+          animate: { backgroundPosition: "40% 60%", transition: { duration: baseDuration, ease: "linear" } }
+        };
+      case "zoom-in":
+        return {
+          initial: { backgroundPosition: "50% 30%", backgroundSize: "100%" },
+          animate: { backgroundSize: "130%", backgroundPosition: "50% 10%", transition: { duration: baseDuration, ease: "linear" } }
+        };
+      case "zoom-out":
+        return {
+          initial: { backgroundPosition: "50% 30%", backgroundSize: "130%" },
+          animate: { backgroundSize: "100%", backgroundPosition: "50% 10%", transition: { duration: baseDuration, ease: "linear" } }
+        };
+      default:
+        return {
+          initial: { backgroundPosition: screen.mediaPosition || "center 20%", backgroundSize: "cover" },
+          animate: { backgroundPosition: screen.mediaPosition || "center 20%", backgroundSize: "cover" }
+        };
+    }
+  };
+
+  const animVariants = getAnimationVariants();
 
   const playerContent = (
     <motion.section
       key={screen.id}
       aria-label={screen.show}
       {...screenEnter}
+      initial={{ ...screenEnter.initial, ...animVariants.initial }}
+      animate={{ ...screenEnter.animate, ...animVariants.animate }}
       className="relative flex flex-col justify-center bg-black h-full w-full"
       style={screen.bg !== "crt" ? {
         backgroundImage: `url(${screen.bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: screen.mediaPosition || "center 20%",
+        backgroundRepeat: "no-repeat",
       } : {}}
     >
-      {screen.bg === "crt" && !hasVideo && <CRTScreen />}
+      {screen.bg === "crt" && <CRTScreen />}
 
-      {hasVideo && (
-        <VideoBackground videoSrc={screen.video} poster={screen.bg !== "crt" ? screen.bg : ""} showUI={showUI} behavior={screen.videoBehavior} mediaPosition={screen.mediaPosition} />
-      )}
-
-      {screen.bg !== "crt" && !hasVideo && (
+      {screen.bg !== "crt" && (
         <>
           <PaperShimmer />
           {getAmbientLayer(screen.bg)}
