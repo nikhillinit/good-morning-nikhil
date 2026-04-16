@@ -146,10 +146,10 @@ export function ScreenPlayer({
         backgroundPosition: screen.mediaPosition || "center 20%",
       } : {}}
     >
-      {screen.bg === "crt" && <CRTScreen />}
+      {screen.bg === "crt" && !hasVideo && <CRTScreen />}
 
-      {screen.bg !== "crt" && (
-        <VideoBackground videoSrc={screen.video} poster={screen.bg} showUI={showUI} behavior={screen.videoBehavior} mediaPosition={screen.mediaPosition} />
+      {hasVideo && (
+        <VideoBackground videoSrc={screen.video} poster={screen.bg !== "crt" ? screen.bg : ""} showUI={showUI} behavior={screen.videoBehavior} mediaPosition={screen.mediaPosition} />
       )}
 
       {screen.bg !== "crt" && !hasVideo && (

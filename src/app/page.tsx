@@ -11,6 +11,11 @@ import { SessionProvider, useSession } from "@/hooks/useSession";
 import { useMediaConsent } from "@/hooks/useMediaConsent";
 import { useAmbientMusic } from "@/hooks/useAmbientMusic";
 import { useAudioPlayer } from "@/hooks/useAudioPlayer";
+import {
+  hasTabAudioUnlock,
+  isAudioPlaybackUnlocked,
+  unlockAudioPlayback,
+} from "@/lib/audio-unlock";
 import { MediaGate } from "@/components/MediaGate";
 import { PrimaryButton } from "@/components/primitives";
 import {
@@ -55,6 +60,9 @@ function SurveyFlow() {
   const [bootstrapError, setBootstrapError] = useState<string | null>(null);
   const [bootstrapVersion, setBootstrapVersion] = useState(0);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [audioUnlocked, setAudioUnlocked] = useState(() =>
+    isAudioPlaybackUnlocked(),
+  );
   const [pendingCompletion, setPendingCompletion] = useState<{
     screenId: string;
     value: unknown;
@@ -84,17 +92,56 @@ function SurveyFlow() {
   const total = getTotalScreens(screens);
   const reviewableScreenCount = getReviewableScreenCount(screens);
 
-  // Only initialize background music after explicit media consent.
-  useAmbientMusic(hasConsented ? currentScreen.bgMusic : undefined, 0.4, false);
+  // Only initialize background music after explicit media consent and a
+  // browser-accepted audio unlock in the current tab.
+  useAmbientMusic(
+    hasConsented && audioUnlocked ? currentScreen.bgMusic : undefined,
+    0.4,
+    false,
+    isNarrationPlaying
+  );
 
   const narrationEnabled =
     hydrated &&
     hasConsented &&
+    audioUnlocked &&
     sessionBootstrapped &&
     !bootstrapError &&
     !showReview &&
     !submitted &&
     !submitError;
+
+  useEffect(() => {
+    if (!hasConsented || audioUnlocked) return;
+
+    if (hasTabAudioUnlock() || isAudioPlaybackUnlocked()) {
+      const frame = window.requestAnimationFrame(() => {
+        setAudioUnlocked(true);
+      });
+      return () => window.cancelAnimationFrame(frame);
+    }
+
+    let cancelled = false;
+
+    const handleUserGesture = () => {
+      void unlockAudioPlayback().then((unlocked) => {
+        if (!cancelled && unlocked) {
+          setAudioUnlocked(true);
+        }
+      });
+    };
+
+    window.addEventListener("pointerdown", handleUserGesture, {
+      passive: true,
+    });
+    window.addEventListener("keydown", handleUserGesture);
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener("pointerdown", handleUserGesture);
+      window.removeEventListener("keydown", handleUserGesture);
+    };
+  }, [audioUnlocked, hasConsented]);
 
   useEffect(() => {
     if (!narrationEnabled) {

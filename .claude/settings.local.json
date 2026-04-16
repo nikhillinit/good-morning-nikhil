@@ -95,7 +95,17 @@
       "Bash(npx -y @a5c-ai/babysitter-sdk@0.0.174 run:iterate .a5c/runs/01KP61WWDWGXKYM3P3H53PNREX --json --iteration 14 --plugin-root \"C:/Users/nikhi/.claude/plugins/cache/a5c-ai/babysitter/4.0.144\")",
       "Bash(npx playwright:*)",
       "Bash(start:*)",
-      "Skill(qa)"
+      "Skill(qa)",
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch:*)",
+      "Bash(git show-ref:*)",
+      "Bash(git reset:*)",
+      "Bash(pip show:*)",
+      "Bash(pip install:*)",
+      "Bash(git filter-repo:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(git stash:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }

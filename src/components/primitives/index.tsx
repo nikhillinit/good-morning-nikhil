@@ -1,5 +1,6 @@
 import { ComponentProps, forwardRef } from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
+import { triggerHaptic } from "@/lib/haptics";
 
 function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
@@ -8,14 +9,17 @@ function cn(...classes: Array<string | false | null | undefined>) {
 /* ── Primary Button ────────────────────────────────────────────── */
 
 export const PrimaryButton = forwardRef<HTMLButtonElement, HTMLMotionProps<"button">>(
-  ({ className, children, ...props }, ref) => {
+  ({ className, onClick, children, ...props }, ref) => {
     return (
       <motion.button
         ref={ref}
         className={cn(
           "min-h-[48px] w-full rounded-lg bg-accent px-8 py-3 font-bold text-black shadow-none transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02] hover:bg-accent-hover active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 glow-accent",
-          className
         )}
+        onClick={(e) => {
+          triggerHaptic("buttonTap");
+          onClick?.(e);
+        }}
         {...props}
       >
         {children}
@@ -28,14 +32,17 @@ PrimaryButton.displayName = "PrimaryButton";
 /* ── Secondary Button ──────────────────────────────────────────── */
 
 export const SecondaryButton = forwardRef<HTMLButtonElement, ComponentProps<"button">>(
-  ({ className, children, ...props }, ref) => {
+  ({ className, onClick, children, ...props }, ref) => {
     return (
       <button
         ref={ref}
         className={cn(
           "flex min-h-[48px] w-full items-center justify-center rounded-lg border border-surface-hover bg-transparent px-8 py-3 text-sm font-medium text-muted transition-colors duration-300 hover:bg-surface hover:text-foreground",
-          className
         )}
+        onClick={(e) => {
+          triggerHaptic("buttonTap");
+          onClick?.(e);
+        }}
         {...props}
       >
         {children}
@@ -70,7 +77,7 @@ interface ChoiceChipProps extends HTMLMotionProps<"button"> {
 }
 
 export const ChoiceChip = forwardRef<HTMLButtonElement, ChoiceChipProps>(
-  ({ className, selected = false, children, ...props }, ref) => {
+  ({ className, selected = false, onClick, children, ...props }, ref) => {
     return (
       <motion.button
         ref={ref}
@@ -79,8 +86,11 @@ export const ChoiceChip = forwardRef<HTMLButtonElement, ChoiceChipProps>(
           selected
             ? "border-accent bg-accent/20 text-accent shadow-[0_0_15px_var(--color-accent)]"
             : "border-surface-hover bg-surface/80 text-muted hover:border-muted hover:bg-surface",
-          className
         )}
+        onClick={(e) => {
+          triggerHaptic("buttonTap");
+          onClick?.(e);
+        }}
         {...props}
       >
         {children}

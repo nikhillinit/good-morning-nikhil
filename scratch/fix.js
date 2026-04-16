@@ -1,18 +1,29 @@
 const fs = require('fs');
-let data = fs.readFileSync('src/data/screens.ts', 'utf8');
+let text = fs.readFileSync('src/data/screens.ts', 'utf8');
 
-let inSurvivor = false;
-data = data.split('\n').map(line => {
-  if (line.includes('id: "survivor"')) {
-    inSurvivor = true;
-  }
-  if (line.includes('id: "producer-notes"')) {
-    inSurvivor = false;
-  }
-  if (line.includes('maxSeconds:')) {
-    return inSurvivor ? line : null;
-  }
-  return line;
-}).filter(l => l !== null).join('\n');
+// 1. Remove video and videoBehavior properties (except intro-tv)
+text = text.replace(/^\s*video:\s*"(?!\/videos\/intro-tv\b)[^"]+",\r?\n/gm, '');
+text = text.replace(/^\s*videoBehavior:\s*"[^"]+",\r?\n/gm, '');
 
-fs.writeFileSync('src/data/screens.ts', data);
+// 2. Map Backgrounds
+text = text.replace(/id:\s*"gmn-feud-kickoff"[\s\S]*?bg:\s*"\/sets\/feud-board.webp"/, (m) => m.replace('feud-board.webp', 'feud-kickoff.webp'));
+text = text.replace(/id:\s*"feud-top3"[\s\S]*?bg:\s*"\/sets\/feud-board.webp"/, (m) => m.replace('feud-board.webp', 'feud-top3.webp'));
+text = text.replace(/id:\s*"feud-strongest"[\s\S]*?bg:\s*"\/sets\/feud-board.webp"/, (m) => m.replace('feud-board.webp', 'feud-top3.webp'));
+text = text.replace(/id:\s*"feud-trademark"[\s\S]*?bg:\s*"\/sets\/feud-board.webp"/, (m) => m.replace('feud-board.webp', 'feud-top3.webp'));
+
+text = text.replace(/bg:\s*"\/sets\/sponsor-pedestal.webp"/g, 'bg: "/sets/commercial-break.webp"');
+
+text = text.replace(/id:\s*"bachelor-roses"[\s\S]*?bg:\s*"\/sets\/bachelor-mansion.webp"/, (m) => m.replace('bachelor-mansion.webp', 'bachelor-roses.webp'));
+text = text.replace(/id:\s*"bachelor-eliminate"[\s\S]*?bg:\s*"\/sets\/bachelor-mansion.webp"/, (m) => m.replace('bachelor-mansion.webp', 'bachelor-roses.webp'));
+
+text = text.replace(/bg:\s*"\/sets\/shark-warehouse.webp"/g, 'bg: "/sets/shark-invest.webp"');
+
+text = text.replace(/bg:\s*"\/sets\/tribal-council.webp"/g, 'bg: "/sets/survivor.webp"');
+
+text = text.replace(/bg:\s*"\/sets\/maury-studio.webp"/g, 'bg: "/sets/maury.webp"');
+
+text = text.replace(/bg:\s*"\/sets\/control-room.webp"/g, 'bg: "/sets/producer-notes.webp"');
+
+text = text.replace(/bg:\s*"\/sets\/credits-bg.webp"/g, 'bg: "/sets/credits.webp"');
+
+fs.writeFileSync('src/data/screens.ts', text, 'utf8');

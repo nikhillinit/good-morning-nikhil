@@ -1012,3 +1012,27 @@
 [INFO] 2026-04-14T14:55:23.021Z [session=3cd39073-52a5-4e09-ab2a-fe6d959836cb] Primary state file not found, trying fallback: C:\dev\good-morning-nikhil\.a5c\state/3cd39073-52a5-4e09-ab2a-fe6d959836cb.md
 [INFO] 2026-04-14T14:55:23.022Z [session=3cd39073-52a5-4e09-ab2a-fe6d959836cb] No active loop found at primary (C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state/3cd39073-52a5-4e09-ab2a-fe6d959836cb.md) or fallback (C:\dev\good-morning-nikhil\.a5c\state/3cd39073-52a5-4e09-ab2a-fe6d959836cb.md) — allowing exit
 [INFO] 2026-04-14T14:55:23Z CLI exit code=0
+[INFO] 2026-04-15T02:08:21Z Hook script invoked
+[INFO] 2026-04-15T02:08:21Z PLUGIN_ROOT=/c/Users/nikhi/.claude/plugins/cache/a5c-ai/babysitter/4.0.144
+[INFO] 2026-04-15T02:08:21Z Hook input received (732 bytes)
+[INFO] 2026-04-15T02:08:24.312Z handleHookRunStop started
+[INFO] 2026-04-15T02:08:24.499Z Hook input received
+[INFO] 2026-04-15T02:08:24.500Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Session ID: d7595558-7668-45b1-b08e-201b58285c1c
+[INFO] 2026-04-15T02:08:24.501Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Resolved pluginRoot: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144
+[INFO] 2026-04-15T02:08:24.501Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Resolved stateDir: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state
+[INFO] 2026-04-15T02:08:24.502Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Checking session file at: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state/d7595558-7668-45b1-b08e-201b58285c1c.md
+[INFO] 2026-04-15T02:08:24.514Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Primary state file not found, trying fallback: C:\dev\good-morning-nikhil\.a5c\state/d7595558-7668-45b1-b08e-201b58285c1c.md
+[INFO] 2026-04-15T02:08:24.515Z [session=d7595558-7668-45b1-b08e-201b58285c1c] No active loop found at primary (C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state/d7595558-7668-45b1-b08e-201b58285c1c.md) or fallback (C:\dev\good-morning-nikhil\.a5c\state/d7595558-7668-45b1-b08e-201b58285c1c.md) — allowing exit
+[INFO] 2026-04-15T02:08:24Z CLI exit code=0
+[INFO] 2026-04-15T02:09:31Z Hook script invoked
+[INFO] 2026-04-15T02:09:31Z PLUGIN_ROOT=/c/Users/nikhi/.claude/plugins/cache/a5c-ai/babysitter/4.0.144
+[INFO] 2026-04-15T02:09:32Z Hook input received (2874 bytes)
+[INFO] 2026-04-15T02:09:35.983Z handleHookRunStop started
+[INFO] 2026-04-15T02:09:36.423Z Hook input received
+[INFO] 2026-04-15T02:09:36.424Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Session ID: d7595558-7668-45b1-b08e-201b58285c1c
+[INFO] 2026-04-15T02:09:36.426Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Resolved pluginRoot: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144
+[INFO] 2026-04-15T02:09:36.426Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Resolved stateDir: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state
+[INFO] 2026-04-15T02:09:36.427Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Checking session file at: C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state/d7595558-7668-45b1-b08e-201b58285c1c.md
+[INFO] 2026-04-15T02:09:36.438Z [session=d7595558-7668-45b1-b08e-201b58285c1c] Primary state file not found, trying fallback: C:\dev\good-morning-nikhil\.a5c\state/d7595558-7668-45b1-b08e-201b58285c1c.md
+[INFO] 2026-04-15T02:09:36.439Z [session=d7595558-7668-45b1-b08e-201b58285c1c] No active loop found at primary (C:\Users\nikhi\.claude\plugins\cache\a5c-ai\babysitter\4.0.144\skills\babysit\state/d7595558-7668-45b1-b08e-201b58285c1c.md) or fallback (C:\dev\good-morning-nikhil\.a5c\state/d7595558-7668-45b1-b08e-201b58285c1c.md) — allowing exit
+[INFO] 2026-04-15T02:09:36Z CLI exit code=0

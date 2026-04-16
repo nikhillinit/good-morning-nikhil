@@ -10,7 +10,8 @@ export type HapticAction =
   | "screenAdvance"
   | "voiceRecordStart"
   | "voiceRecordStop"
-  | "finalSubmit";
+  | "finalSubmit"
+  | "buttonTap";
 
 const HAPTIC_MAP: Record<HapticAction, number | number[]> = {
   roseSelect: 10,
@@ -21,6 +22,7 @@ const HAPTIC_MAP: Record<HapticAction, number | number[]> = {
   voiceRecordStart: 20,
   voiceRecordStop: [20, 50, 20, 50, 80],
   finalSubmit: [20, 50, 20, 50, 80],
+  buttonTap: 15,
 };
 
 export function triggerHaptic(action: HapticAction): void {

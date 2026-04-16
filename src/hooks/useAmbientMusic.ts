@@ -18,7 +18,7 @@ function inferFormat(src: string): string | undefined {
   return ext;
 }
 
-export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boolean = false) {
+export function useAmbientMusic(src?: string, baseVolume: number = 0.3, isMuted: boolean = false, isDucked: boolean = false) {
   const currentHowl = useRef<Howl | null>(null);
   const fadingHowl = useRef<Howl | null>(null);
 
@@ -69,12 +69,13 @@ export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boo
     const newHowl = new Howl({
       src: [src],
       format: format ? [format] : undefined,
-      loop: true,
-      volume: volume, // start at target volume if fade fails
+      loop: !src.toLowerCase().includes('stinger'),
+      volume: isDucked ? baseVolume * 0.25 : baseVolume, // start at target volume if fade fails
       onload: () => {
         console.log(`[AmbientMusic] Loaded:`, src);
         newHowl.volume(0); // initialize to 0 upon load
-        newHowl.fade(0, volume, FADE_DURATION); // then fade up
+        const targetVol = isDucked ? baseVolume * 0.25 : baseVolume;
+        newHowl.fade(0, targetVol, FADE_DURATION); // then fade up
       },
       onloaderror: (_id: number, error: unknown) => {
         console.error(`[AmbientMusic] Load error for ${src}:`, error);
@@ -104,7 +105,16 @@ export function useAmbientMusic(src?: string, volume: number = 0.3, isMuted: boo
 
     currentHowl.current = newHowl;
 
-  }, [src, volume, isMuted]);
+  }, [src, baseVolume, isMuted]); // Note: isDucked is intentionally omitted here to avoid re-triggering the whole song load 
+
+  // Dynamic Audio Ducking Effect
+  useEffect(() => {
+    if (currentHowl.current) {
+      const targetVol = isDucked ? baseVolume * 0.25 : baseVolume;
+      // Gently fade up or duck down over 600ms
+      currentHowl.current.fade(currentHowl.current.volume(), targetVol, 600);
+    }
+  }, [isDucked, baseVolume]);
 
   useEffect(() => {
     if (currentHowl.current) {
